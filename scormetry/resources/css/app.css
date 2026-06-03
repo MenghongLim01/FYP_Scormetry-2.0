@@ -1,0 +1,277 @@
+@import 'tailwindcss';
+
+@import 'tw-animate-css';
+
+@source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
+@source '../../storage/framework/views/*.php';
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+    --font-sans:
+        Instrument Sans, ui-sans-serif, system-ui, sans-serif,
+        'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol',
+        'Noto Color Emoji';
+
+    --radius-2xl: calc(var(--radius) + 4px);
+    --radius-xl:  calc(var(--radius) + 2px);
+    --radius-lg:  var(--radius);
+    --radius-md:  calc(var(--radius) - 2px);
+    --radius-sm:  calc(var(--radius) - 4px);
+
+    --color-background:        var(--background);
+    --color-foreground:        var(--foreground);
+    --color-card:              var(--card);
+    --color-card-foreground:   var(--card-foreground);
+    --color-popover:           var(--popover);
+    --color-popover-foreground:var(--popover-foreground);
+    --color-primary:           var(--primary);
+    --color-primary-foreground:var(--primary-foreground);
+    --color-secondary:         var(--secondary);
+    --color-secondary-foreground:var(--secondary-foreground);
+    --color-muted:             var(--muted);
+    --color-muted-foreground:  var(--muted-foreground);
+    --color-accent:            var(--accent);
+    --color-accent-foreground: var(--accent-foreground);
+    --color-destructive:       var(--destructive);
+    --color-destructive-foreground:var(--destructive-foreground);
+    --color-border:            var(--border);
+    --color-input:             var(--input);
+    --color-ring:              var(--ring);
+    --color-chart-1:           var(--chart-1);
+    --color-chart-2:           var(--chart-2);
+    --color-chart-3:           var(--chart-3);
+    --color-chart-4:           var(--chart-4);
+    --color-chart-5:           var(--chart-5);
+    --color-sidebar:               var(--sidebar-background);
+    --color-sidebar-foreground:    var(--sidebar-foreground);
+    --color-sidebar-primary:       var(--sidebar-primary);
+    --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+    --color-sidebar-accent:        var(--sidebar-accent);
+    --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+    --color-sidebar-border:        var(--sidebar-border);
+    --color-sidebar-ring:          var(--sidebar-ring);
+}
+
+/* Tailwind v4 border-color compatibility */
+@layer base {
+    *,
+    ::after,
+    ::before,
+    ::backdrop,
+    ::file-selector-button {
+        border-color: var(--color-gray-200, currentColor);
+    }
+}
+
+@layer utilities {
+    body, html {
+        --font-sans:
+            'Instrument Sans', ui-sans-serif, system-ui, sans-serif,
+            'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol',
+            'Noto Color Emoji';
+    }
+}
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   SCORMETRY — Paragon-inspired university palette
+   ─────────────────────────────────────────────────────────────────────────────
+   Deep Navy     #1B2D6E  hsl(228 60% 27%)   — primary brand (buttons, links, headers)
+   Sidebar       #FFFFFF                     — white sidebar, Paragon style
+   Navy Text     #162060  hsl(232 62% 23%)   — sidebar nav text & labels
+   Orange Accent #F97316  hsl(24  94% 53%)   — pending / warning only
+   Red Alert     #DC2626  hsl(0   72% 51%)   — error / danger / delete
+   BG Gray       #F8FAFC  hsl(210 40% 98%)   — page background
+   Border Gray   #E5E7EB  hsl(220 13% 91%)   — borders
+   Muted Text    #64748B  hsl(215 16% 47%)   — secondary text
+   Main Text     #111827  hsl(221 39% 11%)   — primary text
+   White         #FFFFFF                     — cards
+───────────────────────────────────────────────────────────────────────────── */
+:root {
+    /* Page */
+    --background:            hsl(210 40% 98%);   /* #F8FAFC light-gray page bg */
+    --foreground:            hsl(221 39% 11%);   /* #111827 main text */
+
+    /* Cards & overlays */
+    --card:                  hsl(0 0% 100%);     /* #FFFFFF white cards */
+    --card-foreground:       hsl(221 39% 11%);
+    --popover:               hsl(0 0% 100%);
+    --popover-foreground:    hsl(221 39% 11%);
+
+    /* Primary — Deep Navy #1B2D6E */
+    --primary:               hsl(228 60% 27%);
+    --primary-foreground:    hsl(0 0% 100%);
+
+    /* Secondary — pale blue tint */
+    --secondary:             hsl(228 50% 94%);
+    --secondary-foreground:  hsl(228 60% 27%);
+
+    /* Muted */
+    --muted:                 hsl(210 20% 96%);
+    --muted-foreground:      hsl(215 16% 47%);   /* #64748B */
+
+    /* Accent — light blue-gray hover */
+    --accent:                hsl(220 25% 94%);
+    --accent-foreground:     hsl(228 60% 27%);
+
+    /* Destructive — #DC2626 */
+    --destructive:           hsl(0 72% 51%);
+    --destructive-foreground:hsl(0 0% 100%);
+
+    /* Form & layout */
+    --border:                hsl(220 13% 91%);   /* #E5E7EB */
+    --input:                 hsl(220 13% 91%);
+    --ring:                  hsl(228 60% 50%);
+
+    /* Charts */
+    --chart-1: hsl(228 60% 40%);  /* navy-blue  */
+    --chart-2: hsl(171 68% 40%);  /* teal       */
+    --chart-3: hsl(24  94% 53%);  /* orange     */
+    --chart-4: hsl(0   72% 51%);  /* red        */
+    --chart-5: hsl(270 76% 60%);  /* purple     */
+
+    --radius: 0.75rem;
+
+    /* ── Sidebar — White / Paragon style ────────────────────────────────── */
+    --sidebar-background:           hsl(0 0% 100%);
+    --sidebar-foreground:           hsl(228 45% 22%);         /* dark navy text */
+    --sidebar-primary:              hsl(228 60% 27%);         /* active indicator */
+    --sidebar-primary-foreground:   hsl(0 0% 100%);
+    --sidebar-accent:               hsl(220 22% 94%);         /* light gray hover */
+    --sidebar-accent-foreground:    hsl(228 60% 27%);
+    --sidebar-border:               hsl(220 13% 91%);
+    --sidebar-ring:                 hsl(228 60% 50%);
+    --sidebar:                      hsl(0 0% 100%);
+}
+
+/* ── Dark Mode ────────────────────────────────────────────────────────────── */
+.dark {
+    /* ── Page ───────────────────────────── */
+    --background:            hsl(224 40% 8%);    /* rich dark navy, less "pure black" */
+    --foreground:            hsl(215 30% 94%);   /* soft white, easier on the eyes    */
+
+    /* ── Cards & overlays ───────────────── */
+    --card:                  hsl(224 36% 12%);   /* slightly elevated above bg        */
+    --card-foreground:       hsl(215 30% 94%);
+    --popover:               hsl(224 36% 13%);
+    --popover-foreground:    hsl(215 30% 94%);
+
+    /* ── Primary — bright navy-blue ─────── */
+    --primary:               hsl(217 92% 64%);
+    --primary-foreground:    hsl(224 40% 8%);
+
+    /* ── Secondary ──────────────────────── */
+    --secondary:             hsl(224 30% 22%);
+    --secondary-foreground:  hsl(215 30% 92%);
+
+    /* ── Muted ──────────────────────────── */
+    --muted:                 hsl(224 26% 18%);
+    --muted-foreground:      hsl(215 20% 65%);   /* notably brighter — easier to read */
+
+    /* ── Accent ─────────────────────────── */
+    --accent:                hsl(224 30% 22%);
+    --accent-foreground:     hsl(215 30% 94%);
+
+    /* ── Destructive ────────────────────── */
+    --destructive:           hsl(0 70% 62%);
+    --destructive-foreground:hsl(0 0% 100%);
+
+    /* ── Form & layout ──────────────────── */
+    --border:                hsl(224 22% 26%);   /* slightly lighter — more visible    */
+    --input:                 hsl(224 22% 21%);
+    --ring:                  hsl(217 92% 64%);
+
+    /* ── Charts ─────────────────────────── */
+    --chart-1: hsl(217 92% 68%);   /* bright blue   */
+    --chart-2: hsl(160 65% 52%);   /* teal-green    */
+    --chart-3: hsl(33  90% 62%);   /* amber-orange  */
+    --chart-4: hsl(0   70% 64%);   /* red           */
+    --chart-5: hsl(270 70% 70%);   /* purple        */
+
+    /* ── Sidebar — deep navy in dark mode ─ */
+    --sidebar-background:           hsl(228 52% 13%);
+    --sidebar-foreground:           hsl(220 55% 88%);
+    --sidebar-primary:              hsl(228 68% 60%);
+    --sidebar-primary-foreground:   hsl(0 0% 100%);
+    --sidebar-accent:               hsl(228 42% 22%);
+    --sidebar-accent-foreground:    hsl(220 55% 92%);
+    --sidebar-border:               hsl(228 36% 24%);
+    --sidebar-ring:                 hsl(228 68% 60%);
+    --sidebar:                      hsl(228 52% 13%);
+}
+
+@layer base {
+    * { @apply border-border outline-ring/50; }
+    body { @apply bg-background text-foreground; }
+}
+
+/* ── Dark-mode text fix ───────────────────────────────────────────────────────
+   Elements using saturated or dark color classes without an explicit dark:
+   override render nearly invisible on dark backgrounds. These catch-all rules
+   keep every text and icon readable.
+────────────────────────────────────────────────────────────────────────────── */
+@layer utilities {
+
+    /* Saturated mid-tone colors → near-white */
+    .dark .text-indigo-600,
+    .dark .text-indigo-700,
+    .dark .text-blue-600,
+    .dark .text-blue-700,
+    .dark .text-sky-600,
+    .dark .text-sky-700,
+    .dark .text-teal-600,
+    .dark .text-teal-700,
+    .dark .text-cyan-600,
+    .dark .text-cyan-700,
+    .dark .text-emerald-600,
+    .dark .text-emerald-700,
+    .dark .text-green-600,
+    .dark .text-green-700,
+    .dark .text-violet-600,
+    .dark .text-violet-700,
+    .dark .text-purple-600,
+    .dark .text-purple-700,
+    .dark .text-amber-500,
+    .dark .text-amber-600,
+    .dark .text-amber-700,
+    .dark .text-orange-600,
+    .dark .text-orange-700,
+    .dark .text-rose-600,
+    .dark .text-rose-700,
+    .dark .text-red-600,
+    .dark .text-red-700 {
+        color: rgb(255 255 255 / 0.88);
+    }
+
+    /* Gray / neutral / slate — already dark, nearly invisible on dark bg */
+    .dark .text-gray-500,
+    .dark .text-gray-600,
+    .dark .text-gray-700,
+    .dark .text-gray-800,
+    .dark .text-gray-900,
+    .dark .text-slate-500,
+    .dark .text-slate-600,
+    .dark .text-slate-700,
+    .dark .text-slate-800,
+    .dark .text-slate-900,
+    .dark .text-zinc-500,
+    .dark .text-zinc-600,
+    .dark .text-zinc-700,
+    .dark .text-neutral-600,
+    .dark .text-neutral-700 {
+        color: rgb(148 163 184 / 0.90);  /* slate-400 — comfortable mid-gray */
+    }
+
+    /* Very dark shades of colored text inside light badge chips */
+    .dark .text-indigo-800,  .dark .text-indigo-900,
+    .dark .text-blue-800,    .dark .text-blue-900,
+    .dark .text-teal-800,    .dark .text-teal-900,
+    .dark .text-emerald-800, .dark .text-emerald-900,
+    .dark .text-violet-800,  .dark .text-violet-900,
+    .dark .text-amber-800,   .dark .text-amber-900,
+    .dark .text-orange-800,  .dark .text-orange-900,
+    .dark .text-red-800,     .dark .text-red-900,
+    .dark .text-rose-800,    .dark .text-rose-900 {
+        color: rgb(255 255 255 / 0.80);
+    }
+}

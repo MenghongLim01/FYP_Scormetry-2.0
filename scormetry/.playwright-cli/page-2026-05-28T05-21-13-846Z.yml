@@ -1,0 +1,212 @@
+- generic [ref=e2]:
+  - generic [ref=e213]:
+    - generic [ref=e216]:
+      - list [ref=e218]:
+        - listitem [ref=e219]:
+          - link "Scormetry" [ref=e220] [cursor=pointer]:
+            - /url: /dashboard
+            - img [ref=e222]
+            - generic [ref=e229]: Scormetry
+      - generic [ref=e230]:
+        - generic [ref=e231]:
+          - generic [ref=e232]: Dashboard
+          - list [ref=e233]:
+            - listitem [ref=e234]:
+              - link "Dashboard" [ref=e235] [cursor=pointer]:
+                - /url: /dashboard
+                - img [ref=e236]
+                - generic [ref=e241]: Dashboard
+        - generic [ref=e242]:
+          - generic [ref=e243]: Academic Management
+          - list [ref=e244]:
+            - listitem [ref=e245]:
+              - link "Subjects" [active] [ref=e246] [cursor=pointer]:
+                - /url: /subjects
+                - img [ref=e247]
+                - generic [ref=e249]: Subjects
+            - listitem [ref=e250]:
+              - link "Papers" [ref=e251] [cursor=pointer]:
+                - /url: /papers
+                - img [ref=e252]
+                - generic [ref=e255]: Papers
+        - generic [ref=e256]:
+          - generic [ref=e257]: Admin Panel
+          - list [ref=e258]:
+            - listitem [ref=e259]:
+              - link "Admin Dashboard" [ref=e260] [cursor=pointer]:
+                - /url: /admin/dashboard
+                - img [ref=e261]
+                - generic [ref=e266]: Admin Dashboard
+            - listitem [ref=e267]:
+              - link "Classroom Management" [ref=e268] [cursor=pointer]:
+                - /url: /admin/classrooms
+                - img [ref=e269]
+                - generic [ref=e271]: Classroom Management
+            - listitem [ref=e272]:
+              - link "User Management" [ref=e273] [cursor=pointer]:
+                - /url: /admin/users
+                - img [ref=e274]
+                - generic [ref=e279]: User Management
+            - listitem [ref=e280]:
+              - link "Settings" [ref=e281] [cursor=pointer]:
+                - /url: /admin/settings
+                - img [ref=e282]
+                - generic [ref=e285]: Settings
+        - generic [ref=e286]:
+          - generic [ref=e288]: "Dev: Role View"
+          - generic [ref=e290]:
+            - button "admin" [ref=e291]
+            - button "teacher" [ref=e292]
+            - button "student" [ref=e293]
+      - list [ref=e297]:
+        - listitem [ref=e298]:
+          - link "Settings" [ref=e299] [cursor=pointer]:
+            - /url: /settings/profile
+            - img [ref=e300]
+            - generic [ref=e303]: Settings
+    - main [ref=e304]:
+      - generic [ref=e306]:
+        - button "Toggle sidebar" [ref=e308]:
+          - img
+          - generic [ref=e309]: Toggle sidebar
+        - generic [ref=e314]:
+          - button [ref=e315]:
+            - img
+          - button "A Admin" [ref=e316]:
+            - generic [ref=e318]: A
+            - generic [ref=e319]: Admin
+            - img [ref=e320]
+      - generic [ref=e323]:
+        - generic [ref=e472]:
+          - generic [ref=e474]:
+            - generic [ref=e475]:
+              - heading "Subjects" [level=1] [ref=e476]
+              - paragraph [ref=e477]: Manage your subjects and enrolled students
+            - link "New Subject" [ref=e479] [cursor=pointer]:
+              - /url: /subjects/create
+              - img
+              - text: New Subject
+          - generic [ref=e480]:
+            - generic [ref=e481]:
+              - img [ref=e482]
+              - textbox "Search subjects..." [ref=e485]
+            - generic [ref=e486]:
+              - 'link "Pass: 70% Approval Required cs300 No description provided. teacher1 0 0" [ref=e487] [cursor=pointer]':
+                - /url: /subjects/10
+                - generic [ref=e488]:
+                  - generic [ref=e489]:
+                    - img [ref=e491]
+                    - generic [ref=e493]:
+                      - generic [ref=e494]: "Pass: 70%"
+                      - generic [ref=e495]: Approval Required
+                  - generic [ref=e496]:
+                    - paragraph [ref=e497]: cs300
+                    - paragraph [ref=e498]: No description provided.
+                  - generic [ref=e499]:
+                    - generic [ref=e500]:
+                      - img [ref=e501]
+                      - generic [ref=e506]: teacher1
+                    - generic [ref=e507]:
+                      - generic "0 students" [ref=e508]:
+                        - img [ref=e509]
+                        - generic [ref=e514]: "0"
+                      - generic "0 papers" [ref=e515]:
+                        - img [ref=e516]
+                        - generic [ref=e519]: "0"
+              - 'link "Pass: 50% Open Enroll CS402 Final Year Project 2 teacher1 0 0" [ref=e520] [cursor=pointer]':
+                - /url: /subjects/9
+                - generic [ref=e521]:
+                  - generic [ref=e522]:
+                    - img [ref=e524]
+                    - generic [ref=e526]:
+                      - generic [ref=e527]: "Pass: 50%"
+                      - generic [ref=e528]: Open Enroll
+                  - generic [ref=e529]:
+                    - paragraph [ref=e530]: CS402
+                    - paragraph [ref=e531]: Final Year Project 2
+                  - generic [ref=e532]:
+                    - generic [ref=e533]:
+                      - img [ref=e534]
+                      - generic [ref=e539]: teacher1
+                    - generic [ref=e540]:
+                      - generic "0 students" [ref=e541]:
+                        - img [ref=e542]
+                        - generic [ref=e547]: "0"
+                      - generic "0 papers" [ref=e548]:
+                        - img [ref=e549]
+                        - generic [ref=e552]: "0"
+              - 'link "Pass: 70% Approval Required CS230 No description provided. teacher1 0 0" [ref=e553] [cursor=pointer]':
+                - /url: /subjects/8
+                - generic [ref=e554]:
+                  - generic [ref=e555]:
+                    - img [ref=e557]
+                    - generic [ref=e559]:
+                      - generic [ref=e560]: "Pass: 70%"
+                      - generic [ref=e561]: Approval Required
+                  - generic [ref=e562]:
+                    - paragraph [ref=e563]: CS230
+                    - paragraph [ref=e564]: No description provided.
+                  - generic [ref=e565]:
+                    - generic [ref=e566]:
+                      - img [ref=e567]
+                      - generic [ref=e572]: teacher1
+                    - generic [ref=e573]:
+                      - generic "0 students" [ref=e574]:
+                        - img [ref=e575]
+                        - generic [ref=e580]: "0"
+                      - generic "0 papers" [ref=e581]:
+                        - img [ref=e582]
+                        - generic [ref=e585]: "0"
+              - 'link "Pass: 70% Approval Required FYP Defense AY2025-2026 Final Year Project Defense Room teacher1 22 4 5" [ref=e586] [cursor=pointer]':
+                - /url: /subjects/5
+                - generic [ref=e587]:
+                  - generic [ref=e588]:
+                    - img [ref=e590]
+                    - generic [ref=e592]:
+                      - generic [ref=e593]: "Pass: 70%"
+                      - generic [ref=e594]: Approval Required
+                  - generic [ref=e595]:
+                    - paragraph [ref=e596]: FYP Defense AY2025-2026
+                    - paragraph [ref=e597]: Final Year Project Defense Room
+                  - generic [ref=e598]:
+                    - generic [ref=e599]:
+                      - img [ref=e600]
+                      - generic [ref=e605]: teacher1
+                    - generic [ref=e606]:
+                      - generic "22 students" [ref=e607]:
+                        - img [ref=e608]
+                        - generic [ref=e613]: "22"
+                      - generic "4 reviewers" [ref=e614]:
+                        - img [ref=e615]
+                        - generic [ref=e618]: "4"
+                      - generic "5 papers" [ref=e619]:
+                        - img [ref=e620]
+                        - generic [ref=e623]: "5"
+              - 'link "Pass: 70% Approval Required Math101 No description provided. teacher1 5 1 0" [ref=e624] [cursor=pointer]':
+                - /url: /subjects/4
+                - generic [ref=e625]:
+                  - generic [ref=e626]:
+                    - img [ref=e628]
+                    - generic [ref=e630]:
+                      - generic [ref=e631]: "Pass: 70%"
+                      - generic [ref=e632]: Approval Required
+                  - generic [ref=e633]:
+                    - paragraph [ref=e634]: Math101
+                    - paragraph [ref=e635]: No description provided.
+                  - generic [ref=e636]:
+                    - generic [ref=e637]:
+                      - img [ref=e638]
+                      - generic [ref=e643]: teacher1
+                    - generic [ref=e644]:
+                      - generic "5 students" [ref=e645]:
+                        - img [ref=e646]
+                        - generic [ref=e651]: "5"
+                      - generic "1 reviewers" [ref=e652]:
+                        - img [ref=e653]
+                        - generic [ref=e656]: "1"
+                      - generic "0 papers" [ref=e657]:
+                        - img [ref=e658]
+                        - generic [ref=e661]: "0"
+        - generic [ref=e471]: All rights reserved. Copyright © 2010 - 2026 | Paragon International University | Phnom Penh - Cambodia | Privacy Policy
+  - region "Notifications alt+T":
+    - list

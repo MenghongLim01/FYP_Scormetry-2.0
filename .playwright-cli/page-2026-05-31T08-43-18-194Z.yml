@@ -1,0 +1,75 @@
+- generic [ref=e521]:
+  - banner [ref=e522]:
+    - link "Scormetry Final Year Project Management System" [ref=e523] [cursor=pointer]:
+      - /url: /
+      - img [ref=e525]
+      - generic [ref=e531]:
+        - paragraph [ref=e532]: Scormetry
+        - paragraph [ref=e533]: Final Year Project Management System
+    - navigation [ref=e534]:
+      - link "Log in" [ref=e535] [cursor=pointer]:
+        - /url: /login
+      - link "Register" [ref=e536] [cursor=pointer]:
+        - /url: /register
+  - main [ref=e537]:
+    - generic [ref=e538]:
+      - generic [ref=e539]: Scormetry Workflow Hub
+      - generic [ref=e541]:
+        - heading "Coordinate subjects, teams, and reviews from one focused workspace." [level=1] [ref=e542]
+        - paragraph [ref=e543]: Scormetry centralizes FYP operations so faculties and students can move from setup to evaluation with less friction and better visibility.
+      - generic [ref=e544]:
+        - link "Start with login" [ref=e545] [cursor=pointer]:
+          - /url: /login
+          - text: Start with login
+          - img
+        - link "Create account" [ref=e546] [cursor=pointer]:
+          - /url: /register
+      - generic [ref=e547]:
+        - generic [ref=e548]:
+          - paragraph [ref=e550]: Role-aware access
+          - paragraph [ref=e551]: Students, reviewers, and admins each get focused workflows.
+        - generic [ref=e552]:
+          - paragraph [ref=e554]: Rubric-driven outcomes
+          - paragraph [ref=e555]: Consistent scoring with a clear audit trail for each review.
+        - generic [ref=e556]:
+          - paragraph [ref=e558]: Secure by design
+          - paragraph [ref=e559]: Built-in approval flow, verification, and account protections.
+    - generic [ref=e560]:
+      - generic [ref=e561]:
+        - generic [ref=e562]:
+          - img [ref=e564]
+          - generic [ref=e567]:
+            - paragraph [ref=e568]: How the flow works
+            - paragraph [ref=e569]: A practical cycle from class setup to final grading.
+        - generic [ref=e570]:
+          - generic [ref=e571]:
+            - generic [ref=e572]: "1"
+            - generic [ref=e573]:
+              - generic [ref=e574]:
+                - img [ref=e575]
+                - paragraph [ref=e577]: Set up subjects
+              - paragraph [ref=e578]: Create subjects, assign teachers, and invite students or reviewers in minutes.
+          - generic [ref=e579]:
+            - generic [ref=e580]: "2"
+            - generic [ref=e581]:
+              - generic [ref=e582]:
+                - img [ref=e583]
+                - paragraph [ref=e588]: Manage teams and papers
+              - paragraph [ref=e589]: Track submissions, team membership, and publication status in one dashboard.
+          - generic [ref=e590]:
+            - generic [ref=e591]: "3"
+            - generic [ref=e592]:
+              - generic [ref=e593]:
+                - img [ref=e594]
+                - paragraph [ref=e598]: Review with confidence
+              - paragraph [ref=e599]: Apply rubrics, aggregate results, and keep scoring transparent for every submission.
+      - generic [ref=e601]:
+        - generic [ref=e602]:
+          - paragraph [ref=e603]: Subjects
+          - paragraph [ref=e604]: "01"
+        - generic [ref=e605]:
+          - paragraph [ref=e606]: Papers
+          - paragraph [ref=e607]: "02"
+        - generic [ref=e608]:
+          - paragraph [ref=e609]: Reviews
+          - paragraph [ref=e610]: "03"

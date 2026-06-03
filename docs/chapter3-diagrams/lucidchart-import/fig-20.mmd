@@ -1,0 +1,15 @@
+sequenceDiagram
+    actor Student
+    participant UI as Paper Upload Page
+    participant Controller as PaperController
+    participant DB as Database
+    participant Storage as Laravel File Storage
+
+    Student->>UI: Select final paper PDF
+    UI->>Controller: POST /papers
+    Controller->>DB: Verify approved subject/team membership
+    Controller->>Controller: Validate PDF upload
+    Controller->>Storage: Store paper PDF
+    Controller->>DB: Create or update papers record
+    DB-->>Controller: Paper saved as draft
+    Controller-->>UI: Show upload confirmation

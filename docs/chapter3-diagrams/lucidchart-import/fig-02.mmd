@@ -1,0 +1,30 @@
+flowchart LR
+    Problem["Problem:<br/>Inefficient and inconsistent academic defense evaluation workflow"]
+
+    DM["Document Management"] --- DM1["Files shared through multiple channels"]
+    DM --- DM2["Missing or late final paper uploads"]
+    DM --- DM3["Wrong or outdated version opened"]
+    DM1 --> Problem
+    DM2 --> Problem
+    DM3 --> Problem
+
+    AC["Access Control"] --- AC1["No clear subject/team access boundary"]
+    AC --- AC2["Judge assignment must be enforced"]
+    AC --- AC3["Pending, approved, blocked, and rejected users need control"]
+    AC1 --> Problem
+    AC2 --> Problem
+    AC3 --> Problem
+
+    RB["Rubric Setup"] --- RB1["Official rubric must be converted manually"]
+    RB --- RB2["Criteria, max scores, or weights may be encoded incorrectly"]
+    RB --- RB3["Rubric must be verified and locked before scoring"]
+    RB1 --> Problem
+    RB2 --> Problem
+    RB3 --> Problem
+
+    SF["Scoring and Feedback"] --- SF1["Manual score calculation can produce errors"]
+    SF --- SF2["Judge comments can be scattered"]
+    SF --- SF3["Post-defense records need controlled release"]
+    SF1 --> Problem
+    SF2 --> Problem
+    SF3 --> Problem

@@ -1,0 +1,21 @@
+flowchart TB
+    A["Scormetry 2.0 Operation"] --> B["Low-Latency Operations"]
+    A --> C["Moderate-Latency Operations"]
+    A --> D["High-Variance Operations"]
+
+    B --> B1["Login session check"]
+    B --> B2["Dashboard / subject list"]
+    B --> B3["Score calculation"]
+    B --> B4["Result release update"]
+
+    C --> C1["Paper PDF upload"]
+    C --> C2["Rubric PDF upload"]
+    C --> C3["PDF view / download"]
+
+    D --> D1["AI rubric extraction"]
+    D --> D2["External API latency"]
+    D --> D3["Network speed during upload"]
+
+    B1 --> E["Mitigation: indexed database queries and server-side authorization"]
+    C1 --> F["Mitigation: file validation, controlled PDF size, secure storage"]
+    D1 --> G["Mitigation: conversion before defense, organizer verification, rubric locking"]

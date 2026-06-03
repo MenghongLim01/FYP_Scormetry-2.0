@@ -1,0 +1,15 @@
+sequenceDiagram
+    actor Judge
+    participant UI as Review Form
+    participant Controller as ReviewController
+    participant DB as Database
+
+    Judge->>UI: Enter scores and feedback
+    UI->>Controller: POST /papers/{paper}/reviews
+    Controller->>DB: Verify reviewer assignment
+    Controller->>DB: Confirm rubric status is locked
+    Controller->>Controller: Validate scores against max_score
+    Controller->>Controller: Calculate weighted total
+    Controller->>DB: Save review with scores_json, comment, is_submitted, locked_at
+    DB-->>Controller: Review saved
+    Controller-->>UI: Show submitted and locked review

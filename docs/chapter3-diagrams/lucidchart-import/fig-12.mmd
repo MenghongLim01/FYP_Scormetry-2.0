@@ -1,0 +1,19 @@
+sequenceDiagram
+    actor Admin
+    participant UI as Rubric Upload Page
+    participant Controller as RubricController
+    participant Storage as Laravel File Storage
+    participant Extractor as RubricStructureExtractor
+    participant OpenAI as OpenAI Responses / Files API
+    participant DB as Database
+
+    Admin->>UI: Select official rubric PDF
+    UI->>Controller: POST /subjects/{subject}/rubrics
+    Controller->>Controller: Validate StoreRubricRequest
+    Controller->>Storage: Store original PDF
+    Controller->>Extractor: Extract rubric structure
+    Extractor->>OpenAI: Upload PDF and request JSON extraction
+    OpenAI-->>Extractor: Return structured Dynamic Rubric JSON
+    Extractor-->>Controller: Return criteria, max_score, weight
+    Controller->>DB: Save rubric as pending_verification
+    Controller-->>UI: Redirect to rubric verification

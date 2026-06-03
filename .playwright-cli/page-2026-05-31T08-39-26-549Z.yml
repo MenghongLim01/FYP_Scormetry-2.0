@@ -1,0 +1,222 @@
+- generic [ref=e2]:
+  - generic [ref=e124]:
+    - generic [ref=e127]:
+      - list [ref=e129]:
+        - listitem [ref=e130]:
+          - link "Scormetry" [ref=e131] [cursor=pointer]:
+            - /url: /dashboard
+            - img [ref=e133]
+            - generic [ref=e140]: Scormetry
+      - generic [ref=e141]:
+        - generic [ref=e142]:
+          - generic [ref=e143]: Dashboard
+          - list [ref=e144]:
+            - listitem [ref=e145]:
+              - link "Dashboard" [ref=e146] [cursor=pointer]:
+                - /url: /dashboard
+                - img [ref=e147]
+                - generic [ref=e152]: Dashboard
+        - generic [ref=e153]:
+          - generic [ref=e154]: Academic Management
+          - list [ref=e155]:
+            - listitem [ref=e156]:
+              - link "Subjects" [ref=e157] [cursor=pointer]:
+                - /url: /subjects
+                - img [ref=e158]
+                - generic [ref=e160]: Subjects
+            - listitem [ref=e161]:
+              - link "Papers" [ref=e162] [cursor=pointer]:
+                - /url: /papers
+                - img [ref=e163]
+                - generic [ref=e166]: Papers
+        - generic [ref=e167]:
+          - generic [ref=e168]: Review Work
+          - list [ref=e169]:
+            - listitem [ref=e170]:
+              - link "My Assigned Teams" [ref=e171] [cursor=pointer]:
+                - /url: /assigned-teams
+                - img [ref=e172]
+                - generic [ref=e175]: My Assigned Teams
+      - list [ref=e179]:
+        - listitem [ref=e180]:
+          - link "Settings" [ref=e181] [cursor=pointer]:
+            - /url: /settings/profile
+            - img [ref=e182]
+            - generic [ref=e185]: Settings
+    - main [ref=e186]:
+      - generic [ref=e188]:
+        - generic [ref=e189]:
+          - button "Toggle sidebar" [ref=e190]:
+            - img
+            - generic [ref=e191]: Toggle sidebar
+          - navigation "breadcrumb" [ref=e192]:
+            - list [ref=e193]:
+              - listitem [ref=e194]:
+                - link "Dashboard" [disabled] [ref=e195]
+        - generic [ref=e196]:
+          - button [ref=e197]:
+            - img
+          - button "T8 Teacher 8" [ref=e198]:
+            - generic [ref=e200]: T8
+            - generic [ref=e201]: Teacher 8
+            - img [ref=e202]
+      - generic [ref=e205]:
+        - generic [ref=e206]:
+          - generic [ref=e208]:
+            - generic [ref=e209]: T
+            - generic [ref=e210]:
+              - heading "Welcome back, Teacher 8" [level=1] [ref=e211]
+              - paragraph [ref=e212]: teacher Dashboard
+            - generic [ref=e213]:
+              - img [ref=e214]
+              - text: teacher
+          - generic [ref=e217]:
+            - generic [ref=e218]:
+              - generic [ref=e219]:
+                - paragraph [ref=e220]: My Subjects
+                - img [ref=e222]
+              - paragraph [ref=e224]: "2"
+            - generic [ref=e225]:
+              - generic [ref=e226]:
+                - paragraph [ref=e227]: Papers to Review
+                - img [ref=e229]
+              - paragraph [ref=e232]: "36"
+            - generic [ref=e233]:
+              - generic [ref=e234]:
+                - paragraph [ref=e235]: Reviews Submitted
+                - img [ref=e237]
+              - paragraph [ref=e240]: "0"
+            - generic [ref=e241]:
+              - generic [ref=e242]:
+                - paragraph [ref=e243]: Pending Rubrics
+                - img [ref=e245]
+              - paragraph [ref=e248]: "0"
+          - generic [ref=e250]:
+            - heading "Quick Actions" [level=2] [ref=e251]
+            - generic [ref=e252]:
+              - link "Manage Subjects View all subjects" [ref=e253] [cursor=pointer]:
+                - /url: /subjects
+                - generic [ref=e254]:
+                  - img [ref=e256]
+                  - generic [ref=e258]:
+                    - paragraph [ref=e259]: Manage Subjects
+                    - paragraph [ref=e260]: View all subjects
+                - img [ref=e261]
+              - link "All Papers View and manage papers" [ref=e263] [cursor=pointer]:
+                - /url: /papers
+                - generic [ref=e264]:
+                  - img [ref=e266]
+                  - generic [ref=e269]:
+                    - paragraph [ref=e270]: All Papers
+                    - paragraph [ref=e271]: View and manage papers
+                - img [ref=e272]
+              - link "Join as Reviewer Use reviewer code and role" [ref=e274] [cursor=pointer]:
+                - /url: /subjects/join-as-reviewer
+                - generic [ref=e275]:
+                  - img [ref=e277]
+                  - generic [ref=e280]:
+                    - paragraph [ref=e281]: Join as Reviewer
+                    - paragraph [ref=e282]: Use reviewer code and role
+                - img [ref=e283]
+              - link "Reviewer Sign-up Board Request teams and review approved rooms" [ref=e285] [cursor=pointer]:
+                - /url: /assigned-teams
+                - generic [ref=e286]:
+                  - img [ref=e288]
+                  - generic [ref=e291]:
+                    - paragraph [ref=e292]: Reviewer Sign-up Board
+                    - paragraph [ref=e293]: Request teams and review approved rooms
+                - img [ref=e294]
+          - generic [ref=e297]:
+            - generic [ref=e299]:
+              - heading "Recent Papers" [level=3] [ref=e300]:
+                - img [ref=e301]
+                - text: Recent Papers
+              - link "View all" [ref=e304] [cursor=pointer]:
+                - /url: /papers
+                - text: View all
+                - img [ref=e305]
+            - table [ref=e309]:
+              - rowgroup [ref=e310]:
+                - row "Subject Team Score Status Date" [ref=e311]:
+                  - columnheader "Subject" [ref=e312]
+                  - columnheader "Team" [ref=e313]
+                  - columnheader "Score" [ref=e314]
+                  - columnheader "Status" [ref=e315]
+                  - columnheader "Date" [ref=e316]
+                  - columnheader [ref=e317]
+              - rowgroup [ref=e318]:
+                - row "FYP Capstone 2026 Team 1 — Review Completed 29 May 2026 View" [ref=e319]:
+                  - cell "FYP Capstone 2026" [ref=e320]
+                  - cell "Team 1" [ref=e321]
+                  - cell "—" [ref=e322]
+                  - cell "Review Completed" [ref=e323]
+                  - cell "29 May 2026" [ref=e324]
+                  - cell "View" [ref=e325]:
+                    - link "View" [ref=e326] [cursor=pointer]:
+                      - /url: /papers/1
+                - row "FYP Capstone 2026 Team 1 — Draft 29 May 2026 View" [ref=e327]:
+                  - cell "FYP Capstone 2026" [ref=e328]
+                  - cell "Team 1" [ref=e329]
+                  - cell "—" [ref=e330]
+                  - cell "Draft" [ref=e331]
+                  - cell "29 May 2026" [ref=e332]
+                  - cell "View" [ref=e333]:
+                    - link "View" [ref=e334] [cursor=pointer]:
+                      - /url: /papers/2
+                - row "FYP Capstone 2026 Team 2 — Submitted 29 May 2026 View" [ref=e335]:
+                  - cell "FYP Capstone 2026" [ref=e336]
+                  - cell "Team 2" [ref=e337]
+                  - cell "—" [ref=e338]
+                  - cell "Submitted" [ref=e339]
+                  - cell "29 May 2026" [ref=e340]
+                  - cell "View" [ref=e341]:
+                    - link "View" [ref=e342] [cursor=pointer]:
+                      - /url: /papers/3
+                - row "FYP Capstone 2026 Team 2 — Draft 29 May 2026 View" [ref=e343]:
+                  - cell "FYP Capstone 2026" [ref=e344]
+                  - cell "Team 2" [ref=e345]
+                  - cell "—" [ref=e346]
+                  - cell "Draft" [ref=e347]
+                  - cell "29 May 2026" [ref=e348]
+                  - cell "View" [ref=e349]:
+                    - link "View" [ref=e350] [cursor=pointer]:
+                      - /url: /papers/4
+                - row "FYP Capstone 2026 Team 3 — Submitted 29 May 2026 View" [ref=e351]:
+                  - cell "FYP Capstone 2026" [ref=e352]
+                  - cell "Team 3" [ref=e353]
+                  - cell "—" [ref=e354]
+                  - cell "Submitted" [ref=e355]
+                  - cell "29 May 2026" [ref=e356]
+                  - cell "View" [ref=e357]:
+                    - link "View" [ref=e358] [cursor=pointer]:
+                      - /url: /papers/5
+                - row "FYP Capstone 2026 Team 3 — Draft 29 May 2026 View" [ref=e359]:
+                  - cell "FYP Capstone 2026" [ref=e360]
+                  - cell "Team 3" [ref=e361]
+                  - cell "—" [ref=e362]
+                  - cell "Draft" [ref=e363]
+                  - cell "29 May 2026" [ref=e364]
+                  - cell "View" [ref=e365]:
+                    - link "View" [ref=e366] [cursor=pointer]:
+                      - /url: /papers/6
+                - row "FYP Capstone 2026 Team 4 — Submitted 29 May 2026 View" [ref=e367]:
+                  - cell "FYP Capstone 2026" [ref=e368]
+                  - cell "Team 4" [ref=e369]
+                  - cell "—" [ref=e370]
+                  - cell "Submitted" [ref=e371]
+                  - cell "29 May 2026" [ref=e372]
+                  - cell "View" [ref=e373]:
+                    - link "View" [ref=e374] [cursor=pointer]:
+                      - /url: /papers/7
+                - row "FYP Capstone 2026 Team 4 — Draft 29 May 2026 View" [ref=e375]:
+                  - cell "FYP Capstone 2026" [ref=e376]
+                  - cell "Team 4" [ref=e377]
+                  - cell "—" [ref=e378]
+                  - cell "Draft" [ref=e379]
+                  - cell "29 May 2026" [ref=e380]
+                  - cell "View" [ref=e381]:
+                    - link "View" [ref=e382] [cursor=pointer]:
+                      - /url: /papers/8
+        - generic [ref=e383]: All rights reserved. Copyright © 2010 - 2026 | Paragon International University | Phnom Penh - Cambodia | Privacy Policy
+  - region "Notifications alt+T":
+    - list

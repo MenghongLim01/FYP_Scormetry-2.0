@@ -1,0 +1,1164 @@
+- generic [ref=e2]:
+  - generic [ref=e122]:
+    - generic [ref=e125]:
+      - list [ref=e127]:
+        - listitem [ref=e128]:
+          - link "Scormetry" [ref=e129] [cursor=pointer]:
+            - /url: /dashboard
+            - img [ref=e131]
+            - generic [ref=e138]: Scormetry
+      - generic [ref=e139]:
+        - generic [ref=e140]:
+          - generic [ref=e141]: Dashboard
+          - list [ref=e142]:
+            - listitem [ref=e143]:
+              - link "Dashboard" [ref=e144] [cursor=pointer]:
+                - /url: /dashboard
+                - img [ref=e145]
+                - generic [ref=e150]: Dashboard
+        - generic [ref=e151]:
+          - generic [ref=e152]: Academic Management
+          - list [ref=e153]:
+            - listitem [ref=e154]:
+              - link "Subjects" [ref=e155] [cursor=pointer]:
+                - /url: /subjects
+                - img [ref=e156]
+                - generic [ref=e158]: Subjects
+            - listitem [ref=e159]:
+              - link "Papers" [ref=e160] [cursor=pointer]:
+                - /url: /papers
+                - img [ref=e161]
+                - generic [ref=e164]: Papers
+        - generic [ref=e165]:
+          - generic [ref=e166]: Review Work
+          - list [ref=e167]:
+            - listitem [ref=e168]:
+              - link "My Assigned Teams" [ref=e169] [cursor=pointer]:
+                - /url: /assigned-teams
+                - img [ref=e170]
+                - generic [ref=e173]: My Assigned Teams
+      - list [ref=e177]:
+        - listitem [ref=e178]:
+          - link "Settings" [ref=e179] [cursor=pointer]:
+            - /url: /settings/profile
+            - img [ref=e180]
+            - generic [ref=e183]: Settings
+    - main [ref=e184]:
+      - generic [ref=e186]:
+        - button "Toggle sidebar" [ref=e188]:
+          - img
+          - generic [ref=e189]: Toggle sidebar
+        - generic [ref=e190]:
+          - button [ref=e191]:
+            - img
+          - button "T1 Teacher 1" [ref=e192]:
+            - generic [ref=e194]: T1
+            - generic [ref=e195]: Teacher 1
+            - img [ref=e196]
+      - generic [ref=e199]:
+        - generic [ref=e200]:
+          - generic [ref=e201]:
+            - link "Subjects" [ref=e203] [cursor=pointer]:
+              - /url: /subjects
+              - img
+              - text: Subjects
+            - generic [ref=e205]:
+              - generic [ref=e206]:
+                - img [ref=e208]
+                - generic [ref=e210]:
+                  - heading "FYP Capstone 2026" [level=1] [ref=e211]
+                  - paragraph [ref=e212]: Final Year Project capstone subject used for acceptance testing.
+                  - generic [ref=e213]:
+                    - generic [ref=e214]:
+                      - text: Taught by
+                      - strong [ref=e215]: Teacher 1
+                    - generic [ref=e217]: "Pass: 50%"
+                    - generic [ref=e218]: Auto Join
+              - generic [ref=e219]:
+                - link "Edit" [ref=e220] [cursor=pointer]:
+                  - /url: /subjects/1/edit
+                  - img
+                  - text: Edit
+                - button "Delete" [ref=e221]:
+                  - img
+                  - text: Delete
+            - generic [ref=e222]:
+              - generic [ref=e223]:
+                - generic [ref=e224]:
+                  - img [ref=e226]
+                  - generic [ref=e231]:
+                    - paragraph [ref=e232]: "30"
+                    - paragraph [ref=e233]: Students
+                - generic [ref=e234]:
+                  - img [ref=e236]
+                  - generic [ref=e239]:
+                    - paragraph [ref=e240]: "8"
+                    - paragraph [ref=e241]: Reviewers
+                - generic [ref=e242]:
+                  - img [ref=e244]
+                  - generic [ref=e247]:
+                    - paragraph [ref=e248]: "36"
+                    - paragraph [ref=e249]: Papers
+                - generic [ref=e250]:
+                  - img [ref=e252]
+                  - generic [ref=e254]:
+                    - paragraph [ref=e255]: 18%
+                    - paragraph [ref=e256]: Reviewed
+              - generic [ref=e257]:
+                - generic [ref=e258]:
+                  - img [ref=e260]
+                  - paragraph [ref=e263]: Invite Codes
+                  - button "More info" [ref=e264]:
+                    - img [ref=e265]
+                - generic [ref=e268]:
+                  - generic [ref=e269]:
+                    - generic [ref=e270]:
+                      - paragraph [ref=e271]: Student
+                      - paragraph [ref=e272]: 9RSM2D
+                    - generic [ref=e273]:
+                      - button "Copy student code" [ref=e274]:
+                        - img
+                      - button "Reset" [ref=e275]:
+                        - img
+                        - text: Reset
+                  - generic [ref=e276]:
+                    - generic [ref=e277]:
+                      - paragraph [ref=e278]: Reviewer
+                      - paragraph [ref=e279]: Y60M8N
+                    - generic [ref=e280]:
+                      - button "Copy reviewer code" [ref=e281]:
+                        - img
+                      - button "Reset" [ref=e282]:
+                        - img
+                        - text: Reset
+          - generic [ref=e283]:
+            - button "12 Reviewer assignment requests" [ref=e284]:
+              - generic [ref=e285]: "12"
+              - text: Reviewer assignment requests
+            - button "18 Papers with no scores yet" [ref=e286]:
+              - generic [ref=e287]: "18"
+              - text: Papers with no scores yet
+          - generic [ref=e288]:
+            - generic [ref=e289]:
+              - button "Evaluation Rounds" [ref=e290]:
+                - img [ref=e291]
+                - text: Evaluation Rounds
+              - button "Papers" [ref=e295]:
+                - img [ref=e296]
+                - text: Papers
+              - button "Teams" [ref=e299]:
+                - img [ref=e300]
+                - text: Teams
+              - button "Scores" [ref=e304]:
+                - img [ref=e305]
+                - text: Scores
+              - button "Members" [ref=e306]:
+                - img [ref=e307]
+                - text: Members
+              - button "Schedule" [ref=e312]:
+                - img [ref=e313]
+                - text: Schedule
+            - generic [ref=e315]:
+              - generic [ref=e316]:
+                - generic [ref=e317]:
+                  - generic [ref=e318]:
+                    - img [ref=e320]
+                    - generic [ref=e324]:
+                      - heading "Evaluation Rounds" [level=3] [ref=e325]
+                      - paragraph [ref=e326]: Schedule each team, track document submissions, and approve reviewer requests in one place.
+                  - link "Upload Rubric" [ref=e328] [cursor=pointer]:
+                    - /url: /subjects/1/rubrics/create
+                    - img
+                    - text: Upload Rubric
+                - generic [ref=e329]:
+                  - button "Midterm Defense rubric is locked and ready for grading Midterm Defense 18/23" [ref=e330]:
+                    - img "Midterm Defense rubric is locked and ready for grading" [ref=e331]
+                    - generic [ref=e334]: Midterm Defense
+                    - generic [ref=e335]: 18/23
+                  - button "Final Defense rubric is locked and ready for grading Final Defense 18/22" [active] [ref=e336]:
+                    - img "Final Defense rubric is locked and ready for grading" [ref=e337]
+                    - generic [ref=e340]: Final Defense
+                    - generic [ref=e341]: 18/22
+                  - button "More info" [ref=e342]:
+                    - img [ref=e343]
+              - generic [ref=e347]:
+                - generic [ref=e348]:
+                  - generic [ref=e349]:
+                    - generic [ref=e350]: Total rounds
+                    - generic [ref=e351]:
+                      - generic [ref=e352]: "22"
+                      - generic [ref=e353]: incl. 2 re-defense
+                  - generic [ref=e354]:
+                    - generic [ref=e355]: Scheduled
+                    - generic [ref=e356]:
+                      - generic [ref=e357]: "18"
+                      - generic [ref=e358]: 4 pending
+                  - generic [ref=e359]:
+                    - generic [ref=e360]: PDFs submitted
+                    - generic [ref=e361]: 18/22
+                  - generic [ref=e362]:
+                    - generic [ref=e363]: Reviewers assigned
+                    - generic [ref=e364]: 22/22
+                - generic [ref=e365]:
+                  - generic [ref=e366]:
+                    - heading "Final Defense" [level=2] [ref=e1172]
+                    - generic [ref=e368]: "Rubric: Locked"
+                    - generic [ref=e369]: Pass 50
+                  - link "View Rubric" [ref=e370] [cursor=pointer]:
+                    - /url: /rubrics/2
+                    - img
+                    - text: View Rubric
+                - table [ref=e371]:
+                  - rowgroup [ref=e372]:
+                    - row "Team Schedule Document Reviewers Action" [ref=e373]:
+                      - columnheader "Team" [ref=e374]
+                      - columnheader "Schedule" [ref=e375]
+                      - columnheader "Document" [ref=e376]
+                      - columnheader "Reviewers" [ref=e377]
+                      - columnheader "Action" [ref=e378]
+                  - rowgroup [ref=e379]:
+                    - row "Team 1 · Round 1 Student 1 Jun 6, 2026 09:00 - 09:30 Room 301 PDF submitted Open 4 approved 1 pending Teacher 2 Teacher 3 Teacher 5 Teacher 1 Teacher 8 Approve Reject Edit Schedule Add Re-defense" [ref=e1173]:
+                      - cell "Team 1 · Round 1 Student 1" [ref=e1174]:
+                        - generic [ref=e1175]:
+                          - generic [ref=e1176]:
+                            - paragraph [ref=e1177]: Team 1
+                            - generic [ref=e1178]: ·
+                            - generic [ref=e1179]: Round 1
+                          - paragraph [ref=e1180]: Student 1
+                      - cell "Jun 6, 2026 09:00 - 09:30 Room 301" [ref=e1181]:
+                        - generic [ref=e1182]:
+                          - paragraph [ref=e1183]: Jun 6, 2026
+                          - paragraph [ref=e1184]: 09:00 - 09:30
+                          - paragraph [ref=e1185]:
+                            - img [ref=e1186]
+                            - text: Room 301
+                      - cell "PDF submitted Open" [ref=e1189]:
+                        - generic [ref=e1190]:
+                          - generic [ref=e1191]: PDF submitted
+                          - link "Open" [ref=e1192] [cursor=pointer]:
+                            - /url: /papers/2
+                            - img
+                            - text: Open
+                      - cell "4 approved 1 pending Teacher 2 Teacher 3 Teacher 5 Teacher 1 Teacher 8 Approve Reject" [ref=e1193]:
+                        - generic [ref=e1194]:
+                          - generic [ref=e1195]:
+                            - generic [ref=e1196]: 4 approved
+                            - generic [ref=e1197]: 1 pending
+                          - generic [ref=e1198]:
+                            - generic [ref=e1199]: Teacher 2
+                            - generic [ref=e1200]: Teacher 3
+                            - generic [ref=e1201]: Teacher 5
+                            - generic [ref=e1202]: Teacher 1
+                          - generic [ref=e1204]:
+                            - generic [ref=e1205]: Teacher 8
+                            - generic [ref=e1206]:
+                              - button "Approve" [ref=e1207]
+                              - button "Reject" [ref=e1208]
+                      - cell "Edit Schedule Add Re-defense" [ref=e1209]:
+                        - generic [ref=e1210]:
+                          - button "Edit Schedule" [ref=e1211]:
+                            - img
+                            - text: Edit Schedule
+                          - button "Add Re-defense" [ref=e1212]:
+                            - img
+                            - text: Add Re-defense
+                    - row "Team 1 · Round 3 Student 1 Schedule needed Waiting for PDF 4 approved 0 pending Teacher 2 Teacher 3 Teacher 5 Teacher 1 Set Schedule Add Re-defense Remove" [ref=e1213]:
+                      - cell "Team 1 · Round 3 Student 1" [ref=e1214]:
+                        - img [ref=e1215]
+                        - generic [ref=e1218]:
+                          - generic [ref=e1219]:
+                            - paragraph [ref=e1220]: Team 1
+                            - generic [ref=e1221]: ·
+                            - generic [ref=e1222]:
+                              - img
+                              - text: Round 3
+                          - paragraph [ref=e1223]: Student 1
+                      - cell "Schedule needed" [ref=e1224]:
+                        - generic [ref=e1225]: Schedule needed
+                      - cell "Waiting for PDF" [ref=e1226]:
+                        - generic [ref=e1227]: Waiting for PDF
+                      - cell "4 approved 0 pending Teacher 2 Teacher 3 Teacher 5 Teacher 1" [ref=e1228]:
+                        - generic [ref=e1229]:
+                          - generic [ref=e1230]:
+                            - generic [ref=e1231]: 4 approved
+                            - generic [ref=e1232]: 0 pending
+                          - generic [ref=e1233]:
+                            - generic [ref=e1234]: Teacher 2
+                            - generic [ref=e1235]: Teacher 3
+                            - generic [ref=e1236]: Teacher 5
+                            - generic [ref=e1237]: Teacher 1
+                      - cell "Set Schedule Add Re-defense Remove" [ref=e1238]:
+                        - generic [ref=e1239]:
+                          - button "Set Schedule" [ref=e1240]:
+                            - img
+                            - text: Set Schedule
+                          - button "Add Re-defense" [ref=e1241]:
+                            - img
+                            - text: Add Re-defense
+                          - button "Remove" [ref=e1242]:
+                            - img
+                            - text: Remove
+                    - row "Team 1 · Round 4 Student 1 Schedule needed Waiting for PDF 4 approved 0 pending Teacher 2 Teacher 3 Teacher 5 Teacher 1 Set Schedule Add Re-defense Remove" [ref=e1243]:
+                      - cell "Team 1 · Round 4 Student 1" [ref=e1244]:
+                        - img [ref=e1245]
+                        - generic [ref=e1248]:
+                          - generic [ref=e1249]:
+                            - paragraph [ref=e1250]: Team 1
+                            - generic [ref=e1251]: ·
+                            - generic [ref=e1252]:
+                              - img
+                              - text: Round 4
+                          - paragraph [ref=e1253]: Student 1
+                      - cell "Schedule needed" [ref=e1254]:
+                        - generic [ref=e1255]: Schedule needed
+                      - cell "Waiting for PDF" [ref=e1256]:
+                        - generic [ref=e1257]: Waiting for PDF
+                      - cell "4 approved 0 pending Teacher 2 Teacher 3 Teacher 5 Teacher 1" [ref=e1258]:
+                        - generic [ref=e1259]:
+                          - generic [ref=e1260]:
+                            - generic [ref=e1261]: 4 approved
+                            - generic [ref=e1262]: 0 pending
+                          - generic [ref=e1263]:
+                            - generic [ref=e1264]: Teacher 2
+                            - generic [ref=e1265]: Teacher 3
+                            - generic [ref=e1266]: Teacher 5
+                            - generic [ref=e1267]: Teacher 1
+                      - cell "Set Schedule Add Re-defense Remove" [ref=e1268]:
+                        - generic [ref=e1269]:
+                          - button "Set Schedule" [ref=e1270]:
+                            - img
+                            - text: Set Schedule
+                          - button "Add Re-defense" [ref=e1271]:
+                            - img
+                            - text: Add Re-defense
+                          - button "Remove" [ref=e1272]:
+                            - img
+                            - text: Remove
+                    - row [ref=e445]:
+                      - cell [ref=e446]
+                    - row "Team 2 · Round 1 Student 2 Jun 7, 2026 10:00 - 10:30 Room 302 PDF submitted Open 4 approved 1 pending Teacher 2 Teacher 4 Teacher 6 Teacher 1 Teacher 8 Approve Reject Edit Schedule Add Re-defense" [ref=e1273]:
+                      - cell "Team 2 · Round 1 Student 2" [ref=e1274]:
+                        - generic [ref=e1275]:
+                          - generic [ref=e1276]:
+                            - paragraph [ref=e1277]: Team 2
+                            - generic [ref=e1278]: ·
+                            - generic [ref=e1279]: Round 1
+                          - paragraph [ref=e1280]: Student 2
+                      - cell "Jun 7, 2026 10:00 - 10:30 Room 302" [ref=e1281]:
+                        - generic [ref=e1282]:
+                          - paragraph [ref=e1283]: Jun 7, 2026
+                          - paragraph [ref=e1284]: 10:00 - 10:30
+                          - paragraph [ref=e1285]:
+                            - img [ref=e1286]
+                            - text: Room 302
+                      - cell "PDF submitted Open" [ref=e1289]:
+                        - generic [ref=e1290]:
+                          - generic [ref=e1291]: PDF submitted
+                          - link "Open" [ref=e1292] [cursor=pointer]:
+                            - /url: /papers/4
+                            - img
+                            - text: Open
+                      - cell "4 approved 1 pending Teacher 2 Teacher 4 Teacher 6 Teacher 1 Teacher 8 Approve Reject" [ref=e1293]:
+                        - generic [ref=e1294]:
+                          - generic [ref=e1295]:
+                            - generic [ref=e1296]: 4 approved
+                            - generic [ref=e1297]: 1 pending
+                          - generic [ref=e1298]:
+                            - generic [ref=e1299]: Teacher 2
+                            - generic [ref=e1300]: Teacher 4
+                            - generic [ref=e1301]: Teacher 6
+                            - generic [ref=e1302]: Teacher 1
+                          - generic [ref=e1304]:
+                            - generic [ref=e1305]: Teacher 8
+                            - generic [ref=e1306]:
+                              - button "Approve" [ref=e1307]
+                              - button "Reject" [ref=e1308]
+                      - cell "Edit Schedule Add Re-defense" [ref=e1309]:
+                        - generic [ref=e1310]:
+                          - button "Edit Schedule" [ref=e1311]:
+                            - img
+                            - text: Edit Schedule
+                          - button "Add Re-defense" [ref=e1312]:
+                            - img
+                            - text: Add Re-defense
+                    - row [ref=e482]:
+                      - cell [ref=e483]
+                    - row "Team 3 · Round 1 Student 3 Jun 8, 2026 11:00 - 11:30 Room 303 PDF submitted Open 4 approved 1 pending Teacher 2 Teacher 7 Teacher 5 Teacher 1 Teacher 8 Approve Reject Edit Schedule Add Re-defense" [ref=e1313]:
+                      - cell "Team 3 · Round 1 Student 3" [ref=e1314]:
+                        - generic [ref=e1315]:
+                          - generic [ref=e1316]:
+                            - paragraph [ref=e1317]: Team 3
+                            - generic [ref=e1318]: ·
+                            - generic [ref=e1319]: Round 1
+                          - paragraph [ref=e1320]: Student 3
+                      - cell "Jun 8, 2026 11:00 - 11:30 Room 303" [ref=e1321]:
+                        - generic [ref=e1322]:
+                          - paragraph [ref=e1323]: Jun 8, 2026
+                          - paragraph [ref=e1324]: 11:00 - 11:30
+                          - paragraph [ref=e1325]:
+                            - img [ref=e1326]
+                            - text: Room 303
+                      - cell "PDF submitted Open" [ref=e1329]:
+                        - generic [ref=e1330]:
+                          - generic [ref=e1331]: PDF submitted
+                          - link "Open" [ref=e1332] [cursor=pointer]:
+                            - /url: /papers/6
+                            - img
+                            - text: Open
+                      - cell "4 approved 1 pending Teacher 2 Teacher 7 Teacher 5 Teacher 1 Teacher 8 Approve Reject" [ref=e1333]:
+                        - generic [ref=e1334]:
+                          - generic [ref=e1335]:
+                            - generic [ref=e1336]: 4 approved
+                            - generic [ref=e1337]: 1 pending
+                          - generic [ref=e1338]:
+                            - generic [ref=e1339]: Teacher 2
+                            - generic [ref=e1340]: Teacher 7
+                            - generic [ref=e1341]: Teacher 5
+                            - generic [ref=e1342]: Teacher 1
+                          - generic [ref=e1344]:
+                            - generic [ref=e1345]: Teacher 8
+                            - generic [ref=e1346]:
+                              - button "Approve" [ref=e1347]
+                              - button "Reject" [ref=e1348]
+                      - cell "Edit Schedule Add Re-defense" [ref=e1349]:
+                        - generic [ref=e1350]:
+                          - button "Edit Schedule" [ref=e1351]:
+                            - img
+                            - text: Edit Schedule
+                          - button "Add Re-defense" [ref=e1352]:
+                            - img
+                            - text: Add Re-defense
+                    - row [ref=e519]:
+                      - cell [ref=e520]
+                    - row "Team 4 · Round 1 Student 4 Jun 9, 2026 12:00 - 12:30 Room 304 PDF submitted Open 4 approved 1 pending Teacher 2 Teacher 3 Teacher 6 Teacher 1 Teacher 8 Approve Reject Edit Schedule Add Re-defense" [ref=e1353]:
+                      - cell "Team 4 · Round 1 Student 4" [ref=e1354]:
+                        - generic [ref=e1355]:
+                          - generic [ref=e1356]:
+                            - paragraph [ref=e1357]: Team 4
+                            - generic [ref=e1358]: ·
+                            - generic [ref=e1359]: Round 1
+                          - paragraph [ref=e1360]: Student 4
+                      - cell "Jun 9, 2026 12:00 - 12:30 Room 304" [ref=e1361]:
+                        - generic [ref=e1362]:
+                          - paragraph [ref=e1363]: Jun 9, 2026
+                          - paragraph [ref=e1364]: 12:00 - 12:30
+                          - paragraph [ref=e1365]:
+                            - img [ref=e1366]
+                            - text: Room 304
+                      - cell "PDF submitted Open" [ref=e1369]:
+                        - generic [ref=e1370]:
+                          - generic [ref=e1371]: PDF submitted
+                          - link "Open" [ref=e1372] [cursor=pointer]:
+                            - /url: /papers/8
+                            - img
+                            - text: Open
+                      - cell "4 approved 1 pending Teacher 2 Teacher 3 Teacher 6 Teacher 1 Teacher 8 Approve Reject" [ref=e1373]:
+                        - generic [ref=e1374]:
+                          - generic [ref=e1375]:
+                            - generic [ref=e1376]: 4 approved
+                            - generic [ref=e1377]: 1 pending
+                          - generic [ref=e1378]:
+                            - generic [ref=e1379]: Teacher 2
+                            - generic [ref=e1380]: Teacher 3
+                            - generic [ref=e1381]: Teacher 6
+                            - generic [ref=e1382]: Teacher 1
+                          - generic [ref=e1384]:
+                            - generic [ref=e1385]: Teacher 8
+                            - generic [ref=e1386]:
+                              - button "Approve" [ref=e1387]
+                              - button "Reject" [ref=e1388]
+                      - cell "Edit Schedule Add Re-defense" [ref=e1389]:
+                        - generic [ref=e1390]:
+                          - button "Edit Schedule" [ref=e1391]:
+                            - img
+                            - text: Edit Schedule
+                          - button "Add Re-defense" [ref=e1392]:
+                            - img
+                            - text: Add Re-defense
+                    - row [ref=e556]:
+                      - cell [ref=e557]
+                    - row "Team 5 · Round 1 Student 5 Jun 10, 2026 13:00 - 13:30 Room 305 PDF submitted Open 4 approved 1 pending Teacher 2 Teacher 4 Teacher 5 Teacher 1 Teacher 8 Approve Reject Edit Schedule Add Re-defense" [ref=e1393]:
+                      - cell "Team 5 · Round 1 Student 5" [ref=e1394]:
+                        - generic [ref=e1395]:
+                          - generic [ref=e1396]:
+                            - paragraph [ref=e1397]: Team 5
+                            - generic [ref=e1398]: ·
+                            - generic [ref=e1399]: Round 1
+                          - paragraph [ref=e1400]: Student 5
+                      - cell "Jun 10, 2026 13:00 - 13:30 Room 305" [ref=e1401]:
+                        - generic [ref=e1402]:
+                          - paragraph [ref=e1403]: Jun 10, 2026
+                          - paragraph [ref=e1404]: 13:00 - 13:30
+                          - paragraph [ref=e1405]:
+                            - img [ref=e1406]
+                            - text: Room 305
+                      - cell "PDF submitted Open" [ref=e1409]:
+                        - generic [ref=e1410]:
+                          - generic [ref=e1411]: PDF submitted
+                          - link "Open" [ref=e1412] [cursor=pointer]:
+                            - /url: /papers/10
+                            - img
+                            - text: Open
+                      - cell "4 approved 1 pending Teacher 2 Teacher 4 Teacher 5 Teacher 1 Teacher 8 Approve Reject" [ref=e1413]:
+                        - generic [ref=e1414]:
+                          - generic [ref=e1415]:
+                            - generic [ref=e1416]: 4 approved
+                            - generic [ref=e1417]: 1 pending
+                          - generic [ref=e1418]:
+                            - generic [ref=e1419]: Teacher 2
+                            - generic [ref=e1420]: Teacher 4
+                            - generic [ref=e1421]: Teacher 5
+                            - generic [ref=e1422]: Teacher 1
+                          - generic [ref=e1424]:
+                            - generic [ref=e1425]: Teacher 8
+                            - generic [ref=e1426]:
+                              - button "Approve" [ref=e1427]
+                              - button "Reject" [ref=e1428]
+                      - cell "Edit Schedule Add Re-defense" [ref=e1429]:
+                        - generic [ref=e1430]:
+                          - button "Edit Schedule" [ref=e1431]:
+                            - img
+                            - text: Edit Schedule
+                          - button "Add Re-defense" [ref=e1432]:
+                            - img
+                            - text: Add Re-defense
+                    - row [ref=e593]:
+                      - cell [ref=e594]
+                    - row "Team 6 · Round 1 Student 6 Jun 11, 2026 14:00 - 14:30 Room 306 PDF submitted Open 4 approved 1 pending Teacher 2 Teacher 7 Teacher 6 Teacher 1 Teacher 8 Approve Reject Edit Schedule Add Re-defense" [ref=e1433]:
+                      - cell "Team 6 · Round 1 Student 6" [ref=e1434]:
+                        - generic [ref=e1435]:
+                          - generic [ref=e1436]:
+                            - paragraph [ref=e1437]: Team 6
+                            - generic [ref=e1438]: ·
+                            - generic [ref=e1439]: Round 1
+                          - paragraph [ref=e1440]: Student 6
+                      - cell "Jun 11, 2026 14:00 - 14:30 Room 306" [ref=e1441]:
+                        - generic [ref=e1442]:
+                          - paragraph [ref=e1443]: Jun 11, 2026
+                          - paragraph [ref=e1444]: 14:00 - 14:30
+                          - paragraph [ref=e1445]:
+                            - img [ref=e1446]
+                            - text: Room 306
+                      - cell "PDF submitted Open" [ref=e1449]:
+                        - generic [ref=e1450]:
+                          - generic [ref=e1451]: PDF submitted
+                          - link "Open" [ref=e1452] [cursor=pointer]:
+                            - /url: /papers/12
+                            - img
+                            - text: Open
+                      - cell "4 approved 1 pending Teacher 2 Teacher 7 Teacher 6 Teacher 1 Teacher 8 Approve Reject" [ref=e1453]:
+                        - generic [ref=e1454]:
+                          - generic [ref=e1455]:
+                            - generic [ref=e1456]: 4 approved
+                            - generic [ref=e1457]: 1 pending
+                          - generic [ref=e1458]:
+                            - generic [ref=e1459]: Teacher 2
+                            - generic [ref=e1460]: Teacher 7
+                            - generic [ref=e1461]: Teacher 6
+                            - generic [ref=e1462]: Teacher 1
+                          - generic [ref=e1464]:
+                            - generic [ref=e1465]: Teacher 8
+                            - generic [ref=e1466]:
+                              - button "Approve" [ref=e1467]
+                              - button "Reject" [ref=e1468]
+                      - cell "Edit Schedule Add Re-defense" [ref=e1469]:
+                        - generic [ref=e1470]:
+                          - button "Edit Schedule" [ref=e1471]:
+                            - img
+                            - text: Edit Schedule
+                          - button "Add Re-defense" [ref=e1472]:
+                            - img
+                            - text: Add Re-defense
+                    - row [ref=e629]:
+                      - cell [ref=e630]
+                    - row "Team 7 · Round 1 Student 7, Student 8 Jun 12, 2026 15:00 - 15:30 Room 307 PDF submitted Open 4 approved 1 pending Teacher 2 Teacher 3 Teacher 5 Teacher 1 Teacher 8 Approve Reject Edit Schedule Add Re-defense" [ref=e1473]:
+                      - cell "Team 7 · Round 1 Student 7, Student 8" [ref=e1474]:
+                        - generic [ref=e1475]:
+                          - generic [ref=e1476]:
+                            - paragraph [ref=e1477]: Team 7
+                            - generic [ref=e1478]: ·
+                            - generic [ref=e1479]: Round 1
+                          - paragraph [ref=e1480]: Student 7, Student 8
+                      - cell "Jun 12, 2026 15:00 - 15:30 Room 307" [ref=e1481]:
+                        - generic [ref=e1482]:
+                          - paragraph [ref=e1483]: Jun 12, 2026
+                          - paragraph [ref=e1484]: 15:00 - 15:30
+                          - paragraph [ref=e1485]:
+                            - img [ref=e1486]
+                            - text: Room 307
+                      - cell "PDF submitted Open" [ref=e1489]:
+                        - generic [ref=e1490]:
+                          - generic [ref=e1491]: PDF submitted
+                          - link "Open" [ref=e1492] [cursor=pointer]:
+                            - /url: /papers/14
+                            - img
+                            - text: Open
+                      - cell "4 approved 1 pending Teacher 2 Teacher 3 Teacher 5 Teacher 1 Teacher 8 Approve Reject" [ref=e1493]:
+                        - generic [ref=e1494]:
+                          - generic [ref=e1495]:
+                            - generic [ref=e1496]: 4 approved
+                            - generic [ref=e1497]: 1 pending
+                          - generic [ref=e1498]:
+                            - generic [ref=e1499]: Teacher 2
+                            - generic [ref=e1500]: Teacher 3
+                            - generic [ref=e1501]: Teacher 5
+                            - generic [ref=e1502]: Teacher 1
+                          - generic [ref=e1504]:
+                            - generic [ref=e1505]: Teacher 8
+                            - generic [ref=e1506]:
+                              - button "Approve" [ref=e1507]
+                              - button "Reject" [ref=e1508]
+                      - cell "Edit Schedule Add Re-defense" [ref=e1509]:
+                        - generic [ref=e1510]:
+                          - button "Edit Schedule" [ref=e1511]:
+                            - img
+                            - text: Edit Schedule
+                          - button "Add Re-defense" [ref=e1512]:
+                            - img
+                            - text: Add Re-defense
+                    - row [ref=e665]:
+                      - cell [ref=e666]
+                    - row "Team 8 · Round 1 Student 9, Student 10 Jun 13, 2026 08:00 - 08:30 Room 308 PDF submitted Open 4 approved 1 pending Teacher 2 Teacher 4 Teacher 6 Teacher 1 Teacher 8 Approve Reject Edit Schedule Add Re-defense" [ref=e1513]:
+                      - cell "Team 8 · Round 1 Student 9, Student 10" [ref=e1514]:
+                        - generic [ref=e1515]:
+                          - generic [ref=e1516]:
+                            - paragraph [ref=e1517]: Team 8
+                            - generic [ref=e1518]: ·
+                            - generic [ref=e1519]: Round 1
+                          - paragraph [ref=e1520]: Student 9, Student 10
+                      - cell "Jun 13, 2026 08:00 - 08:30 Room 308" [ref=e1521]:
+                        - generic [ref=e1522]:
+                          - paragraph [ref=e1523]: Jun 13, 2026
+                          - paragraph [ref=e1524]: 08:00 - 08:30
+                          - paragraph [ref=e1525]:
+                            - img [ref=e1526]
+                            - text: Room 308
+                      - cell "PDF submitted Open" [ref=e1529]:
+                        - generic [ref=e1530]:
+                          - generic [ref=e1531]: PDF submitted
+                          - link "Open" [ref=e1532] [cursor=pointer]:
+                            - /url: /papers/16
+                            - img
+                            - text: Open
+                      - cell "4 approved 1 pending Teacher 2 Teacher 4 Teacher 6 Teacher 1 Teacher 8 Approve Reject" [ref=e1533]:
+                        - generic [ref=e1534]:
+                          - generic [ref=e1535]:
+                            - generic [ref=e1536]: 4 approved
+                            - generic [ref=e1537]: 1 pending
+                          - generic [ref=e1538]:
+                            - generic [ref=e1539]: Teacher 2
+                            - generic [ref=e1540]: Teacher 4
+                            - generic [ref=e1541]: Teacher 6
+                            - generic [ref=e1542]: Teacher 1
+                          - generic [ref=e1544]:
+                            - generic [ref=e1545]: Teacher 8
+                            - generic [ref=e1546]:
+                              - button "Approve" [ref=e1547]
+                              - button "Reject" [ref=e1548]
+                      - cell "Edit Schedule Add Re-defense" [ref=e1549]:
+                        - generic [ref=e1550]:
+                          - button "Edit Schedule" [ref=e1551]:
+                            - img
+                            - text: Edit Schedule
+                          - button "Add Re-defense" [ref=e1552]:
+                            - img
+                            - text: Add Re-defense
+                    - row [ref=e701]:
+                      - cell [ref=e702]
+                    - row "Team 9 · Round 1 Student 11, Student 12 Jun 14, 2026 09:00 - 09:30 Room 309 PDF submitted Open 4 approved 1 pending Teacher 2 Teacher 7 Teacher 5 Teacher 1 Teacher 8 Approve Reject Edit Schedule Add Re-defense" [ref=e1553]:
+                      - cell "Team 9 · Round 1 Student 11, Student 12" [ref=e1554]:
+                        - generic [ref=e1555]:
+                          - generic [ref=e1556]:
+                            - paragraph [ref=e1557]: Team 9
+                            - generic [ref=e1558]: ·
+                            - generic [ref=e1559]: Round 1
+                          - paragraph [ref=e1560]: Student 11, Student 12
+                      - cell "Jun 14, 2026 09:00 - 09:30 Room 309" [ref=e1561]:
+                        - generic [ref=e1562]:
+                          - paragraph [ref=e1563]: Jun 14, 2026
+                          - paragraph [ref=e1564]: 09:00 - 09:30
+                          - paragraph [ref=e1565]:
+                            - img [ref=e1566]
+                            - text: Room 309
+                      - cell "PDF submitted Open" [ref=e1569]:
+                        - generic [ref=e1570]:
+                          - generic [ref=e1571]: PDF submitted
+                          - link "Open" [ref=e1572] [cursor=pointer]:
+                            - /url: /papers/18
+                            - img
+                            - text: Open
+                      - cell "4 approved 1 pending Teacher 2 Teacher 7 Teacher 5 Teacher 1 Teacher 8 Approve Reject" [ref=e1573]:
+                        - generic [ref=e1574]:
+                          - generic [ref=e1575]:
+                            - generic [ref=e1576]: 4 approved
+                            - generic [ref=e1577]: 1 pending
+                          - generic [ref=e1578]:
+                            - generic [ref=e1579]: Teacher 2
+                            - generic [ref=e1580]: Teacher 7
+                            - generic [ref=e1581]: Teacher 5
+                            - generic [ref=e1582]: Teacher 1
+                          - generic [ref=e1584]:
+                            - generic [ref=e1585]: Teacher 8
+                            - generic [ref=e1586]:
+                              - button "Approve" [ref=e1587]
+                              - button "Reject" [ref=e1588]
+                      - cell "Edit Schedule Add Re-defense" [ref=e1589]:
+                        - generic [ref=e1590]:
+                          - button "Edit Schedule" [ref=e1591]:
+                            - img
+                            - text: Edit Schedule
+                          - button "Add Re-defense" [ref=e1592]:
+                            - img
+                            - text: Add Re-defense
+                    - row [ref=e737]:
+                      - cell [ref=e738]
+                    - row "Team 10 · Round 1 Student 13, Student 14 Jun 15, 2026 10:00 - 10:30 Room 310 PDF submitted Open 4 approved 1 pending Teacher 2 Teacher 3 Teacher 6 Teacher 1 Teacher 8 Approve Reject Edit Schedule Add Re-defense" [ref=e1593]:
+                      - cell "Team 10 · Round 1 Student 13, Student 14" [ref=e1594]:
+                        - generic [ref=e1595]:
+                          - generic [ref=e1596]:
+                            - paragraph [ref=e1597]: Team 10
+                            - generic [ref=e1598]: ·
+                            - generic [ref=e1599]: Round 1
+                          - paragraph [ref=e1600]: Student 13, Student 14
+                      - cell "Jun 15, 2026 10:00 - 10:30 Room 310" [ref=e1601]:
+                        - generic [ref=e1602]:
+                          - paragraph [ref=e1603]: Jun 15, 2026
+                          - paragraph [ref=e1604]: 10:00 - 10:30
+                          - paragraph [ref=e1605]:
+                            - img [ref=e1606]
+                            - text: Room 310
+                      - cell "PDF submitted Open" [ref=e1609]:
+                        - generic [ref=e1610]:
+                          - generic [ref=e1611]: PDF submitted
+                          - link "Open" [ref=e1612] [cursor=pointer]:
+                            - /url: /papers/20
+                            - img
+                            - text: Open
+                      - cell "4 approved 1 pending Teacher 2 Teacher 3 Teacher 6 Teacher 1 Teacher 8 Approve Reject" [ref=e1613]:
+                        - generic [ref=e1614]:
+                          - generic [ref=e1615]:
+                            - generic [ref=e1616]: 4 approved
+                            - generic [ref=e1617]: 1 pending
+                          - generic [ref=e1618]:
+                            - generic [ref=e1619]: Teacher 2
+                            - generic [ref=e1620]: Teacher 3
+                            - generic [ref=e1621]: Teacher 6
+                            - generic [ref=e1622]: Teacher 1
+                          - generic [ref=e1624]:
+                            - generic [ref=e1625]: Teacher 8
+                            - generic [ref=e1626]:
+                              - button "Approve" [ref=e1627]
+                              - button "Reject" [ref=e1628]
+                      - cell "Edit Schedule Add Re-defense" [ref=e1629]:
+                        - generic [ref=e1630]:
+                          - button "Edit Schedule" [ref=e1631]:
+                            - img
+                            - text: Edit Schedule
+                          - button "Add Re-defense" [ref=e1632]:
+                            - img
+                            - text: Add Re-defense
+                    - row [ref=e773]:
+                      - cell [ref=e774]
+                    - row "Team 11 · Round 1 Student 15, Student 16 Jun 16, 2026 11:00 - 11:30 Room 311 PDF submitted Open 4 approved 1 pending Teacher 2 Teacher 4 Teacher 5 Teacher 1 Teacher 8 Approve Reject Edit Schedule Add Re-defense" [ref=e1633]:
+                      - cell "Team 11 · Round 1 Student 15, Student 16" [ref=e1634]:
+                        - generic [ref=e1635]:
+                          - generic [ref=e1636]:
+                            - paragraph [ref=e1637]: Team 11
+                            - generic [ref=e1638]: ·
+                            - generic [ref=e1639]: Round 1
+                          - paragraph [ref=e1640]: Student 15, Student 16
+                      - cell "Jun 16, 2026 11:00 - 11:30 Room 311" [ref=e1641]:
+                        - generic [ref=e1642]:
+                          - paragraph [ref=e1643]: Jun 16, 2026
+                          - paragraph [ref=e1644]: 11:00 - 11:30
+                          - paragraph [ref=e1645]:
+                            - img [ref=e1646]
+                            - text: Room 311
+                      - cell "PDF submitted Open" [ref=e1649]:
+                        - generic [ref=e1650]:
+                          - generic [ref=e1651]: PDF submitted
+                          - link "Open" [ref=e1652] [cursor=pointer]:
+                            - /url: /papers/22
+                            - img
+                            - text: Open
+                      - cell "4 approved 1 pending Teacher 2 Teacher 4 Teacher 5 Teacher 1 Teacher 8 Approve Reject" [ref=e1653]:
+                        - generic [ref=e1654]:
+                          - generic [ref=e1655]:
+                            - generic [ref=e1656]: 4 approved
+                            - generic [ref=e1657]: 1 pending
+                          - generic [ref=e1658]:
+                            - generic [ref=e1659]: Teacher 2
+                            - generic [ref=e1660]: Teacher 4
+                            - generic [ref=e1661]: Teacher 5
+                            - generic [ref=e1662]: Teacher 1
+                          - generic [ref=e1664]:
+                            - generic [ref=e1665]: Teacher 8
+                            - generic [ref=e1666]:
+                              - button "Approve" [ref=e1667]
+                              - button "Reject" [ref=e1668]
+                      - cell "Edit Schedule Add Re-defense" [ref=e1669]:
+                        - generic [ref=e1670]:
+                          - button "Edit Schedule" [ref=e1671]:
+                            - img
+                            - text: Edit Schedule
+                          - button "Add Re-defense" [ref=e1672]:
+                            - img
+                            - text: Add Re-defense
+                    - row [ref=e809]:
+                      - cell [ref=e810]
+                    - row "Team 12 · Round 1 Student 17, Student 18 Jun 17, 2026 12:00 - 12:30 Room 312 PDF submitted Open 4 approved 0 pending Teacher 2 Teacher 7 Teacher 6 Teacher 1 Edit Schedule Add Re-defense" [ref=e1673]:
+                      - cell "Team 12 · Round 1 Student 17, Student 18" [ref=e1674]:
+                        - generic [ref=e1675]:
+                          - generic [ref=e1676]:
+                            - paragraph [ref=e1677]: Team 12
+                            - generic [ref=e1678]: ·
+                            - generic [ref=e1679]: Round 1
+                          - paragraph [ref=e1680]: Student 17, Student 18
+                      - cell "Jun 17, 2026 12:00 - 12:30 Room 312" [ref=e1681]:
+                        - generic [ref=e1682]:
+                          - paragraph [ref=e1683]: Jun 17, 2026
+                          - paragraph [ref=e1684]: 12:00 - 12:30
+                          - paragraph [ref=e1685]:
+                            - img [ref=e1686]
+                            - text: Room 312
+                      - cell "PDF submitted Open" [ref=e1689]:
+                        - generic [ref=e1690]:
+                          - generic [ref=e1691]: PDF submitted
+                          - link "Open" [ref=e1692] [cursor=pointer]:
+                            - /url: /papers/24
+                            - img
+                            - text: Open
+                      - cell "4 approved 0 pending Teacher 2 Teacher 7 Teacher 6 Teacher 1" [ref=e1693]:
+                        - generic [ref=e1694]:
+                          - generic [ref=e1695]:
+                            - generic [ref=e1696]: 4 approved
+                            - generic [ref=e1697]: 0 pending
+                          - generic [ref=e1698]:
+                            - generic [ref=e1699]: Teacher 2
+                            - generic [ref=e1700]: Teacher 7
+                            - generic [ref=e1701]: Teacher 6
+                            - generic [ref=e1702]: Teacher 1
+                      - cell "Edit Schedule Add Re-defense" [ref=e1703]:
+                        - generic [ref=e1704]:
+                          - button "Edit Schedule" [ref=e1705]:
+                            - img
+                            - text: Edit Schedule
+                          - button "Add Re-defense" [ref=e1706]:
+                            - img
+                            - text: Add Re-defense
+                    - row [ref=e845]:
+                      - cell [ref=e846]
+                    - row "Team 13 · Round 1 Student 19, Student 20 Jun 18, 2026 13:00 - 13:30 Room 313 PDF submitted Open 4 approved 1 pending Teacher 2 Teacher 3 Teacher 5 Teacher 1 Teacher 8 Approve Reject Edit Schedule Add Re-defense" [ref=e1707]:
+                      - cell "Team 13 · Round 1 Student 19, Student 20" [ref=e1708]:
+                        - generic [ref=e1709]:
+                          - generic [ref=e1710]:
+                            - paragraph [ref=e1711]: Team 13
+                            - generic [ref=e1712]: ·
+                            - generic [ref=e1713]: Round 1
+                          - paragraph [ref=e1714]: Student 19, Student 20
+                      - cell "Jun 18, 2026 13:00 - 13:30 Room 313" [ref=e1715]:
+                        - generic [ref=e1716]:
+                          - paragraph [ref=e1717]: Jun 18, 2026
+                          - paragraph [ref=e1718]: 13:00 - 13:30
+                          - paragraph [ref=e1719]:
+                            - img [ref=e1720]
+                            - text: Room 313
+                      - cell "PDF submitted Open" [ref=e1723]:
+                        - generic [ref=e1724]:
+                          - generic [ref=e1725]: PDF submitted
+                          - link "Open" [ref=e1726] [cursor=pointer]:
+                            - /url: /papers/26
+                            - img
+                            - text: Open
+                      - cell "4 approved 1 pending Teacher 2 Teacher 3 Teacher 5 Teacher 1 Teacher 8 Approve Reject" [ref=e1727]:
+                        - generic [ref=e1728]:
+                          - generic [ref=e1729]:
+                            - generic [ref=e1730]: 4 approved
+                            - generic [ref=e1731]: 1 pending
+                          - generic [ref=e1732]:
+                            - generic [ref=e1733]: Teacher 2
+                            - generic [ref=e1734]: Teacher 3
+                            - generic [ref=e1735]: Teacher 5
+                            - generic [ref=e1736]: Teacher 1
+                          - generic [ref=e1738]:
+                            - generic [ref=e1739]: Teacher 8
+                            - generic [ref=e1740]:
+                              - button "Approve" [ref=e1741]
+                              - button "Reject" [ref=e1742]
+                      - cell "Edit Schedule Add Re-defense" [ref=e1743]:
+                        - generic [ref=e1744]:
+                          - button "Edit Schedule" [ref=e1745]:
+                            - img
+                            - text: Edit Schedule
+                          - button "Add Re-defense" [ref=e1746]:
+                            - img
+                            - text: Add Re-defense
+                    - row [ref=e881]:
+                      - cell [ref=e882]
+                    - row "Team 14 · Round 1 Student 21, Student 22 Jun 19, 2026 14:00 - 14:30 Room 314 PDF submitted Open 4 approved 0 pending Teacher 2 Teacher 4 Teacher 6 Teacher 1 Edit Schedule Add Re-defense" [ref=e1747]:
+                      - cell "Team 14 · Round 1 Student 21, Student 22" [ref=e1748]:
+                        - generic [ref=e1749]:
+                          - generic [ref=e1750]:
+                            - paragraph [ref=e1751]: Team 14
+                            - generic [ref=e1752]: ·
+                            - generic [ref=e1753]: Round 1
+                          - paragraph [ref=e1754]: Student 21, Student 22
+                      - cell "Jun 19, 2026 14:00 - 14:30 Room 314" [ref=e1755]:
+                        - generic [ref=e1756]:
+                          - paragraph [ref=e1757]: Jun 19, 2026
+                          - paragraph [ref=e1758]: 14:00 - 14:30
+                          - paragraph [ref=e1759]:
+                            - img [ref=e1760]
+                            - text: Room 314
+                      - cell "PDF submitted Open" [ref=e1763]:
+                        - generic [ref=e1764]:
+                          - generic [ref=e1765]: PDF submitted
+                          - link "Open" [ref=e1766] [cursor=pointer]:
+                            - /url: /papers/28
+                            - img
+                            - text: Open
+                      - cell "4 approved 0 pending Teacher 2 Teacher 4 Teacher 6 Teacher 1" [ref=e1767]:
+                        - generic [ref=e1768]:
+                          - generic [ref=e1769]:
+                            - generic [ref=e1770]: 4 approved
+                            - generic [ref=e1771]: 0 pending
+                          - generic [ref=e1772]:
+                            - generic [ref=e1773]: Teacher 2
+                            - generic [ref=e1774]: Teacher 4
+                            - generic [ref=e1775]: Teacher 6
+                            - generic [ref=e1776]: Teacher 1
+                      - cell "Edit Schedule Add Re-defense" [ref=e1777]:
+                        - generic [ref=e1778]:
+                          - button "Edit Schedule" [ref=e1779]:
+                            - img
+                            - text: Edit Schedule
+                          - button "Add Re-defense" [ref=e1780]:
+                            - img
+                            - text: Add Re-defense
+                    - row [ref=e917]:
+                      - cell [ref=e918]
+                    - row "Team 15 · Round 1 Student 23, Student 24 Jun 20, 2026 15:00 - 15:30 Room 315 PDF submitted Open 4 approved 0 pending Teacher 2 Teacher 7 Teacher 5 Teacher 1 Edit Schedule Add Re-defense" [ref=e1781]:
+                      - cell "Team 15 · Round 1 Student 23, Student 24" [ref=e1782]:
+                        - generic [ref=e1783]:
+                          - generic [ref=e1784]:
+                            - paragraph [ref=e1785]: Team 15
+                            - generic [ref=e1786]: ·
+                            - generic [ref=e1787]: Round 1
+                          - paragraph [ref=e1788]: Student 23, Student 24
+                      - cell "Jun 20, 2026 15:00 - 15:30 Room 315" [ref=e1789]:
+                        - generic [ref=e1790]:
+                          - paragraph [ref=e1791]: Jun 20, 2026
+                          - paragraph [ref=e1792]: 15:00 - 15:30
+                          - paragraph [ref=e1793]:
+                            - img [ref=e1794]
+                            - text: Room 315
+                      - cell "PDF submitted Open" [ref=e1797]:
+                        - generic [ref=e1798]:
+                          - generic [ref=e1799]: PDF submitted
+                          - link "Open" [ref=e1800] [cursor=pointer]:
+                            - /url: /papers/30
+                            - img
+                            - text: Open
+                      - cell "4 approved 0 pending Teacher 2 Teacher 7 Teacher 5 Teacher 1" [ref=e1801]:
+                        - generic [ref=e1802]:
+                          - generic [ref=e1803]:
+                            - generic [ref=e1804]: 4 approved
+                            - generic [ref=e1805]: 0 pending
+                          - generic [ref=e1806]:
+                            - generic [ref=e1807]: Teacher 2
+                            - generic [ref=e1808]: Teacher 7
+                            - generic [ref=e1809]: Teacher 5
+                            - generic [ref=e1810]: Teacher 1
+                      - cell "Edit Schedule Add Re-defense" [ref=e1811]:
+                        - generic [ref=e1812]:
+                          - button "Edit Schedule" [ref=e1813]:
+                            - img
+                            - text: Edit Schedule
+                          - button "Add Re-defense" [ref=e1814]:
+                            - img
+                            - text: Add Re-defense
+                    - row [ref=e953]:
+                      - cell [ref=e954]
+                    - row "Team 16 · Round 1 Student 25, Student 26 Jun 21, 2026 08:00 - 08:30 Room 316 PDF submitted Open 4 approved 0 pending Teacher 2 Teacher 3 Teacher 6 Teacher 1 Edit Schedule Add Re-defense" [ref=e1815]:
+                      - cell "Team 16 · Round 1 Student 25, Student 26" [ref=e1816]:
+                        - generic [ref=e1817]:
+                          - generic [ref=e1818]:
+                            - paragraph [ref=e1819]: Team 16
+                            - generic [ref=e1820]: ·
+                            - generic [ref=e1821]: Round 1
+                          - paragraph [ref=e1822]: Student 25, Student 26
+                      - cell "Jun 21, 2026 08:00 - 08:30 Room 316" [ref=e1823]:
+                        - generic [ref=e1824]:
+                          - paragraph [ref=e1825]: Jun 21, 2026
+                          - paragraph [ref=e1826]: 08:00 - 08:30
+                          - paragraph [ref=e1827]:
+                            - img [ref=e1828]
+                            - text: Room 316
+                      - cell "PDF submitted Open" [ref=e1831]:
+                        - generic [ref=e1832]:
+                          - generic [ref=e1833]: PDF submitted
+                          - link "Open" [ref=e1834] [cursor=pointer]:
+                            - /url: /papers/32
+                            - img
+                            - text: Open
+                      - cell "4 approved 0 pending Teacher 2 Teacher 3 Teacher 6 Teacher 1" [ref=e1835]:
+                        - generic [ref=e1836]:
+                          - generic [ref=e1837]:
+                            - generic [ref=e1838]: 4 approved
+                            - generic [ref=e1839]: 0 pending
+                          - generic [ref=e1840]:
+                            - generic [ref=e1841]: Teacher 2
+                            - generic [ref=e1842]: Teacher 3
+                            - generic [ref=e1843]: Teacher 6
+                            - generic [ref=e1844]: Teacher 1
+                      - cell "Edit Schedule Add Re-defense" [ref=e1845]:
+                        - generic [ref=e1846]:
+                          - button "Edit Schedule" [ref=e1847]:
+                            - img
+                            - text: Edit Schedule
+                          - button "Add Re-defense" [ref=e1848]:
+                            - img
+                            - text: Add Re-defense
+                    - row [ref=e989]:
+                      - cell [ref=e990]
+                    - row "Team 17 · Round 1 Student 27, Student 28 Jun 22, 2026 09:00 - 09:30 Room 317 PDF submitted Open 4 approved 0 pending Teacher 2 Teacher 4 Teacher 5 Teacher 1 Edit Schedule Add Re-defense" [ref=e1849]:
+                      - cell "Team 17 · Round 1 Student 27, Student 28" [ref=e1850]:
+                        - generic [ref=e1851]:
+                          - generic [ref=e1852]:
+                            - paragraph [ref=e1853]: Team 17
+                            - generic [ref=e1854]: ·
+                            - generic [ref=e1855]: Round 1
+                          - paragraph [ref=e1856]: Student 27, Student 28
+                      - cell "Jun 22, 2026 09:00 - 09:30 Room 317" [ref=e1857]:
+                        - generic [ref=e1858]:
+                          - paragraph [ref=e1859]: Jun 22, 2026
+                          - paragraph [ref=e1860]: 09:00 - 09:30
+                          - paragraph [ref=e1861]:
+                            - img [ref=e1862]
+                            - text: Room 317
+                      - cell "PDF submitted Open" [ref=e1865]:
+                        - generic [ref=e1866]:
+                          - generic [ref=e1867]: PDF submitted
+                          - link "Open" [ref=e1868] [cursor=pointer]:
+                            - /url: /papers/34
+                            - img
+                            - text: Open
+                      - cell "4 approved 0 pending Teacher 2 Teacher 4 Teacher 5 Teacher 1" [ref=e1869]:
+                        - generic [ref=e1870]:
+                          - generic [ref=e1871]:
+                            - generic [ref=e1872]: 4 approved
+                            - generic [ref=e1873]: 0 pending
+                          - generic [ref=e1874]:
+                            - generic [ref=e1875]: Teacher 2
+                            - generic [ref=e1876]: Teacher 4
+                            - generic [ref=e1877]: Teacher 5
+                            - generic [ref=e1878]: Teacher 1
+                      - cell "Edit Schedule Add Re-defense" [ref=e1879]:
+                        - generic [ref=e1880]:
+                          - button "Edit Schedule" [ref=e1881]:
+                            - img
+                            - text: Edit Schedule
+                          - button "Add Re-defense" [ref=e1882]:
+                            - img
+                            - text: Add Re-defense
+                    - row [ref=e1025]:
+                      - cell [ref=e1026]
+                    - row "Team 18 · Round 1 Student 29, Student 30 Jun 23, 2026 10:00 - 10:30 Room 318 PDF submitted Open 4 approved 0 pending Teacher 2 Teacher 7 Teacher 6 Teacher 1 Edit Schedule Add Re-defense" [ref=e1883]:
+                      - cell "Team 18 · Round 1 Student 29, Student 30" [ref=e1884]:
+                        - generic [ref=e1885]:
+                          - generic [ref=e1886]:
+                            - paragraph [ref=e1887]: Team 18
+                            - generic [ref=e1888]: ·
+                            - generic [ref=e1889]: Round 1
+                          - paragraph [ref=e1890]: Student 29, Student 30
+                      - cell "Jun 23, 2026 10:00 - 10:30 Room 318" [ref=e1891]:
+                        - generic [ref=e1892]:
+                          - paragraph [ref=e1893]: Jun 23, 2026
+                          - paragraph [ref=e1894]: 10:00 - 10:30
+                          - paragraph [ref=e1895]:
+                            - img [ref=e1896]
+                            - text: Room 318
+                      - cell "PDF submitted Open" [ref=e1899]:
+                        - generic [ref=e1900]:
+                          - generic [ref=e1901]: PDF submitted
+                          - link "Open" [ref=e1902] [cursor=pointer]:
+                            - /url: /papers/36
+                            - img
+                            - text: Open
+                      - cell "4 approved 0 pending Teacher 2 Teacher 7 Teacher 6 Teacher 1" [ref=e1903]:
+                        - generic [ref=e1904]:
+                          - generic [ref=e1905]:
+                            - generic [ref=e1906]: 4 approved
+                            - generic [ref=e1907]: 0 pending
+                          - generic [ref=e1908]:
+                            - generic [ref=e1909]: Teacher 2
+                            - generic [ref=e1910]: Teacher 7
+                            - generic [ref=e1911]: Teacher 6
+                            - generic [ref=e1912]: Teacher 1
+                      - cell "Edit Schedule Add Re-defense" [ref=e1913]:
+                        - generic [ref=e1914]:
+                          - button "Edit Schedule" [ref=e1915]:
+                            - img
+                            - text: Edit Schedule
+                          - button "Add Re-defense" [ref=e1916]:
+                            - img
+                            - text: Add Re-defense
+                    - row [ref=e1121]:
+                      - cell [ref=e1122]
+                    - row "student 1 · Round 1 No student members Schedule needed Waiting for PDF 1 approved 0 pending Teacher 1 Set Schedule Add Re-defense" [ref=e1917]:
+                      - cell "student 1 · Round 1 No student members" [ref=e1918]:
+                        - generic [ref=e1919]:
+                          - generic [ref=e1920]:
+                            - paragraph [ref=e1921]: student 1
+                            - generic [ref=e1922]: ·
+                            - generic [ref=e1923]: Round 1
+                          - paragraph [ref=e1924]: No student members
+                      - cell "Schedule needed" [ref=e1925]:
+                        - generic [ref=e1926]: Schedule needed
+                      - cell "Waiting for PDF" [ref=e1927]:
+                        - generic [ref=e1928]: Waiting for PDF
+                      - cell "1 approved 0 pending Teacher 1" [ref=e1929]:
+                        - generic [ref=e1930]:
+                          - generic [ref=e1931]:
+                            - generic [ref=e1932]: 1 approved
+                            - generic [ref=e1933]: 0 pending
+                          - generic [ref=e1935]: Teacher 1
+                      - cell "Set Schedule Add Re-defense" [ref=e1936]:
+                        - generic [ref=e1937]:
+                          - button "Set Schedule" [ref=e1938]:
+                            - img
+                            - text: Set Schedule
+                          - button "Add Re-defense" [ref=e1939]:
+                            - img
+                            - text: Add Re-defense
+                    - row [ref=e1146]:
+                      - cell [ref=e1147]
+                    - row "team 5 · Round 1 No student members Schedule needed Waiting for PDF 1 approved 0 pending Teacher 1 Set Schedule Add Re-defense" [ref=e1940]:
+                      - cell "team 5 · Round 1 No student members" [ref=e1941]:
+                        - generic [ref=e1942]:
+                          - generic [ref=e1943]:
+                            - paragraph [ref=e1944]: team 5
+                            - generic [ref=e1945]: ·
+                            - generic [ref=e1946]: Round 1
+                          - paragraph [ref=e1947]: No student members
+                      - cell "Schedule needed" [ref=e1948]:
+                        - generic [ref=e1949]: Schedule needed
+                      - cell "Waiting for PDF" [ref=e1950]:
+                        - generic [ref=e1951]: Waiting for PDF
+                      - cell "1 approved 0 pending Teacher 1" [ref=e1952]:
+                        - generic [ref=e1953]:
+                          - generic [ref=e1954]:
+                            - generic [ref=e1955]: 1 approved
+                            - generic [ref=e1956]: 0 pending
+                          - generic [ref=e1958]: Teacher 1
+                      - cell "Set Schedule Add Re-defense" [ref=e1959]:
+                        - generic [ref=e1960]:
+                          - button "Set Schedule" [ref=e1961]:
+                            - img
+                            - text: Set Schedule
+                          - button "Add Re-defense" [ref=e1962]:
+                            - img
+                            - text: Add Re-defense
+        - generic [ref=e1171]: All rights reserved. Copyright © 2010 - 2026 | Paragon International University | Phnom Penh - Cambodia | Privacy Policy
+  - region "Notifications alt+T":
+    - list

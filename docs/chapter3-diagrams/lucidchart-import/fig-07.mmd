@@ -1,0 +1,9 @@
+flowchart LR
+    A["Admin"] --> B["Open Create Subject form"]
+    B --> C["Enter title, description, and passing score"]
+    C --> D["Validate input"]
+    D --> E["Generate join_code for students"]
+    D --> F["Generate reviewer_code for judges"]
+    E --> G["Store subject with teacher_id"]
+    F --> G
+    G --> H["Show subject page with member, team, rubric, and paper actions"]

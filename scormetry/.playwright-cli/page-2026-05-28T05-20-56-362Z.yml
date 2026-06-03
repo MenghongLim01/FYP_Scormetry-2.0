@@ -1,0 +1,211 @@
+- generic [ref=e2]:
+  - generic [ref=e213]:
+    - generic [ref=e216]:
+      - list [ref=e218]:
+        - listitem [ref=e219]:
+          - link "Scormetry" [ref=e220] [cursor=pointer]:
+            - /url: /dashboard
+            - img [ref=e222]
+            - generic [ref=e229]: Scormetry
+      - generic [ref=e230]:
+        - generic [ref=e231]:
+          - generic [ref=e232]: Dashboard
+          - list [ref=e233]:
+            - listitem [ref=e234]:
+              - link "Dashboard" [ref=e235] [cursor=pointer]:
+                - /url: /dashboard
+                - img [ref=e236]
+                - generic [ref=e241]: Dashboard
+        - generic [ref=e242]:
+          - generic [ref=e243]: Academic Management
+          - list [ref=e244]:
+            - listitem [ref=e245]:
+              - link "Subjects" [ref=e246] [cursor=pointer]:
+                - /url: /subjects
+                - img [ref=e247]
+                - generic [ref=e249]: Subjects
+            - listitem [ref=e250]:
+              - link "Papers" [ref=e251] [cursor=pointer]:
+                - /url: /papers
+                - img [ref=e252]
+                - generic [ref=e255]: Papers
+        - generic [ref=e256]:
+          - generic [ref=e257]: Admin Panel
+          - list [ref=e258]:
+            - listitem [ref=e259]:
+              - link "Admin Dashboard" [ref=e260] [cursor=pointer]:
+                - /url: /admin/dashboard
+                - img [ref=e261]
+                - generic [ref=e266]: Admin Dashboard
+            - listitem [ref=e267]:
+              - link "Classroom Management" [ref=e268] [cursor=pointer]:
+                - /url: /admin/classrooms
+                - img [ref=e269]
+                - generic [ref=e271]: Classroom Management
+            - listitem [ref=e272]:
+              - link "User Management" [ref=e273] [cursor=pointer]:
+                - /url: /admin/users
+                - img [ref=e274]
+                - generic [ref=e279]: User Management
+            - listitem [ref=e280]:
+              - link "Settings" [ref=e281] [cursor=pointer]:
+                - /url: /admin/settings
+                - img [ref=e282]
+                - generic [ref=e285]: Settings
+        - generic [ref=e286]:
+          - generic [ref=e288]: "Dev: Role View"
+          - generic [ref=e290]:
+            - button "admin" [ref=e291]
+            - button "teacher" [ref=e292]
+            - button "student" [ref=e293]
+      - list [ref=e297]:
+        - listitem [ref=e298]:
+          - link "Settings" [ref=e299] [cursor=pointer]:
+            - /url: /settings/profile
+            - img [ref=e300]
+            - generic [ref=e303]: Settings
+    - main [ref=e304]:
+      - generic [ref=e306]:
+        - generic [ref=e307]:
+          - button "Toggle sidebar" [ref=e308]:
+            - img
+            - generic [ref=e309]: Toggle sidebar
+          - navigation "breadcrumb" [ref=e310]:
+            - list [ref=e311]:
+              - listitem [ref=e312]:
+                - link "Dashboard" [disabled] [ref=e313]
+        - generic [ref=e314]:
+          - button [ref=e315]:
+            - img
+          - button "A Admin" [ref=e316]:
+            - generic [ref=e318]: A
+            - generic [ref=e319]: Admin
+            - img [ref=e320]
+      - generic [ref=e323]:
+        - generic [ref=e324]:
+          - generic [ref=e326]:
+            - generic [ref=e327]: A
+            - generic [ref=e328]:
+              - heading "Welcome back, Admin" [level=1] [ref=e329]
+              - paragraph [ref=e330]: admin Dashboard
+            - generic [ref=e331]:
+              - img [ref=e332]
+              - text: admin
+          - generic [ref=e335]:
+            - generic [ref=e336]:
+              - generic [ref=e337]:
+                - paragraph [ref=e338]: Total Subjects
+                - img [ref=e340]
+              - paragraph [ref=e342]: "5"
+            - generic [ref=e343]:
+              - generic [ref=e344]:
+                - paragraph [ref=e345]: Total Papers
+                - img [ref=e347]
+              - paragraph [ref=e350]: "5"
+            - generic [ref=e351]:
+              - generic [ref=e352]:
+                - paragraph [ref=e353]: Pending Approvals
+                - img [ref=e355]
+              - paragraph [ref=e358]: "1"
+            - generic [ref=e359]:
+              - generic [ref=e360]:
+                - paragraph [ref=e361]: Review Completed
+                - img [ref=e363]
+              - paragraph [ref=e366]: "1"
+          - generic [ref=e368]:
+            - heading "Quick Actions" [level=2] [ref=e369]
+            - generic [ref=e370]:
+              - link "Manage Subjects View all subjects" [ref=e371] [cursor=pointer]:
+                - /url: /subjects
+                - generic [ref=e372]:
+                  - img [ref=e374]
+                  - generic [ref=e376]:
+                    - paragraph [ref=e377]: Manage Subjects
+                    - paragraph [ref=e378]: View all subjects
+                - img [ref=e379]
+              - link "All Papers View and manage papers" [ref=e381] [cursor=pointer]:
+                - /url: /papers
+                - generic [ref=e382]:
+                  - img [ref=e384]
+                  - generic [ref=e387]:
+                    - paragraph [ref=e388]: All Papers
+                    - paragraph [ref=e389]: View and manage papers
+                - img [ref=e390]
+              - link "User Management Approve users & manage roles" [ref=e392] [cursor=pointer]:
+                - /url: /admin/users
+                - generic [ref=e393]:
+                  - img [ref=e395]
+                  - generic [ref=e400]:
+                    - paragraph [ref=e401]: User Management
+                    - paragraph [ref=e402]: Approve users & manage roles
+                - img [ref=e403]
+          - generic [ref=e406]:
+            - generic [ref=e408]:
+              - heading "Recent Papers" [level=3] [ref=e409]:
+                - img [ref=e410]
+                - text: Recent Papers
+              - link "View all" [ref=e413] [cursor=pointer]:
+                - /url: /papers
+                - text: View all
+                - img [ref=e414]
+            - table [ref=e418]:
+              - rowgroup [ref=e419]:
+                - row "Subject Team Score Status Date" [ref=e420]:
+                  - columnheader "Subject" [ref=e421]
+                  - columnheader "Team" [ref=e422]
+                  - columnheader "Score" [ref=e423]
+                  - columnheader "Status" [ref=e424]
+                  - columnheader "Date" [ref=e425]
+                  - columnheader [ref=e426]
+              - rowgroup [ref=e427]:
+                - row "FYP Defense AY2025-2026 Team 1 — Review Completed 15 May 2026 View" [ref=e428]:
+                  - cell "FYP Defense AY2025-2026" [ref=e429]
+                  - cell "Team 1" [ref=e430]
+                  - cell "—" [ref=e431]
+                  - cell "Review Completed" [ref=e432]
+                  - cell "15 May 2026" [ref=e433]
+                  - cell "View" [ref=e434]:
+                    - link "View" [ref=e435] [cursor=pointer]:
+                      - /url: /papers/8
+                - row "FYP Defense AY2025-2026 Team 5 — Submitted 15 May 2026 View" [ref=e436]:
+                  - cell "FYP Defense AY2025-2026" [ref=e437]
+                  - cell "Team 5" [ref=e438]
+                  - cell "—" [ref=e439]
+                  - cell "Submitted" [ref=e440]
+                  - cell "15 May 2026" [ref=e441]
+                  - cell "View" [ref=e442]:
+                    - link "View" [ref=e443] [cursor=pointer]:
+                      - /url: /papers/5
+                - row "FYP Defense AY2025-2026 Team 3 — Submitted 15 May 2026 View" [ref=e444]:
+                  - cell "FYP Defense AY2025-2026" [ref=e445]
+                  - cell "Team 3" [ref=e446]
+                  - cell "—" [ref=e447]
+                  - cell "Submitted" [ref=e448]
+                  - cell "15 May 2026" [ref=e449]
+                  - cell "View" [ref=e450]:
+                    - link "View" [ref=e451] [cursor=pointer]:
+                      - /url: /papers/3
+                - row "FYP Defense AY2025-2026 Team 4 — Submitted 15 May 2026 View" [ref=e452]:
+                  - cell "FYP Defense AY2025-2026" [ref=e453]
+                  - cell "Team 4" [ref=e454]
+                  - cell "—" [ref=e455]
+                  - cell "Submitted" [ref=e456]
+                  - cell "15 May 2026" [ref=e457]
+                  - cell "View" [ref=e458]:
+                    - link "View" [ref=e459] [cursor=pointer]:
+                      - /url: /papers/4
+                - row "FYP Defense AY2025-2026 Team 2 100.00 / 100 Submitted 15 May 2026 View" [ref=e460]:
+                  - cell "FYP Defense AY2025-2026" [ref=e461]
+                  - cell "Team 2" [ref=e462]
+                  - cell "100.00 / 100" [ref=e463]:
+                    - generic [ref=e464]:
+                      - img [ref=e465]
+                      - text: 100.00 / 100
+                  - cell "Submitted" [ref=e467]
+                  - cell "15 May 2026" [ref=e468]
+                  - cell "View" [ref=e469]:
+                    - link "View" [ref=e470] [cursor=pointer]:
+                      - /url: /papers/2
+        - generic [ref=e471]: All rights reserved. Copyright © 2010 - 2026 | Paragon International University | Phnom Penh - Cambodia | Privacy Policy
+  - region "Notifications alt+T":
+    - list

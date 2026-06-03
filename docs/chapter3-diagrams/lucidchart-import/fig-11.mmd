@@ -1,0 +1,11 @@
+flowchart LR
+    A["Admin"] --> B["Upload official rubric PDF"]
+    B --> C["Validate PDF file"]
+    C --> D["Store PDF using Laravel file storage"]
+    D --> E["RubricStructureExtractor"]
+    E --> F["Upload PDF to OpenAI Files API"]
+    F --> G["Call OpenAI Responses API"]
+    G --> H["Receive structured rubric JSON"]
+    H --> I["Validate criteria, max_score, and weight"]
+    I --> J["Save rubrics record as pending_verification"]
+    J --> K["Open verification page"]

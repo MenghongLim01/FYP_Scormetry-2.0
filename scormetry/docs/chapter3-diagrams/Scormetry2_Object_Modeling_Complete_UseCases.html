@@ -1,0 +1,446 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Scormetry 2.0 Complete Object Modeling Use Case Diagrams</title>
+  <style>
+    :root { --ink:#111; --line:#222; --paper:#fff; --outside:#eee; }
+    * { box-sizing:border-box; }
+    body { margin:0; padding:28px; background:var(--outside); color:var(--ink); font-family:"Times New Roman", Times, serif; }
+    .page { width:1240px; max-width:100%; margin:0 auto 34px; padding:38px 44px 30px; background:var(--paper); overflow-x:auto; }
+    h1 { margin:0 0 16px; font-size:34px; font-weight:700; text-align:center; }
+    h2 { margin:0 0 32px; font-size:32px; font-weight:700; }
+    .intro { max-width:930px; margin:0 auto; font-size:20px; line-height:1.45; text-align:center; }
+    .caption { margin:24px 0 0; font-size:32px; line-height:1.2; font-weight:700; text-align:center; }
+    svg { width:100%; height:auto; display:block; background:#fff; }
+    .frame { fill:#fff; stroke:var(--line); stroke-width:2.2; }
+    .oval { fill:#fff; stroke:#666; stroke-width:1.8; }
+    .actor-line { stroke:#333; stroke-width:1.7; fill:none; }
+    .assoc { stroke:#333; stroke-width:1.6; fill:none; marker-end:url(#arrow); }
+    .include { stroke:#333; stroke-width:1.4; stroke-dasharray:4 4; fill:none; marker-end:url(#arrow); }
+    .extend { stroke:#333; stroke-width:1.4; stroke-dasharray:4 4; fill:none; marker-end:url(#arrow); }
+    .label, .uc-label, .relationship { font-family:"Comic Sans MS", "Comic Sans", "Trebuchet MS", Arial, sans-serif; fill:#111; font-weight:700; }
+    .label { font-size:15px; }
+    .uc-label { font-size:14px; }
+    .relationship { font-size:13px; }
+    @media print { body { background:#fff; padding:0; } .page { width:100%; margin:0; page-break-after:always; } }
+  </style>
+</head>
+<body>
+  <svg width="0" height="0" aria-hidden="true"><defs><marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth"><path d="M0,0 L0,6 L8,3 z" fill="#333"></path></marker></defs></svg>
+  <section class="page">
+    <h1>Scormetry 2.0 Complete Object Modeling Diagrams</h1>
+    <p class="intro">These three use case diagrams are rebuilt from the actual implemented routes, controllers, and Vue pages of the current Scormetry 2.0 website. They keep the previous-year diagram style while covering the Organizer/Admin, Judge/Reviewer, and Student features more completely.</p>
+  </section>
+  <section class="page"><h2>3.4.5.5 Object Modeling - Organizer/Admin</h2>
+<svg viewBox="0 0 1500 1050" role="img" aria-label="Fig. 1. Complete Organizer/Admin Use Case Diagram for Scormetry 2.0">
+<rect class="frame" x="18" y="24" width="1464" height="965"></rect>
+<circle class="actor-line" cx="80" cy="435" r="13"></circle>
+<line class="actor-line" x1="80" y1="448" x2="80" y2="499"></line>
+<line class="actor-line" x1="46" y1="467" x2="114" y2="467"></line>
+<line class="actor-line" x1="80" y1="499" x2="48" y2="537"></line>
+<line class="actor-line" x1="80" y1="499" x2="112" y2="537"></line>
+<text class="label" x="80" y="547" text-anchor="middle">Organizer /</text>
+<text class="label" x="80" y="565" text-anchor="middle">Admin</text>
+<ellipse class="oval" id="login" cx="210" cy="80" rx="98" ry="34"></ellipse>
+<text class="uc-label" x="210" y="71" text-anchor="middle">Login / Google</text>
+<text class="uc-label" x="210" y="89" text-anchor="middle">OAuth</text>
+<ellipse class="oval" id="dashboard" cx="420" cy="80" rx="98" ry="34"></ellipse>
+<text class="uc-label" x="420" y="71" text-anchor="middle">View Admin</text>
+<text class="uc-label" x="420" y="89" text-anchor="middle">Dashboard</text>
+<ellipse class="oval" id="settings" cx="650" cy="80" rx="115" ry="34"></ellipse>
+<text class="uc-label" x="650" y="71" text-anchor="middle">Manage Profile /</text>
+<text class="uc-label" x="650" y="89" text-anchor="middle">Security</text>
+<ellipse class="oval" id="users" cx="900" cy="80" rx="98" ry="34"></ellipse>
+<text class="uc-label" x="900" y="71" text-anchor="middle">Manage System</text>
+<text class="uc-label" x="900" y="89" text-anchor="middle">Users</text>
+<ellipse class="oval" id="approve" cx="1110" cy="80" rx="98" ry="34"></ellipse>
+<text class="uc-label" x="1110" y="71" text-anchor="middle">Approve User</text>
+<text class="uc-label" x="1110" y="89" text-anchor="middle">Accounts</text>
+<ellipse class="oval" id="role" cx="1310" cy="80" rx="98" ry="34"></ellipse>
+<text class="uc-label" x="1310" y="80" text-anchor="middle">Update User Role</text>
+<ellipse class="oval" id="block" cx="1110" cy="165" rx="98" ry="34"></ellipse>
+<text class="uc-label" x="1110" y="156" text-anchor="middle">Block / Unblock</text>
+<text class="uc-label" x="1110" y="174" text-anchor="middle">Users</text>
+<ellipse class="oval" id="deleteuser" cx="1310" cy="165" rx="98" ry="34"></ellipse>
+<text class="uc-label" x="1310" y="156" text-anchor="middle">Delete User</text>
+<text class="uc-label" x="1310" y="174" text-anchor="middle">Account</text>
+<ellipse class="oval" id="acting" cx="900" cy="165" rx="98" ry="34"></ellipse>
+<text class="uc-label" x="900" y="165" text-anchor="middle">Use Acting Role</text>
+<ellipse class="oval" id="subject" cx="230" cy="230" rx="98" ry="34"></ellipse>
+<text class="uc-label" x="230" y="221" text-anchor="middle">Create Subject</text>
+<text class="uc-label" x="230" y="239" text-anchor="middle">Room</text>
+<ellipse class="oval" id="editSubject" cx="455" cy="225" rx="98" ry="34"></ellipse>
+<text class="uc-label" x="455" y="216" text-anchor="middle">Edit / Delete</text>
+<text class="uc-label" x="455" y="234" text-anchor="middle">Subject</text>
+<ellipse class="oval" id="codes" cx="680" cy="225" rx="98" ry="34"></ellipse>
+<text class="uc-label" x="680" y="216" text-anchor="middle">View / Reset Join</text>
+<text class="uc-label" x="680" y="234" text-anchor="middle">Codes</text>
+<ellipse class="oval" id="approval" cx="910" cy="245" rx="98" ry="34"></ellipse>
+<text class="uc-label" x="910" y="245" text-anchor="middle">Set Approval Rule</text>
+<ellipse class="oval" id="pending" cx="1160" cy="245" rx="115" ry="34"></ellipse>
+<text class="uc-label" x="1160" y="236" text-anchor="middle">Approve / Reject</text>
+<text class="uc-label" x="1160" y="254" text-anchor="middle">Members</text>
+<ellipse class="oval" id="students" cx="230" cy="360" rx="98" ry="34"></ellipse>
+<text class="uc-label" x="230" y="351" text-anchor="middle">Add / Remove</text>
+<text class="uc-label" x="230" y="369" text-anchor="middle">Students</text>
+<ellipse class="oval" id="reviewers" cx="455" cy="350" rx="98" ry="34"></ellipse>
+<text class="uc-label" x="455" y="341" text-anchor="middle">Add / Remove</text>
+<text class="uc-label" x="455" y="359" text-anchor="middle">Reviewers</text>
+<ellipse class="oval" id="invite" cx="680" cy="350" rx="115" ry="34"></ellipse>
+<text class="uc-label" x="680" y="341" text-anchor="middle">Invite Reviewer by</text>
+<text class="uc-label" x="680" y="359" text-anchor="middle">Email</text>
+<ellipse class="oval" id="roleLabel" cx="910" cy="360" rx="115" ry="34"></ellipse>
+<text class="uc-label" x="910" y="351" text-anchor="middle">Set Committee Role</text>
+<text class="uc-label" x="910" y="369" text-anchor="middle">Label</text>
+<ellipse class="oval" id="blocked" cx="1160" cy="365" rx="115" ry="34"></ellipse>
+<text class="uc-label" x="1160" y="356" text-anchor="middle">Block Rejoining by</text>
+<text class="uc-label" x="1160" y="374" text-anchor="middle">Email</text>
+<ellipse class="oval" id="team" cx="230" cy="500" rx="98" ry="34"></ellipse>
+<text class="uc-label" x="230" y="491" text-anchor="middle">Create / Delete</text>
+<text class="uc-label" x="230" y="509" text-anchor="middle">Teams</text>
+<ellipse class="oval" id="teamMember" cx="480" cy="500" rx="115" ry="34"></ellipse>
+<text class="uc-label" x="480" y="491" text-anchor="middle">Add / Remove Team</text>
+<text class="uc-label" x="480" y="509" text-anchor="middle">Members</text>
+<ellipse class="oval" id="assignJudge" cx="735" cy="500" rx="98" ry="34"></ellipse>
+<text class="uc-label" x="735" y="491" text-anchor="middle">Assign Reviewer to</text>
+<text class="uc-label" x="735" y="509" text-anchor="middle">Team</text>
+<ellipse class="oval" id="schedule" cx="990" cy="500" rx="98" ry="34"></ellipse>
+<text class="uc-label" x="990" y="491" text-anchor="middle">Set Defense</text>
+<text class="uc-label" x="990" y="509" text-anchor="middle">Schedule</text>
+<ellipse class="oval" id="notify" cx="1235" cy="500" rx="98" ry="34"></ellipse>
+<text class="uc-label" x="1235" y="491" text-anchor="middle">Notify Schedule</text>
+<text class="uc-label" x="1235" y="509" text-anchor="middle">Change</text>
+<ellipse class="oval" id="rubricUpload" cx="230" cy="650" rx="115" ry="34"></ellipse>
+<text class="uc-label" x="230" y="641" text-anchor="middle">Upload Official</text>
+<text class="uc-label" x="230" y="659" text-anchor="middle">Rubric PDF</text>
+<ellipse class="oval" id="rubricAI" cx="505" cy="650" rx="115" ry="34"></ellipse>
+<text class="uc-label" x="505" y="641" text-anchor="middle">AI Convert to</text>
+<text class="uc-label" x="505" y="659" text-anchor="middle">Dynamic Rubric</text>
+<ellipse class="oval" id="rubricView" cx="785" cy="650" rx="115" ry="34"></ellipse>
+<text class="uc-label" x="785" y="641" text-anchor="middle">View Rubric PDF /</text>
+<text class="uc-label" x="785" y="659" text-anchor="middle">Structure</text>
+<ellipse class="oval" id="rubricEdit" cx="1055" cy="650" rx="115" ry="34"></ellipse>
+<text class="uc-label" x="1055" y="641" text-anchor="middle">Edit Extracted</text>
+<text class="uc-label" x="1055" y="659" text-anchor="middle">Structure</text>
+<ellipse class="oval" id="rubricLock" cx="1300" cy="650" rx="98" ry="34"></ellipse>
+<text class="uc-label" x="1300" y="641" text-anchor="middle">Verify and Lock</text>
+<text class="uc-label" x="1300" y="659" text-anchor="middle">Rubric</text>
+<ellipse class="oval" id="rubricDelete" cx="1055" cy="755" rx="98" ry="34"></ellipse>
+<text class="uc-label" x="1055" y="746" text-anchor="middle">Delete Unlocked</text>
+<text class="uc-label" x="1055" y="764" text-anchor="middle">Rubric</text>
+<ellipse class="oval" id="papers" cx="230" cy="820" rx="115" ry="34"></ellipse>
+<text class="uc-label" x="230" y="811" text-anchor="middle">Monitor Submitted</text>
+<text class="uc-label" x="230" y="829" text-anchor="middle">Papers</text>
+<ellipse class="oval" id="paperPdf" cx="500" cy="820" rx="115" ry="34"></ellipse>
+<text class="uc-label" x="500" y="811" text-anchor="middle">View / Download</text>
+<text class="uc-label" x="500" y="829" text-anchor="middle">Paper PDF</text>
+<ellipse class="oval" id="scores" cx="760" cy="820" rx="98" ry="34"></ellipse>
+<text class="uc-label" x="760" y="820" text-anchor="middle">View Team Scores</text>
+<ellipse class="oval" id="release" cx="1030" cy="820" rx="115" ry="34"></ellipse>
+<text class="uc-label" x="1030" y="811" text-anchor="middle">Release Scores to</text>
+<text class="uc-label" x="1030" y="829" text-anchor="middle">Students</text>
+<ellipse class="oval" id="unlock" cx="1300" cy="820" rx="115" ry="34"></ellipse>
+<text class="uc-label" x="1300" y="811" text-anchor="middle">Unlock Review with</text>
+<text class="uc-label" x="1300" y="829" text-anchor="middle">Reason</text>
+<ellipse class="oval" id="override" cx="1030" cy="930" rx="98" ry="34"></ellipse>
+<text class="uc-label" x="1030" y="921" text-anchor="middle">Override Final</text>
+<text class="uc-label" x="1030" y="939" text-anchor="middle">Score</text>
+<ellipse class="oval" id="audit" cx="1300" cy="930" rx="115" ry="34"></ellipse>
+<text class="uc-label" x="1300" y="921" text-anchor="middle">View Unlock Logs /</text>
+<text class="uc-label" x="1300" y="939" text-anchor="middle">History</text>
+<line class="assoc" x1="112" y1="467" x2="112" y2="80"></line>
+<line class="assoc" x1="112" y1="467" x2="322" y2="80"></line>
+<line class="assoc" x1="112" y1="467" x2="132" y2="230"></line>
+<line class="assoc" x1="112" y1="467" x2="132" y2="360"></line>
+<line class="assoc" x1="112" y1="467" x2="357" y2="350"></line>
+<line class="assoc" x1="112" y1="467" x2="132" y2="500"></line>
+<line class="assoc" x1="112" y1="467" x2="132" y2="650"></line>
+<line class="assoc" x1="112" y1="467" x2="132" y2="820"></line>
+<line class="assoc" x1="112" y1="467" x2="662" y2="820"></line>
+<line class="assoc" x1="112" y1="467" x2="802" y2="80"></line>
+<line class="include" x1="305" y1="80" x2="325" y2="80"></line>
+<text class="relationship" x="315.0" y="72.0">&lt;&lt;include&gt;&gt;</text>
+<line class="extend" x1="515" y1="80" x2="805" y2="80"></line>
+<text class="relationship" x="660.0" y="72.0">&lt;&lt;extend&gt;&gt;</text>
+<line class="include" x1="995" y1="80" x2="1015" y2="80"></line>
+<text class="relationship" x="1005.0" y="72.0">&lt;&lt;include&gt;&gt;</text>
+<line class="extend" x1="995" y1="80" x2="1215" y2="80"></line>
+<text class="relationship" x="1105.0" y="72.0">&lt;&lt;extend&gt;&gt;</text>
+<line class="extend" x1="995" y1="80" x2="1015" y2="165"></line>
+<text class="relationship" x="1005.0" y="114.5">&lt;&lt;extend&gt;&gt;</text>
+<line class="extend" x1="995" y1="80" x2="1215" y2="165"></line>
+<text class="relationship" x="1105.0" y="114.5">&lt;&lt;extend&gt;&gt;</text>
+<line class="extend" x1="805" y1="80" x2="995" y2="165"></line>
+<text class="relationship" x="900.0" y="114.5">&lt;&lt;extend&gt;&gt;</text>
+<line class="extend" x1="325" y1="230" x2="360" y2="225"></line>
+<text class="relationship" x="342.5" y="219.5">&lt;&lt;extend&gt;&gt;</text>
+<line class="include" x1="325" y1="230" x2="585" y2="225"></line>
+<text class="relationship" x="455.0" y="219.5">&lt;&lt;include&gt;&gt;</text>
+<line class="include" x1="325" y1="230" x2="815" y2="245"></line>
+<text class="relationship" x="570.0" y="229.5">&lt;&lt;include&gt;&gt;</text>
+<line class="include" x1="1005" y1="245" x2="1065" y2="245"></line>
+<text class="relationship" x="1035.0" y="237.0">&lt;&lt;include&gt;&gt;</text>
+<line class="include" x1="325" y1="360" x2="1065" y2="365"></line>
+<text class="relationship" x="695.0" y="354.5">&lt;&lt;include&gt;&gt;</text>
+<line class="extend" x1="550" y1="350" x2="585" y2="350"></line>
+<text class="relationship" x="567.5" y="342.0">&lt;&lt;extend&gt;&gt;</text>
+<line class="include" x1="550" y1="350" x2="815" y2="360"></line>
+<text class="relationship" x="682.5" y="347.0">&lt;&lt;include&gt;&gt;</text>
+<line class="include" x1="550" y1="350" x2="1065" y2="365"></line>
+<text class="relationship" x="807.5" y="349.5">&lt;&lt;include&gt;&gt;</text>
+<line class="include" x1="325" y1="500" x2="385" y2="500"></line>
+<text class="relationship" x="355.0" y="492.0">&lt;&lt;include&gt;&gt;</text>
+<line class="extend" x1="575" y1="500" x2="640" y2="500"></line>
+<text class="relationship" x="607.5" y="492.0">&lt;&lt;extend&gt;&gt;</text>
+<line class="extend" x1="325" y1="500" x2="895" y2="500"></line>
+<text class="relationship" x="610.0" y="492.0">&lt;&lt;extend&gt;&gt;</text>
+<line class="include" x1="1085" y1="500" x2="1140" y2="500"></line>
+<text class="relationship" x="1112.5" y="492.0">&lt;&lt;include&gt;&gt;</text>
+<line class="include" x1="325" y1="650" x2="410" y2="650"></line>
+<text class="relationship" x="367.5" y="642.0">&lt;&lt;include&gt;&gt;</text>
+<line class="include" x1="600" y1="650" x2="690" y2="650"></line>
+<text class="relationship" x="645.0" y="642.0">&lt;&lt;include&gt;&gt;</text>
+<line class="extend" x1="880" y1="650" x2="960" y2="650"></line>
+<text class="relationship" x="920.0" y="642.0">&lt;&lt;extend&gt;&gt;</text>
+<line class="include" x1="1150" y1="650" x2="1205" y2="650"></line>
+<text class="relationship" x="1177.5" y="642.0">&lt;&lt;include&gt;&gt;</text>
+<line class="extend" x1="880" y1="650" x2="960" y2="755"></line>
+<text class="relationship" x="920.0" y="694.5">&lt;&lt;extend&gt;&gt;</text>
+<line class="include" x1="325" y1="820" x2="405" y2="820"></line>
+<text class="relationship" x="365.0" y="812.0">&lt;&lt;include&gt;&gt;</text>
+<line class="include" x1="325" y1="820" x2="665" y2="820"></line>
+<text class="relationship" x="495.0" y="812.0">&lt;&lt;include&gt;&gt;</text>
+<line class="extend" x1="855" y1="820" x2="935" y2="820"></line>
+<text class="relationship" x="895.0" y="812.0">&lt;&lt;extend&gt;&gt;</text>
+<line class="extend" x1="855" y1="820" x2="1205" y2="820"></line>
+<text class="relationship" x="1030.0" y="812.0">&lt;&lt;extend&gt;&gt;</text>
+<line class="extend" x1="855" y1="820" x2="935" y2="930"></line>
+<text class="relationship" x="895.0" y="867.0">&lt;&lt;extend&gt;&gt;</text>
+<line class="include" x1="1205" y1="820" x2="1395" y2="930"></line>
+<text class="relationship" x="1300.0" y="867.0">&lt;&lt;include&gt;&gt;</text>
+</svg>
+<p class="caption">Fig. 1. Complete Organizer/Admin Use Case Diagram for Scormetry 2.0</p></section>
+  <section class="page"><h2>3.4.5.5 Object Modeling - Judge/Reviewer</h2>
+<svg viewBox="0 0 1420 760" role="img" aria-label="Fig. 2. Complete Judge/Reviewer Use Case Diagram for Scormetry 2.0">
+<rect class="frame" x="18" y="24" width="1384" height="675"></rect>
+<circle class="actor-line" cx="80" cy="290" r="13"></circle>
+<line class="actor-line" x1="80" y1="303" x2="80" y2="354"></line>
+<line class="actor-line" x1="46" y1="322" x2="114" y2="322"></line>
+<line class="actor-line" x1="80" y1="354" x2="48" y2="392"></line>
+<line class="actor-line" x1="80" y1="354" x2="112" y2="392"></line>
+<text class="label" x="80" y="402" text-anchor="middle">Judge /</text>
+<text class="label" x="80" y="420" text-anchor="middle">Reviewer</text>
+<ellipse class="oval" id="login" cx="220" cy="80" rx="98" ry="34"></ellipse>
+<text class="uc-label" x="220" y="71" text-anchor="middle">Login / Google</text>
+<text class="uc-label" x="220" y="89" text-anchor="middle">OAuth</text>
+<ellipse class="oval" id="accept" cx="460" cy="80" rx="98" ry="34"></ellipse>
+<text class="uc-label" x="460" y="71" text-anchor="middle">Accept Email</text>
+<text class="uc-label" x="460" y="89" text-anchor="middle">Invitation</text>
+<ellipse class="oval" id="joinReviewer" cx="720" cy="80" rx="115" ry="34"></ellipse>
+<text class="uc-label" x="720" y="71" text-anchor="middle">Join as Reviewer</text>
+<text class="uc-label" x="720" y="89" text-anchor="middle">by Code</text>
+<ellipse class="oval" id="roleLabel" cx="980" cy="80" rx="98" ry="34"></ellipse>
+<text class="uc-label" x="980" y="71" text-anchor="middle">Select Committee</text>
+<text class="uc-label" x="980" y="89" text-anchor="middle">Role</text>
+<ellipse class="oval" id="dashboard" cx="1230" cy="80" rx="98" ry="34"></ellipse>
+<text class="uc-label" x="1230" y="71" text-anchor="middle">View Reviewer</text>
+<text class="uc-label" x="1230" y="89" text-anchor="middle">Dashboard</text>
+<ellipse class="oval" id="assigned" cx="220" cy="215" rx="98" ry="34"></ellipse>
+<text class="uc-label" x="220" y="206" text-anchor="middle">View Assigned</text>
+<text class="uc-label" x="220" y="224" text-anchor="middle">Teams</text>
+<ellipse class="oval" id="subject" cx="460" cy="215" rx="98" ry="34"></ellipse>
+<text class="uc-label" x="460" y="215" text-anchor="middle">Open Subject Room</text>
+<ellipse class="oval" id="schedule" cx="720" cy="215" rx="98" ry="34"></ellipse>
+<text class="uc-label" x="720" y="206" text-anchor="middle">View Defense</text>
+<text class="uc-label" x="720" y="224" text-anchor="middle">Schedule</text>
+<ellipse class="oval" id="paper" cx="980" cy="215" rx="98" ry="34"></ellipse>
+<text class="uc-label" x="980" y="206" text-anchor="middle">View Final Paper</text>
+<text class="uc-label" x="980" y="224" text-anchor="middle">PDF</text>
+<ellipse class="oval" id="rubric" cx="1230" cy="215" rx="115" ry="34"></ellipse>
+<text class="uc-label" x="1230" y="206" text-anchor="middle">View Locked</text>
+<text class="uc-label" x="1230" y="224" text-anchor="middle">Dynamic Rubric</text>
+<ellipse class="oval" id="review" cx="220" cy="360" rx="98" ry="34"></ellipse>
+<text class="uc-label" x="220" y="360" text-anchor="middle">Open Review Form</text>
+<ellipse class="oval" id="criteria" cx="460" cy="360" rx="98" ry="34"></ellipse>
+<text class="uc-label" x="460" y="351" text-anchor="middle">Score Each</text>
+<text class="uc-label" x="460" y="369" text-anchor="middle">Criterion</text>
+<ellipse class="oval" id="criterionComment" cx="720" cy="360" rx="115" ry="34"></ellipse>
+<text class="uc-label" x="720" y="351" text-anchor="middle">Add Per-Criterion</text>
+<text class="uc-label" x="720" y="369" text-anchor="middle">Comments</text>
+<ellipse class="oval" id="overallComment" cx="980" cy="360" rx="98" ry="34"></ellipse>
+<text class="uc-label" x="980" y="351" text-anchor="middle">Add Overall</text>
+<text class="uc-label" x="980" y="369" text-anchor="middle">Feedback</text>
+<ellipse class="oval" id="submit" cx="1230" cy="360" rx="98" ry="34"></ellipse>
+<text class="uc-label" x="1230" y="360" text-anchor="middle">Submit Review</text>
+<ellipse class="oval" id="deadline" cx="350" cy="500" rx="98" ry="34"></ellipse>
+<text class="uc-label" x="350" y="491" text-anchor="middle">Follow Score</text>
+<text class="uc-label" x="350" y="509" text-anchor="middle">Deadline</text>
+<ellipse class="oval" id="locked" cx="610" cy="500" rx="98" ry="34"></ellipse>
+<text class="uc-label" x="610" y="491" text-anchor="middle">Review Becomes</text>
+<text class="uc-label" x="610" y="509" text-anchor="middle">Locked</text>
+<ellipse class="oval" id="editUnlocked" cx="870" cy="500" rx="98" ry="34"></ellipse>
+<text class="uc-label" x="870" y="491" text-anchor="middle">Edit Only If</text>
+<text class="uc-label" x="870" y="509" text-anchor="middle">Unlocked</text>
+<ellipse class="oval" id="history" cx="1130" cy="500" rx="98" ry="34"></ellipse>
+<text class="uc-label" x="1130" y="491" text-anchor="middle">View Submitted</text>
+<text class="uc-label" x="1130" y="509" text-anchor="middle">Review</text>
+<ellipse class="oval" id="teamScores" cx="610" cy="635" rx="98" ry="34"></ellipse>
+<text class="uc-label" x="610" y="626" text-anchor="middle">View Team Score</text>
+<text class="uc-label" x="610" y="644" text-anchor="middle">Summary</text>
+<ellipse class="oval" id="result" cx="870" cy="635" rx="98" ry="34"></ellipse>
+<text class="uc-label" x="870" y="626" text-anchor="middle">View Released</text>
+<text class="uc-label" x="870" y="644" text-anchor="middle">Result</text>
+<line class="assoc" x1="112" y1="322" x2="122" y2="80"></line>
+<line class="assoc" x1="112" y1="322" x2="362" y2="80"></line>
+<line class="assoc" x1="112" y1="322" x2="622" y2="80"></line>
+<line class="assoc" x1="112" y1="322" x2="122" y2="215"></line>
+<line class="assoc" x1="112" y1="322" x2="882" y2="215"></line>
+<line class="assoc" x1="112" y1="322" x2="122" y2="360"></line>
+<line class="assoc" x1="112" y1="322" x2="512" y2="635"></line>
+<line class="include" x1="315" y1="80" x2="1135" y2="80"></line>
+<text class="relationship" x="725.0" y="72.0">&lt;&lt;include&gt;&gt;</text>
+<line class="include" x1="365" y1="80" x2="315" y2="215"></line>
+<text class="relationship" x="340.0" y="139.5">&lt;&lt;include&gt;&gt;</text>
+<line class="include" x1="815" y1="80" x2="885" y2="80"></line>
+<text class="relationship" x="850.0" y="72.0">&lt;&lt;include&gt;&gt;</text>
+<line class="include" x1="625" y1="80" x2="315" y2="215"></line>
+<text class="relationship" x="470.0" y="139.5">&lt;&lt;include&gt;&gt;</text>
+<line class="include" x1="315" y1="215" x2="365" y2="215"></line>
+<text class="relationship" x="340.0" y="207.0">&lt;&lt;include&gt;&gt;</text>
+<line class="include" x1="555" y1="215" x2="625" y2="215"></line>
+<text class="relationship" x="590.0" y="207.0">&lt;&lt;include&gt;&gt;</text>
+<line class="include" x1="555" y1="215" x2="885" y2="215"></line>
+<text class="relationship" x="720.0" y="207.0">&lt;&lt;include&gt;&gt;</text>
+<line class="include" x1="1075" y1="215" x2="1135" y2="215"></line>
+<text class="relationship" x="1105.0" y="207.0">&lt;&lt;include&gt;&gt;</text>
+<line class="include" x1="315" y1="360" x2="365" y2="360"></line>
+<text class="relationship" x="340.0" y="352.0">&lt;&lt;include&gt;&gt;</text>
+<line class="extend" x1="555" y1="360" x2="625" y2="360"></line>
+<text class="relationship" x="590.0" y="352.0">&lt;&lt;extend&gt;&gt;</text>
+<line class="extend" x1="315" y1="360" x2="885" y2="360"></line>
+<text class="relationship" x="600.0" y="352.0">&lt;&lt;extend&gt;&gt;</text>
+<line class="include" x1="315" y1="360" x2="255" y2="500"></line>
+<text class="relationship" x="285.0" y="422.0">&lt;&lt;include&gt;&gt;</text>
+<line class="include" x1="555" y1="360" x2="1135" y2="360"></line>
+<text class="relationship" x="845.0" y="352.0">&lt;&lt;include&gt;&gt;</text>
+<line class="include" x1="1135" y1="360" x2="705" y2="500"></line>
+<text class="relationship" x="920.0" y="422.0">&lt;&lt;include&gt;&gt;</text>
+<line class="extend" x1="705" y1="500" x2="775" y2="500"></line>
+<text class="relationship" x="740.0" y="492.0">&lt;&lt;extend&gt;&gt;</text>
+<line class="include" x1="705" y1="500" x2="1035" y2="500"></line>
+<text class="relationship" x="870.0" y="492.0">&lt;&lt;include&gt;&gt;</text>
+<line class="extend" x1="705" y1="635" x2="775" y2="635"></line>
+<text class="relationship" x="740.0" y="627.0">&lt;&lt;extend&gt;&gt;</text>
+</svg>
+<p class="caption">Fig. 2. Complete Judge/Reviewer Use Case Diagram for Scormetry 2.0</p></section>
+  <section class="page"><h2>3.4.5.5 Object Modeling - Student</h2>
+<svg viewBox="0 0 1420 770" role="img" aria-label="Fig. 3. Complete Student Use Case Diagram for Scormetry 2.0">
+<rect class="frame" x="18" y="24" width="1384" height="685"></rect>
+<circle class="actor-line" cx="80" cy="295" r="13"></circle>
+<line class="actor-line" x1="80" y1="308" x2="80" y2="359"></line>
+<line class="actor-line" x1="46" y1="327" x2="114" y2="327"></line>
+<line class="actor-line" x1="80" y1="359" x2="48" y2="397"></line>
+<line class="actor-line" x1="80" y1="359" x2="112" y2="397"></line>
+<text class="label" x="80" y="407" text-anchor="middle">Student</text>
+<ellipse class="oval" id="login" cx="220" cy="80" rx="98" ry="34"></ellipse>
+<text class="uc-label" x="220" y="71" text-anchor="middle">Login / Google</text>
+<text class="uc-label" x="220" y="89" text-anchor="middle">OAuth</text>
+<ellipse class="oval" id="join" cx="470" cy="80" rx="98" ry="34"></ellipse>
+<text class="uc-label" x="470" y="71" text-anchor="middle">Join Subject by</text>
+<text class="uc-label" x="470" y="89" text-anchor="middle">Code</text>
+<ellipse class="oval" id="pending" cx="720" cy="80" rx="98" ry="34"></ellipse>
+<text class="uc-label" x="720" y="80" text-anchor="middle">Wait for Approval</text>
+<ellipse class="oval" id="blocked" cx="970" cy="80" rx="98" ry="34"></ellipse>
+<text class="uc-label" x="970" y="71" text-anchor="middle">View Blocked</text>
+<text class="uc-label" x="970" y="89" text-anchor="middle">Status</text>
+<ellipse class="oval" id="dashboard" cx="1230" cy="80" rx="98" ry="34"></ellipse>
+<text class="uc-label" x="1230" y="71" text-anchor="middle">View Student</text>
+<text class="uc-label" x="1230" y="89" text-anchor="middle">Dashboard</text>
+<ellipse class="oval" id="subjects" cx="220" cy="220" rx="98" ry="34"></ellipse>
+<text class="uc-label" x="220" y="211" text-anchor="middle">View Joined</text>
+<text class="uc-label" x="220" y="229" text-anchor="middle">Subjects</text>
+<ellipse class="oval" id="teamRoom" cx="470" cy="220" rx="98" ry="34"></ellipse>
+<text class="uc-label" x="470" y="220" text-anchor="middle">Open Team Room</text>
+<ellipse class="oval" id="createTeam" cx="720" cy="220" rx="98" ry="34"></ellipse>
+<text class="uc-label" x="720" y="220" text-anchor="middle">Create Team</text>
+<ellipse class="oval" id="joinTeam" cx="970" cy="220" rx="115" ry="34"></ellipse>
+<text class="uc-label" x="970" y="211" text-anchor="middle">Add / Invite Team</text>
+<text class="uc-label" x="970" y="229" text-anchor="middle">Member</text>
+<ellipse class="oval" id="leaveTeam" cx="1230" cy="220" rx="98" ry="34"></ellipse>
+<text class="uc-label" x="1230" y="220" text-anchor="middle">Leave Team</text>
+<ellipse class="oval" id="schedule" cx="220" cy="370" rx="98" ry="34"></ellipse>
+<text class="uc-label" x="220" y="361" text-anchor="middle">View Defense</text>
+<text class="uc-label" x="220" y="379" text-anchor="middle">Schedule</text>
+<ellipse class="oval" id="rubric" cx="470" cy="370" rx="115" ry="34"></ellipse>
+<text class="uc-label" x="470" y="361" text-anchor="middle">View Official</text>
+<text class="uc-label" x="470" y="379" text-anchor="middle">Rubric PDF</text>
+<ellipse class="oval" id="paperCreate" cx="720" cy="370" rx="98" ry="34"></ellipse>
+<text class="uc-label" x="720" y="361" text-anchor="middle">Open Paper</text>
+<text class="uc-label" x="720" y="379" text-anchor="middle">Submission</text>
+<ellipse class="oval" id="upload" cx="970" cy="370" rx="98" ry="34"></ellipse>
+<text class="uc-label" x="970" y="361" text-anchor="middle">Upload Final Paper</text>
+<text class="uc-label" x="970" y="379" text-anchor="middle">PDF</text>
+<ellipse class="oval" id="paperStatus" cx="1230" cy="370" rx="98" ry="34"></ellipse>
+<text class="uc-label" x="1230" y="370" text-anchor="middle">View Upload Status</text>
+<ellipse class="oval" id="papers" cx="350" cy="520" rx="98" ry="34"></ellipse>
+<text class="uc-label" x="350" y="520" text-anchor="middle">View Own Papers</text>
+<ellipse class="oval" id="pendingResult" cx="610" cy="520" rx="115" ry="34"></ellipse>
+<text class="uc-label" x="610" y="511" text-anchor="middle">View Result</text>
+<text class="uc-label" x="610" y="529" text-anchor="middle">Pending Page</text>
+<ellipse class="oval" id="result" cx="870" cy="520" rx="98" ry="34"></ellipse>
+<text class="uc-label" x="870" y="511" text-anchor="middle">View Released</text>
+<text class="uc-label" x="870" y="529" text-anchor="middle">Result</text>
+<ellipse class="oval" id="breakdown" cx="1130" cy="520" rx="98" ry="34"></ellipse>
+<text class="uc-label" x="1130" y="511" text-anchor="middle">View Criteria</text>
+<text class="uc-label" x="1130" y="529" text-anchor="middle">Breakdown</text>
+<ellipse class="oval" id="comments" cx="870" cy="650" rx="98" ry="34"></ellipse>
+<text class="uc-label" x="870" y="641" text-anchor="middle">View Judge</text>
+<text class="uc-label" x="870" y="659" text-anchor="middle">Comments</text>
+<ellipse class="oval" id="score" cx="1130" cy="650" rx="115" ry="34"></ellipse>
+<text class="uc-label" x="1130" y="641" text-anchor="middle">View Final Score /</text>
+<text class="uc-label" x="1130" y="659" text-anchor="middle">Override Note</text>
+<line class="assoc" x1="112" y1="327" x2="122" y2="80"></line>
+<line class="assoc" x1="112" y1="327" x2="372" y2="80"></line>
+<line class="assoc" x1="112" y1="327" x2="122" y2="220"></line>
+<line class="assoc" x1="112" y1="327" x2="372" y2="220"></line>
+<line class="assoc" x1="112" y1="327" x2="622" y2="370"></line>
+<line class="assoc" x1="112" y1="327" x2="252" y2="520"></line>
+<line class="assoc" x1="112" y1="327" x2="772" y2="520"></line>
+<line class="include" x1="315" y1="80" x2="1135" y2="80"></line>
+<text class="relationship" x="725.0" y="72.0">&lt;&lt;include&gt;&gt;</text>
+<line class="extend" x1="565" y1="80" x2="625" y2="80"></line>
+<text class="relationship" x="595.0" y="72.0">&lt;&lt;extend&gt;&gt;</text>
+<line class="extend" x1="565" y1="80" x2="875" y2="80"></line>
+<text class="relationship" x="720.0" y="72.0">&lt;&lt;extend&gt;&gt;</text>
+<line class="include" x1="375" y1="80" x2="315" y2="220"></line>
+<text class="relationship" x="345.0" y="142.0">&lt;&lt;include&gt;&gt;</text>
+<line class="include" x1="315" y1="220" x2="375" y2="220"></line>
+<text class="relationship" x="345.0" y="212.0">&lt;&lt;include&gt;&gt;</text>
+<line class="extend" x1="565" y1="220" x2="625" y2="220"></line>
+<text class="relationship" x="595.0" y="212.0">&lt;&lt;extend&gt;&gt;</text>
+<line class="extend" x1="565" y1="220" x2="875" y2="220"></line>
+<text class="relationship" x="720.0" y="212.0">&lt;&lt;extend&gt;&gt;</text>
+<line class="extend" x1="565" y1="220" x2="1135" y2="220"></line>
+<text class="relationship" x="850.0" y="212.0">&lt;&lt;extend&gt;&gt;</text>
+<line class="include" x1="375" y1="220" x2="315" y2="370"></line>
+<text class="relationship" x="345.0" y="287.0">&lt;&lt;include&gt;&gt;</text>
+<line class="include" x1="375" y1="220" x2="565" y2="370"></line>
+<text class="relationship" x="470.0" y="287.0">&lt;&lt;include&gt;&gt;</text>
+<line class="include" x1="815" y1="370" x2="875" y2="370"></line>
+<text class="relationship" x="845.0" y="362.0">&lt;&lt;include&gt;&gt;</text>
+<line class="include" x1="1065" y1="370" x2="1135" y2="370"></line>
+<text class="relationship" x="1100.0" y="362.0">&lt;&lt;include&gt;&gt;</text>
+<line class="extend" x1="445" y1="520" x2="515" y2="520"></line>
+<text class="relationship" x="480.0" y="512.0">&lt;&lt;extend&gt;&gt;</text>
+<line class="include" x1="965" y1="520" x2="1035" y2="520"></line>
+<text class="relationship" x="1000.0" y="512.0">&lt;&lt;include&gt;&gt;</text>
+<line class="include" x1="775" y1="520" x2="965" y2="650"></line>
+<text class="relationship" x="870.0" y="577.0">&lt;&lt;include&gt;&gt;</text>
+<line class="include" x1="965" y1="520" x2="1035" y2="650"></line>
+<text class="relationship" x="1000.0" y="577.0">&lt;&lt;include&gt;&gt;</text>
+</svg>
+<p class="caption">Fig. 3. Complete Student Use Case Diagram for Scormetry 2.0</p></section>
+</body>
+</html>

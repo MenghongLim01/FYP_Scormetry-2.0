@@ -1,0 +1,55 @@
+[     207ms] [LOG] 🔍 Browser logger active (MCP server detected). Posting to: http://127.0.0.1:8000/_boost/browser-logs @ http://127.0.0.1:8000/login:41
+[ 3206377ms] [LOG] [vite] server connection lost. Polling for restart... @ http://127.0.0.1:8000/login:100
+[ 3207111ms] [LOG] 🔍 Browser logger active (MCP server detected). Posting to: http://127.0.0.1:8000/_boost/browser-logs @ http://127.0.0.1:8000/papers/2:41
+[ 5090961ms] [LOG] [vite] server connection lost. Polling for restart... @ http://127.0.0.1:8000/papers/2:100
+[ 5091417ms] [LOG] 🔍 Browser logger active (MCP server detected). Posting to: http://127.0.0.1:8000/_boost/browser-logs @ http://127.0.0.1:8000/papers/2:41
+[ 5913158ms] [LOG] [vite] server connection lost. Polling for restart... @ http://127.0.0.1:8000/papers/2:100
+[ 5913652ms] [LOG] 🔍 Browser logger active (MCP server detected). Posting to: http://127.0.0.1:8000/_boost/browser-logs @ http://127.0.0.1:8000/papers/2:41
+[ 6387966ms] [LOG] [vite] server connection lost. Polling for restart... @ http://127.0.0.1:8000/papers/2:100
+[ 6388453ms] [LOG] 🔍 Browser logger active (MCP server detected). Posting to: http://127.0.0.1:8000/_boost/browser-logs @ http://127.0.0.1:8000/papers/2:41
+[ 7290727ms] [LOG] [vite] server connection lost. Polling for restart... @ http://127.0.0.1:8000/papers/2:100
+[ 7291183ms] [ERROR] Failed to send logs: TypeError: Failed to fetch
+    at flushLogs (http://127.0.0.1:8000/papers/2:78:9) @ http://127.0.0.1:8000/papers/2:86
+[ 7291195ms] [LOG] 🔍 Browser logger active (MCP server detected). Posting to: http://127.0.0.1:8000/_boost/browser-logs @ http://127.0.0.1:8000/papers/2:41
+[ 7565761ms] [LOG] [vite] server connection lost. Polling for restart... @ http://127.0.0.1:8000/papers/2:100
+[ 7565991ms] [LOG] 🔍 Browser logger active (MCP server detected). Posting to: http://127.0.0.1:8000/_boost/browser-logs @ http://127.0.0.1:8000/papers/2:41
+[ 8027671ms] [LOG] [vite] server connection lost. Polling for restart... @ http://127.0.0.1:8000/papers/2:100
+[ 8028125ms] [LOG] 🔍 Browser logger active (MCP server detected). Posting to: http://127.0.0.1:8000/_boost/browser-logs @ http://127.0.0.1:8000/papers/2:41
+[ 8202509ms] [LOG] [vite] server connection lost. Polling for restart... @ http://127.0.0.1:8000/papers/2:100
+[ 8202811ms] [ERROR] Failed to send logs: TypeError: Failed to fetch
+    at flushLogs (http://127.0.0.1:8000/papers/2:78:9) @ http://127.0.0.1:8000/papers/2:86
+[ 8202817ms] [LOG] 🔍 Browser logger active (MCP server detected). Posting to: http://127.0.0.1:8000/_boost/browser-logs @ http://127.0.0.1:8000/papers/2:41
+[ 8329771ms] [LOG] [vite] server connection lost. Polling for restart... @ http://127.0.0.1:8000/papers/2:100
+[ 8330186ms] [ERROR] Failed to send logs: TypeError: Failed to fetch
+    at flushLogs (http://127.0.0.1:8000/papers/2:78:9) @ http://127.0.0.1:8000/papers/2:86
+[ 8330205ms] [LOG] 🔍 Browser logger active (MCP server detected). Posting to: http://127.0.0.1:8000/_boost/browser-logs @ http://127.0.0.1:8000/papers/2:41
+[ 8381066ms] [LOG] [vite] server connection lost. Polling for restart... @ http://127.0.0.1:8000/papers/2:100
+[ 8381414ms] [ERROR] Failed to send logs: TypeError: Failed to fetch
+    at flushLogs (http://127.0.0.1:8000/papers/2:78:9) @ http://127.0.0.1:8000/papers/2:86
+[ 8381421ms] [LOG] 🔍 Browser logger active (MCP server detected). Posting to: http://127.0.0.1:8000/_boost/browser-logs @ http://127.0.0.1:8000/papers/2:41
+[ 8389529ms] [LOG] [vite] server connection lost. Polling for restart... @ http://127.0.0.1:8000/papers/2:100
+[ 8389772ms] [ERROR] Failed to send logs: TypeError: Failed to fetch
+    at flushLogs (http://127.0.0.1:8000/papers/2:78:9) @ http://127.0.0.1:8000/papers/2:86
+[ 8389779ms] [LOG] 🔍 Browser logger active (MCP server detected). Posting to: http://127.0.0.1:8000/_boost/browser-logs @ http://127.0.0.1:8000/papers/2:41
+[ 8396813ms] [LOG] [vite] server connection lost. Polling for restart... @ http://127.0.0.1:8000/papers/2:100
+[ 8397010ms] [ERROR] Failed to send logs: TypeError: Failed to fetch
+    at flushLogs (http://127.0.0.1:8000/papers/2:78:9) @ http://127.0.0.1:8000/papers/2:86
+[ 8397014ms] [LOG] 🔍 Browser logger active (MCP server detected). Posting to: http://127.0.0.1:8000/_boost/browser-logs @ http://127.0.0.1:8000/papers/2:41
+[ 8410210ms] [LOG] [vite] server connection lost. Polling for restart... @ http://127.0.0.1:8000/papers/2:100
+[ 8410403ms] [ERROR] Failed to send logs: TypeError: Failed to fetch
+    at flushLogs (http://127.0.0.1:8000/papers/2:78:9) @ http://127.0.0.1:8000/papers/2:86
+[ 8410411ms] [LOG] 🔍 Browser logger active (MCP server detected). Posting to: http://127.0.0.1:8000/_boost/browser-logs @ http://127.0.0.1:8000/papers/2:41
+[ 9114997ms] [LOG] [vite] server connection lost. Polling for restart... @ http://127.0.0.1:8000/papers/2:100
+[ 9115431ms] [LOG] 🔍 Browser logger active (MCP server detected). Posting to: http://127.0.0.1:8000/_boost/browser-logs @ http://127.0.0.1:8000/papers/2:41
+[11273093ms] [LOG] [vite] server connection lost. Polling for restart... @ http://127.0.0.1:8000/papers/2:100
+[11273364ms] [ERROR] Failed to send logs: TypeError: Failed to fetch
+    at flushLogs (http://127.0.0.1:8000/papers/2:78:9) @ http://127.0.0.1:8000/papers/2:86
+[11273370ms] [LOG] 🔍 Browser logger active (MCP server detected). Posting to: http://127.0.0.1:8000/_boost/browser-logs @ http://127.0.0.1:8000/papers/2:41
+[25275590ms] [LOG] [vite] server connection lost. Polling for restart... @ http://127.0.0.1:8000/papers/2:100
+[25275904ms] [LOG] 🔍 Browser logger active (MCP server detected). Posting to: http://127.0.0.1:8000/_boost/browser-logs @ http://127.0.0.1:8000/login:41
+[30514943ms] [LOG] [vite] server connection lost. Polling for restart... @ http://127.0.0.1:8000/login:100
+[30515032ms] [LOG] 🔍 Browser logger active (MCP server detected). Posting to: http://127.0.0.1:8000/_boost/browser-logs @ http://127.0.0.1:8000/login:41
+[33993944ms] [LOG] [vite] server connection lost. Polling for restart... @ http://127.0.0.1:8000/login:100
+[33994071ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:8000/_boost/browser-logs:0
+[33994071ms] [ERROR] Failed to send logs: TypeError: Failed to fetch
+    at flushLogs (http://127.0.0.1:8000/login:78:9) @ http://127.0.0.1:8000/login:86

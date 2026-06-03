@@ -1,0 +1,17 @@
+sequenceDiagram
+    actor Admin
+    participant UI as Subject Member Form
+    participant Controller as SubjectController / InvitationController
+    participant DB as Database
+    participant Mail as Laravel Mail
+    actor Judge
+
+    Admin->>UI: Enter judge email and role label
+    UI->>Controller: Submit reviewer invitation
+    Controller->>DB: Check blocked email and existing invitation
+    DB-->>Controller: Return validation result
+    Controller->>Controller: Generate secure token
+    Controller->>DB: Store subject_invitations
+    Controller->>Mail: Send ReviewerInvitationMail
+    Mail-->>Judge: Deliver invitation link
+    Controller-->>UI: Show invitation confirmation

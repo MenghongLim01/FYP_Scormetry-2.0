@@ -1,0 +1,394 @@
+- generic:
+  - generic:
+    - generic:
+      - generic:
+        - generic:
+          - generic:
+            - generic:
+              - list:
+                - listitem:
+                  - link:
+                    - /url: /dashboard
+                    - generic:
+                      - img
+                    - generic:
+                      - generic: Scormetry
+            - generic:
+              - generic:
+                - generic: Dashboard
+                - list:
+                  - listitem:
+                    - link:
+                      - /url: /dashboard
+                      - img
+                      - generic: Dashboard
+              - generic:
+                - generic: Academic Management
+                - list:
+                  - listitem:
+                    - link:
+                      - /url: /subjects
+                      - img
+                      - generic: Subjects
+                  - listitem:
+                    - link:
+                      - /url: /papers
+                      - img
+                      - generic: Papers
+              - generic:
+                - generic: Admin Panel
+                - list:
+                  - listitem:
+                    - link:
+                      - /url: /admin/dashboard
+                      - img
+                      - generic: Admin Dashboard
+                  - listitem:
+                    - link:
+                      - /url: /admin/classrooms
+                      - img
+                      - generic: Classroom Management
+                  - listitem:
+                    - link:
+                      - /url: /admin/users
+                      - img
+                      - generic: User Management
+                  - listitem:
+                    - link:
+                      - /url: /admin/settings
+                      - img
+                      - generic: Settings
+              - generic:
+                - generic:
+                  - generic: "Dev: Role View"
+                - generic:
+                  - generic:
+                    - button: admin
+                    - button: teacher
+                    - button: student
+            - generic:
+              - generic:
+                - generic:
+                  - list:
+                    - listitem:
+                      - link:
+                        - /url: /settings/profile
+                        - img
+                        - generic: Settings
+      - main:
+        - generic:
+          - generic:
+            - generic:
+              - button:
+                - img
+                - generic: Toggle sidebar
+            - generic:
+              - button:
+                - img
+              - button:
+                - generic:
+                  - generic: A
+                - generic: Admin
+                - img
+        - generic:
+          - generic:
+            - generic:
+              - link:
+                - /url: /subjects
+                - img
+                - text: Subjects
+            - generic:
+              - generic:
+                - generic:
+                  - generic:
+                    - img
+                  - generic:
+                    - heading [level=1]: FYP Defense AY2025-2026
+                    - paragraph: Final Year Project Defense Room
+                    - generic:
+                      - generic:
+                        - text: Taught by
+                        - strong: teacher1
+                      - generic: "Pass: 70%"
+                      - generic: Approval Required
+                - generic:
+                  - link:
+                    - /url: /subjects/5/edit
+                    - img
+                    - text: Edit
+            - generic:
+              - generic:
+                - generic:
+                  - img
+                - generic:
+                  - paragraph: "22"
+                  - paragraph: Students
+              - generic:
+                - generic:
+                  - img
+                - generic:
+                  - paragraph: "4"
+                  - paragraph: Reviewers
+              - generic:
+                - generic:
+                  - img
+                - generic:
+                  - paragraph: "5"
+                  - paragraph: Papers
+              - generic:
+                - generic:
+                  - img
+                - generic:
+                  - paragraph: 1%
+                  - paragraph: Reviewed
+            - generic:
+              - generic:
+                - generic:
+                  - img
+                - generic:
+                  - generic:
+                    - paragraph: Rubric
+                    - generic: Locked
+                  - paragraph: Assessment criteria for this subject.
+                - generic:
+                  - link:
+                    - /url: /rubrics/5
+                    - img
+                    - text: View
+            - generic:
+              - button:
+                - generic: "4"
+                - text: Papers with no scores yet
+              - button:
+                - generic: "8"
+                - text: Overdue judges
+            - generic:
+              - generic:
+                - button:
+                  - img
+                  - text: Papers
+                - button:
+                  - img
+                  - text: Members
+                - button:
+                  - img
+                  - text: Teams
+                - button:
+                  - img
+                  - text: Schedule
+                - button:
+                  - img
+                  - text: Scores
+              - generic:
+                - generic:
+                  - generic:
+                    - generic:
+                      - generic:
+                        - heading [level=3]:
+                          - img
+                          - text: Team 1
+                        - button:
+                          - img
+                          - text: Edit
+                    - generic:
+                      - generic:
+                        - generic:
+                          - img
+                          - generic:
+                            - paragraph: Defense Date & Time
+                            - paragraph: May 26, 2026
+                            - paragraph: 09:00 — 10:00 (60 min)
+                        - generic:
+                          - generic:
+                            - img
+                            - generic: Room / Venue
+                            - generic: Room 301
+                          - generic:
+                            - img
+                            - generic: Score deadline
+                            - generic: May 27, 2026, 07:00 AM
+                          - generic:
+                            - img
+                            - generic: Results
+                            - generic:
+                              - generic: Released
+                  - generic:
+                    - generic:
+                      - generic:
+                        - heading [level=3]:
+                          - img
+                          - text: Team 2
+                        - button:
+                          - img
+                          - text: Edit
+                    - generic:
+                      - generic:
+                        - generic:
+                          - img
+                          - generic:
+                            - paragraph: Defense Date & Time
+                            - paragraph: May 20, 2026
+                            - paragraph: 10:00 — 11:00 (60 min)
+                        - generic:
+                          - generic:
+                            - img
+                            - generic: Room / Venue
+                            - generic: Room 301
+                          - generic:
+                            - img
+                            - generic: Score deadline
+                            - generic: May 26, 2026, 06:59 AM
+                          - generic:
+                            - img
+                            - generic: Results
+                            - generic:
+                              - generic: Not released
+                  - generic:
+                    - generic:
+                      - generic:
+                        - heading [level=3]:
+                          - img
+                          - text: Team 3
+                        - button:
+                          - img
+                          - text: Edit
+                    - generic:
+                      - generic:
+                        - generic:
+                          - img
+                          - generic:
+                            - paragraph: Defense Date & Time
+                            - paragraph: May 20, 2026
+                            - paragraph: 11:00 — 12:00 (60 min)
+                        - generic:
+                          - generic:
+                            - img
+                            - generic: Room / Venue
+                            - generic: Room 302
+                          - generic:
+                            - img
+                            - generic: Score deadline
+                            - generic: May 26, 2026, 06:59 AM
+                          - generic:
+                            - img
+                            - generic: Results
+                            - generic:
+                              - generic: Not released
+                  - generic:
+                    - generic:
+                      - generic:
+                        - heading [level=3]:
+                          - img
+                          - text: Team 4
+                        - button:
+                          - img
+                          - text: Edit
+                    - generic:
+                      - generic:
+                        - generic:
+                          - img
+                          - generic:
+                            - paragraph: Defense Date & Time
+                            - paragraph: May 21, 2026
+                            - paragraph: 09:00 — 10:00 (60 min)
+                        - generic:
+                          - generic:
+                            - img
+                            - generic: Room / Venue
+                            - generic: Room 301
+                          - generic:
+                            - img
+                            - generic: Score deadline
+                            - generic: May 26, 2026, 06:59 AM
+                          - generic:
+                            - img
+                            - generic: Results
+                            - generic:
+                              - generic: Not released
+                  - generic:
+                    - generic:
+                      - generic:
+                        - heading [level=3]:
+                          - img
+                          - text: Team 5
+                        - button:
+                          - img
+                          - text: Edit
+                    - generic:
+                      - generic:
+                        - generic:
+                          - img
+                          - generic:
+                            - paragraph: Defense Date & Time
+                            - paragraph: May 21, 2026
+                            - paragraph: 10:00 — 11:00 (60 min)
+                        - generic:
+                          - generic:
+                            - img
+                            - generic: Room / Venue
+                            - generic: Room 302
+                          - generic:
+                            - img
+                            - generic: Score deadline
+                            - generic: May 26, 2026, 06:59 AM
+                          - generic:
+                            - img
+                            - generic: Results
+                            - generic:
+                              - generic: Not released
+                  - generic:
+                    - generic:
+                      - generic:
+                        - heading [level=3]:
+                          - img
+                          - text: Team6
+                        - button:
+                          - img
+                          - text: Set Schedule
+                    - generic:
+                      - generic:
+                        - generic:
+                          - img
+                        - paragraph: No schedule set yet.
+                        - button:
+                          - img
+                          - text: Set Schedule
+          - generic: All rights reserved. Copyright © 2010 - 2026 | Paragon International University | Phnom Penh - Cambodia | Privacy Policy
+    - region "Notifications alt+T":
+      - list
+  - dialog "Edit Defense Schedule" [ref=e1407]:
+    - generic [ref=e1408]:
+      - heading "Edit Defense Schedule" [level=2] [ref=e1409]:
+        - img [ref=e1410]
+        - text: Edit Defense Schedule
+      - paragraph [ref=e1412]:
+        - text: Configure the defense date, time, venue, and score deadline for
+        - strong [ref=e1413]: Team 1
+        - text: .
+    - generic [ref=e1414]:
+      - generic [ref=e1415]:
+        - generic [ref=e1416]:
+          - generic [ref=e1417]: Defense Date
+          - textbox [active] [ref=e1418]: 2026-05-26
+        - generic [ref=e1419]:
+          - generic [ref=e1420]: Start Time
+          - textbox [ref=e1421]: 09:00
+      - generic [ref=e1422]:
+        - generic [ref=e1423]: Duration (minutes)
+        - spinbutton [ref=e1424]: "60"
+        - paragraph [ref=e1425]: The end time will be calculated automatically from the start time + duration.
+      - generic [ref=e1426]:
+        - generic [ref=e1427]: Room / Venue
+        - textbox "e.g. Lab 3, Block A" [ref=e1428]: Room 301
+      - generic [ref=e1429]:
+        - generic [ref=e1430]: Judge Score Deadline
+        - textbox [ref=e1431]: 2026-05-27T00:00
+        - paragraph [ref=e1432]: Judges must submit their review before this date and time.
+      - generic [ref=e1433]:
+        - button "Cancel" [ref=e1434]
+        - button "Save Schedule" [ref=e1435]:
+          - img
+          - text: Save Schedule
+    - button "Close" [ref=e1436]:
+      - img
+      - generic [ref=e1437]: Close

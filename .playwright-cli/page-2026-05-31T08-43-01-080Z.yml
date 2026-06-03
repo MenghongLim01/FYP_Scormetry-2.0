@@ -1,0 +1,153 @@
+- generic:
+  - generic:
+    - generic:
+      - generic:
+        - generic:
+          - generic:
+            - generic:
+              - list:
+                - listitem:
+                  - link:
+                    - /url: /dashboard
+                    - generic:
+                      - img
+                    - generic:
+                      - generic: Scormetry
+            - generic:
+              - generic:
+                - generic: Dashboard
+                - list:
+                  - listitem:
+                    - link:
+                      - /url: /dashboard
+                      - img
+                      - generic: Dashboard
+              - generic:
+                - generic: Academic Management
+                - list:
+                  - listitem:
+                    - link:
+                      - /url: /subjects
+                      - img
+                      - generic: Subjects
+                  - listitem:
+                    - link:
+                      - /url: /papers
+                      - img
+                      - generic: Papers
+              - generic:
+                - generic: Student Management
+                - list:
+                  - listitem:
+                    - link:
+                      - /url: /teams
+                      - img
+                      - generic: My Team
+            - generic:
+              - generic:
+                - generic:
+                  - list:
+                    - listitem:
+                      - link:
+                        - /url: /settings/profile
+                        - img
+                        - generic: Settings
+      - main:
+        - generic:
+          - generic:
+            - generic:
+              - button:
+                - img
+                - generic: Toggle sidebar
+            - generic:
+              - button:
+                - img
+              - button [expanded]:
+                - generic:
+                  - generic: S1
+                - generic: Student 1
+                - img
+        - generic:
+          - generic:
+            - generic:
+              - paragraph: Team Workspace
+              - heading [level=1]: My Team
+              - paragraph: Teams you are a member of
+            - generic:
+              - generic:
+                - generic:
+                  - generic:
+                    - heading [level=3]:
+                      - generic:
+                        - img
+                      - generic: Team 1
+                    - generic: Result Released
+                  - link:
+                    - /url: /subjects/1
+                    - img
+                    - text: FYP Capstone 2026
+                - generic:
+                  - generic:
+                    - paragraph: Result Released
+                    - paragraph: Your score and feedback are ready to view.
+                  - generic:
+                    - paragraph: Members
+                    - generic:
+                      - generic:
+                        - generic: T
+                        - text: Teacher 1
+                      - generic:
+                        - generic: T
+                        - text: Teacher 2
+                      - generic:
+                        - generic: S
+                        - text: Student 1
+                      - generic:
+                        - generic: T
+                        - text: Teacher 3
+                      - generic:
+                        - generic: T
+                        - text: Teacher 5
+                      - generic:
+                        - generic: T
+                        - text: Teacher 8
+                  - generic:
+                    - img
+                    - generic: Jun 6, 2026 at 09:00:00 · Room 301
+                  - generic:
+                    - paragraph: Papers
+                    - generic:
+                      - generic:
+                        - link:
+                          - /url: /papers/1
+                          - img
+                          - generic: No score yet
+                        - generic: Review Completed
+                      - generic:
+                        - link:
+                          - /url: /papers/2
+                          - img
+                          - generic: No score yet
+                        - generic: Draft
+                  - link:
+                    - /url: /teams/1/result
+                    - img
+                    - text: View Defense Results
+          - generic: All rights reserved. Copyright © 2010 - 2026 | Paragon International University | Phnom Penh - Cambodia | Privacy Policy
+    - region "Notifications alt+T":
+      - list
+  - menu "S1 Student 1" [active] [ref=e507]:
+    - generic [ref=e509]:
+      - generic [ref=e511]: S1
+      - generic [ref=e512]:
+        - generic [ref=e513]: Student 1
+        - generic [ref=e514]: student1@example.com
+    - separator [ref=e515]
+    - group [ref=e516]:
+      - menuitem "Settings" [ref=e517] [cursor=pointer]:
+        - img
+        - text: Settings
+    - separator [ref=e518]
+    - menuitem "Log out" [ref=e519] [cursor=pointer]:
+      - img
+      - text: Log out

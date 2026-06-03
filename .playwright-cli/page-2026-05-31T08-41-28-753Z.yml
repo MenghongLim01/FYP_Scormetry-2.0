@@ -1,0 +1,124 @@
+- generic [ref=e2]:
+  - generic [ref=e3]:
+    - generic [ref=e6]:
+      - list [ref=e8]:
+        - listitem [ref=e9]:
+          - link "Scormetry" [ref=e10] [cursor=pointer]:
+            - /url: /dashboard
+            - img [ref=e12]
+            - generic [ref=e19]: Scormetry
+      - generic [ref=e20]:
+        - generic [ref=e21]:
+          - generic [ref=e22]: Dashboard
+          - list [ref=e23]:
+            - listitem [ref=e24]:
+              - link "Dashboard" [ref=e25] [cursor=pointer]:
+                - /url: /dashboard
+                - img [ref=e26]
+                - generic [ref=e31]: Dashboard
+        - generic [ref=e32]:
+          - generic [ref=e33]: Academic Management
+          - list [ref=e34]:
+            - listitem [ref=e35]:
+              - link "Subjects" [ref=e36] [cursor=pointer]:
+                - /url: /subjects
+                - img [ref=e37]
+                - generic [ref=e39]: Subjects
+            - listitem [ref=e40]:
+              - link "Papers" [ref=e41] [cursor=pointer]:
+                - /url: /papers
+                - img [ref=e42]
+                - generic [ref=e45]: Papers
+        - generic [ref=e46]:
+          - generic [ref=e47]: Student Management
+          - list [ref=e48]:
+            - listitem [ref=e49]:
+              - link "My Team" [active] [ref=e50] [cursor=pointer]:
+                - /url: /teams
+                - img [ref=e51]
+                - generic [ref=e55]: My Team
+      - list [ref=e59]:
+        - listitem [ref=e60]:
+          - link "Settings" [ref=e61] [cursor=pointer]:
+            - /url: /settings/profile
+            - img [ref=e62]
+            - generic [ref=e65]: Settings
+    - main [ref=e66]:
+      - generic [ref=e68]:
+        - button "Toggle sidebar" [ref=e70]:
+          - img
+          - generic [ref=e71]: Toggle sidebar
+        - generic [ref=e76]:
+          - button [ref=e77]:
+            - img
+          - button "S1 Student 1" [ref=e78]:
+            - generic [ref=e80]: S1
+            - generic [ref=e81]: Student 1
+            - img [ref=e82]
+      - generic [ref=e85]:
+        - generic [ref=e203]:
+          - generic [ref=e204]:
+            - paragraph [ref=e205]: Team Workspace
+            - heading "My Team" [level=1] [ref=e206]
+            - paragraph [ref=e207]: Teams you are a member of
+          - generic [ref=e209]:
+            - generic [ref=e210]:
+              - generic [ref=e211]:
+                - heading "Team 1" [level=3] [ref=e212]:
+                  - img [ref=e214]
+                  - generic [ref=e219]: Team 1
+                - generic [ref=e220]: Result Released
+              - link "FYP Capstone 2026" [ref=e221] [cursor=pointer]:
+                - /url: /subjects/1
+                - img [ref=e222]
+                - text: FYP Capstone 2026
+            - generic [ref=e224]:
+              - generic [ref=e225]:
+                - paragraph [ref=e226]: Result Released
+                - paragraph [ref=e227]: Your score and feedback are ready to view.
+              - generic [ref=e228]:
+                - paragraph [ref=e229]: Members
+                - generic [ref=e230]:
+                  - generic [ref=e231]:
+                    - generic [ref=e232]: T
+                    - text: Teacher 1
+                  - generic [ref=e233]:
+                    - generic [ref=e234]: T
+                    - text: Teacher 2
+                  - generic [ref=e235]:
+                    - generic [ref=e236]: S
+                    - text: Student 1
+                  - generic [ref=e237]:
+                    - generic [ref=e238]: T
+                    - text: Teacher 3
+                  - generic [ref=e239]:
+                    - generic [ref=e240]: T
+                    - text: Teacher 5
+                  - generic [ref=e241]:
+                    - generic [ref=e242]: T
+                    - text: Teacher 8
+              - generic [ref=e243]:
+                - img [ref=e244]
+                - generic [ref=e246]: Jun 6, 2026 at 09:00:00 · Room 301
+              - generic [ref=e247]:
+                - paragraph [ref=e248]: Papers
+                - generic [ref=e249]:
+                  - generic [ref=e250]:
+                    - link "No score yet" [ref=e251] [cursor=pointer]:
+                      - /url: /papers/1
+                      - img [ref=e252]
+                      - generic [ref=e255]: No score yet
+                    - generic [ref=e256]: Review Completed
+                  - generic [ref=e257]:
+                    - link "No score yet" [ref=e258] [cursor=pointer]:
+                      - /url: /papers/2
+                      - img [ref=e259]
+                      - generic [ref=e262]: No score yet
+                    - generic [ref=e263]: Draft
+              - link "View Defense Results" [ref=e264] [cursor=pointer]:
+                - /url: /teams/1/result
+                - img [ref=e265]
+                - text: View Defense Results
+        - generic [ref=e202]: All rights reserved. Copyright © 2010 - 2026 | Paragon International University | Phnom Penh - Cambodia | Privacy Policy
+  - region "Notifications alt+T":
+    - list

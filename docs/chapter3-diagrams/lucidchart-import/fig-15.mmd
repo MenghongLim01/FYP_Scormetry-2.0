@@ -1,0 +1,16 @@
+sequenceDiagram
+    actor Judge
+    participant Email as Invitation Email
+    participant Controller as InvitationController
+    participant DB as Database
+    participant Dashboard as Dashboard
+
+    Email-->>Judge: Invitation link with token
+    Judge->>Controller: GET /invitations/{token}
+    Controller->>DB: Find subject_invitations by token
+    DB-->>Controller: Invitation record
+    Controller->>Controller: Validate unused token and email
+    Controller->>DB: Create subject_members reviewer record
+    Controller->>DB: Mark accepted_at
+    Controller-->>Dashboard: Redirect after login / acceptance
+    Dashboard-->>Judge: Show assigned subjects and teams

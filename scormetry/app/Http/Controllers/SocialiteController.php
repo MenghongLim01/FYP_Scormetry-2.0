@@ -1,0 +1,104 @@
+<?php
+
+namespace App\Http\Controllers;
+
+use App\Models\AppSetting;
+use App\Models\SubjectInvitation;
+use App\Models\SubjectMember;
+use App\Models\User;
+use Illuminate\Http\RedirectResponse;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Laravel\Socialite\Facades\Socialite;
+
+class SocialiteController extends Controller
+{
+    public function redirect(Request $request): RedirectResponse
+    {
+        if ($request->has('role')) {
+            session(['oauth_role' => $request->input('role')]);
+        }
+
+        return Socialite::driver('google')->redirect();
+    }
+
+    public function callback(Request $request): RedirectResponse
+    {
+        $googleUser = Socialite::driver('google')->user();
+
+        $user = User::where('google_id', $googleUser->getId())->first();
+
+        if ($user) {
+            Auth::login($user, remember: true);
+
+            return $this->redirectAfterLogin($user);
+        }
+
+        $user = User::where('email', $googleUser->getEmail())->first();
+
+        if ($user) {
+            $user->update(['google_id' => $googleUser->getId()]);
+            Auth::login($user, remember: true);
+
+            return $this->redirectAfterLogin($user);
+        }
+
+        $role = session()->pull('oauth_role', 'student');
+        $status = $this->resolveStatus($googleUser->getEmail());
+
+        $user = User::create([
+            'name' => $googleUser->getName(),
+            'email' => $googleUser->getEmail(),
+            'google_id' => $googleUser->getId(),
+            'role' => in_array($role, ['student', 'teacher']) ? $role : 'student',
+            'status' => $status,
+        ]);
+
+        $user->markEmailAsVerified();
+
+        $this->applyPendingInvitations($user);
+
+        Auth::login($user, remember: true);
+
+        return $this->redirectAfterLogin($user);
+    }
+
+    private function redirectAfterLogin(User $user): RedirectResponse
+    {
+        if ($user->isPending()) {
+            return redirect()->route('pending-approval');
+        }
+
+        return redirect()->intended(route('dashboard'));
+    }
+
+    private function resolveStatus(string $email): string
+    {
+        $domain = AppSetting::get('school_email_domain');
+
+        if ($domain && str_ends_with(strtolower($email), '@'.strtolower(trim($domain, '@')))) {
+            return 'approved';
+        }
+
+        return $domain ? 'pending' : 'approved';
+    }
+
+    private function applyPendingInvitations(User $user): void
+    {
+        $pendingInvitations = SubjectInvitation::where('email', $user->email)
+            ->whereNull('accepted_at')
+            ->get();
+
+        foreach ($pendingInvitations as $invitation) {
+            SubjectMember::updateOrCreate(
+                ['subject_id' => $invitation->subject_id, 'user_id' => $user->id],
+                [
+                    'role' => $invitation->committee_role,
+                    'status' => 'approved',
+                    'role_label' => $invitation->role_label,
+                ],
+            );
+            $invitation->update(['accepted_at' => now()]);
+        }
+    }
+}

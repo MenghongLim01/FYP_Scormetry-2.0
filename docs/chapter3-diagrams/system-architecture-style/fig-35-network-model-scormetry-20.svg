@@ -1,0 +1,130 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1320" height="900" viewBox="0 0 1320 900">
+    
+    <defs>
+      <marker id="arrow" markerWidth="12" markerHeight="12" refX="11" refY="6" orient="auto" markerUnits="strokeWidth">
+        <path d="M0,0 L12,6 L0,12 Z" fill="#111"/>
+      </marker>
+      <marker id="arrow-gray" markerWidth="12" markerHeight="12" refX="11" refY="6" orient="auto" markerUnits="strokeWidth">
+        <path d="M0,0 L12,6 L0,12 Z" fill="#444"/>
+      </marker>
+    </defs>
+    <style>
+      .title { font-family: "Times New Roman", serif; font-size: 38px; font-weight: 700; fill:#000; }
+      .caption { font-family: "Times New Roman", serif; font-size: 36px; font-weight: 700; fill:#000; }
+      .label { font-family: "Comic Sans MS", "Chalkboard SE", Arial, sans-serif; font-size: 16px; font-weight: 700; fill:#000; }
+      .small { font-family: "Comic Sans MS", "Chalkboard SE", Arial, sans-serif; font-size: 13px; font-weight: 700; fill:#000; }
+      .tiny { font-family: "Comic Sans MS", "Chalkboard SE", Arial, sans-serif; font-size: 11px; font-weight: 700; fill:#000; }
+      .line { stroke:#111; stroke-width:2; fill:none; marker-end:url(#arrow); }
+      .line2 { stroke:#444; stroke-width:2; fill:none; marker-end:url(#arrow-gray); stroke-dasharray:5 5; }
+      .box { fill:#fff; stroke:#111; stroke-width:2; }
+      .round { fill:#fff; stroke:#111; stroke-width:2; rx:28; ry:28; }
+      .service { fill:#fff; stroke:#111; stroke-width:2; stroke-dasharray:6 4; }
+      .panel-yellow { fill:#fff3bd; stroke:#e0a028; stroke-width:1.5; rx:8; ry:8; }
+      .panel-green { fill:#dff2d8; stroke:#77ad62; stroke-width:1.5; rx:8; ry:8; }
+      .panel-blue { fill:#dfefff; stroke:#8baed0; stroke-width:1.5; rx:8; ry:8; }
+      .db { fill:#def3ff; stroke:#111; stroke-width:2; }
+      .cloud { fill:#ff8b1a; stroke:#ff8b1a; stroke-width:2; }
+    </style>
+    
+    <rect width="1320" height="900" fill="#fff"/>
+    <text x="22" y="52" class="title">Network Model</text>
+    <rect x="30" y="108" width="1260" height="640" fill="#fff" stroke="#111" stroke-width="1.6"/>
+
+    
+    <g>
+      <rect x="80" y="190" width="70" height="44" class="box" rx="2"/>
+      <rect x="90" y="198" width="50" height="28" fill="#fff" stroke="#777" stroke-width="1"/>
+      <path d="M72,242 L158,242 L145,252 L85,252 Z" fill="#555"/>
+      <text x="115" y="282" text-anchor="middle" class="label"><tspan x="115" dy="0">Teacher /</tspan><tspan x="115" dy="18">Admin</tspan></text>
+    </g>
+    
+    
+    <g>
+      <rect x="80" y="310" width="70" height="44" class="box" rx="2"/>
+      <rect x="90" y="318" width="50" height="28" fill="#fff" stroke="#777" stroke-width="1"/>
+      <path d="M72,362 L158,362 L145,372 L85,372 Z" fill="#555"/>
+      <text x="115" y="402" text-anchor="middle" class="label"><tspan x="115" dy="0">Judge /</tspan><tspan x="115" dy="18">Reviewer</tspan></text>
+    </g>
+    
+    
+    <g>
+      <rect x="80" y="430" width="70" height="44" class="box" rx="2"/>
+      <rect x="90" y="438" width="50" height="28" fill="#fff" stroke="#777" stroke-width="1"/>
+      <path d="M72,482 L158,482 L145,492 L85,492 Z" fill="#555"/>
+      <text x="115" y="522" text-anchor="middle" class="label"><tspan x="115" dy="0">Student</tspan></text>
+    </g>
+    
+    <path d="M165,222 H235 V462 H165" fill="none" stroke="#111" stroke-width="2"/>
+    <path d="M235,342 H385" class="line"/>
+    
+    <g transform="translate(390,300) scale(0.88)">
+      <ellipse cx="48" cy="32" rx="36" ry="20" class="cloud"/>
+      <circle cx="28" cy="29" r="18" class="cloud"/>
+      <circle cx="62" cy="24" r="22" class="cloud"/>
+      <circle cx="83" cy="35" r="14" class="cloud"/>
+      <text x="56" y="76" text-anchor="middle" class="label">CLOUDFLARE</text>
+      <text x="56" y="96" text-anchor="middle" class="small">DNS / HTTPS</text>
+    </g>
+    
+    <text x="570" y="360" text-anchor="middle" class="small">scormetry.paragoniu.app</text>
+    <path d="M500,342 H620" class="line"/>
+
+    <rect x="625" y="150" width="610" height="430" class="round"/>
+    <text x="930" y="190" text-anchor="middle" class="label">SCORMETRY 2.0 SERVER</text>
+    <text x="930" y="212" text-anchor="middle" class="small">DigitalOcean or ParagonIU Server Environment</text>
+
+    <rect x="655" y="235" width="398" height="270" class="round"/>
+    <rect x="683" y="255" width="165" height="210" class="service"/>
+    <text x="765" y="282" text-anchor="middle" class="label">FRONTEND</text>
+    <rect x="710" y="305" width="112" height="46" class="panel-yellow"/>
+    <text x="766" y="328" text-anchor="middle" class="label"><tspan x="766" dy="0">Teacher / Admin</tspan><tspan x="766" dy="18">Panel</tspan></text>
+    <rect x="710" y="367" width="112" height="46" class="panel-yellow"/>
+    <text x="766" y="394" text-anchor="middle" class="label"><tspan x="766" dy="0">Judge Panel</tspan></text>
+    <rect x="710" y="429" width="112" height="46" class="panel-green"/>
+    <text x="766" y="456" text-anchor="middle" class="label"><tspan x="766" dy="0">Student Panel</tspan></text>
+
+    <rect x="905" y="345" width="130" height="62" fill="#dfefff" stroke="#79a6d2" stroke-width="2" rx="10"/>
+    <text x="970" y="373" text-anchor="middle" class="label"><tspan x="970" dy="0">LARAVEL BACKEND</tspan></text>
+    <path d="M848,375 H905" class="line"/>
+    <path d="M1035,375 H1105" class="line"/>
+    
+    <g>
+      <ellipse cx="1150" cy="335" rx="45" ry="15" class="db"/>
+      <rect x="1105" y="335" width="90" height="70" class="db"/>
+      <ellipse cx="1150" cy="405" rx="45" ry="15" class="db"/>
+      <ellipse cx="1150" cy="335" rx="45" ry="15" fill="none" stroke="#111" stroke-width="2"/>
+      <text x="1150" y="445" text-anchor="middle" class="label"><tspan x="1150" dy="0">MySQL Database</tspan></text>
+    </g>
+    
+
+    <rect x="900" y="448" width="145" height="50" class="panel-blue"/>
+    <text x="972" y="476" text-anchor="middle" class="label"><tspan x="972" dy="0">Private File</tspan><tspan x="972" dy="18">Storage</tspan></text>
+    <path d="M970,407 V448" class="line"/>
+
+    <rect x="690" y="620" width="140" height="110" class="service"/>
+    
+    <g>
+      <circle cx="760" cy="663" r="34" fill="#fff" stroke="#111" stroke-width="2"/>
+      <text x="760" y="675" text-anchor="middle" font-family="Arial, sans-serif" font-size="44" font-weight="700">G</text>
+      <text x="760" y="727" text-anchor="middle" class="label"><tspan x="760" dy="0">Google OAuth</tspan></text>
+    </g>
+    
+    <path d="M765,620 V505" class="line"/>
+
+    <rect x="900" y="620" width="140" height="110" class="service"/>
+    
+    <g>
+      <rect x="930" y="638" width="78" height="54" fill="#fff" stroke="#111" stroke-width="2" rx="4"/>
+      <path d="M934,644 L969,672 L1004,644" fill="none" stroke="#d33" stroke-width="5"/>
+      <text x="969" y="726" text-anchor="middle" class="label"><tspan x="969" dy="0">SMTP Mail</tspan></text>
+    </g>
+    
+    <path d="M970,620 V407" class="line"/>
+
+    <rect x="1070" y="620" width="150" height="110" class="service"/>
+    <text x="1145" y="655" text-anchor="middle" class="label"><tspan x="1145" dy="0">OpenAI Responses</tspan><tspan x="1145" dy="18">API</tspan></text>
+    <text x="1145" y="700" text-anchor="middle" class="label"><tspan x="1145" dy="0">gpt-5.4-nano</tspan></text>
+    <path d="M1042,470 H1070" class="line"/>
+
+    <text x="660" y="835" text-anchor="middle" class="caption">Fig. 35. Network Model for Scormetry 2.0</text>
+    </svg>

@@ -1,0 +1,697 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Scormetry 2.0 Draw.io-Style DFD and Use Case Diagrams</title>
+  <style>
+    :root {
+      --ink: #111;
+      --line: #222;
+      --highlight: #fff200;
+      --paper: #fff;
+      --outside: #eee;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      padding: 28px;
+      background: var(--outside);
+      color: var(--ink);
+      font-family: "Times New Roman", Times, serif;
+    }
+
+    .page {
+      width: 1220px;
+      max-width: 100%;
+      margin: 0 auto 34px;
+      padding: 38px 44px 30px;
+      background: var(--paper);
+      overflow-x: auto;
+    }
+
+    h1 {
+      margin: 0 0 16px;
+      font-size: 34px;
+      font-weight: 700;
+      text-align: center;
+    }
+
+    h2 {
+      margin: 0 0 38px;
+      font-size: 32px;
+      font-weight: 700;
+    }
+
+    .hl {
+      background: var(--highlight);
+      padding: 0 4px;
+    }
+
+    .intro {
+      max-width: 900px;
+      margin: 0 auto;
+      font-size: 20px;
+      line-height: 1.45;
+      text-align: center;
+    }
+
+    .caption {
+      margin: 24px 0 0;
+      font-size: 34px;
+      line-height: 1.2;
+      font-weight: 700;
+      text-align: center;
+    }
+
+    svg {
+      width: 100%;
+      height: auto;
+      display: block;
+      background: #fff;
+    }
+
+    .frame {
+      fill: #fff;
+      stroke: var(--line);
+      stroke-width: 2.2;
+    }
+
+    .box,
+    .process,
+    .store,
+    .provider {
+      fill: #fff;
+      stroke: #777;
+      stroke-width: 1.7;
+    }
+
+    .circle,
+    .oval {
+      fill: #fff;
+      stroke: #666;
+      stroke-width: 1.8;
+    }
+
+    .main-circle {
+      fill: #fff;
+      stroke: #666;
+      stroke-width: 1.9;
+    }
+
+    .flow,
+    .assoc {
+      fill: none;
+      stroke: #333;
+      stroke-width: 1.8;
+      marker-end: url(#arrow);
+    }
+
+    .flow-back {
+      fill: none;
+      stroke: #333;
+      stroke-width: 1.8;
+      marker-start: url(#arrow-start);
+    }
+
+    .include {
+      fill: none;
+      stroke: #333;
+      stroke-width: 1.45;
+      stroke-dasharray: 4 4;
+      marker-end: url(#arrow);
+    }
+
+    .actor-line {
+      stroke: #333;
+      stroke-width: 1.6;
+      fill: none;
+    }
+
+    .label {
+      font-family: "Comic Sans MS", "Comic Sans", "Trebuchet MS", Arial, sans-serif;
+      font-size: 15px;
+      font-weight: 700;
+      fill: #111;
+    }
+
+    .small-label {
+      font-family: "Comic Sans MS", "Comic Sans", "Trebuchet MS", Arial, sans-serif;
+      font-size: 13px;
+      font-weight: 700;
+      fill: #111;
+    }
+
+    .flow-label {
+      font-family: "Comic Sans MS", "Comic Sans", "Trebuchet MS", Arial, sans-serif;
+      font-size: 13px;
+      fill: #111;
+    }
+
+    .uc-label {
+      font-family: "Comic Sans MS", "Comic Sans", "Trebuchet MS", Arial, sans-serif;
+      font-size: 14px;
+      font-weight: 700;
+      fill: #111;
+    }
+
+    .relationship {
+      font-family: "Comic Sans MS", "Comic Sans", "Trebuchet MS", Arial, sans-serif;
+      font-size: 13px;
+      font-weight: 700;
+      fill: #111;
+    }
+
+    @media print {
+      body {
+        padding: 0;
+        background: #fff;
+      }
+
+      .page {
+        width: 100%;
+        margin: 0;
+        page-break-after: always;
+      }
+    }
+  </style>
+</head>
+<body>
+  <svg width="0" height="0" aria-hidden="true">
+    <defs>
+      <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth">
+        <path d="M0,0 L0,6 L8,3 z" fill="#333"></path>
+      </marker>
+      <marker id="arrow-start" markerWidth="10" markerHeight="10" refX="0" refY="3" orient="auto" markerUnits="strokeWidth">
+        <path d="M8,0 L8,6 L0,3 z" fill="#333"></path>
+      </marker>
+    </defs>
+  </svg>
+
+  <section class="page">
+    <h1>Scormetry 2.0 Diagram Set</h1>
+    <p class="intro">These diagrams follow the same visual format as the provided previous-year screenshots: bold chapter heading, black-and-white diagram frame, simple external entities, process boxes, data stores, oval use cases, dashed include/extend relationships, and bold centered figure captions. The content is rewritten for Scormetry 2.0.</p>
+  </section>
+
+
+  <section class="page">
+    <h2>3.4.5.2 Performance Modeling</h2>
+    <svg viewBox="0 0 1120 1180" role="img" aria-label="Performance Model for Scormetry 2.0">
+      <rect class="frame" x="35" y="35" width="1050" height="1045"></rect>
+      <circle cx="560" cy="80" r="34" fill="#000"></circle>
+      <path class="flow" d="M560 115 L560 155"></path>
+
+      <rect class="process" x="455" y="155" width="210" height="72" rx="12"></rect>
+      <text class="label" x="560" y="185" text-anchor="middle">Open Team Room</text>
+      <text class="small-label" x="560" y="205" text-anchor="middle">and Authenticate</text>
+      <path class="flow" d="M560 227 L560 275"></path>
+
+      <rect class="process" x="455" y="275" width="210" height="72" rx="12"></rect>
+      <text class="label" x="560" y="305" text-anchor="middle">Load Assigned</text>
+      <text class="small-label" x="560" y="325" text-anchor="middle">Team Room</text>
+      <path class="flow" d="M560 347 L560 395"></path>
+
+      <rect class="process" x="455" y="395" width="210" height="72" rx="12"></rect>
+      <text class="label" x="560" y="425" text-anchor="middle">View Final Paper</text>
+      <text class="small-label" x="560" y="445" text-anchor="middle">and Rubric PDF</text>
+      <path class="flow" d="M560 467 L560 515"></path>
+
+      <rect class="process" x="455" y="515" width="210" height="72" rx="12"></rect>
+      <text class="label" x="560" y="545" text-anchor="middle">Open Locked</text>
+      <text class="small-label" x="560" y="565" text-anchor="middle">Dynamic Rubric</text>
+      <path class="flow" d="M560 587 L560 635"></path>
+
+      <rect class="process" x="455" y="635" width="210" height="72" rx="12"></rect>
+      <text class="label" x="560" y="665" text-anchor="middle">Input Scores</text>
+      <text class="small-label" x="560" y="685" text-anchor="middle">and Feedback</text>
+      <path class="flow" d="M560 707 L560 755"></path>
+
+      <rect class="process" x="455" y="755" width="210" height="72" rx="12"></rect>
+      <text class="label" x="560" y="785" text-anchor="middle">Submit Review</text>
+      <text class="small-label" x="560" y="805" text-anchor="middle">and Lock Record</text>
+      <path class="flow" d="M560 827 L560 875"></path>
+
+      <rect class="process" x="455" y="875" width="210" height="72" rx="12"></rect>
+      <text class="label" x="560" y="905" text-anchor="middle">Calculate Score</text>
+      <text class="small-label" x="560" y="925" text-anchor="middle">and Aggregate</text>
+      <path class="flow" d="M560 947 L560 995"></path>
+      <path class="flow" d="M560 995 L320 995 L320 1028"></path>
+      <path class="flow" d="M560 995 L800 995 L800 1028"></path>
+
+      <rect class="process" x="210" y="1028" width="220" height="72" rx="12"></rect>
+      <text class="label" x="320" y="1058" text-anchor="middle">Release Student</text>
+      <text class="small-label" x="320" y="1078" text-anchor="middle">Results</text>
+
+      <rect class="process" x="690" y="1028" width="220" height="72" rx="12"></rect>
+      <text class="label" x="800" y="1058" text-anchor="middle">Review Post-Defense</text>
+      <text class="small-label" x="800" y="1078" text-anchor="middle">Records</text>
+
+      <path class="store" d="M760 145 H965 L995 175 V250 H760 Z"></path>
+      <path d="M965 145 L965 175 L995 175" fill="none" stroke="#333" stroke-width="1.5"></path>
+      <text class="label" x="875" y="180" text-anchor="middle">&lt;&lt;Time Behavior&gt;&gt;</text>
+      <text class="small-label" x="875" y="215" text-anchor="middle">Depends on Google OAuth</text>
+      <text class="small-label" x="875" y="235" text-anchor="middle">and network response</text>
+      <path class="include" d="M665 190 L760 190"></path>
+
+      <path class="store" d="M760 280 H965 L995 310 V385 H760 Z"></path>
+      <path d="M965 280 L965 310 L995 310" fill="none" stroke="#333" stroke-width="1.5"></path>
+      <text class="label" x="875" y="315" text-anchor="middle">&lt;&lt;Time Behavior&gt;&gt;</text>
+      <text class="small-label" x="875" y="350" text-anchor="middle">Number of assigned teams</text>
+      <text class="small-label" x="875" y="370" text-anchor="middle">and members</text>
+      <path class="include" d="M665 312 L760 330"></path>
+
+      <path class="store" d="M760 410 H965 L995 440 V515 H760 Z"></path>
+      <path d="M965 410 L965 440 L995 440" fill="none" stroke="#333" stroke-width="1.5"></path>
+      <text class="label" x="875" y="445" text-anchor="middle">&lt;&lt;Time Behavior&gt;&gt;</text>
+      <text class="small-label" x="875" y="480" text-anchor="middle">Paper PDF file size</text>
+      <text class="small-label" x="875" y="500" text-anchor="middle">and rubric complexity</text>
+      <path class="include" d="M665 432 L760 462"></path>
+
+      <path class="store" d="M760 520 H965 L995 550 V625 H760 Z"></path>
+      <path d="M965 520 L965 550 L995 550" fill="none" stroke="#333" stroke-width="1.5"></path>
+      <text class="label" x="875" y="555" text-anchor="middle">&lt;&lt;Time Behavior&gt;&gt;</text>
+      <text class="small-label" x="875" y="590" text-anchor="middle">Criteria count and</text>
+      <text class="small-label" x="875" y="610" text-anchor="middle">locked rubric structure</text>
+      <path class="include" d="M665 552 L760 572"></path>
+
+      <path class="store" d="M760 755 H965 L995 785 V860 H760 Z"></path>
+      <path d="M965 755 L965 785 L995 785" fill="none" stroke="#333" stroke-width="1.5"></path>
+      <text class="label" x="875" y="790" text-anchor="middle">&lt;&lt;Time Behavior&gt;&gt;</text>
+      <text class="small-label" x="875" y="825" text-anchor="middle">Validation, deadline check,</text>
+      <text class="small-label" x="875" y="845" text-anchor="middle">and record locking</text>
+      <path class="include" d="M665 790 L760 810"></path>
+
+      <path class="store" d="M760 885 H965 L995 915 V990 H760 Z"></path>
+      <path d="M965 885 L965 915 L995 915" fill="none" stroke="#333" stroke-width="1.5"></path>
+      <text class="label" x="875" y="920" text-anchor="middle">&lt;&lt;Time Behavior&gt;&gt;</text>
+      <text class="small-label" x="875" y="955" text-anchor="middle">Number of judges and</text>
+      <text class="small-label" x="875" y="975" text-anchor="middle">rubric criteria</text>
+      <path class="include" d="M665 910 L760 940"></path>
+
+      <path class="store" d="M65 935 H270 L300 965 V1040 H65 Z"></path>
+      <path d="M270 935 L270 965 L300 965" fill="none" stroke="#333" stroke-width="1.5"></path>
+      <text class="label" x="180" y="970" text-anchor="middle">&lt;&lt;Time Behavior&gt;&gt;</text>
+      <text class="small-label" x="180" y="1005" text-anchor="middle">Depends on release status</text>
+      <text class="small-label" x="180" y="1025" text-anchor="middle">and notification delivery</text>
+      <path class="include" d="M300 1005 L320 1028"></path>
+
+      <path class="store" d="M865 935 H1070 L1100 965 V1040 H865 Z"></path>
+      <path d="M1070 935 L1070 965 L1100 965" fill="none" stroke="#333" stroke-width="1.5"></path>
+      <text class="label" x="980" y="970" text-anchor="middle">&lt;&lt;Time Behavior&gt;&gt;</text>
+      <text class="small-label" x="980" y="1005" text-anchor="middle">Depends on amount of</text>
+      <text class="small-label" x="980" y="1025" text-anchor="middle">scores, feedback and logs</text>
+      <path class="include" d="M865 1005 L800 1028"></path>
+    </svg>
+    <p class="caption">Fig. 8. Performance Model for Scormetry 2.0</p>
+  </section>
+
+  <section class="page">
+    <h2>3.4.5.4.1 <span class="hl">Context Diagram</span></h2>
+    <svg viewBox="0 0 1120 585" role="img" aria-label="Context Diagram for Scormetry 2.0">
+      <rect class="frame" x="18" y="35" width="1084" height="430"></rect>
+
+      <rect class="box" x="45" y="210" width="220" height="140"></rect>
+      <text class="label" x="155" y="285" text-anchor="middle">Organizer / Admin</text>
+
+      <rect class="box" x="50" y="410" width="220" height="80"></rect>
+      <text class="label" x="160" y="457" text-anchor="middle">Judges / Reviewers</text>
+
+      <rect class="box" x="875" y="220" width="210" height="105"></rect>
+      <text class="label" x="980" y="278" text-anchor="middle">Student Teams</text>
+
+      <rect class="provider" x="500" y="50" width="190" height="82" rx="10"></rect>
+      <text class="small-label" x="595" y="88" text-anchor="middle">Google OAuth Provider</text>
+      <text class="small-label" x="595" y="108" text-anchor="middle">and Email Service</text>
+
+      <rect class="provider" x="785" y="52" width="205" height="82" rx="10"></rect>
+      <text class="small-label" x="887" y="89" text-anchor="middle">AI Rubric Extraction</text>
+      <text class="small-label" x="887" y="109" text-anchor="middle">Provider</text>
+
+      <circle class="main-circle" cx="610" cy="288" r="105"></circle>
+      <text class="label" x="610" y="278" text-anchor="middle">Scormetry 2.0</text>
+      <text class="small-label" x="610" y="299" text-anchor="middle">Team Rooms, Dynamic Rubric,</text>
+      <text class="small-label" x="610" y="318" text-anchor="middle">Scores and Feedback</text>
+
+      <path class="flow" d="M265 225 L505 238"></path>
+      <text class="flow-label" x="360" y="220">Create subjects and Team Rooms</text>
+      <path class="flow" d="M265 249 L505 257"></path>
+      <text class="flow-label" x="370" y="246">Invite judges and approve members</text>
+      <path class="flow" d="M265 273 L505 276"></path>
+      <text class="flow-label" x="380" y="270">Upload official rubric PDF</text>
+      <path class="flow" d="M265 297 L505 296"></path>
+      <text class="flow-label" x="377" y="293">Verify and lock Dynamic Rubric</text>
+      <path class="flow-back" d="M265 322 L508 318"></path>
+      <text class="flow-label" x="378" y="337">View status, scores and records</text>
+
+      <path class="flow" d="M270 430 L535 365"></path>
+      <text class="flow-label" x="335" y="418">Accept invitation</text>
+      <path class="flow" d="M270 452 L515 390"></path>
+      <text class="flow-label" x="360" y="455">Score locked rubric</text>
+      <path class="flow" d="M270 475 L570 395"></path>
+      <text class="flow-label" x="355" y="485">Submit comments and feedback</text>
+
+      <path class="flow" d="M715 260 L875 242"></path>
+      <text class="flow-label" x="748" y="240">Join subject</text>
+      <path class="flow" d="M715 285 L875 270"></path>
+      <text class="flow-label" x="744" y="272">Upload final paper</text>
+      <path class="flow-back" d="M715 315 L875 303"></path>
+      <text class="flow-label" x="735" y="323">View released score and feedback</text>
+
+      <path class="flow" d="M595 132 L595 183"></path>
+      <path class="flow-back" d="M627 183 L627 132"></path>
+      <text class="flow-label" x="623" y="165" text-anchor="middle">User info and token</text>
+
+      <path class="flow" d="M805 128 L700 210"></path>
+      <text class="flow-label" x="721" y="148">Official rubric PDF</text>
+      <path class="flow-back" d="M705 232 L860 135"></path>
+      <text class="flow-label" x="786" y="198">Dynamic Rubric draft</text>
+    </svg>
+    <p class="caption">Fig. 1. <span class="hl">Context Diagram</span> for Scormetry 2.0</p>
+  </section>
+
+  <section class="page">
+    <h2>3.4.5.4.2 Data Flow Diagram</h2>
+    <svg viewBox="0 0 1120 600" role="img" aria-label="Data Flow Diagram Level 1 for Organizer Admin Interface">
+      <rect class="frame" x="18" y="35" width="1084" height="500"></rect>
+      <ellipse class="oval" cx="150" cy="300" rx="130" ry="75"></ellipse>
+      <text class="label" x="150" y="306" text-anchor="middle">Organizer / Admin</text>
+
+      <rect class="process" x="520" y="70" width="185" height="55"></rect>
+      <text class="label" x="612" y="93" text-anchor="middle">1.0 Authentication</text>
+      <rect class="process" x="520" y="165" width="185" height="64"></rect>
+      <text class="label" x="612" y="190" text-anchor="middle">2.0 Subject and</text>
+      <text class="label" x="612" y="210" text-anchor="middle">Team Room Management</text>
+      <rect class="process" x="520" y="260" width="185" height="64"></rect>
+      <text class="label" x="612" y="285" text-anchor="middle">3.0 Rubric</text>
+      <text class="label" x="612" y="305" text-anchor="middle">Management</text>
+      <rect class="process" x="520" y="355" width="185" height="56"></rect>
+      <text class="label" x="612" y="389" text-anchor="middle">4.0 Document Review</text>
+      <rect class="process" x="520" y="455" width="185" height="58"></rect>
+      <text class="label" x="612" y="478" text-anchor="middle">5.0 Result</text>
+      <text class="label" x="612" y="498" text-anchor="middle">Management</text>
+
+      <path class="store" d="M900 65 H1085 M900 125 H1085 M900 65 V125"></path>
+      <text class="label" x="990" y="100" text-anchor="middle">User Data Store</text>
+      <path class="store" d="M900 165 H1085 M900 228 H1085 M900 165 V228"></path>
+      <text class="label" x="990" y="202" text-anchor="middle">Subject / Team Store</text>
+      <path class="store" d="M900 260 H1085 M900 323 H1085 M900 260 V323"></path>
+      <text class="label" x="990" y="298" text-anchor="middle">Rubric Data Store</text>
+      <path class="store" d="M900 355 H1085 M900 412 H1085 M900 355 V412"></path>
+      <text class="label" x="990" y="390" text-anchor="middle">Paper Data Store</text>
+      <path class="store" d="M900 455 H1085 M900 515 H1085 M900 455 V515"></path>
+      <text class="label" x="990" y="490" text-anchor="middle">Review / Score Store</text>
+
+      <path class="flow" d="M210 230 C270 120 400 95 520 95"></path>
+      <text class="flow-label" x="310" y="88">OAuth token and admin info</text>
+      <path class="flow-back" d="M520 115 C395 137 270 145 205 245"></path>
+      <text class="flow-label" x="305" y="143">Login status</text>
+
+      <path class="flow" d="M280 245 L520 190"></path>
+      <text class="flow-label" x="340" y="205">Subject, team and invitation data</text>
+      <path class="flow-back" d="M520 215 L276 270"></path>
+      <text class="flow-label" x="350" y="260">Confirmation and room status</text>
+
+      <path class="flow" d="M280 285 L520 288"></path>
+      <text class="flow-label" x="345" y="280">Rubric PDF and verification data</text>
+      <path class="flow-back" d="M520 310 L275 312"></path>
+      <text class="flow-label" x="350" y="325">Dynamic Rubric status</text>
+
+      <path class="flow" d="M276 335 L520 380"></path>
+      <text class="flow-label" x="350" y="365">Request uploaded papers</text>
+      <path class="flow-back" d="M520 397 L250 362"></path>
+      <text class="flow-label" x="355" y="417">Paper list and upload status</text>
+
+      <path class="flow" d="M235 375 C320 500 415 482 520 482"></path>
+      <text class="flow-label" x="315" y="502">Request results report</text>
+      <path class="flow-back" d="M520 505 C405 535 285 525 205 378"></path>
+      <text class="flow-label" x="318" y="535">Scores, feedback and release status</text>
+
+      <path class="flow" d="M705 96 L900 96"></path>
+      <text class="flow-label" x="750" y="88">Validate credentials</text>
+      <path class="flow-back" d="M900 113 L705 113"></path>
+      <text class="flow-label" x="770" y="128">User data</text>
+      <path class="flow" d="M705 195 L900 195"></path>
+      <text class="flow-label" x="735" y="187">Store/retrieve subject and team</text>
+      <path class="flow-back" d="M900 215 L705 215"></path>
+      <text class="flow-label" x="770" y="230">Subject and team data</text>
+      <path class="flow" d="M705 290 L900 290"></path>
+      <text class="flow-label" x="740" y="283">Store/retrieve rubric</text>
+      <path class="flow-back" d="M900 310 L705 310"></path>
+      <text class="flow-label" x="770" y="325">Rubric structure</text>
+      <path class="flow" d="M705 383 L900 383"></path>
+      <text class="flow-label" x="745" y="376">Retrieve papers</text>
+      <path class="flow-back" d="M900 400 L705 400"></path>
+      <text class="flow-label" x="780" y="415">Paper data</text>
+      <path class="flow" d="M705 482 L900 482"></path>
+      <text class="flow-label" x="744" y="475">Store/retrieve scores</text>
+      <path class="flow-back" d="M900 502 L705 502"></path>
+      <text class="flow-label" x="770" y="517">Evaluation results</text>
+    </svg>
+    <p class="caption">Fig. 2. Data Flow Diagram Level 1 for Scormetry 2.0 Organizer/Admin Interface</p>
+  </section>
+
+  <section class="page">
+    <svg viewBox="0 0 1120 510" role="img" aria-label="Data Flow Diagram Level 1 for Judge Interface">
+      <rect class="frame" x="18" y="25" width="1084" height="430"></rect>
+      <ellipse class="oval" cx="145" cy="245" rx="78" ry="50"></ellipse>
+      <text class="label" x="145" y="251" text-anchor="middle">Judge</text>
+
+      <rect class="process" x="470" y="52" width="190" height="58"></rect>
+      <text class="label" x="565" y="86" text-anchor="middle">1.0 Authentication</text>
+      <rect class="process" x="470" y="160" width="190" height="62"></rect>
+      <text class="label" x="565" y="185" text-anchor="middle">2.0 Assigned Team</text>
+      <text class="label" x="565" y="205" text-anchor="middle">Room Access</text>
+      <rect class="process" x="470" y="270" width="190" height="58"></rect>
+      <text class="label" x="565" y="305" text-anchor="middle">3.0 Evaluation</text>
+      <rect class="process" x="470" y="385" width="190" height="58"></rect>
+      <text class="label" x="565" y="408" text-anchor="middle">4.0 Result and</text>
+      <text class="label" x="565" y="428" text-anchor="middle">History Management</text>
+
+      <path class="store" d="M865 48 H1075 M865 112 H1075 M865 48 V112"></path>
+      <text class="label" x="965" y="85" text-anchor="middle">User Data Store</text>
+      <path class="store" d="M865 160 H1075 M865 222 H1075 M865 160 V222"></path>
+      <text class="label" x="965" y="196" text-anchor="middle">Assignment / Room Store</text>
+      <path class="store" d="M865 270 H1075 M865 328 H1075 M865 270 V328"></path>
+      <text class="label" x="965" y="305" text-anchor="middle">Rubric / Paper Store</text>
+      <path class="store" d="M865 383 H1075 M865 443 H1075 M865 383 V443"></path>
+      <text class="label" x="965" y="418" text-anchor="middle">Review / Score Store</text>
+
+      <path class="flow" d="M145 195 C165 75 300 80 470 80"></path>
+      <text class="flow-label" x="245" y="68">OAuth token and judge info</text>
+      <path class="flow-back" d="M470 98 C310 110 180 110 155 198"></path>
+      <text class="flow-label" x="245" y="116">Login status</text>
+
+      <path class="flow" d="M220 220 L470 188"></path>
+      <text class="flow-label" x="255" y="198">Request assigned Team Rooms</text>
+      <path class="flow-back" d="M470 207 L220 240"></path>
+      <text class="flow-label" x="255" y="245">Show assigned rooms and documents</text>
+
+      <path class="flow" d="M220 258 L470 298"></path>
+      <text class="flow-label" x="255" y="284">Input scores and feedback</text>
+      <path class="flow-back" d="M470 317 L210 280"></path>
+      <text class="flow-label" x="250" y="323">Confirmation of scoring</text>
+
+      <path class="flow" d="M170 295 C230 410 360 414 470 414"></path>
+      <text class="flow-label" x="245" y="404">Request submitted review/history</text>
+      <path class="flow-back" d="M470 435 C340 465 220 430 150 296"></path>
+      <text class="flow-label" x="250" y="467">Show final score and feedback</text>
+
+      <path class="flow" d="M660 80 L865 80"></path>
+      <text class="flow-label" x="705" y="72">Validate credentials</text>
+      <path class="flow-back" d="M865 98 L660 98"></path>
+      <text class="flow-label" x="735" y="113">Judge profile data</text>
+      <path class="flow" d="M660 190 L865 190"></path>
+      <text class="flow-label" x="705" y="183">Retrieve assignments</text>
+      <path class="flow-back" d="M865 210 L660 210"></path>
+      <text class="flow-label" x="715" y="225">Room details</text>
+      <path class="flow" d="M660 300 L865 300"></path>
+      <text class="flow-label" x="705" y="293">Retrieve paper/rubric</text>
+      <path class="flow-back" d="M865 318 L660 318"></path>
+      <text class="flow-label" x="715" y="333">Paper and rubric data</text>
+      <path class="flow" d="M660 414 L865 414"></path>
+      <text class="flow-label" x="705" y="407">Store review</text>
+      <path class="flow-back" d="M865 434 L660 434"></path>
+      <text class="flow-label" x="725" y="449">Review results</text>
+    </svg>
+    <p class="caption">Fig. 3. Data Flow Diagram Level 1 for Scormetry 2.0 Judge Interface</p>
+  </section>
+
+  <section class="page">
+    <svg viewBox="0 0 1120 505" role="img" aria-label="Data Flow Diagram Level 1 for Student Interface">
+      <rect class="frame" x="18" y="25" width="1084" height="420"></rect>
+      <ellipse class="oval" cx="145" cy="240" rx="82" ry="50"></ellipse>
+      <text class="label" x="145" y="246" text-anchor="middle">Student</text>
+
+      <rect class="process" x="475" y="50" width="190" height="58"></rect>
+      <text class="label" x="570" y="85" text-anchor="middle">1.0 Authentication</text>
+      <rect class="process" x="475" y="155" width="190" height="62"></rect>
+      <text class="label" x="570" y="180" text-anchor="middle">2.0 Join and View</text>
+      <text class="label" x="570" y="200" text-anchor="middle">Subject</text>
+      <rect class="process" x="475" y="260" width="190" height="62"></rect>
+      <text class="label" x="570" y="285" text-anchor="middle">3.0 Team Room</text>
+      <text class="label" x="570" y="305" text-anchor="middle">Document Upload</text>
+      <rect class="process" x="475" y="370" width="190" height="58"></rect>
+      <text class="label" x="570" y="393" text-anchor="middle">4.0 Result</text>
+      <text class="label" x="570" y="413" text-anchor="middle">Management</text>
+
+      <path class="store" d="M865 48 H1075 M865 108 H1075 M865 48 V108"></path>
+      <text class="label" x="965" y="83" text-anchor="middle">User Data Store</text>
+      <path class="store" d="M865 153 H1075 M865 216 H1075 M865 153 V216"></path>
+      <text class="label" x="965" y="190" text-anchor="middle">Subject / Team Store</text>
+      <path class="store" d="M865 260 H1075 M865 322 H1075 M865 260 V322"></path>
+      <text class="label" x="965" y="296" text-anchor="middle">Paper Data Store</text>
+      <path class="store" d="M865 368 H1075 M865 428 H1075 M865 368 V428"></path>
+      <text class="label" x="965" y="403" text-anchor="middle">Result / Feedback Store</text>
+
+      <path class="flow" d="M145 190 C160 72 305 78 475 78"></path>
+      <text class="flow-label" x="260" y="65">OAuth token and student info</text>
+      <path class="flow-back" d="M475 96 C310 108 180 110 155 194"></path>
+      <text class="flow-label" x="270" y="118">Login status</text>
+
+      <path class="flow" d="M225 220 L475 184"></path>
+      <text class="flow-label" x="260" y="198">Request to join/view subject</text>
+      <path class="flow-back" d="M475 205 L225 240"></path>
+      <text class="flow-label" x="265" y="246">Display subject and team</text>
+
+      <path class="flow" d="M225 255 L475 290"></path>
+      <text class="flow-label" x="260" y="283">Upload final paper</text>
+      <path class="flow-back" d="M475 310 L220 276"></path>
+      <text class="flow-label" x="265" y="325">Upload status</text>
+
+      <path class="flow" d="M170 290 C230 395 365 400 475 400"></path>
+      <text class="flow-label" x="260" y="390">Request released result</text>
+      <path class="flow-back" d="M475 420 C340 450 220 425 150 292"></path>
+      <text class="flow-label" x="270" y="452">Show score and feedback</text>
+
+      <path class="flow" d="M665 78 L865 78"></path>
+      <text class="flow-label" x="710" y="70">Validate credentials</text>
+      <path class="flow-back" d="M865 96 L665 96"></path>
+      <text class="flow-label" x="740" y="111">User data</text>
+      <path class="flow" d="M665 185 L865 185"></path>
+      <text class="flow-label" x="700" y="178">Fetch joined subject/team</text>
+      <path class="flow-back" d="M865 205 L665 205"></path>
+      <text class="flow-label" x="730" y="220">Team room data</text>
+      <path class="flow" d="M665 292 L865 292"></path>
+      <text class="flow-label" x="705" y="285">Store paper upload</text>
+      <path class="flow-back" d="M865 312 L665 312"></path>
+      <text class="flow-label" x="735" y="327">Paper data</text>
+      <path class="flow" d="M665 398 L865 398"></path>
+      <text class="flow-label" x="710" y="391">Fetch released result</text>
+      <path class="flow-back" d="M865 418 L665 418"></path>
+      <text class="flow-label" x="730" y="433">Score and feedback</text>
+    </svg>
+    <p class="caption">Fig. 4. Data Flow Diagram Level 1 for Scormetry 2.0 Student Interface</p>
+  </section>
+
+  <section class="page">
+    <h2>3.4.5.5 Object Modeling</h2>
+    <svg viewBox="0 0 1120 700" role="img" aria-label="Organizer Admin Use Case Diagram">
+      <rect class="frame" x="18" y="25" width="1084" height="620"></rect>
+
+      <circle class="actor-line" cx="88" cy="330" r="12"></circle>
+      <line class="actor-line" x1="88" y1="342" x2="88" y2="390"></line>
+      <line class="actor-line" x1="58" y1="358" x2="118" y2="358"></line>
+      <line class="actor-line" x1="88" y1="390" x2="58" y2="430"></line>
+      <line class="actor-line" x1="88" y1="390" x2="118" y2="430"></line>
+      <text class="label" x="88" y="455" text-anchor="middle">Organizer</text>
+      <text class="label" x="88" y="475" text-anchor="middle">/ Admin</text>
+
+      <ellipse class="oval" cx="230" cy="85" rx="80" ry="32"></ellipse><text class="uc-label" x="230" y="90" text-anchor="middle">Login</text>
+      <ellipse class="oval" cx="235" cy="170" rx="95" ry="36"></ellipse><text class="uc-label" x="235" y="166" text-anchor="middle">Create</text><text class="uc-label" x="235" y="184" text-anchor="middle">Subject</text>
+      <ellipse class="oval" cx="420" cy="140" rx="95" ry="36"></ellipse><text class="uc-label" x="420" y="136" text-anchor="middle">Invite Judges</text><text class="uc-label" x="420" y="154" text-anchor="middle">via Email</text>
+      <ellipse class="oval" cx="415" cy="230" rx="100" ry="38"></ellipse><text class="uc-label" x="415" y="226" text-anchor="middle">Manage Teams</text><text class="uc-label" x="415" y="244" text-anchor="middle">and Members</text>
+      <ellipse class="oval" cx="635" cy="115" rx="105" ry="38"></ellipse><text class="uc-label" x="635" y="111" text-anchor="middle">Upload Official</text><text class="uc-label" x="635" y="129" text-anchor="middle">Rubric PDF</text>
+      <ellipse class="oval" cx="810" cy="155" rx="110" ry="38"></ellipse><text class="uc-label" x="810" y="151" text-anchor="middle">Convert to</text><text class="uc-label" x="810" y="169" text-anchor="middle">Dynamic Rubric</text>
+      <ellipse class="oval" cx="635" cy="225" rx="105" ry="38"></ellipse><text class="uc-label" x="635" y="221" text-anchor="middle">Verify Rubric</text><text class="uc-label" x="635" y="239" text-anchor="middle">Structure</text>
+      <ellipse class="oval" cx="820" cy="250" rx="90" ry="34"></ellipse><text class="uc-label" x="820" y="256" text-anchor="middle">Lock Rubric</text>
+      <ellipse class="oval" cx="310" cy="335" rx="105" ry="38"></ellipse><text class="uc-label" x="310" y="331" text-anchor="middle">Monitor Paper</text><text class="uc-label" x="310" y="349" text-anchor="middle">Uploads</text>
+      <ellipse class="oval" cx="530" cy="350" rx="105" ry="38"></ellipse><text class="uc-label" x="530" y="346" text-anchor="middle">View Judge</text><text class="uc-label" x="530" y="364" text-anchor="middle">Submissions</text>
+      <ellipse class="oval" cx="735" cy="375" rx="105" ry="38"></ellipse><text class="uc-label" x="735" y="371" text-anchor="middle">Release Scores</text><text class="uc-label" x="735" y="389" text-anchor="middle">and Feedback</text>
+      <ellipse class="oval" cx="910" cy="345" rx="100" ry="36"></ellipse><text class="uc-label" x="910" y="341" text-anchor="middle">Unlock Review</text><text class="uc-label" x="910" y="359" text-anchor="middle">with Reason</text>
+      <ellipse class="oval" cx="390" cy="500" rx="95" ry="36"></ellipse><text class="uc-label" x="390" y="496" text-anchor="middle">Manage User</text><text class="uc-label" x="390" y="514" text-anchor="middle">Access</text>
+      <ellipse class="oval" cx="620" cy="520" rx="100" ry="36"></ellipse><text class="uc-label" x="620" y="516" text-anchor="middle">View Audit</text><text class="uc-label" x="620" y="534" text-anchor="middle">Logs</text>
+      <ellipse class="oval" cx="850" cy="520" rx="100" ry="36"></ellipse><text class="uc-label" x="850" y="516" text-anchor="middle">Display Success</text><text class="uc-label" x="850" y="534" text-anchor="middle">or Error Message</text>
+
+      <line class="assoc" x1="118" y1="358" x2="165" y2="90"></line>
+      <line class="assoc" x1="118" y1="358" x2="150" y2="175"></line>
+      <line class="assoc" x1="118" y1="358" x2="315" y2="230"></line>
+      <line class="assoc" x1="118" y1="358" x2="205" y2="335"></line>
+      <line class="assoc" x1="118" y1="358" x2="435" y2="350"></line>
+      <line class="assoc" x1="118" y1="358" x2="295" y2="500"></line>
+
+      <path class="include" d="M330 165 L520 120"></path><text class="relationship" x="410" y="132">&lt;&lt;include&gt;&gt;</text>
+      <path class="include" d="M515 138 L705 152"></path><text class="relationship" x="595" y="132">&lt;&lt;include&gt;&gt;</text>
+      <path class="include" d="M740 178 L635 187"></path><text class="relationship" x="680" y="195">&lt;&lt;extend&gt;&gt;</text>
+      <path class="include" d="M720 225 L760 245"></path><text class="relationship" x="735" y="228">&lt;&lt;include&gt;&gt;</text>
+      <path class="include" d="M635 370 L810 350"></path><text class="relationship" x="705" y="345">&lt;&lt;extend&gt;&gt;</text>
+      <path class="include" d="M810 380 L710 505"></path><text class="relationship" x="775" y="460">&lt;&lt;include&gt;&gt;</text>
+      <path class="include" d="M710 520 L750 520"></path><text class="relationship" x="725" y="505">&lt;&lt;include&gt;&gt;</text>
+    </svg>
+    <p class="caption">Fig. 5. Organizer/Admin Use Case Diagram for Scormetry 2.0</p>
+  </section>
+
+  <section class="page">
+    <svg viewBox="0 0 1120 390" role="img" aria-label="Judge Use Case Diagram">
+      <rect class="frame" x="18" y="25" width="1084" height="300"></rect>
+      <circle class="actor-line" cx="78" cy="168" r="12"></circle>
+      <line class="actor-line" x1="78" y1="180" x2="78" y2="220"></line>
+      <line class="actor-line" x1="50" y1="194" x2="106" y2="194"></line>
+      <line class="actor-line" x1="78" y1="220" x2="50" y2="255"></line>
+      <line class="actor-line" x1="78" y1="220" x2="106" y2="255"></line>
+      <text class="label" x="78" y="282" text-anchor="middle">Judge</text>
+
+      <ellipse class="oval" cx="245" cy="75" rx="88" ry="34"></ellipse><text class="uc-label" x="245" y="80" text-anchor="middle">Accept Invitation</text>
+      <ellipse class="oval" cx="250" cy="180" rx="92" ry="34"></ellipse><text class="uc-label" x="250" y="176" text-anchor="middle">View Assigned</text><text class="uc-label" x="250" y="194" text-anchor="middle">Team Rooms</text>
+      <ellipse class="oval" cx="455" cy="175" rx="92" ry="34"></ellipse><text class="uc-label" x="455" y="171" text-anchor="middle">View Final</text><text class="uc-label" x="455" y="189" text-anchor="middle">Paper</text>
+      <ellipse class="oval" cx="620" cy="95" rx="100" ry="34"></ellipse><text class="uc-label" x="620" y="91" text-anchor="middle">View Locked</text><text class="uc-label" x="620" y="109" text-anchor="middle">Dynamic Rubric</text>
+      <ellipse class="oval" cx="660" cy="220" rx="100" ry="34"></ellipse><text class="uc-label" x="660" y="216" text-anchor="middle">Input Criterion</text><text class="uc-label" x="660" y="234" text-anchor="middle">Scores</text>
+      <ellipse class="oval" cx="835" cy="165" rx="95" ry="34"></ellipse><text class="uc-label" x="835" y="161" text-anchor="middle">Add Comments</text><text class="uc-label" x="835" y="179" text-anchor="middle">and Feedback</text>
+      <ellipse class="oval" cx="990" cy="220" rx="85" ry="34"></ellipse><text class="uc-label" x="990" y="216" text-anchor="middle">Submit</text><text class="uc-label" x="990" y="234" text-anchor="middle">Review</text>
+
+      <line class="assoc" x1="106" y1="194" x2="157" y2="80"></line>
+      <line class="assoc" x1="106" y1="194" x2="158" y2="180"></line>
+      <path class="include" d="M340 178 L363 176"></path><text class="relationship" x="338" y="160">&lt;&lt;extend&gt;&gt;</text>
+      <path class="include" d="M530 158 L580 120"></path><text class="relationship" x="540" y="135">&lt;&lt;include&gt;&gt;</text>
+      <path class="include" d="M530 192 L575 210"></path><text class="relationship" x="535" y="215">&lt;&lt;extend&gt;&gt;</text>
+      <path class="include" d="M760 210 L785 188"></path><text class="relationship" x="740" y="195">&lt;&lt;include&gt;&gt;</text>
+      <path class="include" d="M925 180 L945 205"></path><text class="relationship" x="920" y="203">&lt;&lt;extend&gt;&gt;</text>
+    </svg>
+    <p class="caption">Fig. 6. Judge Use Case Diagram for Scormetry 2.0</p>
+  </section>
+
+  <section class="page">
+    <svg viewBox="0 0 1120 480" role="img" aria-label="Student Use Case Diagram">
+      <rect class="frame" x="18" y="25" width="1084" height="385"></rect>
+      <circle class="actor-line" cx="78" cy="215" r="12"></circle>
+      <line class="actor-line" x1="78" y1="227" x2="78" y2="270"></line>
+      <line class="actor-line" x1="50" y1="242" x2="106" y2="242"></line>
+      <line class="actor-line" x1="78" y1="270" x2="50" y2="305"></line>
+      <line class="actor-line" x1="78" y1="270" x2="106" y2="305"></line>
+      <text class="label" x="78" y="333" text-anchor="middle">Students</text>
+
+      <ellipse class="oval" cx="240" cy="75" rx="90" ry="34"></ellipse><text class="uc-label" x="240" y="71" text-anchor="middle">Join Subject</text><text class="uc-label" x="240" y="89" text-anchor="middle">via Code</text>
+      <ellipse class="oval" cx="250" cy="190" rx="92" ry="34"></ellipse><text class="uc-label" x="250" y="186" text-anchor="middle">View Team</text><text class="uc-label" x="250" y="204" text-anchor="middle">Room</text>
+      <ellipse class="oval" cx="455" cy="160" rx="95" ry="34"></ellipse><text class="uc-label" x="455" y="156" text-anchor="middle">View Defense</text><text class="uc-label" x="455" y="174" text-anchor="middle">Schedule</text>
+      <ellipse class="oval" cx="460" cy="260" rx="95" ry="34"></ellipse><text class="uc-label" x="460" y="256" text-anchor="middle">Upload Final</text><text class="uc-label" x="460" y="274" text-anchor="middle">Paper</text>
+      <ellipse class="oval" cx="660" cy="250" rx="100" ry="34"></ellipse><text class="uc-label" x="660" y="246" text-anchor="middle">Replace Paper</text><text class="uc-label" x="660" y="264" text-anchor="middle">Before Lock</text>
+      <ellipse class="oval" cx="675" cy="135" rx="95" ry="34"></ellipse><text class="uc-label" x="675" y="131" text-anchor="middle">View Team</text><text class="uc-label" x="675" y="149" text-anchor="middle">Members</text>
+      <ellipse class="oval" cx="850" cy="205" rx="98" ry="34"></ellipse><text class="uc-label" x="850" y="201" text-anchor="middle">View Released</text><text class="uc-label" x="850" y="219" text-anchor="middle">Score</text>
+      <ellipse class="oval" cx="970" cy="305" rx="95" ry="34"></ellipse><text class="uc-label" x="970" y="301" text-anchor="middle">View Judge</text><text class="uc-label" x="970" y="319" text-anchor="middle">Feedback</text>
+
+      <line class="assoc" x1="106" y1="242" x2="155" y2="82"></line>
+      <line class="assoc" x1="106" y1="242" x2="158" y2="190"></line>
+      <path class="include" d="M340 180 L367 170"></path><text class="relationship" x="340" y="155">&lt;&lt;extend&gt;&gt;</text>
+      <path class="include" d="M340 200 L375 250"></path><text class="relationship" x="350" y="235">&lt;&lt;include&gt;&gt;</text>
+      <path class="include" d="M545 260 L560 255"></path><text class="relationship" x="545" y="240">&lt;&lt;extend&gt;&gt;</text>
+      <path class="include" d="M540 155 L590 140"></path><text class="relationship" x="540" y="132">&lt;&lt;include&gt;&gt;</text>
+      <path class="include" d="M742 210 L760 210"></path><text class="relationship" x="738" y="190">&lt;&lt;include&gt;&gt;</text>
+      <path class="include" d="M910 225 L940 285"></path><text class="relationship" x="900" y="268">&lt;&lt;extend&gt;&gt;</text>
+    </svg>
+    <p class="caption">Fig. 7. Student Use Case Diagram for Scormetry 2.0</p>
+  </section>
+</body>
+</html>

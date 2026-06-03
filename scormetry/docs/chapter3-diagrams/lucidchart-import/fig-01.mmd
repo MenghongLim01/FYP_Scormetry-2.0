@@ -1,0 +1,10 @@
+flowchart TB
+    PIU["Paragon International University"] --> ICT["Faculty of Information and Computer Technology"]
+    ICT --> Dean["Dean of ICT"]
+    Dean --> HOD["Department Head / FYP Coordinator"]
+    HOD --> Org["Organizer / Admin<br/>Creates subjects, manages teams, rubrics, scores, and users"]
+    Org --> Judges["Assigned Judges / Reviewers<br/>Evaluate assigned teams only"]
+    Org --> Teams["Student Teams<br/>Upload final paper and view released results"]
+    Judges --> Eval["Rubric-Based Defense Evaluation"]
+    Teams --> Eval
+    Eval --> System["Scormetry 2.0<br/>Subjects, Team Rooms, Dynamic Rubrics, Reviews, Results"]

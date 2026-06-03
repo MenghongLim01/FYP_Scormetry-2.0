@@ -1,0 +1,13 @@
+flowchart LR
+    Student["Student"] --> P1["1.0 Authenticate"]
+    P1 <--> D1[("D1 Users")]
+    P1 --> P2["2.0 Join Subject"]
+    P2 <--> D2[("D2 Subjects")]
+    P2 <--> D3[("D3 Subject Members")]
+    P2 --> P3["3.0 Access Team Room"]
+    P3 <--> D4[("D4 Teams")]
+    P3 --> P4["4.0 Upload Paper"]
+    P4 <--> D5[("D5 Papers")]
+    P4 --> P5["5.0 View Released Result"]
+    P5 <--> D6[("D6 Reviews")]
+    P5 --> Student

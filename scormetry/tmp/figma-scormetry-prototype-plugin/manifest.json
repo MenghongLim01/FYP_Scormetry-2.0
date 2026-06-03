@@ -1,0 +1,9 @@
+{
+  "name": "Scormetry 2.0 Prototype Builder",
+  "api": "1.0.0",
+  "main": "code.js",
+  "documentAccess": "dynamic-page",
+  "editorType": [
+    "figma"
+  ]
+}

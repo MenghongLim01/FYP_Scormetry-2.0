@@ -1,0 +1,21 @@
+flowchart TB
+    subgraph Clients["Client Layer"]
+        Admin["Admin Browser"]
+        Judge["Judge Browser"]
+        Student["Student Browser"]
+    end
+
+    Admin --> HTTPS["HTTPS / Browser Requests"]
+    Judge --> HTTPS
+    Student --> HTTPS
+
+    HTTPS --> CF["Cloudflare / Web Server<br/>DNS, SSL/TLS, CDN, basic DDoS protection"]
+    CF --> App["Laravel 13 Application Server<br/>PHP 8.3, Fortify, Socialite, Wayfinder<br/>Inertia Laravel 3 + Vue 3 + Tailwind CSS 4"]
+
+    App <--> DB[("Database<br/>Users, Subjects, Teams, Rubrics, Papers, Reviews")]
+    App <--> Storage["Laravel File Storage<br/>Rubric PDFs and Paper PDFs"]
+    App <--> OAuth["Google OAuth<br/>Socialite Authentication"]
+    App <--> AI["OpenAI Responses API and Files API<br/>AI-assisted Dynamic Rubric extraction"]
+    App --> Mail["Mail Service<br/>Invitations, reminders, review and result notifications"]
+
+    App --> Queue["Laravel Queue / Scheduler<br/>Defense reminders and async notifications"]

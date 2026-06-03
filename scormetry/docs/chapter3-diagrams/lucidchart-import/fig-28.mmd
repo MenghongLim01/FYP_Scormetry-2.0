@@ -1,0 +1,17 @@
+flowchart LR
+    Admin["Organizer / Admin"] --> UC1["Log in with Google"]
+    Admin --> UC2["Create and manage subject"]
+    Admin --> UC3["Invite reviewers"]
+    Admin --> UC4["Approve / reject members"]
+    Admin --> UC5["Manage blocked users / emails"]
+    Admin --> UC6["Create and schedule teams"]
+    Admin --> UC7["Upload rubric PDF"]
+    Admin --> UC8["Verify and lock Dynamic Rubric"]
+    Admin --> UC9["View submitted reviews"]
+    Admin --> UC10["Override final score with reason"]
+    Admin --> UC11["Release scores to students"]
+    Admin --> UC12["Unlock review when correction is approved"]
+
+    UC7 -. "include" .-> UC8
+    UC10 -. "extend" .-> UC9
+    UC12 -. "extend" .-> UC9

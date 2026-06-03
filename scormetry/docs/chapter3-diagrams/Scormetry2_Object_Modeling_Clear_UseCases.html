@@ -1,0 +1,632 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Scormetry 2.0 Clear Object Modeling Use Case Diagrams</title>
+<style>
+  :root { --ink:#111; --line:#222; --muted:#666; --paper:#fff; --outside:#eee; }
+  * { box-sizing: border-box; }
+  body { margin:0; padding:28px; background:var(--outside); color:var(--ink); font-family:"Times New Roman", Times, serif; }
+  .page { width:1240px; max-width:100%; margin:0 auto 34px; padding:36px 42px 30px; background:var(--paper); overflow-x:auto; }
+  h1 { margin:0 0 16px; font-size:34px; font-weight:700; text-align:center; }
+  h2 { margin:0 0 20px; font-size:31px; font-weight:700; }
+  .intro { max-width:980px; margin:0 auto; font-size:20px; line-height:1.45; text-align:center; }
+  .caption { margin:22px 0 0; font-size:30px; line-height:1.2; font-weight:700; text-align:center; }
+  svg { width:100%; height:auto; display:block; background:#fff; }
+  .frame { fill:#fff; stroke:var(--line); stroke-width:2.4; }
+  .group { fill:none; stroke:#999; stroke-width:1.4; stroke-dasharray:8 7; }
+  .group-title { font-family:"Times New Roman", Times, serif; font-size:20px; font-weight:700; fill:#111; }
+  .oval { fill:#fff; stroke:#555; stroke-width:1.9; }
+  .actor-line { stroke:#333; stroke-width:2; fill:none; }
+  .assoc { stroke:#222; stroke-width:1.8; fill:none; marker-end:url(#arrowSolid); }
+  .include { stroke:#111; stroke-width:1.7; stroke-dasharray:10 6; fill:none; marker-end:url(#arrowOpen); }
+  .extend { stroke:#555; stroke-width:1.7; stroke-dasharray:2 7; fill:none; marker-end:url(#arrowOpenMuted); }
+  .label, .uc-label, .relationship, .legend-text { font-family:"Comic Sans MS", "Comic Sans", "Trebuchet MS", Arial, sans-serif; fill:#111; font-weight:700; }
+  .label { font-size:16px; }
+  .uc-label { font-size:15px; }
+  .relationship { font-size:13px; }
+  .legend-text { font-size:14px; }
+  .tag { fill:#fff; stroke:#111; stroke-width:1; }
+  @media print { body { background:#fff; padding:0; } .page { width:100%; margin:0; page-break-after:always; } }
+</style></head><body>
+<section class="page"><h1>Scormetry 2.0 Clear Object Modeling Use Case Diagrams</h1><p class="intro">This version separates the crowded relationships and uses a legend to clearly distinguish direct associations, required <b>&lt;&lt;include&gt;&gt;</b> relationships, and optional or conditional <b>&lt;&lt;extend&gt;&gt;</b> relationships. The Organizer/Admin diagram is split into two parts to improve readability while preserving the same system scope.</p></section>
+<section class="page"><h2>3.4.5.5 Object Modeling - Organizer/Admin (Part 1)</h2><svg xmlns="http://www.w3.org/2000/svg" width="1550" height="920" viewBox="0 0 1550 920" role="img">
+<style>
+      .frame{fill:#fff;stroke:#222;stroke-width:2.4}.group{fill:none;stroke:#999;stroke-width:1.4;stroke-dasharray:8 7}.group-title{font-family:"Times New Roman",Times,serif;font-size:20px;font-weight:700;fill:#111}.oval{fill:#fff;stroke:#555;stroke-width:1.9}.actor-line{stroke:#333;stroke-width:2;fill:none}.assoc{stroke:#222;stroke-width:1.8;fill:none;marker-end:url(#arrowSolid)}.include{stroke:#111;stroke-width:1.7;stroke-dasharray:10 6;fill:none;marker-end:url(#arrowOpen)}.extend{stroke:#555;stroke-width:1.7;stroke-dasharray:2 7;fill:none;marker-end:url(#arrowOpenMuted)}.label,.uc-label,.relationship,.legend-text{font-family:"Comic Sans MS","Comic Sans","Trebuchet MS",Arial,sans-serif;fill:#111;font-weight:700}.label{font-size:16px}.uc-label{font-size:15px}.relationship{font-size:13px}.legend-text{font-size:14px}.tag{fill:#fff;stroke:#111;stroke-width:1}
+    </style>
+<defs>
+      <marker id="arrowSolid" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth"><path d="M0,0 L0,6 L8,3 z" fill="#222"/></marker>
+      <marker id="arrowOpen" markerWidth="11" markerHeight="11" refX="9" refY="4" orient="auto" markerUnits="strokeWidth"><path d="M1,1 L9,4 L1,7" fill="none" stroke="#111" stroke-width="1.6"/></marker>
+      <marker id="arrowOpenMuted" markerWidth="11" markerHeight="11" refX="9" refY="4" orient="auto" markerUnits="strokeWidth"><path d="M1,1 L9,4 L1,7" fill="none" stroke="#555" stroke-width="1.6"/></marker>
+    </defs>
+<rect width="100%" height="100%" fill="#fff"/>
+<rect class="frame" x="20" y="24" width="1510" height="842"/>
+
+      <rect x="1170" y="52" width="340" height="122" fill="#fff" stroke="#111" stroke-width="1.6"/>
+      <text class="group-title" x="1186" y="79">Legend</text>
+      <line class="assoc" x1="1192" y1="106" x2="1262" y2="106"/>
+      <text class="legend-text" x="1280" y="111">Direct user action</text>
+      <line class="include" x1="1192" y1="134" x2="1262" y2="134"/>
+      <text class="legend-text" x="1280" y="139">&lt;&lt;include&gt;&gt; Required sub-function</text>
+      <line class="extend" x1="1192" y1="160" x2="1262" y2="160"/>
+      <text class="legend-text" x="1280" y="165">&lt;&lt;extend&gt;&gt; Optional/conditional</text>
+    
+
+      <circle class="actor-line" cx="105" cy="456" r="13"/>
+      <line class="actor-line" x1="105" y1="469" x2="105" y2="519"/>
+      <line class="actor-line" x1="71" y1="491" x2="139" y2="491"/>
+      <line class="actor-line" x1="105" y1="519" x2="74" y2="559"/>
+      <line class="actor-line" x1="105" y1="519" x2="136" y2="559"/>
+      <text class="label" x="105" y="566.0" text-anchor="middle">Organizer /</text>
+<text class="label" x="105" y="584.0" text-anchor="middle">Admin</text>
+    
+<rect class="group" x="190" y="75" width="900" height="170" rx="10"/>
+<text class="group-title" x="208" y="103">Account and User Management</text>
+<ellipse class="oval" id="login" cx="330" cy="160" rx="94" ry="34"/>
+<text class="uc-label" x="330" y="151.0" text-anchor="middle">Login / Google</text>
+<text class="uc-label" x="330" y="169.0" text-anchor="middle">OAuth</text>
+<ellipse class="oval" id="dash" cx="555" cy="160" rx="94" ry="34"/>
+<text class="uc-label" x="555" y="151.0" text-anchor="middle">View Admin</text>
+<text class="uc-label" x="555" y="169.0" text-anchor="middle">Dashboard</text>
+<ellipse class="oval" id="profile" cx="800" cy="115" rx="112" ry="34"/>
+<text class="uc-label" x="800" y="106.0" text-anchor="middle">Manage Profile /</text>
+<text class="uc-label" x="800" y="124.0" text-anchor="middle">Security</text>
+<ellipse class="oval" id="users" cx="800" cy="205" rx="112" ry="34"/>
+<text class="uc-label" x="800" y="196.0" text-anchor="middle">Manage System</text>
+<text class="uc-label" x="800" y="214.0" text-anchor="middle">Users</text>
+<ellipse class="oval" id="approve" cx="1030" cy="160" rx="105" ry="34"/>
+<text class="uc-label" x="1030" y="151.0" text-anchor="middle">Approve User</text>
+<text class="uc-label" x="1030" y="169.0" text-anchor="middle">Accounts</text>
+<ellipse class="oval" id="role" cx="1235" cy="180" rx="96" ry="34"/>
+<text class="uc-label" x="1235" y="171.0" text-anchor="middle">Update User</text>
+<text class="uc-label" x="1235" y="189.0" text-anchor="middle">Role</text>
+<ellipse class="oval" id="block" cx="1030" cy="235" rx="105" ry="34"/>
+<text class="uc-label" x="1030" y="226.0" text-anchor="middle">Block / Unblock</text>
+<text class="uc-label" x="1030" y="244.0" text-anchor="middle">Users</text>
+<ellipse class="oval" id="delete" cx="1235" cy="260" rx="96" ry="34"/>
+<text class="uc-label" x="1235" y="251.0" text-anchor="middle">Delete User</text>
+<text class="uc-label" x="1235" y="269.0" text-anchor="middle">Account</text>
+<rect class="group" x="190" y="295" width="1215" height="255" rx="10"/>
+<text class="group-title" x="208" y="323">Subject Room and Member Management</text>
+<ellipse class="oval" id="subject" cx="330" cy="390" rx="94" ry="34"/>
+<text class="uc-label" x="330" y="381.0" text-anchor="middle">Create Subject</text>
+<text class="uc-label" x="330" y="399.0" text-anchor="middle">Room</text>
+<ellipse class="oval" id="editSubject" cx="555" cy="340" rx="94" ry="34"/>
+<text class="uc-label" x="555" y="331.0" text-anchor="middle">Edit / Delete</text>
+<text class="uc-label" x="555" y="349.0" text-anchor="middle">Subject</text>
+<ellipse class="oval" id="codes" cx="555" cy="442" rx="94" ry="34"/>
+<text class="uc-label" x="555" y="433.0" text-anchor="middle">View / Reset</text>
+<text class="uc-label" x="555" y="451.0" text-anchor="middle">Join Codes</text>
+<ellipse class="oval" id="approval" cx="780" cy="390" rx="94" ry="34"/>
+<text class="uc-label" x="780" y="381.0" text-anchor="middle">Set Approval</text>
+<text class="uc-label" x="780" y="399.0" text-anchor="middle">Rule</text>
+<ellipse class="oval" id="pending" cx="1030" cy="390" rx="112" ry="34"/>
+<text class="uc-label" x="1030" y="381.0" text-anchor="middle">Approve / Reject</text>
+<text class="uc-label" x="1030" y="399.0" text-anchor="middle">Members</text>
+<ellipse class="oval" id="students" cx="330" cy="502" rx="94" ry="34"/>
+<text class="uc-label" x="330" y="493.0" text-anchor="middle">Add / Remove</text>
+<text class="uc-label" x="330" y="511.0" text-anchor="middle">Students</text>
+<ellipse class="oval" id="reviewers" cx="555" cy="502" rx="94" ry="34"/>
+<text class="uc-label" x="555" y="493.0" text-anchor="middle">Add / Remove</text>
+<text class="uc-label" x="555" y="511.0" text-anchor="middle">Reviewers</text>
+<ellipse class="oval" id="invite" cx="780" cy="502" rx="94" ry="34"/>
+<text class="uc-label" x="780" y="493.0" text-anchor="middle">Invite Reviewer</text>
+<text class="uc-label" x="780" y="511.0" text-anchor="middle">by Email</text>
+<ellipse class="oval" id="roleLabel" cx="1030" cy="502" rx="94" ry="34"/>
+<text class="uc-label" x="1030" y="493.0" text-anchor="middle">Set Committee</text>
+<text class="uc-label" x="1030" y="511.0" text-anchor="middle">Role Label</text>
+<ellipse class="oval" id="blocked" cx="1260" cy="502" rx="108" ry="34"/>
+<text class="uc-label" x="1260" y="493.0" text-anchor="middle">Block Rejoining</text>
+<text class="uc-label" x="1260" y="511.0" text-anchor="middle">by Email</text>
+<rect class="group" x="190" y="605" width="1215" height="235" rx="10"/>
+<text class="group-title" x="208" y="633">Team and Schedule Management</text>
+<ellipse class="oval" id="team" cx="330" cy="700" rx="94" ry="34"/>
+<text class="uc-label" x="330" y="691.0" text-anchor="middle">Create / Delete</text>
+<text class="uc-label" x="330" y="709.0" text-anchor="middle">Teams</text>
+<ellipse class="oval" id="teamMember" cx="575" cy="700" rx="112" ry="34"/>
+<text class="uc-label" x="575" y="691.0" text-anchor="middle">Add / Remove</text>
+<text class="uc-label" x="575" y="709.0" text-anchor="middle">Team Members</text>
+<ellipse class="oval" id="assign" cx="830" cy="700" rx="108" ry="34"/>
+<text class="uc-label" x="830" y="691.0" text-anchor="middle">Assign Reviewer</text>
+<text class="uc-label" x="830" y="709.0" text-anchor="middle">to Team</text>
+<ellipse class="oval" id="schedule" cx="1080" cy="700" rx="94" ry="34"/>
+<text class="uc-label" x="1080" y="691.0" text-anchor="middle">Set Defense</text>
+<text class="uc-label" x="1080" y="709.0" text-anchor="middle">Schedule</text>
+<ellipse class="oval" id="notify" cx="1280" cy="700" rx="94" ry="34"/>
+<text class="uc-label" x="1280" y="691.0" text-anchor="middle">Notify Schedule</text>
+<text class="uc-label" x="1280" y="709.0" text-anchor="middle">Change</text>
+<ellipse class="oval" id="teamStatus" cx="575" cy="792" rx="112" ry="34"/>
+<text class="uc-label" x="575" y="783.0" text-anchor="middle">View Team /</text>
+<text class="uc-label" x="575" y="801.0" text-anchor="middle">Member Status</text>
+<line class="assoc" x1="140" y1="525" x2="236" y2="160"/>
+<line class="assoc" x1="140" y1="525" x2="236" y2="390"/>
+<line class="assoc" x1="140" y1="525" x2="236" y2="502"/>
+<line class="assoc" x1="140" y1="525" x2="236" y2="700"/>
+<line class="assoc" x1="140" y1="525" x2="463" y2="700"/>
+<line class="assoc" x1="140" y1="525" x2="678" y2="700"/>
+<line class="include" x1="425" y1="160" x2="460" y2="160"/>
+<rect class="tag" x="396.5" y="136.0" width="92" height="20" rx="3"/>
+<text class="relationship" x="442.5" y="152.0" text-anchor="middle">&lt;&lt;include&gt;&gt;</text>
+<line class="extend" x1="650" y1="150" x2="690" y2="125"/>
+<rect class="tag" x="626.0" y="113.5" width="88" height="20" rx="3"/>
+<text class="relationship" x="670.0" y="129.5" text-anchor="middle">&lt;&lt;extend&gt;&gt;</text>
+<line class="include" x1="665" y1="170" x2="695" y2="200"/>
+<rect class="tag" x="634.0" y="161.0" width="92" height="20" rx="3"/>
+<text class="relationship" x="680.0" y="177.0" text-anchor="middle">&lt;&lt;include&gt;&gt;</text>
+<line class="include" x1="905" y1="200" x2="935" y2="170"/>
+<rect class="tag" x="874.0" y="161.0" width="92" height="20" rx="3"/>
+<text class="relationship" x="920.0" y="177.0" text-anchor="middle">&lt;&lt;include&gt;&gt;</text>
+<line class="extend" x1="905" y1="205" x2="935" y2="230"/>
+<rect class="tag" x="876.0" y="193.5" width="88" height="20" rx="3"/>
+<text class="relationship" x="920.0" y="209.5" text-anchor="middle">&lt;&lt;extend&gt;&gt;</text>
+<line class="extend" x1="1128" y1="160" x2="1140" y2="175"/>
+<rect class="tag" x="1090.0" y="143.5" width="88" height="20" rx="3"/>
+<text class="relationship" x="1134.0" y="159.5" text-anchor="middle">&lt;&lt;extend&gt;&gt;</text>
+<line class="extend" x1="1128" y1="235" x2="1140" y2="255"/>
+<rect class="tag" x="1090.0" y="221.0" width="88" height="20" rx="3"/>
+<text class="relationship" x="1134.0" y="237.0" text-anchor="middle">&lt;&lt;extend&gt;&gt;</text>
+<line class="extend" x1="425" y1="390" x2="465" y2="345"/>
+<rect class="tag" x="401.0" y="343.5" width="88" height="20" rx="3"/>
+<text class="relationship" x="445.0" y="359.5" text-anchor="middle">&lt;&lt;extend&gt;&gt;</text>
+<line class="include" x1="425" y1="390" x2="465" y2="435"/>
+<rect class="tag" x="399.0" y="388.5" width="92" height="20" rx="3"/>
+<text class="relationship" x="445.0" y="404.5" text-anchor="middle">&lt;&lt;include&gt;&gt;</text>
+<line class="include" x1="425" y1="390" x2="685" y2="390"/>
+<rect class="tag" x="509.0" y="366.0" width="92" height="20" rx="3"/>
+<text class="relationship" x="555.0" y="382.0" text-anchor="middle">&lt;&lt;include&gt;&gt;</text>
+<line class="include" x1="875" y1="390" x2="925" y2="390"/>
+<rect class="tag" x="854.0" y="366.0" width="92" height="20" rx="3"/>
+<text class="relationship" x="900.0" y="382.0" text-anchor="middle">&lt;&lt;include&gt;&gt;</text>
+<line class="include" x1="425" y1="502" x2="465" y2="502"/>
+<rect class="tag" x="399.0" y="478.0" width="92" height="20" rx="3"/>
+<text class="relationship" x="445.0" y="494.0" text-anchor="middle">&lt;&lt;include&gt;&gt;</text>
+<line class="include" x1="650" y1="502" x2="685" y2="502"/>
+<rect class="tag" x="621.5" y="478.0" width="92" height="20" rx="3"/>
+<text class="relationship" x="667.5" y="494.0" text-anchor="middle">&lt;&lt;include&gt;&gt;</text>
+<line class="include" x1="650" y1="502" x2="925" y2="502"/>
+<rect class="tag" x="741.5" y="478.0" width="92" height="20" rx="3"/>
+<text class="relationship" x="787.5" y="494.0" text-anchor="middle">&lt;&lt;include&gt;&gt;</text>
+<line class="extend" x1="650" y1="502" x2="1152" y2="502"/>
+<rect class="tag" x="857.0" y="478.0" width="88" height="20" rx="3"/>
+<text class="relationship" x="901.0" y="494.0" text-anchor="middle">&lt;&lt;extend&gt;&gt;</text>
+<line class="include" x1="425" y1="700" x2="463" y2="700"/>
+<rect class="tag" x="398.0" y="676.0" width="92" height="20" rx="3"/>
+<text class="relationship" x="444.0" y="692.0" text-anchor="middle">&lt;&lt;include&gt;&gt;</text>
+<line class="include" x1="687" y1="700" x2="725" y2="700"/>
+<rect class="tag" x="660.0" y="676.0" width="92" height="20" rx="3"/>
+<text class="relationship" x="706.0" y="692.0" text-anchor="middle">&lt;&lt;include&gt;&gt;</text>
+<line class="extend" x1="938" y1="700" x2="982" y2="700"/>
+<rect class="tag" x="916.0" y="676.0" width="88" height="20" rx="3"/>
+<text class="relationship" x="960.0" y="692.0" text-anchor="middle">&lt;&lt;extend&gt;&gt;</text>
+<line class="include" x1="1175" y1="700" x2="1185" y2="700"/>
+<rect class="tag" x="1134.0" y="676.0" width="92" height="20" rx="3"/>
+<text class="relationship" x="1180.0" y="692.0" text-anchor="middle">&lt;&lt;include&gt;&gt;</text>
+<line class="include" x1="425" y1="700" x2="465" y2="782"/>
+<rect class="tag" x="399.0" y="717.0" width="92" height="20" rx="3"/>
+<text class="relationship" x="445.0" y="733.0" text-anchor="middle">&lt;&lt;include&gt;&gt;</text>
+</svg><p class="caption">Fig. 1A. Clear Organizer/Admin Use Case Diagram for Scormetry 2.0 - Account, Subject, and Team Management</p></section>
+<section class="page"><h2>3.4.5.5 Object Modeling - Organizer/Admin (Part 2)</h2><svg xmlns="http://www.w3.org/2000/svg" width="1550" height="940" viewBox="0 0 1550 940" role="img">
+<style>
+      .frame{fill:#fff;stroke:#222;stroke-width:2.4}.group{fill:none;stroke:#999;stroke-width:1.4;stroke-dasharray:8 7}.group-title{font-family:"Times New Roman",Times,serif;font-size:20px;font-weight:700;fill:#111}.oval{fill:#fff;stroke:#555;stroke-width:1.9}.actor-line{stroke:#333;stroke-width:2;fill:none}.assoc{stroke:#222;stroke-width:1.8;fill:none;marker-end:url(#arrowSolid)}.include{stroke:#111;stroke-width:1.7;stroke-dasharray:10 6;fill:none;marker-end:url(#arrowOpen)}.extend{stroke:#555;stroke-width:1.7;stroke-dasharray:2 7;fill:none;marker-end:url(#arrowOpenMuted)}.label,.uc-label,.relationship,.legend-text{font-family:"Comic Sans MS","Comic Sans","Trebuchet MS",Arial,sans-serif;fill:#111;font-weight:700}.label{font-size:16px}.uc-label{font-size:15px}.relationship{font-size:13px}.legend-text{font-size:14px}.tag{fill:#fff;stroke:#111;stroke-width:1}
+    </style>
+<defs>
+      <marker id="arrowSolid" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth"><path d="M0,0 L0,6 L8,3 z" fill="#222"/></marker>
+      <marker id="arrowOpen" markerWidth="11" markerHeight="11" refX="9" refY="4" orient="auto" markerUnits="strokeWidth"><path d="M1,1 L9,4 L1,7" fill="none" stroke="#111" stroke-width="1.6"/></marker>
+      <marker id="arrowOpenMuted" markerWidth="11" markerHeight="11" refX="9" refY="4" orient="auto" markerUnits="strokeWidth"><path d="M1,1 L9,4 L1,7" fill="none" stroke="#555" stroke-width="1.6"/></marker>
+    </defs>
+<rect width="100%" height="100%" fill="#fff"/>
+<rect class="frame" x="20" y="24" width="1510" height="862"/>
+
+      <rect x="1170" y="52" width="340" height="122" fill="#fff" stroke="#111" stroke-width="1.6"/>
+      <text class="group-title" x="1186" y="79">Legend</text>
+      <line class="assoc" x1="1192" y1="106" x2="1262" y2="106"/>
+      <text class="legend-text" x="1280" y="111">Direct user action</text>
+      <line class="include" x1="1192" y1="134" x2="1262" y2="134"/>
+      <text class="legend-text" x="1280" y="139">&lt;&lt;include&gt;&gt; Required sub-function</text>
+      <line class="extend" x1="1192" y1="160" x2="1262" y2="160"/>
+      <text class="legend-text" x="1280" y="165">&lt;&lt;extend&gt;&gt; Optional/conditional</text>
+    
+
+      <circle class="actor-line" cx="105" cy="446" r="13"/>
+      <line class="actor-line" x1="105" y1="459" x2="105" y2="509"/>
+      <line class="actor-line" x1="71" y1="481" x2="139" y2="481"/>
+      <line class="actor-line" x1="105" y1="509" x2="74" y2="549"/>
+      <line class="actor-line" x1="105" y1="509" x2="136" y2="549"/>
+      <text class="label" x="105" y="556.0" text-anchor="middle">Organizer /</text>
+<text class="label" x="105" y="574.0" text-anchor="middle">Admin</text>
+    
+<rect class="group" x="190" y="75" width="1215" height="250" rx="10"/>
+<text class="group-title" x="208" y="103">Rubric Management</text>
+<ellipse class="oval" id="rubricUpload" cx="340" cy="180" rx="112" ry="34"/>
+<text class="uc-label" x="340" y="171.0" text-anchor="middle">Upload Official</text>
+<text class="uc-label" x="340" y="189.0" text-anchor="middle">Rubric PDF</text>
+<ellipse class="oval" id="ai" cx="590" cy="180" rx="112" ry="34"/>
+<text class="uc-label" x="590" y="171.0" text-anchor="middle">AI Convert to</text>
+<text class="uc-label" x="590" y="189.0" text-anchor="middle">Dynamic Rubric</text>
+<ellipse class="oval" id="viewRubric" cx="835" cy="180" rx="112" ry="34"/>
+<text class="uc-label" x="835" y="171.0" text-anchor="middle">View Rubric PDF /</text>
+<text class="uc-label" x="835" y="189.0" text-anchor="middle">Structure</text>
+<ellipse class="oval" id="editRubric" cx="1075" cy="135" rx="112" ry="34"/>
+<text class="uc-label" x="1075" y="126.0" text-anchor="middle">Edit Extracted</text>
+<text class="uc-label" x="1075" y="144.0" text-anchor="middle">Structure</text>
+<ellipse class="oval" id="lock" cx="1280" cy="180" rx="100" ry="34"/>
+<text class="uc-label" x="1280" y="171.0" text-anchor="middle">Verify and Lock</text>
+<text class="uc-label" x="1280" y="189.0" text-anchor="middle">Rubric</text>
+<ellipse class="oval" id="deleteRubric" cx="1075" cy="250" rx="112" ry="34"/>
+<text class="uc-label" x="1075" y="241.0" text-anchor="middle">Delete Unlocked</text>
+<text class="uc-label" x="1075" y="259.0" text-anchor="middle">Rubric</text>
+<rect class="group" x="190" y="390" width="1215" height="315" rx="10"/>
+<text class="group-title" x="208" y="418">Document, Score, and Feedback Records</text>
+<ellipse class="oval" id="papers" cx="340" cy="500" rx="112" ry="34"/>
+<text class="uc-label" x="340" y="491.0" text-anchor="middle">Monitor Submitted</text>
+<text class="uc-label" x="340" y="509.0" text-anchor="middle">Papers</text>
+<ellipse class="oval" id="paperPdf" cx="590" cy="500" rx="112" ry="34"/>
+<text class="uc-label" x="590" y="491.0" text-anchor="middle">View / Download</text>
+<text class="uc-label" x="590" y="509.0" text-anchor="middle">Paper PDF</text>
+<ellipse class="oval" id="scores" cx="835" cy="500" rx="94" ry="34"/>
+<text class="uc-label" x="835" y="491.0" text-anchor="middle">View Team</text>
+<text class="uc-label" x="835" y="509.0" text-anchor="middle">Scores</text>
+<ellipse class="oval" id="reviews" cx="1075" cy="455" rx="122" ry="34"/>
+<text class="uc-label" x="1075" y="446.0" text-anchor="middle">View Judge Reviews</text>
+<text class="uc-label" x="1075" y="464.0" text-anchor="middle">and Feedback</text>
+<ellipse class="oval" id="release" cx="1280" cy="500" rx="108" ry="34"/>
+<text class="uc-label" x="1280" y="491.0" text-anchor="middle">Release Scores</text>
+<text class="uc-label" x="1280" y="509.0" text-anchor="middle">to Students</text>
+<ellipse class="oval" id="override" cx="1075" cy="610" rx="100" ry="34"/>
+<text class="uc-label" x="1075" y="601.0" text-anchor="middle">Override Final</text>
+<text class="uc-label" x="1075" y="619.0" text-anchor="middle">Score</text>
+<ellipse class="oval" id="result" cx="1280" cy="610" rx="100" ry="34"/>
+<text class="uc-label" x="1280" y="601.0" text-anchor="middle">Student Result</text>
+<text class="uc-label" x="1280" y="619.0" text-anchor="middle">Visible</text>
+<rect class="group" x="190" y="760" width="1215" height="120" rx="10"/>
+<text class="group-title" x="208" y="788">Audit and Control</text>
+<ellipse class="oval" id="unlock" cx="500" cy="820" rx="112" ry="34"/>
+<text class="uc-label" x="500" y="811.0" text-anchor="middle">Unlock Review</text>
+<text class="uc-label" x="500" y="829.0" text-anchor="middle">with Reason</text>
+<ellipse class="oval" id="logs" cx="800" cy="820" rx="122" ry="34"/>
+<text class="uc-label" x="800" y="811.0" text-anchor="middle">View Unlock Logs /</text>
+<text class="uc-label" x="800" y="829.0" text-anchor="middle">History</text>
+<ellipse class="oval" id="locked" cx="1090" cy="820" rx="122" ry="34"/>
+<text class="uc-label" x="1090" y="811.0" text-anchor="middle">Preserve Locked</text>
+<text class="uc-label" x="1090" y="829.0" text-anchor="middle">Review Record</text>
+<line class="assoc" x1="140" y1="515" x2="228" y2="180"/>
+<line class="assoc" x1="140" y1="515" x2="228" y2="500"/>
+<line class="assoc" x1="140" y1="515" x2="737" y2="500"/>
+<line class="assoc" x1="140" y1="515" x2="390" y2="820"/>
+<line class="include" x1="452" y1="180" x2="478" y2="180"/>
+<rect class="tag" x="419.0" y="156.0" width="92" height="20" rx="3"/>
+<text class="relationship" x="465.0" y="172.0" text-anchor="middle">&lt;&lt;include&gt;&gt;</text>
+<line class="include" x1="702" y1="180" x2="723" y2="180"/>
+<rect class="tag" x="666.5" y="156.0" width="92" height="20" rx="3"/>
+<text class="relationship" x="712.5" y="172.0" text-anchor="middle">&lt;&lt;include&gt;&gt;</text>
+<line class="extend" x1="947" y1="180" x2="963" y2="145"/>
+<rect class="tag" x="911.0" y="138.5" width="88" height="20" rx="3"/>
+<text class="relationship" x="955.0" y="154.5" text-anchor="middle">&lt;&lt;extend&gt;&gt;</text>
+<line class="include" x1="947" y1="180" x2="1180" y2="180"/>
+<rect class="tag" x="1017.5" y="156.0" width="92" height="20" rx="3"/>
+<text class="relationship" x="1063.5" y="172.0" text-anchor="middle">&lt;&lt;include&gt;&gt;</text>
+<line class="extend" x1="947" y1="180" x2="970" y2="245"/>
+<rect class="tag" x="914.5" y="188.5" width="88" height="20" rx="3"/>
+<text class="relationship" x="958.5" y="204.5" text-anchor="middle">&lt;&lt;extend&gt;&gt;</text>
+<line class="include" x1="452" y1="500" x2="478" y2="500"/>
+<rect class="tag" x="419.0" y="476.0" width="92" height="20" rx="3"/>
+<text class="relationship" x="465.0" y="492.0" text-anchor="middle">&lt;&lt;include&gt;&gt;</text>
+<line class="include" x1="947" y1="500" x2="953" y2="465"/>
+<rect class="tag" x="904.0" y="458.5" width="92" height="20" rx="3"/>
+<text class="relationship" x="950.0" y="474.5" text-anchor="middle">&lt;&lt;include&gt;&gt;</text>
+<line class="extend" x1="947" y1="500" x2="1172" y2="500"/>
+<rect class="tag" x="1015.5" y="476.0" width="88" height="20" rx="3"/>
+<text class="relationship" x="1059.5" y="492.0" text-anchor="middle">&lt;&lt;extend&gt;&gt;</text>
+<line class="extend" x1="947" y1="500" x2="970" y2="610"/>
+<rect class="tag" x="914.5" y="531.0" width="88" height="20" rx="3"/>
+<text class="relationship" x="958.5" y="547.0" text-anchor="middle">&lt;&lt;extend&gt;&gt;</text>
+<line class="include" x1="1183" y1="500" x2="1185" y2="610"/>
+<rect class="tag" x="1138.0" y="531.0" width="92" height="20" rx="3"/>
+<text class="relationship" x="1184.0" y="547.0" text-anchor="middle">&lt;&lt;include&gt;&gt;</text>
+<line class="include" x1="612" y1="820" x2="678" y2="820"/>
+<rect class="tag" x="599.0" y="796.0" width="92" height="20" rx="3"/>
+<text class="relationship" x="645.0" y="812.0" text-anchor="middle">&lt;&lt;include&gt;&gt;</text>
+<line class="include" x1="922" y1="820" x2="968" y2="820"/>
+<rect class="tag" x="899.0" y="796.0" width="92" height="20" rx="3"/>
+<text class="relationship" x="945.0" y="812.0" text-anchor="middle">&lt;&lt;include&gt;&gt;</text>
+<polyline class="extend" points="1183,500 1183,735 585,735 585,790"/>
+<rect class="tag" x="856.0" y="711" width="88" height="20" rx="3"/>
+<text class="relationship" x="900" y="727" text-anchor="middle">&lt;&lt;extend&gt;&gt;</text>
+</svg><p class="caption">Fig. 1B. Clear Organizer/Admin Use Case Diagram for Scormetry 2.0 - Rubric, Records, and Audit Management</p></section>
+<section class="page"><h2>3.4.5.5 Object Modeling - Judge/Reviewer</h2><svg xmlns="http://www.w3.org/2000/svg" width="1420" height="880" viewBox="0 0 1420 880" role="img">
+<style>
+      .frame{fill:#fff;stroke:#222;stroke-width:2.4}.group{fill:none;stroke:#999;stroke-width:1.4;stroke-dasharray:8 7}.group-title{font-family:"Times New Roman",Times,serif;font-size:20px;font-weight:700;fill:#111}.oval{fill:#fff;stroke:#555;stroke-width:1.9}.actor-line{stroke:#333;stroke-width:2;fill:none}.assoc{stroke:#222;stroke-width:1.8;fill:none;marker-end:url(#arrowSolid)}.include{stroke:#111;stroke-width:1.7;stroke-dasharray:10 6;fill:none;marker-end:url(#arrowOpen)}.extend{stroke:#555;stroke-width:1.7;stroke-dasharray:2 7;fill:none;marker-end:url(#arrowOpenMuted)}.label,.uc-label,.relationship,.legend-text{font-family:"Comic Sans MS","Comic Sans","Trebuchet MS",Arial,sans-serif;fill:#111;font-weight:700}.label{font-size:16px}.uc-label{font-size:15px}.relationship{font-size:13px}.legend-text{font-size:14px}.tag{fill:#fff;stroke:#111;stroke-width:1}
+    </style>
+<defs>
+      <marker id="arrowSolid" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth"><path d="M0,0 L0,6 L8,3 z" fill="#222"/></marker>
+      <marker id="arrowOpen" markerWidth="11" markerHeight="11" refX="9" refY="4" orient="auto" markerUnits="strokeWidth"><path d="M1,1 L9,4 L1,7" fill="none" stroke="#111" stroke-width="1.6"/></marker>
+      <marker id="arrowOpenMuted" markerWidth="11" markerHeight="11" refX="9" refY="4" orient="auto" markerUnits="strokeWidth"><path d="M1,1 L9,4 L1,7" fill="none" stroke="#555" stroke-width="1.6"/></marker>
+    </defs>
+<rect width="100%" height="100%" fill="#fff"/>
+<rect class="frame" x="20" y="24" width="1380" height="802"/>
+
+      <rect x="1030" y="52" width="340" height="122" fill="#fff" stroke="#111" stroke-width="1.6"/>
+      <text class="group-title" x="1046" y="79">Legend</text>
+      <line class="assoc" x1="1052" y1="106" x2="1122" y2="106"/>
+      <text class="legend-text" x="1140" y="111">Direct user action</text>
+      <line class="include" x1="1052" y1="134" x2="1122" y2="134"/>
+      <text class="legend-text" x="1140" y="139">&lt;&lt;include&gt;&gt; Required sub-function</text>
+      <line class="extend" x1="1052" y1="160" x2="1122" y2="160"/>
+      <text class="legend-text" x="1140" y="165">&lt;&lt;extend&gt;&gt; Optional/conditional</text>
+    
+
+      <circle class="actor-line" cx="105" cy="361" r="13"/>
+      <line class="actor-line" x1="105" y1="374" x2="105" y2="424"/>
+      <line class="actor-line" x1="71" y1="396" x2="139" y2="396"/>
+      <line class="actor-line" x1="105" y1="424" x2="74" y2="464"/>
+      <line class="actor-line" x1="105" y1="424" x2="136" y2="464"/>
+      <text class="label" x="105" y="471.0" text-anchor="middle">Judge /</text>
+<text class="label" x="105" y="489.0" text-anchor="middle">Reviewer</text>
+    
+<rect class="group" x="190" y="75" width="1125" height="160" rx="10"/>
+<text class="group-title" x="208" y="103">Access and Room Entry</text>
+<ellipse class="oval" id="login" cx="330" cy="150" rx="94" ry="34"/>
+<text class="uc-label" x="330" y="141.0" text-anchor="middle">Login / Google</text>
+<text class="uc-label" x="330" y="159.0" text-anchor="middle">OAuth</text>
+<ellipse class="oval" id="invite" cx="555" cy="115" rx="94" ry="34"/>
+<text class="uc-label" x="555" y="106.0" text-anchor="middle">Accept Email</text>
+<text class="uc-label" x="555" y="124.0" text-anchor="middle">Invitation</text>
+<ellipse class="oval" id="code" cx="555" cy="190" rx="94" ry="34"/>
+<text class="uc-label" x="555" y="181.0" text-anchor="middle">Join as Reviewer</text>
+<text class="uc-label" x="555" y="199.0" text-anchor="middle">by Code</text>
+<ellipse class="oval" id="role" cx="790" cy="190" rx="94" ry="34"/>
+<text class="uc-label" x="790" y="181.0" text-anchor="middle">Select Committee</text>
+<text class="uc-label" x="790" y="199.0" text-anchor="middle">Role</text>
+<ellipse class="oval" id="dashboard" cx="1030" cy="150" rx="94" ry="34"/>
+<text class="uc-label" x="1030" y="141.0" text-anchor="middle">View Reviewer</text>
+<text class="uc-label" x="1030" y="159.0" text-anchor="middle">Dashboard</text>
+<rect class="group" x="190" y="285" width="1125" height="190" rx="10"/>
+<text class="group-title" x="208" y="313">Team Room and Evaluation Materials</text>
+<ellipse class="oval" id="teams" cx="330" cy="380" rx="94" ry="34"/>
+<text class="uc-label" x="330" y="371.0" text-anchor="middle">View Assigned</text>
+<text class="uc-label" x="330" y="389.0" text-anchor="middle">Teams</text>
+<ellipse class="oval" id="room" cx="555" cy="380" rx="94" ry="34"/>
+<text class="uc-label" x="555" y="371.0" text-anchor="middle">Open Subject</text>
+<text class="uc-label" x="555" y="389.0" text-anchor="middle">Room</text>
+<ellipse class="oval" id="schedule" cx="790" cy="345" rx="94" ry="34"/>
+<text class="uc-label" x="790" y="336.0" text-anchor="middle">View Defense</text>
+<text class="uc-label" x="790" y="354.0" text-anchor="middle">Schedule</text>
+<ellipse class="oval" id="paper" cx="1020" cy="380" rx="94" ry="34"/>
+<text class="uc-label" x="1020" y="371.0" text-anchor="middle">View Final</text>
+<text class="uc-label" x="1020" y="389.0" text-anchor="middle">Paper PDF</text>
+<ellipse class="oval" id="rubric" cx="1230" cy="380" rx="110" ry="34"/>
+<text class="uc-label" x="1230" y="371.0" text-anchor="middle">View Locked</text>
+<text class="uc-label" x="1230" y="389.0" text-anchor="middle">Dynamic Rubric</text>
+<rect class="group" x="190" y="535" width="1125" height="250" rx="10"/>
+<text class="group-title" x="208" y="563">Review Submission and Results</text>
+<ellipse class="oval" id="review" cx="330" cy="640" rx="94" ry="34"/>
+<text class="uc-label" x="330" y="631.0" text-anchor="middle">Open Review</text>
+<text class="uc-label" x="330" y="649.0" text-anchor="middle">Form</text>
+<ellipse class="oval" id="score" cx="555" cy="610" rx="94" ry="34"/>
+<text class="uc-label" x="555" y="601.0" text-anchor="middle">Score Each</text>
+<text class="uc-label" x="555" y="619.0" text-anchor="middle">Criterion</text>
+<ellipse class="oval" id="comment" cx="790" cy="610" rx="112" ry="34"/>
+<text class="uc-label" x="790" y="601.0" text-anchor="middle">Add Per-Criterion</text>
+<text class="uc-label" x="790" y="619.0" text-anchor="middle">Comments</text>
+<ellipse class="oval" id="feedback" cx="1020" cy="610" rx="94" ry="34"/>
+<text class="uc-label" x="1020" y="601.0" text-anchor="middle">Add Overall</text>
+<text class="uc-label" x="1020" y="619.0" text-anchor="middle">Feedback</text>
+<ellipse class="oval" id="submit" cx="1230" cy="640" rx="94" ry="34"/>
+<text class="uc-label" x="1230" y="640.0" text-anchor="middle">Submit Review</text>
+<ellipse class="oval" id="deadline" cx="555" cy="715" rx="94" ry="34"/>
+<text class="uc-label" x="555" y="706.0" text-anchor="middle">Follow Score</text>
+<text class="uc-label" x="555" y="724.0" text-anchor="middle">Deadline</text>
+<ellipse class="oval" id="locked" cx="790" cy="715" rx="94" ry="34"/>
+<text class="uc-label" x="790" y="706.0" text-anchor="middle">Review Becomes</text>
+<text class="uc-label" x="790" y="724.0" text-anchor="middle">Locked</text>
+<ellipse class="oval" id="edit" cx="1020" cy="715" rx="94" ry="34"/>
+<text class="uc-label" x="1020" y="706.0" text-anchor="middle">Edit Only if</text>
+<text class="uc-label" x="1020" y="724.0" text-anchor="middle">Unlocked</text>
+<ellipse class="oval" id="summary" cx="555" cy="815" rx="112" ry="34"/>
+<text class="uc-label" x="555" y="806.0" text-anchor="middle">View Team Score</text>
+<text class="uc-label" x="555" y="824.0" text-anchor="middle">Summary</text>
+<ellipse class="oval" id="released" cx="790" cy="815" rx="94" ry="34"/>
+<text class="uc-label" x="790" y="806.0" text-anchor="middle">View Released</text>
+<text class="uc-label" x="790" y="824.0" text-anchor="middle">Result</text>
+<line class="assoc" x1="140" y1="430" x2="236" y2="150"/>
+<line class="assoc" x1="140" y1="430" x2="236" y2="380"/>
+<line class="assoc" x1="140" y1="430" x2="236" y2="640"/>
+<line class="assoc" x1="140" y1="430" x2="452" y2="815"/>
+<line class="include" x1="430" y1="150" x2="468" y2="120"/>
+<rect class="tag" x="403.0" y="111.0" width="92" height="20" rx="3"/>
+<text class="relationship" x="449.0" y="127.0" text-anchor="middle">&lt;&lt;include&gt;&gt;</text>
+<line class="extend" x1="430" y1="150" x2="935" y2="150"/>
+<rect class="tag" x="638.5" y="126.0" width="88" height="20" rx="3"/>
+<text class="relationship" x="682.5" y="142.0" text-anchor="middle">&lt;&lt;extend&gt;&gt;</text>
+<line class="include" x1="668" y1="190" x2="690" y2="190"/>
+<rect class="tag" x="633.0" y="166.0" width="92" height="20" rx="3"/>
+<text class="relationship" x="679.0" y="182.0" text-anchor="middle">&lt;&lt;include&gt;&gt;</text>
+<line class="extend" x1="668" y1="190" x2="935" y2="150"/>
+<rect class="tag" x="757.5" y="146.0" width="88" height="20" rx="3"/>
+<text class="relationship" x="801.5" y="162.0" text-anchor="middle">&lt;&lt;extend&gt;&gt;</text>
+<line class="include" x1="430" y1="380" x2="462" y2="380"/>
+<rect class="tag" x="400.0" y="356.0" width="92" height="20" rx="3"/>
+<text class="relationship" x="446.0" y="372.0" text-anchor="middle">&lt;&lt;include&gt;&gt;</text>
+<line class="include" x1="668" y1="380" x2="692" y2="350"/>
+<rect class="tag" x="634.0" y="341.0" width="92" height="20" rx="3"/>
+<text class="relationship" x="680.0" y="357.0" text-anchor="middle">&lt;&lt;include&gt;&gt;</text>
+<line class="include" x1="668" y1="380" x2="920" y2="380"/>
+<rect class="tag" x="748.0" y="356.0" width="92" height="20" rx="3"/>
+<text class="relationship" x="794.0" y="372.0" text-anchor="middle">&lt;&lt;include&gt;&gt;</text>
+<line class="include" x1="1120" y1="380" x2="1128" y2="380"/>
+<rect class="tag" x="1078.0" y="356.0" width="92" height="20" rx="3"/>
+<text class="relationship" x="1124.0" y="372.0" text-anchor="middle">&lt;&lt;include&gt;&gt;</text>
+<line class="include" x1="430" y1="640" x2="458" y2="615"/>
+<rect class="tag" x="398.0" y="603.5" width="92" height="20" rx="3"/>
+<text class="relationship" x="444.0" y="619.5" text-anchor="middle">&lt;&lt;include&gt;&gt;</text>
+<line class="include" x1="668" y1="610" x2="678" y2="610"/>
+<rect class="tag" x="627.0" y="586.0" width="92" height="20" rx="3"/>
+<text class="relationship" x="673.0" y="602.0" text-anchor="middle">&lt;&lt;include&gt;&gt;</text>
+<line class="include" x1="902" y1="610" x2="918" y2="610"/>
+<rect class="tag" x="864.0" y="586.0" width="92" height="20" rx="3"/>
+<text class="relationship" x="910.0" y="602.0" text-anchor="middle">&lt;&lt;include&gt;&gt;</text>
+<line class="include" x1="1118" y1="610" x2="1132" y2="635"/>
+<rect class="tag" x="1079.0" y="598.5" width="92" height="20" rx="3"/>
+<text class="relationship" x="1125.0" y="614.5" text-anchor="middle">&lt;&lt;include&gt;&gt;</text>
+<line class="include" x1="430" y1="640" x2="462" y2="710"/>
+<rect class="tag" x="400.0" y="651.0" width="92" height="20" rx="3"/>
+<text class="relationship" x="446.0" y="667.0" text-anchor="middle">&lt;&lt;include&gt;&gt;</text>
+<line class="extend" x1="902" y1="715" x2="920" y2="715"/>
+<rect class="tag" x="867.0" y="691.0" width="88" height="20" rx="3"/>
+<text class="relationship" x="911.0" y="707.0" text-anchor="middle">&lt;&lt;extend&gt;&gt;</text>
+<line class="extend" x1="902" y1="715" x2="1132" y2="645"/>
+<rect class="tag" x="973.0" y="656.0" width="88" height="20" rx="3"/>
+<text class="relationship" x="1017.0" y="672.0" text-anchor="middle">&lt;&lt;extend&gt;&gt;</text>
+<line class="extend" x1="668" y1="815" x2="692" y2="815"/>
+<rect class="tag" x="636.0" y="791.0" width="88" height="20" rx="3"/>
+<text class="relationship" x="680.0" y="807.0" text-anchor="middle">&lt;&lt;extend&gt;&gt;</text>
+</svg><p class="caption">Fig. 2. Clear Judge/Reviewer Use Case Diagram for Scormetry 2.0</p></section>
+<section class="page"><h2>3.4.5.5 Object Modeling - Student</h2><svg xmlns="http://www.w3.org/2000/svg" width="1420" height="880" viewBox="0 0 1420 880" role="img">
+<style>
+      .frame{fill:#fff;stroke:#222;stroke-width:2.4}.group{fill:none;stroke:#999;stroke-width:1.4;stroke-dasharray:8 7}.group-title{font-family:"Times New Roman",Times,serif;font-size:20px;font-weight:700;fill:#111}.oval{fill:#fff;stroke:#555;stroke-width:1.9}.actor-line{stroke:#333;stroke-width:2;fill:none}.assoc{stroke:#222;stroke-width:1.8;fill:none;marker-end:url(#arrowSolid)}.include{stroke:#111;stroke-width:1.7;stroke-dasharray:10 6;fill:none;marker-end:url(#arrowOpen)}.extend{stroke:#555;stroke-width:1.7;stroke-dasharray:2 7;fill:none;marker-end:url(#arrowOpenMuted)}.label,.uc-label,.relationship,.legend-text{font-family:"Comic Sans MS","Comic Sans","Trebuchet MS",Arial,sans-serif;fill:#111;font-weight:700}.label{font-size:16px}.uc-label{font-size:15px}.relationship{font-size:13px}.legend-text{font-size:14px}.tag{fill:#fff;stroke:#111;stroke-width:1}
+    </style>
+<defs>
+      <marker id="arrowSolid" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth"><path d="M0,0 L0,6 L8,3 z" fill="#222"/></marker>
+      <marker id="arrowOpen" markerWidth="11" markerHeight="11" refX="9" refY="4" orient="auto" markerUnits="strokeWidth"><path d="M1,1 L9,4 L1,7" fill="none" stroke="#111" stroke-width="1.6"/></marker>
+      <marker id="arrowOpenMuted" markerWidth="11" markerHeight="11" refX="9" refY="4" orient="auto" markerUnits="strokeWidth"><path d="M1,1 L9,4 L1,7" fill="none" stroke="#555" stroke-width="1.6"/></marker>
+    </defs>
+<rect width="100%" height="100%" fill="#fff"/>
+<rect class="frame" x="20" y="24" width="1380" height="802"/>
+
+      <rect x="1030" y="52" width="340" height="122" fill="#fff" stroke="#111" stroke-width="1.6"/>
+      <text class="group-title" x="1046" y="79">Legend</text>
+      <line class="assoc" x1="1052" y1="106" x2="1122" y2="106"/>
+      <text class="legend-text" x="1140" y="111">Direct user action</text>
+      <line class="include" x1="1052" y1="134" x2="1122" y2="134"/>
+      <text class="legend-text" x="1140" y="139">&lt;&lt;include&gt;&gt; Required sub-function</text>
+      <line class="extend" x1="1052" y1="160" x2="1122" y2="160"/>
+      <text class="legend-text" x="1140" y="165">&lt;&lt;extend&gt;&gt; Optional/conditional</text>
+    
+
+      <circle class="actor-line" cx="105" cy="351" r="13"/>
+      <line class="actor-line" x1="105" y1="364" x2="105" y2="414"/>
+      <line class="actor-line" x1="71" y1="386" x2="139" y2="386"/>
+      <line class="actor-line" x1="105" y1="414" x2="74" y2="454"/>
+      <line class="actor-line" x1="105" y1="414" x2="136" y2="454"/>
+      <text class="label" x="105" y="470.0" text-anchor="middle">Student</text>
+    
+<rect class="group" x="190" y="75" width="1125" height="160" rx="10"/>
+<text class="group-title" x="208" y="103">Access and Membership</text>
+<ellipse class="oval" id="login" cx="330" cy="150" rx="94" ry="34"/>
+<text class="uc-label" x="330" y="141.0" text-anchor="middle">Login / Google</text>
+<text class="uc-label" x="330" y="159.0" text-anchor="middle">OAuth</text>
+<ellipse class="oval" id="join" cx="555" cy="150" rx="94" ry="34"/>
+<text class="uc-label" x="555" y="141.0" text-anchor="middle">Join Subject</text>
+<text class="uc-label" x="555" y="159.0" text-anchor="middle">by Code</text>
+<ellipse class="oval" id="approval" cx="790" cy="115" rx="94" ry="34"/>
+<text class="uc-label" x="790" y="106.0" text-anchor="middle">Wait for</text>
+<text class="uc-label" x="790" y="124.0" text-anchor="middle">Approval</text>
+<ellipse class="oval" id="status" cx="790" cy="190" rx="94" ry="34"/>
+<text class="uc-label" x="790" y="181.0" text-anchor="middle">View Blocked /</text>
+<text class="uc-label" x="790" y="199.0" text-anchor="middle">Pending Status</text>
+<ellipse class="oval" id="dashboard" cx="1030" cy="150" rx="94" ry="34"/>
+<text class="uc-label" x="1030" y="141.0" text-anchor="middle">View Student</text>
+<text class="uc-label" x="1030" y="159.0" text-anchor="middle">Dashboard</text>
+<rect class="group" x="190" y="285" width="1125" height="190" rx="10"/>
+<text class="group-title" x="208" y="313">Team Room and Evaluation Materials</text>
+<ellipse class="oval" id="joined" cx="330" cy="380" rx="94" ry="34"/>
+<text class="uc-label" x="330" y="371.0" text-anchor="middle">View Joined</text>
+<text class="uc-label" x="330" y="389.0" text-anchor="middle">Subjects</text>
+<ellipse class="oval" id="room" cx="555" cy="380" rx="94" ry="34"/>
+<text class="uc-label" x="555" y="371.0" text-anchor="middle">Open Team</text>
+<text class="uc-label" x="555" y="389.0" text-anchor="middle">Room</text>
+<ellipse class="oval" id="createTeam" cx="790" cy="340" rx="94" ry="34"/>
+<text class="uc-label" x="790" y="340.0" text-anchor="middle">Create Team</text>
+<ellipse class="oval" id="member" cx="1020" cy="340" rx="112" ry="34"/>
+<text class="uc-label" x="1020" y="331.0" text-anchor="middle">Add / Invite</text>
+<text class="uc-label" x="1020" y="349.0" text-anchor="middle">Team Member</text>
+<ellipse class="oval" id="leave" cx="1230" cy="340" rx="94" ry="34"/>
+<text class="uc-label" x="1230" y="340.0" text-anchor="middle">Leave Team</text>
+<ellipse class="oval" id="schedule" cx="790" cy="425" rx="94" ry="34"/>
+<text class="uc-label" x="790" y="416.0" text-anchor="middle">View Defense</text>
+<text class="uc-label" x="790" y="434.0" text-anchor="middle">Schedule</text>
+<ellipse class="oval" id="rubric" cx="1020" cy="425" rx="112" ry="34"/>
+<text class="uc-label" x="1020" y="416.0" text-anchor="middle">View Official</text>
+<text class="uc-label" x="1020" y="434.0" text-anchor="middle">Rubric PDF</text>
+<rect class="group" x="190" y="535" width="1125" height="250" rx="10"/>
+<text class="group-title" x="208" y="563">Submission and Released Results</text>
+<ellipse class="oval" id="submission" cx="330" cy="640" rx="94" ry="34"/>
+<text class="uc-label" x="330" y="631.0" text-anchor="middle">Open Paper</text>
+<text class="uc-label" x="330" y="649.0" text-anchor="middle">Submission</text>
+<ellipse class="oval" id="upload" cx="555" cy="640" rx="94" ry="34"/>
+<text class="uc-label" x="555" y="631.0" text-anchor="middle">Upload Final</text>
+<text class="uc-label" x="555" y="649.0" text-anchor="middle">Paper PDF</text>
+<ellipse class="oval" id="uploadStatus" cx="790" cy="640" rx="94" ry="34"/>
+<text class="uc-label" x="790" y="631.0" text-anchor="middle">View Upload</text>
+<text class="uc-label" x="790" y="649.0" text-anchor="middle">Status</text>
+<ellipse class="oval" id="own" cx="330" cy="735" rx="94" ry="34"/>
+<text class="uc-label" x="330" y="726.0" text-anchor="middle">View Own</text>
+<text class="uc-label" x="330" y="744.0" text-anchor="middle">Papers</text>
+<ellipse class="oval" id="pending" cx="555" cy="735" rx="94" ry="34"/>
+<text class="uc-label" x="555" y="726.0" text-anchor="middle">View Result</text>
+<text class="uc-label" x="555" y="744.0" text-anchor="middle">Pending Page</text>
+<ellipse class="oval" id="released" cx="790" cy="735" rx="94" ry="34"/>
+<text class="uc-label" x="790" y="726.0" text-anchor="middle">View Released</text>
+<text class="uc-label" x="790" y="744.0" text-anchor="middle">Result</text>
+<ellipse class="oval" id="criteria" cx="1020" cy="690" rx="94" ry="34"/>
+<text class="uc-label" x="1020" y="681.0" text-anchor="middle">View Criteria</text>
+<text class="uc-label" x="1020" y="699.0" text-anchor="middle">Breakdown</text>
+<ellipse class="oval" id="comments" cx="1020" cy="780" rx="94" ry="34"/>
+<text class="uc-label" x="1020" y="771.0" text-anchor="middle">View Judge</text>
+<text class="uc-label" x="1020" y="789.0" text-anchor="middle">Comments</text>
+<ellipse class="oval" id="final" cx="1230" cy="735" rx="112" ry="34"/>
+<text class="uc-label" x="1230" y="726.0" text-anchor="middle">View Final Score /</text>
+<text class="uc-label" x="1230" y="744.0" text-anchor="middle">Override Note</text>
+<line class="assoc" x1="140" y1="420" x2="236" y2="150"/>
+<line class="assoc" x1="140" y1="420" x2="236" y2="380"/>
+<line class="assoc" x1="140" y1="420" x2="236" y2="640"/>
+<line class="assoc" x1="140" y1="420" x2="236" y2="735"/>
+<line class="include" x1="430" y1="150" x2="462" y2="150"/>
+<rect class="tag" x="400.0" y="126.0" width="92" height="20" rx="3"/>
+<text class="relationship" x="446.0" y="142.0" text-anchor="middle">&lt;&lt;include&gt;&gt;</text>
+<line class="include" x1="668" y1="150" x2="692" y2="120"/>
+<rect class="tag" x="634.0" y="111.0" width="92" height="20" rx="3"/>
+<text class="relationship" x="680.0" y="127.0" text-anchor="middle">&lt;&lt;include&gt;&gt;</text>
+<line class="extend" x1="668" y1="150" x2="692" y2="185"/>
+<rect class="tag" x="636.0" y="143.5" width="88" height="20" rx="3"/>
+<text class="relationship" x="680.0" y="159.5" text-anchor="middle">&lt;&lt;extend&gt;&gt;</text>
+<line class="extend" x1="902" y1="150" x2="935" y2="150"/>
+<rect class="tag" x="874.5" y="126.0" width="88" height="20" rx="3"/>
+<text class="relationship" x="918.5" y="142.0" text-anchor="middle">&lt;&lt;extend&gt;&gt;</text>
+<line class="include" x1="430" y1="380" x2="462" y2="380"/>
+<rect class="tag" x="400.0" y="356.0" width="92" height="20" rx="3"/>
+<text class="relationship" x="446.0" y="372.0" text-anchor="middle">&lt;&lt;include&gt;&gt;</text>
+<line class="extend" x1="668" y1="380" x2="692" y2="345"/>
+<rect class="tag" x="636.0" y="338.5" width="88" height="20" rx="3"/>
+<text class="relationship" x="680.0" y="354.5" text-anchor="middle">&lt;&lt;extend&gt;&gt;</text>
+<line class="extend" x1="902" y1="340" x2="910" y2="340"/>
+<rect class="tag" x="862.0" y="316.0" width="88" height="20" rx="3"/>
+<text class="relationship" x="906.0" y="332.0" text-anchor="middle">&lt;&lt;extend&gt;&gt;</text>
+<line class="extend" x1="1130" y1="340" x2="1135" y2="340"/>
+<rect class="tag" x="1088.5" y="316.0" width="88" height="20" rx="3"/>
+<text class="relationship" x="1132.5" y="332.0" text-anchor="middle">&lt;&lt;extend&gt;&gt;</text>
+<line class="include" x1="668" y1="380" x2="692" y2="425"/>
+<rect class="tag" x="634.0" y="378.5" width="92" height="20" rx="3"/>
+<text class="relationship" x="680.0" y="394.5" text-anchor="middle">&lt;&lt;include&gt;&gt;</text>
+<line class="include" x1="668" y1="380" x2="908" y2="425"/>
+<rect class="tag" x="742.0" y="378.5" width="92" height="20" rx="3"/>
+<text class="relationship" x="788.0" y="394.5" text-anchor="middle">&lt;&lt;include&gt;&gt;</text>
+<line class="include" x1="430" y1="640" x2="462" y2="640"/>
+<rect class="tag" x="400.0" y="616.0" width="92" height="20" rx="3"/>
+<text class="relationship" x="446.0" y="632.0" text-anchor="middle">&lt;&lt;include&gt;&gt;</text>
+<line class="include" x1="668" y1="640" x2="692" y2="640"/>
+<rect class="tag" x="634.0" y="616.0" width="92" height="20" rx="3"/>
+<text class="relationship" x="680.0" y="632.0" text-anchor="middle">&lt;&lt;include&gt;&gt;</text>
+<line class="extend" x1="430" y1="735" x2="462" y2="735"/>
+<rect class="tag" x="402.0" y="711.0" width="88" height="20" rx="3"/>
+<text class="relationship" x="446.0" y="727.0" text-anchor="middle">&lt;&lt;extend&gt;&gt;</text>
+<line class="extend" x1="668" y1="735" x2="692" y2="735"/>
+<rect class="tag" x="636.0" y="711.0" width="88" height="20" rx="3"/>
+<text class="relationship" x="680.0" y="727.0" text-anchor="middle">&lt;&lt;extend&gt;&gt;</text>
+<line class="include" x1="902" y1="735" x2="922" y2="695"/>
+<rect class="tag" x="866.0" y="691.0" width="92" height="20" rx="3"/>
+<text class="relationship" x="912.0" y="707.0" text-anchor="middle">&lt;&lt;include&gt;&gt;</text>
+<line class="include" x1="902" y1="735" x2="922" y2="775"/>
+<rect class="tag" x="866.0" y="731.0" width="92" height="20" rx="3"/>
+<text class="relationship" x="912.0" y="747.0" text-anchor="middle">&lt;&lt;include&gt;&gt;</text>
+<line class="include" x1="902" y1="735" x2="1118" y2="735"/>
+<rect class="tag" x="964.0" y="711.0" width="92" height="20" rx="3"/>
+<text class="relationship" x="1010.0" y="727.0" text-anchor="middle">&lt;&lt;include&gt;&gt;</text>
+</svg><p class="caption">Fig. 3. Clear Student Use Case Diagram for Scormetry 2.0</p></section>
+</body></html>

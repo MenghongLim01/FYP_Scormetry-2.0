@@ -1,0 +1,19 @@
+sequenceDiagram
+    actor Admin
+    participant UI as Team Scores Page
+    participant Controller as TeamController / AdminPaperScoreController
+    participant DB as Database
+    actor Student
+
+    Admin->>UI: Open team score overview
+    UI->>Controller: Request submitted reviews
+    Controller->>DB: Retrieve reviews for team papers
+    Controller->>Controller: Calculate average final_score
+    Controller-->>UI: Display scores and feedback
+    Admin->>UI: Optional override with reason
+    UI->>Controller: Save override if provided
+    Controller->>DB: Update final_score_override fields
+    Admin->>UI: Release scores
+    UI->>Controller: POST /teams/{team}/release-scores
+    Controller->>DB: Set visibility_status published and results_released_at
+    Student-->>UI: Can view released result

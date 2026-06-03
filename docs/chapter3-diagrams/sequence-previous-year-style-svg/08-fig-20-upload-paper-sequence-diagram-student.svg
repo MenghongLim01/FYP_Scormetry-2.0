@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1240" height="1754" viewBox="0 0 1240 1754">
+<defs><marker id="arrow" markerWidth="10" markerHeight="8" refX="10" refY="4" orient="auto" markerUnits="strokeWidth"><path d="M0,0 L10,4 L0,8 z" fill="#000"/></marker></defs>
+<rect width="100%" height="100%" fill="#fff"/>
+<rect x="92" y="130" width="1056" height="1325" fill="#fff" stroke="#000" stroke-width="2"/>
+<circle cx="170.0" cy="155" r="10" fill="#fff" stroke="#000" stroke-width="2"/>
+<line x1="170.0" y1="165" x2="170.0" y2="205" stroke="#000" stroke-width="2"/>
+<line x1="150.0" y1="189" x2="190.0" y2="189" stroke="#000" stroke-width="2"/>
+<line x1="170.0" y1="205" x2="154.0" y2="229" stroke="#000" stroke-width="2"/>
+<line x1="170.0" y1="205" x2="186.0" y2="229" stroke="#000" stroke-width="2"/>
+<text x="170.0" y="247.0" text-anchor="middle" dominant-baseline="middle" font-family="Comic Sans MS" font-size="14" font-weight="bold" fill="#000000">Student</text>
+<line x1="170.0" y1="260.0" x2="170.0" y2="1423.0" stroke="#777" stroke-width="2" stroke-dasharray="6 6"/>
+<rect x="321.5" y="152" width="142.0" height="54" fill="#fff" stroke="#000" stroke-width="2"/>
+<text x="392.5" y="170.0" text-anchor="middle" dominant-baseline="middle" font-family="Comic Sans MS" font-size="14" font-weight="bold" fill="#000000">Paper</text>
+<text x="392.5" y="188.0" text-anchor="middle" dominant-baseline="middle" font-family="Comic Sans MS" font-size="14" font-weight="bold" fill="#000000">Upload Page</text>
+<line x1="392.5" y1="206.0" x2="392.5" y2="1423.0" stroke="#777" stroke-width="2" stroke-dasharray="6 6"/>
+<rect x="544.0" y="152" width="142.0" height="54" fill="#fff" stroke="#000" stroke-width="2"/>
+<text x="615.0" y="179.0" text-anchor="middle" dominant-baseline="middle" font-family="Comic Sans MS" font-size="14" font-weight="bold" fill="#000000">PaperController</text>
+<line x1="615.0" y1="206.0" x2="615.0" y2="1423.0" stroke="#777" stroke-width="2" stroke-dasharray="6 6"/>
+<rect x="766.5" y="152" width="142.0" height="54" fill="#fff" stroke="#000" stroke-width="2"/>
+<text x="837.5" y="179.0" text-anchor="middle" dominant-baseline="middle" font-family="Comic Sans MS" font-size="14" font-weight="bold" fill="#000000">Database</text>
+<line x1="837.5" y1="206.0" x2="837.5" y2="1423.0" stroke="#777" stroke-width="2" stroke-dasharray="6 6"/>
+<rect x="989.0" y="152" width="142.0" height="54" fill="#fff" stroke="#000" stroke-width="2"/>
+<text x="1060.0" y="170.0" text-anchor="middle" dominant-baseline="middle" font-family="Comic Sans MS" font-size="14" font-weight="bold" fill="#000000">Laravel</text>
+<text x="1060.0" y="188.0" text-anchor="middle" dominant-baseline="middle" font-family="Comic Sans MS" font-size="14" font-weight="bold" fill="#000000">File Storage</text>
+<line x1="1060.0" y1="206.0" x2="1060.0" y2="1423.0" stroke="#777" stroke-width="2" stroke-dasharray="6 6"/>
+<rect x="170.0" y="261.5" width="928.0" height="49.9" fill="#ffff88" stroke="#d6d67d" stroke-width="1"/>
+<text x="620.0" y="286.4" text-anchor="middle" dominant-baseline="middle" font-family="Comic Sans MS" font-size="14" font-weight="bold" fill="#000000">Paper Upload Flow - Scormetry 2.0</text>
+<line x1="177.0" y1="391.7" x2="385.5" y2="391.7" stroke="#000" stroke-width="2" marker-end="url(#arrow)" />
+<rect x="193.8" y="362.7" width="174.8" height="26.0" fill="#fff"/>
+<text x="281.2" y="375.7" text-anchor="middle" dominant-baseline="middle" font-family="Comic Sans MS" font-size="13" font-weight="bold" fill="#000000">Select final paper PDF</text>
+<line x1="399.5" y1="511.0" x2="608.0" y2="511.0" stroke="#000" stroke-width="2" marker-end="url(#arrow)" />
+<rect x="453.4" y="482.0" width="100.8" height="26.0" fill="#fff"/>
+<text x="503.8" y="495.0" text-anchor="middle" dominant-baseline="middle" font-family="Comic Sans MS" font-size="13" font-weight="bold" fill="#000000">POST /papers</text>
+<line x1="622.0" y1="630.4" x2="830.5" y2="630.4" stroke="#000" stroke-width="2" marker-end="url(#arrow)" />
+<rect x="616.6" y="592.4" width="219.2" height="44.0" fill="#fff"/>
+<text x="726.2" y="605.9" text-anchor="middle" dominant-baseline="middle" font-family="Comic Sans MS" font-size="13" font-weight="bold" fill="#000000">Verify approved subject/team</text>
+<text x="726.2" y="622.9" text-anchor="middle" dominant-baseline="middle" font-family="Comic Sans MS" font-size="13" font-weight="bold" fill="#000000">membership</text>
+<polyline points="615.0,749.8 671.0,749.8 671.0,777.8 615.0,777.8" fill="none" stroke="#000" stroke-width="2"/>
+<polygon points="615.0,777.8 625.0,771.8 625.0,783.8" fill="#000"/>
+<rect x="566.7" y="719.8" width="152.6" height="26.0" fill="#fff"/>
+<text x="643.0" y="732.8" text-anchor="middle" dominant-baseline="middle" font-family="Comic Sans MS" font-size="13" font-weight="bold" fill="#000000">Validate PDF upload</text>
+<rect x="170.0" y="825.0" width="928.0" height="49.9" fill="#ffff88" stroke="#d6d67d" stroke-width="1"/>
+<text x="620.0" y="849.9" text-anchor="middle" dominant-baseline="middle" font-family="Comic Sans MS" font-size="14" font-weight="bold" fill="#000000">Secure Storage Flow</text>
+<line x1="622.0" y1="955.2" x2="1053.0" y2="955.2" stroke="#000" stroke-width="2" marker-end="url(#arrow)" />
+<rect x="776.0" y="926.2" width="123.0" height="26.0" fill="#fff"/>
+<text x="837.5" y="939.2" text-anchor="middle" dominant-baseline="middle" font-family="Comic Sans MS" font-size="13" font-weight="bold" fill="#000000">Store paper PDF</text>
+<line x1="622.0" y1="1074.5" x2="830.5" y2="1074.5" stroke="#000" stroke-width="2" marker-end="url(#arrow)" />
+<rect x="609.2" y="1045.5" width="234.0" height="26.0" fill="#fff"/>
+<text x="726.2" y="1058.5" text-anchor="middle" dominant-baseline="middle" font-family="Comic Sans MS" font-size="13" font-weight="bold" fill="#000000">Create or update papers record</text>
+<line x1="830.5" y1="1193.9" x2="622.0" y2="1193.9" stroke="#000" stroke-width="2" stroke-dasharray="11 8" marker-end="url(#arrow)" />
+<rect x="646.2" y="1164.9" width="160.0" height="26.0" fill="#fff"/>
+<text x="726.2" y="1177.9" text-anchor="middle" dominant-baseline="middle" font-family="Comic Sans MS" font-size="13" font-weight="bold" fill="#000000">Paper saved as draft</text>
+<line x1="608.0" y1="1313.3" x2="399.5" y2="1313.3" stroke="#000" stroke-width="2" stroke-dasharray="11 8" marker-end="url(#arrow)" />
+<rect x="408.9" y="1284.3" width="189.6" height="26.0" fill="#fff"/>
+<text x="503.8" y="1297.3" text-anchor="middle" dominant-baseline="middle" font-family="Comic Sans MS" font-size="13" font-weight="bold" fill="#000000">Show upload confirmation</text>
+<text x="620.0" y="1517.0" text-anchor="middle" dominant-baseline="middle" font-family="Times New Roman" font-size="31" font-weight="bold" fill="#000000">Fig. 20. Upload Paper Sequence Diagram (Student)</text>
+</svg>

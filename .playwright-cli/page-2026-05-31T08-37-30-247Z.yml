@@ -1,0 +1,1185 @@
+- generic:
+  - generic:
+    - generic:
+      - generic:
+        - generic:
+          - generic:
+            - generic:
+              - list:
+                - listitem:
+                  - link:
+                    - /url: /dashboard
+                    - generic:
+                      - img
+                    - generic:
+                      - generic: Scormetry
+            - generic:
+              - generic:
+                - generic: Dashboard
+                - list:
+                  - listitem:
+                    - link:
+                      - /url: /dashboard
+                      - img
+                      - generic: Dashboard
+              - generic:
+                - generic: Academic Management
+                - list:
+                  - listitem:
+                    - link:
+                      - /url: /subjects
+                      - img
+                      - generic: Subjects
+                  - listitem:
+                    - link:
+                      - /url: /papers
+                      - img
+                      - generic: Papers
+              - generic:
+                - generic: Review Work
+                - list:
+                  - listitem:
+                    - link:
+                      - /url: /assigned-teams
+                      - img
+                      - generic: My Assigned Teams
+            - generic:
+              - generic:
+                - generic:
+                  - list:
+                    - listitem:
+                      - link:
+                        - /url: /settings/profile
+                        - img
+                        - generic: Settings
+      - main:
+        - generic:
+          - generic:
+            - generic:
+              - button:
+                - img
+                - generic: Toggle sidebar
+            - generic:
+              - button:
+                - img
+              - button [expanded]:
+                - generic:
+                  - generic: T1
+                - generic: Teacher 1
+                - img
+        - generic:
+          - generic:
+            - generic:
+              - generic:
+                - link:
+                  - /url: /subjects
+                  - img
+                  - text: Subjects
+              - generic:
+                - generic:
+                  - generic:
+                    - generic:
+                      - img
+                    - generic:
+                      - heading [level=1]: FYP Capstone 2026
+                      - paragraph: Final Year Project capstone subject used for acceptance testing.
+                      - generic:
+                        - generic:
+                          - text: Taught by
+                          - strong: Teacher 1
+                        - generic: "Pass: 50%"
+                        - generic: Auto Join
+                  - generic:
+                    - link:
+                      - /url: /subjects/1/edit
+                      - img
+                      - text: Edit
+                    - button:
+                      - img
+                      - text: Delete
+              - generic:
+                - generic:
+                  - generic:
+                    - generic:
+                      - img
+                    - generic:
+                      - paragraph: "30"
+                      - paragraph: Students
+                  - generic:
+                    - generic:
+                      - img
+                    - generic:
+                      - paragraph: "8"
+                      - paragraph: Reviewers
+                  - generic:
+                    - generic:
+                      - img
+                    - generic:
+                      - paragraph: "36"
+                      - paragraph: Papers
+                  - generic:
+                    - generic:
+                      - img
+                    - generic:
+                      - paragraph: 18%
+                      - paragraph: Reviewed
+                - generic:
+                  - generic:
+                    - generic:
+                      - img
+                    - paragraph: Invite Codes
+                    - button:
+                      - img
+                  - generic:
+                    - generic:
+                      - generic:
+                        - paragraph: Student
+                        - paragraph: 9RSM2D
+                      - generic:
+                        - button:
+                          - img
+                        - button:
+                          - img
+                          - text: Reset
+                    - generic:
+                      - generic:
+                        - paragraph: Reviewer
+                        - paragraph: Y60M8N
+                      - generic:
+                        - button:
+                          - img
+                        - button:
+                          - img
+                          - text: Reset
+            - generic:
+              - button:
+                - generic: "11"
+                - text: Reviewer assignment requests
+              - button:
+                - generic: "18"
+                - text: Papers with no scores yet
+            - generic:
+              - generic:
+                - button:
+                  - img
+                  - text: Evaluation Rounds
+                - button:
+                  - img
+                  - text: Papers
+                - button:
+                  - img
+                  - text: Teams
+                - button:
+                  - img
+                  - text: Scores
+                - button:
+                  - img
+                  - text: Members
+                - button:
+                  - img
+                  - text: Schedule
+              - generic:
+                - generic:
+                  - generic:
+                    - generic:
+                      - generic:
+                        - img
+                      - generic:
+                        - heading [level=3]: Evaluation Rounds
+                        - paragraph: Schedule each team, track document submissions, and approve reviewer requests in one place.
+                    - generic:
+                      - link:
+                        - /url: /subjects/1/rubrics/create
+                        - img
+                        - text: Upload Rubric
+                  - generic:
+                    - button:
+                      - img
+                      - generic: Midterm Defense
+                      - generic: 18/23
+                    - button:
+                      - img
+                      - generic: Final Defense
+                      - generic: 18/22
+                    - button:
+                      - img
+                - generic:
+                  - generic:
+                    - generic:
+                      - generic:
+                        - generic: Total rounds
+                        - generic:
+                          - generic: "23"
+                          - generic: incl. 3 re-defense
+                      - generic:
+                        - generic: Scheduled
+                        - generic:
+                          - generic: "18"
+                          - generic: 5 pending
+                      - generic:
+                        - generic: PDFs submitted
+                        - generic: 18/23
+                      - generic:
+                        - generic: Reviewers assigned
+                        - generic: 23/23
+                    - generic:
+                      - generic:
+                        - heading [level=2]: Midterm Defense
+                        - generic: "Rubric: Locked"
+                        - generic: Pass 50
+                      - link:
+                        - /url: /rubrics/1
+                        - img
+                        - text: View Rubric
+                    - table:
+                      - rowgroup:
+                        - row:
+                          - columnheader: Team
+                          - columnheader: Schedule
+                          - columnheader: Document
+                          - columnheader: Reviewers
+                          - columnheader: Action
+                      - rowgroup:
+                        - row:
+                          - cell:
+                            - generic:
+                              - generic:
+                                - paragraph: Team 1
+                                - generic: ·
+                                - generic: Round 1
+                              - paragraph: Student 1
+                          - cell:
+                            - generic:
+                              - paragraph: Jun 6, 2026
+                              - paragraph: 09:00 - 09:30
+                              - paragraph:
+                                - img
+                                - text: Room 301
+                          - cell:
+                            - generic:
+                              - generic: PDF submitted
+                              - link:
+                                - /url: /papers/1
+                                - img
+                                - text: Open
+                          - cell:
+                            - generic:
+                              - generic:
+                                - generic: 4 approved
+                                - generic: 0 pending
+                              - generic:
+                                - generic: Teacher 2
+                                - generic: Teacher 3
+                                - generic: Teacher 5
+                                - generic: Teacher 1
+                          - cell:
+                            - generic:
+                              - button:
+                                - img
+                                - text: Edit Schedule
+                              - button:
+                                - img
+                                - text: Add Re-defense
+                        - row:
+                          - cell:
+                            - img
+                            - generic:
+                              - generic:
+                                - paragraph: Team 1
+                                - generic: ·
+                                - generic:
+                                  - img
+                                  - text: Round 3
+                              - paragraph: Student 1
+                          - cell:
+                            - generic: Schedule needed
+                          - cell:
+                            - generic: Waiting for PDF
+                          - cell:
+                            - generic:
+                              - generic:
+                                - generic: 5 approved
+                                - generic: 0 pending
+                              - generic:
+                                - generic: Teacher 2
+                                - generic: Teacher 3
+                                - generic: Teacher 5
+                                - generic: Teacher 8
+                                - generic: Teacher 1
+                          - cell:
+                            - generic:
+                              - button:
+                                - img
+                                - text: Set Schedule
+                              - button:
+                                - img
+                                - text: Add Re-defense
+                              - button:
+                                - img
+                                - text: Remove
+                        - row:
+                          - cell
+                        - row:
+                          - cell:
+                            - generic:
+                              - generic:
+                                - paragraph: Team 2
+                                - generic: ·
+                                - generic: Round 1
+                              - paragraph: Student 2
+                          - cell:
+                            - generic:
+                              - paragraph: Jun 7, 2026
+                              - paragraph: 10:00 - 10:30
+                              - paragraph:
+                                - img
+                                - text: Room 302
+                          - cell:
+                            - generic:
+                              - generic: PDF submitted
+                              - link:
+                                - /url: /papers/3
+                                - img
+                                - text: Open
+                          - cell:
+                            - generic:
+                              - generic:
+                                - generic: 5 approved
+                                - generic: 0 pending
+                              - generic:
+                                - generic: Teacher 2
+                                - generic: Teacher 4
+                                - generic: Teacher 6
+                                - generic: Teacher 8
+                                - generic: Teacher 1
+                          - cell:
+                            - generic:
+                              - button:
+                                - img
+                                - text: Edit Schedule
+                              - button:
+                                - img
+                                - text: Add Re-defense
+                        - row:
+                          - cell
+                        - row:
+                          - cell:
+                            - generic:
+                              - generic:
+                                - paragraph: Team 3
+                                - generic: ·
+                                - generic: Round 1
+                              - paragraph: Student 3
+                          - cell:
+                            - generic:
+                              - paragraph: Jun 8, 2026
+                              - paragraph: 11:00 - 11:30
+                              - paragraph:
+                                - img
+                                - text: Room 303
+                          - cell:
+                            - generic:
+                              - generic: PDF submitted
+                              - link:
+                                - /url: /papers/5
+                                - img
+                                - text: Open
+                          - cell:
+                            - generic:
+                              - generic:
+                                - generic: 5 approved
+                                - generic: 0 pending
+                              - generic:
+                                - generic: Teacher 2
+                                - generic: Teacher 7
+                                - generic: Teacher 5
+                                - generic: Teacher 8
+                                - generic: Teacher 1
+                          - cell:
+                            - generic:
+                              - button:
+                                - img
+                                - text: Edit Schedule
+                              - button:
+                                - img
+                                - text: Add Re-defense
+                        - row:
+                          - cell
+                        - row:
+                          - cell:
+                            - generic:
+                              - generic:
+                                - paragraph: Team 4
+                                - generic: ·
+                                - generic: Round 1
+                              - paragraph: Student 4
+                          - cell:
+                            - generic:
+                              - paragraph: Jun 9, 2026
+                              - paragraph: 12:00 - 12:30
+                              - paragraph:
+                                - img
+                                - text: Room 304
+                          - cell:
+                            - generic:
+                              - generic: PDF submitted
+                              - link:
+                                - /url: /papers/7
+                                - img
+                                - text: Open
+                          - cell:
+                            - generic:
+                              - generic:
+                                - generic: 5 approved
+                                - generic: 0 pending
+                              - generic:
+                                - generic: Teacher 2
+                                - generic: Teacher 3
+                                - generic: Teacher 6
+                                - generic: Teacher 8
+                                - generic: Teacher 1
+                          - cell:
+                            - generic:
+                              - button:
+                                - img
+                                - text: Edit Schedule
+                              - button:
+                                - img
+                                - text: Add Re-defense
+                        - row:
+                          - cell
+                        - row:
+                          - cell:
+                            - generic:
+                              - generic:
+                                - paragraph: Team 5
+                                - generic: ·
+                                - generic: Round 1
+                              - paragraph: Student 5
+                          - cell:
+                            - generic:
+                              - paragraph: Jun 10, 2026
+                              - paragraph: 13:00 - 13:30
+                              - paragraph:
+                                - img
+                                - text: Room 305
+                          - cell:
+                            - generic:
+                              - generic: PDF submitted
+                              - link:
+                                - /url: /papers/9
+                                - img
+                                - text: Open
+                          - cell:
+                            - generic:
+                              - generic:
+                                - generic: 5 approved
+                                - generic: 0 pending
+                              - generic:
+                                - generic: Teacher 2
+                                - generic: Teacher 4
+                                - generic: Teacher 5
+                                - generic: Teacher 8
+                                - generic: Teacher 1
+                          - cell:
+                            - generic:
+                              - button:
+                                - img
+                                - text: Edit Schedule
+                              - button:
+                                - img
+                                - text: Add Re-defense
+                        - row:
+                          - cell
+                        - row:
+                          - cell:
+                            - generic:
+                              - generic:
+                                - paragraph: Team 6
+                                - generic: ·
+                                - generic: Round 1
+                              - paragraph: Student 6
+                          - cell:
+                            - generic:
+                              - paragraph: Jun 11, 2026
+                              - paragraph: 14:00 - 14:30
+                              - paragraph:
+                                - img
+                                - text: Room 306
+                          - cell:
+                            - generic:
+                              - generic: PDF submitted
+                              - link:
+                                - /url: /papers/11
+                                - img
+                                - text: Open
+                          - cell:
+                            - generic:
+                              - generic:
+                                - generic: 4 approved
+                                - generic: 0 pending
+                              - generic:
+                                - generic: Teacher 2
+                                - generic: Teacher 7
+                                - generic: Teacher 6
+                                - generic: Teacher 1
+                          - cell:
+                            - generic:
+                              - button:
+                                - img
+                                - text: Edit Schedule
+                              - button:
+                                - img
+                                - text: Add Re-defense
+                        - row:
+                          - cell
+                        - row:
+                          - cell:
+                            - generic:
+                              - generic:
+                                - paragraph: Team 7
+                                - generic: ·
+                                - generic: Round 1
+                              - paragraph: Student 7, Student 8
+                          - cell:
+                            - generic:
+                              - paragraph: Jun 12, 2026
+                              - paragraph: 15:00 - 15:30
+                              - paragraph:
+                                - img
+                                - text: Room 307
+                          - cell:
+                            - generic:
+                              - generic: PDF submitted
+                              - link:
+                                - /url: /papers/13
+                                - img
+                                - text: Open
+                          - cell:
+                            - generic:
+                              - generic:
+                                - generic: 4 approved
+                                - generic: 0 pending
+                              - generic:
+                                - generic: Teacher 2
+                                - generic: Teacher 3
+                                - generic: Teacher 5
+                                - generic: Teacher 1
+                          - cell:
+                            - generic:
+                              - button:
+                                - img
+                                - text: Edit Schedule
+                              - button:
+                                - img
+                                - text: Add Re-defense
+                        - row:
+                          - cell
+                        - row:
+                          - cell:
+                            - generic:
+                              - generic:
+                                - paragraph: Team 8
+                                - generic: ·
+                                - generic: Round 1
+                              - paragraph: Student 9, Student 10
+                          - cell:
+                            - generic:
+                              - paragraph: Jun 13, 2026
+                              - paragraph: 08:00 - 08:30
+                              - paragraph:
+                                - img
+                                - text: Room 308
+                          - cell:
+                            - generic:
+                              - generic: PDF submitted
+                              - link:
+                                - /url: /papers/15
+                                - img
+                                - text: Open
+                          - cell:
+                            - generic:
+                              - generic:
+                                - generic: 4 approved
+                                - generic: 0 pending
+                              - generic:
+                                - generic: Teacher 2
+                                - generic: Teacher 4
+                                - generic: Teacher 6
+                                - generic: Teacher 1
+                          - cell:
+                            - generic:
+                              - button:
+                                - img
+                                - text: Edit Schedule
+                              - button:
+                                - img
+                                - text: Add Re-defense
+                        - row:
+                          - cell
+                        - row:
+                          - cell:
+                            - generic:
+                              - generic:
+                                - paragraph: Team 9
+                                - generic: ·
+                                - generic: Round 1
+                              - paragraph: Student 11, Student 12
+                          - cell:
+                            - generic:
+                              - paragraph: Jun 14, 2026
+                              - paragraph: 09:00 - 09:30
+                              - paragraph:
+                                - img
+                                - text: Room 309
+                          - cell:
+                            - generic:
+                              - generic: PDF submitted
+                              - link:
+                                - /url: /papers/17
+                                - img
+                                - text: Open
+                          - cell:
+                            - generic:
+                              - generic:
+                                - generic: 4 approved
+                                - generic: 0 pending
+                              - generic:
+                                - generic: Teacher 2
+                                - generic: Teacher 7
+                                - generic: Teacher 5
+                                - generic: Teacher 1
+                          - cell:
+                            - generic:
+                              - button:
+                                - img
+                                - text: Edit Schedule
+                              - button:
+                                - img
+                                - text: Add Re-defense
+                        - row:
+                          - cell
+                        - row:
+                          - cell:
+                            - generic:
+                              - generic:
+                                - paragraph: Team 10
+                                - generic: ·
+                                - generic: Round 1
+                              - paragraph: Student 13, Student 14
+                          - cell:
+                            - generic:
+                              - paragraph: Jun 15, 2026
+                              - paragraph: 10:00 - 10:30
+                              - paragraph:
+                                - img
+                                - text: Room 310
+                          - cell:
+                            - generic:
+                              - generic: PDF submitted
+                              - link:
+                                - /url: /papers/19
+                                - img
+                                - text: Open
+                          - cell:
+                            - generic:
+                              - generic:
+                                - generic: 4 approved
+                                - generic: 0 pending
+                              - generic:
+                                - generic: Teacher 2
+                                - generic: Teacher 3
+                                - generic: Teacher 6
+                                - generic: Teacher 1
+                          - cell:
+                            - generic:
+                              - button:
+                                - img
+                                - text: Edit Schedule
+                              - button:
+                                - img
+                                - text: Add Re-defense
+                        - row:
+                          - cell
+                        - row:
+                          - cell:
+                            - generic:
+                              - generic:
+                                - paragraph: Team 11
+                                - generic: ·
+                                - generic: Round 1
+                              - paragraph: Student 15, Student 16
+                          - cell:
+                            - generic:
+                              - paragraph: Jun 16, 2026
+                              - paragraph: 11:00 - 11:30
+                              - paragraph:
+                                - img
+                                - text: Room 311
+                          - cell:
+                            - generic:
+                              - generic: PDF submitted
+                              - link:
+                                - /url: /papers/21
+                                - img
+                                - text: Open
+                          - cell:
+                            - generic:
+                              - generic:
+                                - generic: 4 approved
+                                - generic: 0 pending
+                              - generic:
+                                - generic: Teacher 2
+                                - generic: Teacher 4
+                                - generic: Teacher 5
+                                - generic: Teacher 1
+                          - cell:
+                            - generic:
+                              - button:
+                                - img
+                                - text: Edit Schedule
+                              - button:
+                                - img
+                                - text: Add Re-defense
+                        - row:
+                          - cell
+                        - row:
+                          - cell:
+                            - generic:
+                              - generic:
+                                - paragraph: Team 12
+                                - generic: ·
+                                - generic: Round 1
+                              - paragraph: Student 17, Student 18
+                          - cell:
+                            - generic:
+                              - paragraph: Jun 17, 2026
+                              - paragraph: 12:00 - 12:30
+                              - paragraph:
+                                - img
+                                - text: Room 312
+                          - cell:
+                            - generic:
+                              - generic: PDF submitted
+                              - link:
+                                - /url: /papers/23
+                                - img
+                                - text: Open
+                          - cell:
+                            - generic:
+                              - generic:
+                                - generic: 4 approved
+                                - generic: 0 pending
+                              - generic:
+                                - generic: Teacher 2
+                                - generic: Teacher 7
+                                - generic: Teacher 6
+                                - generic: Teacher 1
+                          - cell:
+                            - generic:
+                              - button:
+                                - img
+                                - text: Edit Schedule
+                              - button:
+                                - img
+                                - text: Add Re-defense
+                        - row:
+                          - cell
+                        - row:
+                          - cell:
+                            - generic:
+                              - generic:
+                                - paragraph: Team 13
+                                - generic: ·
+                                - generic: Round 1
+                              - paragraph: Student 19, Student 20
+                          - cell:
+                            - generic:
+                              - paragraph: Jun 18, 2026
+                              - paragraph: 13:00 - 13:30
+                              - paragraph:
+                                - img
+                                - text: Room 313
+                          - cell:
+                            - generic:
+                              - generic: PDF submitted
+                              - link:
+                                - /url: /papers/25
+                                - img
+                                - text: Open
+                          - cell:
+                            - generic:
+                              - generic:
+                                - generic: 4 approved
+                                - generic: 0 pending
+                              - generic:
+                                - generic: Teacher 2
+                                - generic: Teacher 3
+                                - generic: Teacher 5
+                                - generic: Teacher 1
+                          - cell:
+                            - generic:
+                              - button:
+                                - img
+                                - text: Edit Schedule
+                              - button:
+                                - img
+                                - text: Add Re-defense
+                        - row:
+                          - cell
+                        - row:
+                          - cell:
+                            - generic:
+                              - generic:
+                                - paragraph: Team 14
+                                - generic: ·
+                                - generic: Round 1
+                              - paragraph: Student 21, Student 22
+                          - cell:
+                            - generic:
+                              - paragraph: Jun 19, 2026
+                              - paragraph: 14:00 - 14:30
+                              - paragraph:
+                                - img
+                                - text: Room 314
+                          - cell:
+                            - generic:
+                              - generic: PDF submitted
+                              - link:
+                                - /url: /papers/27
+                                - img
+                                - text: Open
+                          - cell:
+                            - generic:
+                              - generic:
+                                - generic: 4 approved
+                                - generic: 0 pending
+                              - generic:
+                                - generic: Teacher 2
+                                - generic: Teacher 4
+                                - generic: Teacher 6
+                                - generic: Teacher 1
+                          - cell:
+                            - generic:
+                              - button:
+                                - img
+                                - text: Edit Schedule
+                              - button:
+                                - img
+                                - text: Add Re-defense
+                        - row:
+                          - cell
+                        - row:
+                          - cell:
+                            - generic:
+                              - generic:
+                                - paragraph: Team 15
+                                - generic: ·
+                                - generic: Round 1
+                              - paragraph: Student 23, Student 24
+                          - cell:
+                            - generic:
+                              - paragraph: Jun 20, 2026
+                              - paragraph: 15:00 - 15:30
+                              - paragraph:
+                                - img
+                                - text: Room 315
+                          - cell:
+                            - generic:
+                              - generic: PDF submitted
+                              - link:
+                                - /url: /papers/29
+                                - img
+                                - text: Open
+                          - cell:
+                            - generic:
+                              - generic:
+                                - generic: 4 approved
+                                - generic: 0 pending
+                              - generic:
+                                - generic: Teacher 2
+                                - generic: Teacher 7
+                                - generic: Teacher 5
+                                - generic: Teacher 1
+                          - cell:
+                            - generic:
+                              - button:
+                                - img
+                                - text: Edit Schedule
+                              - button:
+                                - img
+                                - text: Add Re-defense
+                        - row:
+                          - cell
+                        - row:
+                          - cell:
+                            - generic:
+                              - generic:
+                                - paragraph: Team 16
+                                - generic: ·
+                                - generic: Round 1
+                              - paragraph: Student 25, Student 26
+                          - cell:
+                            - generic:
+                              - paragraph: Jun 21, 2026
+                              - paragraph: 08:00 - 08:30
+                              - paragraph:
+                                - img
+                                - text: Room 316
+                          - cell:
+                            - generic:
+                              - generic: PDF submitted
+                              - link:
+                                - /url: /papers/31
+                                - img
+                                - text: Open
+                          - cell:
+                            - generic:
+                              - generic:
+                                - generic: 4 approved
+                                - generic: 0 pending
+                              - generic:
+                                - generic: Teacher 2
+                                - generic: Teacher 3
+                                - generic: Teacher 6
+                                - generic: Teacher 1
+                          - cell:
+                            - generic:
+                              - button:
+                                - img
+                                - text: Edit Schedule
+                              - button:
+                                - img
+                                - text: Add Re-defense
+                        - row:
+                          - cell
+                        - row:
+                          - cell:
+                            - generic:
+                              - generic:
+                                - paragraph: Team 17
+                                - generic: ·
+                                - generic: Round 1
+                              - paragraph: Student 27, Student 28
+                          - cell:
+                            - generic:
+                              - paragraph: Jun 22, 2026
+                              - paragraph: 09:00 - 09:30
+                              - paragraph:
+                                - img
+                                - text: Room 317
+                          - cell:
+                            - generic:
+                              - generic: PDF submitted
+                              - link:
+                                - /url: /papers/33
+                                - img
+                                - text: Open
+                          - cell:
+                            - generic:
+                              - generic:
+                                - generic: 4 approved
+                                - generic: 0 pending
+                              - generic:
+                                - generic: Teacher 2
+                                - generic: Teacher 4
+                                - generic: Teacher 5
+                                - generic: Teacher 1
+                          - cell:
+                            - generic:
+                              - button:
+                                - img
+                                - text: Edit Schedule
+                              - button:
+                                - img
+                                - text: Add Re-defense
+                        - row:
+                          - cell
+                        - row:
+                          - cell:
+                            - generic:
+                              - generic:
+                                - paragraph: Team 18
+                                - generic: ·
+                                - generic: Round 1
+                              - paragraph: Student 29, Student 30
+                          - cell:
+                            - generic:
+                              - paragraph: Jun 23, 2026
+                              - paragraph: 10:00 - 10:30
+                              - paragraph:
+                                - img
+                                - text: Room 318
+                          - cell:
+                            - generic:
+                              - generic: PDF submitted
+                              - link:
+                                - /url: /papers/35
+                                - img
+                                - text: Open
+                          - cell:
+                            - generic:
+                              - generic:
+                                - generic: 4 approved
+                                - generic: 0 pending
+                              - generic:
+                                - generic: Teacher 2
+                                - generic: Teacher 7
+                                - generic: Teacher 6
+                                - generic: Teacher 1
+                          - cell:
+                            - generic:
+                              - button:
+                                - img
+                                - text: Edit Schedule
+                              - button:
+                                - img
+                                - text: Add Re-defense
+                        - row:
+                          - cell:
+                            - img
+                            - generic:
+                              - generic:
+                                - paragraph: Team 18
+                                - generic: ·
+                                - generic:
+                                  - img
+                                  - text: Round 2
+                              - paragraph: Student 29, Student 30
+                          - cell:
+                            - generic: Schedule needed
+                          - cell:
+                            - generic: Waiting for PDF
+                          - cell:
+                            - generic:
+                              - generic:
+                                - generic: 4 approved
+                                - generic: 0 pending
+                              - generic:
+                                - generic: Teacher 2
+                                - generic: Teacher 7
+                                - generic: Teacher 6
+                                - generic: Teacher 1
+                          - cell:
+                            - generic:
+                              - button:
+                                - img
+                                - text: Set Schedule
+                              - button:
+                                - img
+                                - text: Add Re-defense
+                              - button:
+                                - img
+                                - text: Remove
+                        - row:
+                          - cell:
+                            - img
+                            - generic:
+                              - generic:
+                                - paragraph: Team 18
+                                - generic: ·
+                                - generic:
+                                  - img
+                                  - text: Round 3
+                              - paragraph: Student 29, Student 30
+                          - cell:
+                            - generic: Schedule needed
+                          - cell:
+                            - generic: Waiting for PDF
+                          - cell:
+                            - generic:
+                              - generic:
+                                - generic: 4 approved
+                                - generic: 0 pending
+                              - generic:
+                                - generic: Teacher 2
+                                - generic: Teacher 7
+                                - generic: Teacher 6
+                                - generic: Teacher 1
+                          - cell:
+                            - generic:
+                              - button:
+                                - img
+                                - text: Set Schedule
+                              - button:
+                                - img
+                                - text: Add Re-defense
+                              - button:
+                                - img
+                                - text: Remove
+                        - row:
+                          - cell
+                        - row:
+                          - cell:
+                            - generic:
+                              - generic:
+                                - paragraph: student 1
+                                - generic: ·
+                                - generic: Round 1
+                              - paragraph: No student members
+                          - cell:
+                            - generic: Schedule needed
+                          - cell:
+                            - generic: Waiting for PDF
+                          - cell:
+                            - generic:
+                              - generic:
+                                - generic: 1 approved
+                                - generic: 0 pending
+                              - generic:
+                                - generic: Teacher 1
+                          - cell:
+                            - generic:
+                              - button:
+                                - img
+                                - text: Set Schedule
+                              - button:
+                                - img
+                                - text: Add Re-defense
+                        - row:
+                          - cell
+                        - row:
+                          - cell:
+                            - generic:
+                              - generic:
+                                - paragraph: team 5
+                                - generic: ·
+                                - generic: Round 1
+                              - paragraph: No student members
+                          - cell:
+                            - generic: Schedule needed
+                          - cell:
+                            - generic: Waiting for PDF
+                          - cell:
+                            - generic:
+                              - generic:
+                                - generic: 1 approved
+                                - generic: 0 pending
+                              - generic:
+                                - generic: Teacher 1
+                          - cell:
+                            - generic:
+                              - button:
+                                - img
+                                - text: Set Schedule
+                              - button:
+                                - img
+                                - text: Add Re-defense
+          - generic: All rights reserved. Copyright © 2010 - 2026 | Paragon International University | Phnom Penh - Cambodia | Privacy Policy
+    - region "Notifications alt+T":
+      - list
+  - menu "T1 Teacher 1" [active] [ref=e1371]:
+    - generic [ref=e1373]:
+      - generic [ref=e1375]: T1
+      - generic [ref=e1376]:
+        - generic [ref=e1377]: Teacher 1
+        - generic [ref=e1378]: teacher1@example.com
+    - separator [ref=e1379]
+    - group [ref=e1380]:
+      - menuitem "Settings" [ref=e1381] [cursor=pointer]:
+        - img
+        - text: Settings
+    - separator [ref=e1382]
+    - menuitem "Log out" [ref=e1383] [cursor=pointer]:
+      - img
+      - text: Log out

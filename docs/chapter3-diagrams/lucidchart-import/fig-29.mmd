@@ -1,0 +1,16 @@
+flowchart LR
+    Judge["Judge / Reviewer"] --> UC1["Log in with Google"]
+    Judge --> UC2["Accept invitation or join by reviewer code"]
+    Judge --> UC3["View assigned subjects"]
+    Judge --> UC4["Open assigned Team Room"]
+    Judge --> UC5["View final paper PDF"]
+    Judge --> UC6["View locked Dynamic Rubric"]
+    Judge --> UC7["Enter score per criterion"]
+    Judge --> UC8["Add feedback comment"]
+    Judge --> UC9["Submit and lock review"]
+    Judge --> UC10["Request review unlock"]
+
+    UC7 -. "include" .-> UC6
+    UC9 -. "include" .-> UC7
+    UC9 -. "include" .-> UC8
+    UC10 -. "extend" .-> UC9

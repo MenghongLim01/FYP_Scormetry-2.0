@@ -1,0 +1,15 @@
+sequenceDiagram
+    actor Admin
+    participant UI as Rubric Verification Page
+    participant Controller as RubricController
+    participant DB as Database
+
+    Admin->>UI: Review extracted Dynamic Rubric
+    Admin->>UI: Edit structure if needed
+    UI->>Controller: PATCH /rubrics/{rubric}
+    Controller->>DB: Update structure_json
+    DB-->>Controller: Structure saved
+    Admin->>UI: Approve rubric
+    UI->>Controller: POST /rubrics/{rubric}/approve
+    Controller->>DB: Set status = locked
+    Controller-->>UI: Show locked rubric

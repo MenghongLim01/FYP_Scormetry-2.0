@@ -1,0 +1,157 @@
+[     189ms] [LOG] 🔍 Browser logger active (MCP server detected). Posting to: http://127.0.0.1:8000/_boost/browser-logs @ http://127.0.0.1:8000/login:49
+[  678171ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://[::1]:5174/resources/js/actions/App/Http/Controllers/Admin/ActingRoleController.ts?t=1780217729664:0
+[  678172ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://[::1]:5174/resources/js/actions/App/Http/Controllers/Admin/DashboardController.ts?t=1780217729671:0
+[  678172ms] [ERROR] [vite] Failed to reload /resources/js/components/AppSidebar.vue. This could be due to syntax errors or importing non-existent modules. (see errors above) @ http://127.0.0.1:8000/login:108
+[  678174ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://[::1]:5174/resources/js/actions/App/Http/Controllers/Admin/ClassroomController.ts?t=1780217729663:0
+[  678175ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://[::1]:5174/resources/js/actions/App/Http/Controllers/Admin/SettingsController.ts?t=1780217729667:0
+[  678176ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://[::1]:5174/resources/js/actions/App/Http/Controllers/Admin/UserController.ts?t=1780217729670:0
+[  678177ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://[::1]:5174/resources/js/actions/App/Http/Controllers/PaperController.ts?t=1780217729660:0
+[  678177ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://[::1]:5174/resources/js/actions/App/Http/Controllers/TeamController.ts?t=1780217729658:0
+[  678177ms] [ERROR] [vite] Failed to reload /Users/mac/Downloads/FYP_Scormetry-2.0/resources/js/pages/subjects/Show.vue. This could be due to syntax errors or importing non-existent modules. (see errors above) @ http://127.0.0.1:8000/login:108
+[  678184ms] [ERROR] [vite] Failed to reload /resources/js/components/AppSidebar.vue. This could be due to syntax errors or importing non-existent modules. (see errors above) @ http://127.0.0.1:8000/login:108
+[  678186ms] [ERROR] [vite] Failed to reload /Users/mac/Downloads/FYP_Scormetry-2.0/resources/js/pages/subjects/Show.vue. This could be due to syntax errors or importing non-existent modules. (see errors above) @ http://127.0.0.1:8000/login:108
+[  678188ms] [ERROR] [vite] Failed to reload /resources/js/components/AppSidebar.vue. This could be due to syntax errors or importing non-existent modules. (see errors above) @ http://127.0.0.1:8000/login:108
+[  678191ms] [ERROR] [vite] Failed to reload /resources/js/components/AppSidebar.vue. This could be due to syntax errors or importing non-existent modules. (see errors above) @ http://127.0.0.1:8000/login:108
+[  678194ms] [ERROR] [vite] Failed to reload /resources/js/components/AppSidebar.vue. This could be due to syntax errors or importing non-existent modules. (see errors above) @ http://127.0.0.1:8000/login:108
+[  678196ms] [ERROR] [vite] Failed to reload /resources/js/components/AppSidebar.vue. This could be due to syntax errors or importing non-existent modules. (see errors above) @ http://127.0.0.1:8000/login:108
+[  678198ms] [ERROR] [vite] Failed to reload /resources/js/components/AppSidebar.vue. This could be due to syntax errors or importing non-existent modules. (see errors above) @ http://127.0.0.1:8000/login:108
+[  678253ms] [ERROR] [vite] Failed to reload /resources/js/components/AppSidebar.vue. This could be due to syntax errors or importing non-existent modules. (see errors above) @ http://127.0.0.1:8000/login:108
+[  678254ms] [ERROR] [vite] Failed to reload /Users/mac/Downloads/FYP_Scormetry-2.0/resources/js/pages/subjects/Show.vue. This could be due to syntax errors or importing non-existent modules. (see errors above) @ http://127.0.0.1:8000/login:108
+[  678272ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://[::1]:5174/resources/js/actions/App/Http/Controllers/SubjectController.ts?t=1780217729892:0
+[  678273ms] [ERROR] [vite] Failed to reload /Users/mac/Downloads/FYP_Scormetry-2.0/resources/js/pages/subjects/Show.vue. This could be due to syntax errors or importing non-existent modules. (see errors above) @ http://127.0.0.1:8000/login:108
+[  678274ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://[::1]:5174/resources/js/actions/App/Http/Controllers/DefenseAttemptController.ts?t=1780217729893:0
+[  678274ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://[::1]:5174/resources/js/actions/App/Http/Controllers/ReviewController.ts?t=1780217729899:0
+[  678275ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://[::1]:5174/resources/js/actions/App/Http/Controllers/AssignedTeamsController.ts?t=1780217729895:0
+[  678276ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://[::1]:5174/resources/js/actions/App/Http/Controllers/RubricController.ts?t=1780217729896:0
+[  678278ms] [ERROR] [vite] Failed to reload /resources/js/components/AppSidebar.vue. This could be due to syntax errors or importing non-existent modules. (see errors above) @ http://127.0.0.1:8000/login:108
+[  678286ms] [ERROR] [vite] Failed to reload /Users/mac/Downloads/FYP_Scormetry-2.0/resources/js/pages/subjects/Show.vue. This could be due to syntax errors or importing non-existent modules. (see errors above) @ http://127.0.0.1:8000/login:108
+[  678294ms] [ERROR] [vite] Failed to reload /Users/mac/Downloads/FYP_Scormetry-2.0/resources/js/pages/subjects/Show.vue. This could be due to syntax errors or importing non-existent modules. (see errors above) @ http://127.0.0.1:8000/login:108
+[  678356ms] [ERROR] [vite] Failed to reload /resources/js/components/AppSidebar.vue. This could be due to syntax errors or importing non-existent modules. (see errors above) @ http://127.0.0.1:8000/login:108
+[  678358ms] [ERROR] [vite] Failed to reload /Users/mac/Downloads/FYP_Scormetry-2.0/resources/js/pages/subjects/Show.vue. This could be due to syntax errors or importing non-existent modules. (see errors above) @ http://127.0.0.1:8000/login:108
+[  678370ms] [ERROR] [vite] Failed to reload /resources/js/components/AppSidebar.vue. This could be due to syntax errors or importing non-existent modules. (see errors above) @ http://127.0.0.1:8000/login:108
+[  678415ms] [WARNING] [Vue warn]: Extraneous non-props attributes (errors, name, auth, roleViewEnabled, googleLoginEnabled, sidebarOpen, flash) were passed to component but could not be automatically inherited because component renders fragment or text or teleport root nodes. 
+  at <Show errors= {} name="Scormetry" auth= {user: Object, actingRole: null}  ... > 
+  at <SidebarInset key=0 class="overflow-x-hidden" > 
+  at <AppContent variant="sidebar" class="overflow-x-hidden" > 
+  at <TooltipProvider delay-duration=0 > 
+  at <SidebarProvider key=1 default-open=true > 
+  at <AppShell variant="sidebar" > 
+  at <AppSidebarLayout breadcrumbs= [] > 
+  at <AppLayout errors= {} name="Scormetry" auth= {user: Object, actingRole: null}  ... > 
+  at <Inertia initialPage= {component: auth/Login, props: Object, url: /login, version: 0ad00465d16093c9118fde0e46930e62, sharedProps: Array(7)} initialComponent= {layout: Object, __name: Login, props: Object, setup: , __hmrId: ab03e11e} resolveComponent=fn<resolveComponent>  ... > 
+  at <App> @ http://127.0.0.1:8000/login:108
+[  678643ms] [WARNING] [Vue warn]: Extraneous non-props attributes (errors, name, auth, roleViewEnabled, googleLoginEnabled, sidebarOpen, flash) were passed to component but could not be automatically inherited because component renders fragment or text or teleport root nodes. 
+  at <Show errors= {} name="Scormetry" auth= {user: Object, actingRole: null}  ... > 
+  at <SidebarInset key=0 class="overflow-x-hidden" > 
+  at <AppContent variant="sidebar" class="overflow-x-hidden" > 
+  at <TooltipProvider delay-duration=0 > 
+  at <SidebarProvider key=1 default-open=true > 
+  at <AppShell variant="sidebar" > 
+  at <AppSidebarLayout breadcrumbs= [] > 
+  at <AppLayout errors= {} name="Scormetry" auth= {user: Object, actingRole: null}  ... > 
+  at <Inertia initialPage= {component: auth/Login, props: Object, url: /login, version: 0ad00465d16093c9118fde0e46930e62, sharedProps: Array(7)} initialComponent= {layout: Object, __name: Login, props: Object, setup: , __hmrId: ab03e11e} resolveComponent=fn<resolveComponent>  ... > 
+  at <App> @ http://127.0.0.1:8000/login:108
+[  678701ms] [WARNING] [Vue warn]: Extraneous non-props attributes (errors, name, auth, roleViewEnabled, googleLoginEnabled, sidebarOpen, flash) were passed to component but could not be automatically inherited because component renders fragment or text or teleport root nodes. 
+  at <Show errors= {} name="Scormetry" auth= {user: Object, actingRole: null}  ... > 
+  at <SidebarInset key=0 class="overflow-x-hidden" > 
+  at <AppContent variant="sidebar" class="overflow-x-hidden" > 
+  at <TooltipProvider delay-duration=0 > 
+  at <SidebarProvider key=1 default-open=true > 
+  at <AppShell variant="sidebar" > 
+  at <AppSidebarLayout breadcrumbs= [] > 
+  at <AppLayout errors= {} name="Scormetry" auth= {user: Object, actingRole: null}  ... > 
+  at <Inertia initialPage= {component: auth/Login, props: Object, url: /login, version: 0ad00465d16093c9118fde0e46930e62, sharedProps: Array(7)} initialComponent= {layout: Object, __name: Login, props: Object, setup: , __hmrId: ab03e11e} resolveComponent=fn<resolveComponent>  ... > 
+  at <App> @ http://127.0.0.1:8000/login:108
+[  678766ms] [WARNING] [Vue warn]: Extraneous non-props attributes (errors, name, auth, roleViewEnabled, googleLoginEnabled, sidebarOpen, flash) were passed to component but could not be automatically inherited because component renders fragment or text or teleport root nodes. 
+  at <Show errors= {} name="Scormetry" auth= {user: Object, actingRole: null}  ... > 
+  at <SidebarInset key=0 class="overflow-x-hidden" > 
+  at <AppContent variant="sidebar" class="overflow-x-hidden" > 
+  at <TooltipProvider delay-duration=0 > 
+  at <SidebarProvider key=1 default-open=true > 
+  at <AppShell variant="sidebar" > 
+  at <AppSidebarLayout breadcrumbs= [] > 
+  at <AppLayout errors= {} name="Scormetry" auth= {user: Object, actingRole: null}  ... > 
+  at <Inertia initialPage= {component: auth/Login, props: Object, url: /login, version: 0ad00465d16093c9118fde0e46930e62, sharedProps: Array(7)} initialComponent= {layout: Object, __name: Login, props: Object, setup: , __hmrId: ab03e11e} resolveComponent=fn<resolveComponent>  ... > 
+  at <App> @ http://127.0.0.1:8000/login:108
+[  678897ms] [WARNING] [Vue warn]: Extraneous non-props attributes (errors, name, auth, roleViewEnabled, googleLoginEnabled, sidebarOpen, flash) were passed to component but could not be automatically inherited because component renders fragment or text or teleport root nodes. 
+  at <Show errors= {} name="Scormetry" auth= {user: Object, actingRole: null}  ... > 
+  at <SidebarInset key=0 class="overflow-x-hidden" > 
+  at <AppContent variant="sidebar" class="overflow-x-hidden" > 
+  at <TooltipProvider delay-duration=0 > 
+  at <SidebarProvider key=1 default-open=true > 
+  at <AppShell variant="sidebar" > 
+  at <AppSidebarLayout breadcrumbs= [] > 
+  at <AppLayout errors= {} name="Scormetry" auth= {user: Object, actingRole: null}  ... > 
+  at <Inertia initialPage= {component: auth/Login, props: Object, url: /login, version: 0ad00465d16093c9118fde0e46930e62, sharedProps: Array(7)} initialComponent= {layout: Object, __name: Login, props: Object, setup: , __hmrId: ab03e11e} resolveComponent=fn<resolveComponent>  ... > 
+  at <App> @ http://127.0.0.1:8000/login:108
+[  679083ms] [WARNING] [Vue warn]: Extraneous non-props attributes (errors, name, auth, roleViewEnabled, googleLoginEnabled, sidebarOpen, flash) were passed to component but could not be automatically inherited because component renders fragment or text or teleport root nodes. 
+  at <Show errors= {} name="Scormetry" auth= {user: Object, actingRole: null}  ... > 
+  at <SidebarInset key=0 class="overflow-x-hidden" > 
+  at <AppContent variant="sidebar" class="overflow-x-hidden" > 
+  at <TooltipProvider delay-duration=0 > 
+  at <SidebarProvider key=1 default-open=true > 
+  at <AppShell variant="sidebar" > 
+  at <AppSidebarLayout breadcrumbs= [] > 
+  at <AppLayout errors= {} name="Scormetry" auth= {user: Object, actingRole: null}  ... > 
+  at <Inertia initialPage= {component: auth/Login, props: Object, url: /login, version: 0ad00465d16093c9118fde0e46930e62, sharedProps: Array(7)} initialComponent= {layout: Object, __name: Login, props: Object, setup: , __hmrId: ab03e11e} resolveComponent=fn<resolveComponent>  ... > 
+  at <App> @ http://127.0.0.1:8000/login:108
+[  679180ms] [WARNING] [Vue warn]: Extraneous non-props attributes (errors, name, auth, roleViewEnabled, googleLoginEnabled, sidebarOpen, flash) were passed to component but could not be automatically inherited because component renders fragment or text or teleport root nodes. 
+  at <Show errors= {} name="Scormetry" auth= {user: Object, actingRole: null}  ... > 
+  at <SidebarInset key=0 class="overflow-x-hidden" > 
+  at <AppContent variant="sidebar" class="overflow-x-hidden" > 
+  at <TooltipProvider delay-duration=0 > 
+  at <SidebarProvider key=1 default-open=true > 
+  at <AppShell variant="sidebar" > 
+  at <AppSidebarLayout breadcrumbs= [] > 
+  at <AppLayout errors= {} name="Scormetry" auth= {user: Object, actingRole: null}  ... > 
+  at <Inertia initialPage= {component: auth/Login, props: Object, url: /login, version: 0ad00465d16093c9118fde0e46930e62, sharedProps: Array(7)} initialComponent= {layout: Object, __name: Login, props: Object, setup: , __hmrId: ab03e11e} resolveComponent=fn<resolveComponent>  ... > 
+  at <App> @ http://127.0.0.1:8000/login:108
+[  679236ms] [WARNING] [Vue warn]: Extraneous non-props attributes (errors, name, auth, roleViewEnabled, googleLoginEnabled, sidebarOpen, flash) were passed to component but could not be automatically inherited because component renders fragment or text or teleport root nodes. 
+  at <Show errors= {} name="Scormetry" auth= {user: Object, actingRole: null}  ... > 
+  at <SidebarInset key=0 class="overflow-x-hidden" > 
+  at <AppContent variant="sidebar" class="overflow-x-hidden" > 
+  at <TooltipProvider delay-duration=0 > 
+  at <SidebarProvider key=1 default-open=true > 
+  at <AppShell variant="sidebar" > 
+  at <AppSidebarLayout breadcrumbs= [] > 
+  at <AppLayout errors= {} name="Scormetry" auth= {user: Object, actingRole: null}  ... > 
+  at <Inertia initialPage= {component: auth/Login, props: Object, url: /login, version: 0ad00465d16093c9118fde0e46930e62, sharedProps: Array(7)} initialComponent= {layout: Object, __name: Login, props: Object, setup: , __hmrId: ab03e11e} resolveComponent=fn<resolveComponent>  ... > 
+  at <App> @ http://127.0.0.1:8000/login:108
+[  679295ms] [WARNING] [Vue warn]: Extraneous non-props attributes (errors, name, auth, roleViewEnabled, googleLoginEnabled, sidebarOpen, flash) were passed to component but could not be automatically inherited because component renders fragment or text or teleport root nodes. 
+  at <Show errors= {} name="Scormetry" auth= {user: Object, actingRole: null}  ... > 
+  at <SidebarInset key=0 class="overflow-x-hidden" > 
+  at <AppContent variant="sidebar" class="overflow-x-hidden" > 
+  at <TooltipProvider delay-duration=0 > 
+  at <SidebarProvider key=1 default-open=true > 
+  at <AppShell variant="sidebar" > 
+  at <AppSidebarLayout breadcrumbs= [] > 
+  at <AppLayout errors= {} name="Scormetry" auth= {user: Object, actingRole: null}  ... > 
+  at <Inertia initialPage= {component: auth/Login, props: Object, url: /login, version: 0ad00465d16093c9118fde0e46930e62, sharedProps: Array(7)} initialComponent= {layout: Object, __name: Login, props: Object, setup: , __hmrId: ab03e11e} resolveComponent=fn<resolveComponent>  ... > 
+  at <App> @ http://127.0.0.1:8000/login:108
+[  679380ms] [WARNING] [Vue warn]: Extraneous non-props attributes (errors, name, auth, roleViewEnabled, googleLoginEnabled, sidebarOpen, flash) were passed to component but could not be automatically inherited because component renders fragment or text or teleport root nodes. 
+  at <Show errors= {} name="Scormetry" auth= {user: Object, actingRole: null}  ... > 
+  at <SidebarInset key=0 class="overflow-x-hidden" > 
+  at <AppContent variant="sidebar" class="overflow-x-hidden" > 
+  at <TooltipProvider delay-duration=0 > 
+  at <SidebarProvider key=1 default-open=true > 
+  at <AppShell variant="sidebar" > 
+  at <AppSidebarLayout breadcrumbs= [] > 
+  at <AppLayout errors= {} name="Scormetry" auth= {user: Object, actingRole: null}  ... > 
+  at <Inertia initialPage= {component: auth/Login, props: Object, url: /login, version: 0ad00465d16093c9118fde0e46930e62, sharedProps: Array(7)} initialComponent= {layout: Object, __name: Login, props: Object, setup: , __hmrId: ab03e11e} resolveComponent=fn<resolveComponent>  ... > 
+  at <App> @ http://127.0.0.1:8000/login:108
+[  679731ms] [WARNING] [Vue warn]: Extraneous non-props attributes (errors, name, auth, roleViewEnabled, googleLoginEnabled, sidebarOpen, flash) were passed to component but could not be automatically inherited because component renders fragment or text or teleport root nodes. 
+  at <Show errors= {} name="Scormetry" auth= {user: Object, actingRole: null}  ... > 
+  at <SidebarInset key=0 class="overflow-x-hidden" > 
+  at <AppContent variant="sidebar" class="overflow-x-hidden" > 
+  at <TooltipProvider delay-duration=0 > 
+  at <SidebarProvider key=1 default-open=true > 
+  at <AppShell variant="sidebar" > 
+  at <AppSidebarLayout breadcrumbs= [] > 
+  at <AppLayout errors= {} name="Scormetry" auth= {user: Object, actingRole: null}  ... > 
+  at <Inertia initialPage= {component: auth/Login, props: Object, url: /login, version: 0ad00465d16093c9118fde0e46930e62, sharedProps: Array(7)} initialComponent= {layout: Object, __name: Login, props: Object, setup: , __hmrId: ab03e11e} resolveComponent=fn<resolveComponent>  ... > 
+  at <App> @ http://127.0.0.1:8000/login:108
+[  681006ms] [ERROR] Failed to send logs: TypeError: Failed to fetch
+    at flushLogs (http://127.0.0.1:8000/login:86:9) @ http://127.0.0.1:8000/login:94
+[  681037ms] [LOG] 🔍 Browser logger active (MCP server detected). Posting to: http://127.0.0.1:8000/_boost/browser-logs @ http://127.0.0.1:8000/subjects/1:49
+[  735833ms] [ERROR] Failed to load resource: the server responded with a status of 409 (Conflict) @ http://127.0.0.1:8000/settings/profile:0
+[  735963ms] [LOG] 🔍 Browser logger active (MCP server detected). Posting to: http://127.0.0.1:8000/_boost/browser-logs @ http://127.0.0.1:8000/settings/profile:49

@@ -1,0 +1,501 @@
+- generic [ref=e2]:
+  - generic [ref=e213]:
+    - generic [ref=e216]:
+      - list [ref=e218]:
+        - listitem [ref=e219]:
+          - link "Scormetry" [ref=e220] [cursor=pointer]:
+            - /url: /dashboard
+            - img [ref=e222]
+            - generic [ref=e229]: Scormetry
+      - generic [ref=e230]:
+        - generic [ref=e231]:
+          - generic [ref=e232]: Dashboard
+          - list [ref=e233]:
+            - listitem [ref=e234]:
+              - link "Dashboard" [ref=e235] [cursor=pointer]:
+                - /url: /dashboard
+                - img [ref=e236]
+                - generic [ref=e241]: Dashboard
+        - generic [ref=e242]:
+          - generic [ref=e243]: Academic Management
+          - list [ref=e244]:
+            - listitem [ref=e245]:
+              - link "Subjects" [ref=e246] [cursor=pointer]:
+                - /url: /subjects
+                - img [ref=e247]
+                - generic [ref=e249]: Subjects
+            - listitem [ref=e250]:
+              - link "Papers" [ref=e251] [cursor=pointer]:
+                - /url: /papers
+                - img [ref=e252]
+                - generic [ref=e255]: Papers
+        - generic [ref=e256]:
+          - generic [ref=e257]: Admin Panel
+          - list [ref=e258]:
+            - listitem [ref=e259]:
+              - link "Admin Dashboard" [ref=e260] [cursor=pointer]:
+                - /url: /admin/dashboard
+                - img [ref=e261]
+                - generic [ref=e266]: Admin Dashboard
+            - listitem [ref=e267]:
+              - link "Classroom Management" [ref=e268] [cursor=pointer]:
+                - /url: /admin/classrooms
+                - img [ref=e269]
+                - generic [ref=e271]: Classroom Management
+            - listitem [ref=e272]:
+              - link "User Management" [ref=e273] [cursor=pointer]:
+                - /url: /admin/users
+                - img [ref=e274]
+                - generic [ref=e279]: User Management
+            - listitem [ref=e280]:
+              - link "Settings" [ref=e281] [cursor=pointer]:
+                - /url: /admin/settings
+                - img [ref=e282]
+                - generic [ref=e285]: Settings
+        - generic [ref=e286]:
+          - generic [ref=e288]: "Dev: Role View"
+          - generic [ref=e290]:
+            - button "admin" [ref=e291]
+            - button "teacher" [ref=e292]
+            - button "student" [ref=e293]
+      - list [ref=e297]:
+        - listitem [ref=e298]:
+          - link "Settings" [ref=e299] [cursor=pointer]:
+            - /url: /settings/profile
+            - img [ref=e300]
+            - generic [ref=e303]: Settings
+    - main [ref=e304]:
+      - generic [ref=e306]:
+        - button "Toggle sidebar" [ref=e308]:
+          - img
+          - generic [ref=e309]: Toggle sidebar
+        - generic [ref=e314]:
+          - button [ref=e315]:
+            - img
+          - button "A Admin" [ref=e316]:
+            - generic [ref=e318]: A
+            - generic [ref=e319]: Admin
+            - img [ref=e320]
+      - generic [ref=e323]:
+        - generic [ref=e662]:
+          - link "Subjects" [ref=e664] [cursor=pointer]:
+            - /url: /subjects
+            - img
+            - text: Subjects
+          - generic [ref=e666]:
+            - generic [ref=e667]:
+              - img [ref=e669]
+              - generic [ref=e671]:
+                - heading "FYP Defense AY2025-2026" [level=1] [ref=e672]
+                - paragraph [ref=e673]: Final Year Project Defense Room
+                - generic [ref=e674]:
+                  - generic [ref=e675]:
+                    - text: Taught by
+                    - strong [ref=e676]: teacher1
+                  - generic [ref=e678]: "Pass: 70%"
+                  - generic [ref=e679]: Approval Required
+            - link "Edit" [ref=e681] [cursor=pointer]:
+              - /url: /subjects/5/edit
+              - img
+              - text: Edit
+          - generic [ref=e682]:
+            - generic [ref=e683]:
+              - img [ref=e685]
+              - generic [ref=e690]:
+                - paragraph [ref=e691]: "22"
+                - paragraph [ref=e692]: Students
+            - generic [ref=e693]:
+              - img [ref=e695]
+              - generic [ref=e698]:
+                - paragraph [ref=e699]: "4"
+                - paragraph [ref=e700]: Reviewers
+            - generic [ref=e701]:
+              - img [ref=e703]
+              - generic [ref=e706]:
+                - paragraph [ref=e707]: "5"
+                - paragraph [ref=e708]: Papers
+            - generic [ref=e709]:
+              - img [ref=e711]
+              - generic [ref=e713]:
+                - paragraph [ref=e714]: 1%
+                - paragraph [ref=e715]: Reviewed
+          - generic [ref=e717]:
+            - img [ref=e719]
+            - generic [ref=e723]:
+              - generic [ref=e724]:
+                - paragraph [ref=e725]: Rubric
+                - generic [ref=e726]: Locked
+              - paragraph [ref=e727]: Assessment criteria for this subject.
+            - link "View" [ref=e729] [cursor=pointer]:
+              - /url: /rubrics/5
+              - img
+              - text: View
+          - generic [ref=e730]:
+            - button "4 Papers with no scores yet" [ref=e731]:
+              - generic [ref=e732]: "4"
+              - text: Papers with no scores yet
+            - button "8 Overdue judges" [ref=e733]:
+              - generic [ref=e734]: "8"
+              - text: Overdue judges
+          - generic [ref=e735]:
+            - generic [ref=e736]:
+              - button "Papers" [ref=e737]:
+                - img [ref=e738]
+                - text: Papers
+              - button "Members" [ref=e741]:
+                - img [ref=e742]
+                - text: Members
+              - button "Teams" [active] [ref=e747]:
+                - img [ref=e748]
+                - text: Teams
+              - button "Schedule" [ref=e752]:
+                - img [ref=e753]
+                - text: Schedule
+              - button "Scores" [ref=e755]:
+                - img [ref=e756]
+                - text: Scores
+            - generic [ref=e848]:
+              - generic [ref=e849]:
+                - textbox "New team name" [ref=e850]
+                - button "Create Team" [ref=e851]:
+                  - img
+                  - text: Create Team
+              - generic [ref=e852]:
+                - generic [ref=e853]:
+                  - generic [ref=e855]:
+                    - heading "Team 1 5" [level=3] [ref=e856]:
+                      - img [ref=e857]
+                      - text: Team 1
+                      - generic [ref=e861]: "5"
+                    - button [ref=e863]:
+                      - img
+                  - generic [ref=e864]:
+                    - generic [ref=e865]:
+                      - generic [ref=e866]:
+                        - generic [ref=e867]:
+                          - generic [ref=e868]: S
+                          - generic [ref=e869]:
+                            - paragraph [ref=e870]: Student 2
+                            - paragraph [ref=e871]: student2@example.com
+                        - button [ref=e872]:
+                          - img
+                      - generic [ref=e873]:
+                        - generic [ref=e874]:
+                          - generic [ref=e875]: S
+                          - generic [ref=e876]:
+                            - paragraph [ref=e877]: Student 3
+                            - paragraph [ref=e878]: student3@example.com
+                        - button [ref=e879]:
+                          - img
+                      - generic [ref=e880]:
+                        - generic [ref=e881]:
+                          - generic [ref=e882]: S
+                          - generic [ref=e883]:
+                            - paragraph [ref=e884]: Student 4
+                            - paragraph [ref=e885]: student4@example.com
+                        - button [ref=e886]:
+                          - img
+                    - generic [ref=e887]:
+                      - generic [ref=e888]:
+                        - img [ref=e889]
+                        - paragraph [ref=e892]: Assigned Reviewers (2)
+                      - generic [ref=e893]:
+                        - generic [ref=e895]:
+                          - generic [ref=e896]: T
+                          - generic [ref=e897]:
+                            - paragraph [ref=e898]: Teacher 2
+                            - paragraph [ref=e899]: teacher2@example.com
+                        - generic [ref=e901]:
+                          - generic [ref=e902]: T
+                          - generic [ref=e903]:
+                            - paragraph [ref=e904]: Teacher 3
+                            - paragraph [ref=e905]: teacher3@example.com
+                    - button "Add Member" [ref=e906]:
+                      - img
+                      - text: Add Member
+                - generic [ref=e907]:
+                  - generic [ref=e909]:
+                    - heading "Team 2 6" [level=3] [ref=e910]:
+                      - img [ref=e911]
+                      - text: Team 2
+                      - generic [ref=e915]: "6"
+                    - button [ref=e917]:
+                      - img
+                  - generic [ref=e918]:
+                    - generic [ref=e919]:
+                      - generic [ref=e920]:
+                        - generic [ref=e921]:
+                          - generic [ref=e922]: S
+                          - generic [ref=e923]:
+                            - paragraph [ref=e924]: Student 5
+                            - paragraph [ref=e925]: student5@example.com
+                        - button [ref=e926]:
+                          - img
+                      - generic [ref=e927]:
+                        - generic [ref=e928]:
+                          - generic [ref=e929]: S
+                          - generic [ref=e930]:
+                            - paragraph [ref=e931]: Student 6
+                            - paragraph [ref=e932]: student6@example.com
+                        - button [ref=e933]:
+                          - img
+                      - generic [ref=e934]:
+                        - generic [ref=e935]:
+                          - generic [ref=e936]: S
+                          - generic [ref=e937]:
+                            - paragraph [ref=e938]: Student 7
+                            - paragraph [ref=e939]: student7@example.com
+                        - button [ref=e940]:
+                          - img
+                      - generic [ref=e941]:
+                        - generic [ref=e942]:
+                          - generic [ref=e943]: S
+                          - generic [ref=e944]:
+                            - paragraph [ref=e945]: Student 8
+                            - paragraph [ref=e946]: student8@example.com
+                        - button [ref=e947]:
+                          - img
+                    - generic [ref=e948]:
+                      - generic [ref=e949]:
+                        - img [ref=e950]
+                        - paragraph [ref=e953]: Assigned Reviewers (2)
+                      - generic [ref=e954]:
+                        - generic [ref=e956]:
+                          - generic [ref=e957]: T
+                          - generic [ref=e958]:
+                            - paragraph [ref=e959]: Teacher 2
+                            - paragraph [ref=e960]: teacher2@example.com
+                        - generic [ref=e962]:
+                          - generic [ref=e963]: T
+                          - generic [ref=e964]:
+                            - paragraph [ref=e965]: Teacher 4
+                            - paragraph [ref=e966]: teacher4@example.com
+                    - button "Add Member" [ref=e967]:
+                      - img
+                      - text: Add Member
+                - generic [ref=e968]:
+                  - generic [ref=e970]:
+                    - heading "Team 3 6" [level=3] [ref=e971]:
+                      - img [ref=e972]
+                      - text: Team 3
+                      - generic [ref=e976]: "6"
+                    - button [ref=e978]:
+                      - img
+                  - generic [ref=e979]:
+                    - generic [ref=e980]:
+                      - generic [ref=e981]:
+                        - generic [ref=e982]:
+                          - generic [ref=e983]: S
+                          - generic [ref=e984]:
+                            - paragraph [ref=e985]: Student 9
+                            - paragraph [ref=e986]: student9@example.com
+                        - button [ref=e987]:
+                          - img
+                      - generic [ref=e988]:
+                        - generic [ref=e989]:
+                          - generic [ref=e990]: S
+                          - generic [ref=e991]:
+                            - paragraph [ref=e992]: Student 10
+                            - paragraph [ref=e993]: student10@example.com
+                        - button [ref=e994]:
+                          - img
+                      - generic [ref=e995]:
+                        - generic [ref=e996]:
+                          - generic [ref=e997]: S
+                          - generic [ref=e998]:
+                            - paragraph [ref=e999]: Student 11
+                            - paragraph [ref=e1000]: student11@example.com
+                        - button [ref=e1001]:
+                          - img
+                      - generic [ref=e1002]:
+                        - generic [ref=e1003]:
+                          - generic [ref=e1004]: S
+                          - generic [ref=e1005]:
+                            - paragraph [ref=e1006]: Student 12
+                            - paragraph [ref=e1007]: student12@example.com
+                        - button [ref=e1008]:
+                          - img
+                    - generic [ref=e1009]:
+                      - generic [ref=e1010]:
+                        - img [ref=e1011]
+                        - paragraph [ref=e1014]: Assigned Reviewers (2)
+                      - generic [ref=e1015]:
+                        - generic [ref=e1017]:
+                          - generic [ref=e1018]: T
+                          - generic [ref=e1019]:
+                            - paragraph [ref=e1020]: Teacher 3
+                            - paragraph [ref=e1021]: teacher3@example.com
+                        - generic [ref=e1023]:
+                          - generic [ref=e1024]: T
+                          - generic [ref=e1025]:
+                            - paragraph [ref=e1026]: Teacher 4
+                            - paragraph [ref=e1027]: teacher4@example.com
+                    - button "Add Member" [ref=e1028]:
+                      - img
+                      - text: Add Member
+                - generic [ref=e1029]:
+                  - generic [ref=e1031]:
+                    - heading "Team 4 7" [level=3] [ref=e1032]:
+                      - img [ref=e1033]
+                      - text: Team 4
+                      - generic [ref=e1037]: "7"
+                    - button [ref=e1039]:
+                      - img
+                  - generic [ref=e1040]:
+                    - generic [ref=e1041]:
+                      - generic [ref=e1042]:
+                        - generic [ref=e1043]:
+                          - generic [ref=e1044]: S
+                          - generic [ref=e1045]:
+                            - paragraph [ref=e1046]: Student 13
+                            - paragraph [ref=e1047]: student13@example.com
+                        - button [ref=e1048]:
+                          - img
+                      - generic [ref=e1049]:
+                        - generic [ref=e1050]:
+                          - generic [ref=e1051]: S
+                          - generic [ref=e1052]:
+                            - paragraph [ref=e1053]: Student 14
+                            - paragraph [ref=e1054]: student14@example.com
+                        - button [ref=e1055]:
+                          - img
+                      - generic [ref=e1056]:
+                        - generic [ref=e1057]:
+                          - generic [ref=e1058]: S
+                          - generic [ref=e1059]:
+                            - paragraph [ref=e1060]: Student 15
+                            - paragraph [ref=e1061]: student15@example.com
+                        - button [ref=e1062]:
+                          - img
+                      - generic [ref=e1063]:
+                        - generic [ref=e1064]:
+                          - generic [ref=e1065]: S
+                          - generic [ref=e1066]:
+                            - paragraph [ref=e1067]: Student 16
+                            - paragraph [ref=e1068]: student16@example.com
+                        - button [ref=e1069]:
+                          - img
+                    - generic [ref=e1070]:
+                      - generic [ref=e1071]:
+                        - img [ref=e1072]
+                        - paragraph [ref=e1075]: Assigned Reviewers (3)
+                      - generic [ref=e1076]:
+                        - generic [ref=e1078]:
+                          - generic [ref=e1079]: T
+                          - generic [ref=e1080]:
+                            - paragraph [ref=e1081]: Teacher 2
+                            - paragraph [ref=e1082]: teacher2@example.com
+                        - generic [ref=e1084]:
+                          - generic [ref=e1085]: T
+                          - generic [ref=e1086]:
+                            - paragraph [ref=e1087]: Teacher 3
+                            - paragraph [ref=e1088]: teacher3@example.com
+                        - generic [ref=e1090]:
+                          - generic [ref=e1091]: T
+                          - generic [ref=e1092]:
+                            - paragraph [ref=e1093]: Teacher 4
+                            - paragraph [ref=e1094]: teacher4@example.com
+                    - button "Add Member" [ref=e1095]:
+                      - img
+                      - text: Add Member
+                - generic [ref=e1096]:
+                  - generic [ref=e1098]:
+                    - heading "Team 5 5" [level=3] [ref=e1099]:
+                      - img [ref=e1100]
+                      - text: Team 5
+                      - generic [ref=e1104]: "5"
+                    - button [ref=e1106]:
+                      - img
+                  - generic [ref=e1107]:
+                    - generic [ref=e1108]:
+                      - generic [ref=e1109]:
+                        - generic [ref=e1110]:
+                          - generic [ref=e1111]: S
+                          - generic [ref=e1112]:
+                            - paragraph [ref=e1113]: Student 17
+                            - paragraph [ref=e1114]: student17@example.com
+                        - button [ref=e1115]:
+                          - img
+                      - generic [ref=e1116]:
+                        - generic [ref=e1117]:
+                          - generic [ref=e1118]: S
+                          - generic [ref=e1119]:
+                            - paragraph [ref=e1120]: Student 18
+                            - paragraph [ref=e1121]: student18@example.com
+                        - button [ref=e1122]:
+                          - img
+                      - generic [ref=e1123]:
+                        - generic [ref=e1124]:
+                          - generic [ref=e1125]: S
+                          - generic [ref=e1126]:
+                            - paragraph [ref=e1127]: Student 19
+                            - paragraph [ref=e1128]: student19@example.com
+                        - button [ref=e1129]:
+                          - img
+                      - generic [ref=e1130]:
+                        - generic [ref=e1131]:
+                          - generic [ref=e1132]: S
+                          - generic [ref=e1133]:
+                            - paragraph [ref=e1134]: Student 20
+                            - paragraph [ref=e1135]: student20@example.com
+                        - button [ref=e1136]:
+                          - img
+                    - generic [ref=e1137]:
+                      - generic [ref=e1138]:
+                        - img [ref=e1139]
+                        - paragraph [ref=e1142]: Assigned Reviewers (1)
+                      - generic [ref=e1145]:
+                        - generic [ref=e1146]: T
+                        - generic [ref=e1147]:
+                          - paragraph [ref=e1148]: Teacher 4
+                          - paragraph [ref=e1149]: teacher4@example.com
+                    - button "Add Member" [ref=e1150]:
+                      - img
+                      - text: Add Member
+                - generic [ref=e1151]:
+                  - generic [ref=e1153]:
+                    - heading "Team6 4" [level=3] [ref=e1154]:
+                      - img [ref=e1155]
+                      - text: Team6
+                      - generic [ref=e1159]: "4"
+                    - button [ref=e1161]:
+                      - img
+                  - generic [ref=e1162]:
+                    - generic [ref=e1163]:
+                      - generic [ref=e1164]:
+                        - generic [ref=e1165]:
+                          - generic [ref=e1166]: S
+                          - generic [ref=e1167]:
+                            - paragraph [ref=e1168]: student168
+                            - paragraph [ref=e1169]: student168@example.com
+                        - button [ref=e1170]:
+                          - img
+                      - generic [ref=e1171]:
+                        - generic [ref=e1172]:
+                          - generic [ref=e1173]: S
+                          - generic [ref=e1174]:
+                            - paragraph [ref=e1175]: student1
+                            - paragraph [ref=e1176]: student1@example.com
+                        - button [ref=e1177]:
+                          - img
+                    - generic [ref=e1178]:
+                      - generic [ref=e1179]:
+                        - img [ref=e1180]
+                        - paragraph [ref=e1183]: Assigned Reviewers (2)
+                      - generic [ref=e1184]:
+                        - generic [ref=e1186]:
+                          - generic [ref=e1187]: T
+                          - generic [ref=e1188]:
+                            - paragraph [ref=e1189]: Teacher 4
+                            - paragraph [ref=e1190]: teacher4@example.com
+                        - generic [ref=e1192]:
+                          - generic [ref=e1193]: T
+                          - generic [ref=e1194]:
+                            - paragraph [ref=e1195]: Teacher 5
+                            - paragraph [ref=e1196]: teacher5@example.com
+                    - button "Add Member" [ref=e1197]:
+                      - img
+                      - text: Add Member
+        - generic [ref=e471]: All rights reserved. Copyright © 2010 - 2026 | Paragon International University | Phnom Penh - Cambodia | Privacy Policy
+  - region "Notifications alt+T":
+    - list

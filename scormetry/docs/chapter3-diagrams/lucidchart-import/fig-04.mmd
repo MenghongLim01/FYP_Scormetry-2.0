@@ -1,0 +1,25 @@
+flowchart TB
+    A["Judge / Reviewer Panel"] --> B["Authentication"]
+    A --> C["Subject Access"]
+    A --> D["Assigned Team Room"]
+    A --> E["Review Submission"]
+    A --> F["Post-Submission Actions"]
+
+    B --> B1["Google OAuth Login"]
+    B --> B2["Logout"]
+
+    C --> C1["Accept email invitation"]
+    C --> C2["Join by reviewer code"]
+    C --> C3["View assigned subjects"]
+
+    D --> D1["Open assigned team"]
+    D --> D2["View final paper PDF"]
+    D --> D3["View locked Dynamic Rubric"]
+
+    E --> E1["Enter score per criterion"]
+    E --> E2["Validate score range"]
+    E --> E3["Add comment / feedback"]
+    E --> E4["Submit and lock review"]
+
+    F --> F1["View submitted review"]
+    F --> F2["Request unlock if correction is needed"]

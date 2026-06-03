@@ -1,0 +1,24 @@
+flowchart TB
+    A["Student Panel"] --> B["Authentication"]
+    A --> C["Subject Access"]
+    A --> D["Team Room"]
+    A --> E["Paper Management"]
+    A --> F["Post-Defense Review"]
+
+    B --> B1["Google OAuth Login"]
+    B --> B2["Logout"]
+
+    C --> C1["Join subject by join code"]
+    C --> C2["Wait for approval when required"]
+    C --> C3["View approved subject membership"]
+
+    D --> D1["View team information"]
+    D --> D2["View defense schedule"]
+    D --> D3["View upload and result status"]
+
+    E --> E1["Upload final paper PDF"]
+    E --> E2["View current paper"]
+    E --> E3["Replace paper before release or deadline"]
+
+    F --> F1["View released final score"]
+    F --> F2["View judge feedback"]

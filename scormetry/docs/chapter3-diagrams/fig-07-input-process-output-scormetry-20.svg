@@ -1,0 +1,105 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1800" height="1050" viewBox="0 0 1800 1050">
+  <defs>
+    <marker id="arrow" markerWidth="16" markerHeight="12" refX="15" refY="6" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L16,6 L0,12 Z" fill="#303943"/>
+    </marker>
+    <style>
+      .title { font-family: Georgia, "Times New Roman", serif; font-size: 42px; font-weight: 700; fill: #000; }
+      .head { font-family: Georgia, "Times New Roman", serif; font-size: 31px; font-weight: 700; fill: #000; }
+      .text { font-family: Georgia, "Times New Roman", serif; font-size: 26px; fill: #000; }
+      .small { font-family: Georgia, "Times New Roman", serif; font-size: 23px; fill: #000; }
+      .caption { font-family: Georgia, "Times New Roman", serif; font-size: 38px; font-weight: 700; fill: #000; }
+      .outer { fill: #f6f7f8; stroke: #303943; stroke-width: 6; }
+      .green { fill: #c9f7cf; stroke: #303943; stroke-width: 5; }
+      .blue { fill: #cfe3fb; stroke: #303943; stroke-width: 5; }
+      .yellow { fill: #fff7a8; stroke: #303943; stroke-width: 5; }
+      .line { stroke: #303943; stroke-width: 6; fill: none; marker-end: url(#arrow); }
+    </style>
+  </defs>
+
+  <rect x="35" y="35" width="1730" height="900" rx="8" class="outer"/>
+  <rect x="55" y="55" width="1690" height="80" rx="6" class="green"/>
+  <text x="900" y="108" text-anchor="middle" class="title">Input-Process-Output Model for Scormetry 2.0</text>
+
+  <!-- Column containers -->
+  <rect x="75" y="180" width="465" height="670" rx="8" class="outer"/>
+  <rect x="670" y="180" width="465" height="670" rx="8" class="outer"/>
+  <rect x="1260" y="180" width="465" height="670" rx="8" class="outer"/>
+
+  <rect x="75" y="180" width="465" height="80" rx="6" class="blue"/>
+  <rect x="670" y="180" width="465" height="80" rx="6" class="blue"/>
+  <rect x="1260" y="180" width="465" height="80" rx="6" class="blue"/>
+
+  <text x="307.5" y="232" text-anchor="middle" class="head">INPUT</text>
+  <text x="902.5" y="232" text-anchor="middle" class="head">PROCESS</text>
+  <text x="1492.5" y="232" text-anchor="middle" class="head">OUTPUT</text>
+
+  <!-- Inputs -->
+  <rect x="110" y="292" width="395" height="86" rx="8" class="yellow"/>
+  <text x="307.5" y="326" text-anchor="middle" class="text">User accounts and</text>
+  <text x="307.5" y="358" text-anchor="middle" class="text">Google login details</text>
+
+  <rect x="110" y="398" width="395" height="86" rx="8" class="yellow"/>
+  <text x="307.5" y="432" text-anchor="middle" class="text">Subject, Team Room,</text>
+  <text x="307.5" y="464" text-anchor="middle" class="text">codes, and invitations</text>
+
+  <rect x="110" y="504" width="395" height="86" rx="8" class="yellow"/>
+  <text x="307.5" y="538" text-anchor="middle" class="text">Official rubric PDF</text>
+  <text x="307.5" y="570" text-anchor="middle" class="text">and final paper PDF</text>
+
+  <rect x="110" y="610" width="395" height="86" rx="8" class="yellow"/>
+  <text x="307.5" y="644" text-anchor="middle" class="text">Judge scores, comments,</text>
+  <text x="307.5" y="676" text-anchor="middle" class="text">and feedback</text>
+
+  <rect x="110" y="716" width="395" height="86" rx="8" class="yellow"/>
+  <text x="307.5" y="750" text-anchor="middle" class="text">Approval settings, score</text>
+  <text x="307.5" y="782" text-anchor="middle" class="text">release, and unlock reason</text>
+
+  <!-- Processes -->
+  <rect x="705" y="292" width="395" height="70" rx="8" class="yellow"/>
+  <text x="902.5" y="338" text-anchor="middle" class="text">Authenticate and authorize users</text>
+
+  <rect x="705" y="380" width="395" height="70" rx="8" class="yellow"/>
+  <text x="902.5" y="426" text-anchor="middle" class="text">Manage subjects and Team Rooms</text>
+
+  <rect x="705" y="468" width="395" height="70" rx="8" class="yellow"/>
+  <text x="902.5" y="514" text-anchor="middle" class="text">Validate and store documents</text>
+
+  <rect x="705" y="556" width="395" height="86" rx="8" class="yellow"/>
+  <text x="902.5" y="590" text-anchor="middle" class="text">Extract, verify, and lock</text>
+  <text x="902.5" y="622" text-anchor="middle" class="text">the Dynamic Rubric</text>
+
+  <rect x="705" y="662" width="395" height="86" rx="8" class="yellow"/>
+  <text x="902.5" y="696" text-anchor="middle" class="text">Submit reviews and calculate</text>
+  <text x="902.5" y="728" text-anchor="middle" class="text">scores automatically</text>
+
+  <rect x="705" y="768" width="395" height="70" rx="8" class="yellow"/>
+  <text x="902.5" y="814" text-anchor="middle" class="text">Release results and store records</text>
+
+  <!-- Outputs -->
+  <rect x="1295" y="292" width="395" height="86" rx="8" class="yellow"/>
+  <text x="1492.5" y="326" text-anchor="middle" class="text">Controlled Team Room</text>
+  <text x="1492.5" y="358" text-anchor="middle" class="text">access</text>
+
+  <rect x="1295" y="398" width="395" height="86" rx="8" class="yellow"/>
+  <text x="1492.5" y="432" text-anchor="middle" class="text">Approved membership and</text>
+  <text x="1492.5" y="464" text-anchor="middle" class="text">assigned judge access</text>
+
+  <rect x="1295" y="504" width="395" height="86" rx="8" class="yellow"/>
+  <text x="1492.5" y="538" text-anchor="middle" class="text">Stored final papers and</text>
+  <text x="1492.5" y="570" text-anchor="middle" class="text">locked Dynamic Rubric</text>
+
+  <rect x="1295" y="610" width="395" height="86" rx="8" class="yellow"/>
+  <text x="1492.5" y="644" text-anchor="middle" class="text">Submitted reviews, scores,</text>
+  <text x="1492.5" y="676" text-anchor="middle" class="text">and feedback</text>
+
+  <rect x="1295" y="716" width="395" height="86" rx="8" class="yellow"/>
+  <text x="1492.5" y="750" text-anchor="middle" class="text">Released results and</text>
+  <text x="1492.5" y="782" text-anchor="middle" class="text">post-defense records</text>
+
+  <!-- Arrows -->
+  <path d="M540 515 L660 515" class="line"/>
+  <path d="M1135 515 L1255 515" class="line"/>
+
+  <text x="900" y="1000" text-anchor="middle" class="caption">Fig. 7. Input-Process-Output Diagram for Scormetry 2.0</text>
+</svg>

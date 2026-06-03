@@ -1,0 +1,160 @@
+- generic [ref=e2]:
+  - generic [ref=e122]:
+    - generic [ref=e125]:
+      - list [ref=e127]:
+        - listitem [ref=e128]:
+          - link "Scormetry" [ref=e129] [cursor=pointer]:
+            - /url: /dashboard
+            - img [ref=e131]
+            - generic [ref=e138]: Scormetry
+      - generic [ref=e139]:
+        - generic [ref=e140]:
+          - generic [ref=e141]: Dashboard
+          - list [ref=e142]:
+            - listitem [ref=e143]:
+              - link "Dashboard" [ref=e144] [cursor=pointer]:
+                - /url: /dashboard
+                - img [ref=e145]
+                - generic [ref=e150]: Dashboard
+        - generic [ref=e151]:
+          - generic [ref=e152]: Academic Management
+          - list [ref=e153]:
+            - listitem [ref=e154]:
+              - link "Subjects" [ref=e155] [cursor=pointer]:
+                - /url: /subjects
+                - img [ref=e156]
+                - generic [ref=e158]: Subjects
+            - listitem [ref=e159]:
+              - link "Papers" [ref=e160] [cursor=pointer]:
+                - /url: /papers
+                - img [ref=e161]
+                - generic [ref=e164]: Papers
+        - generic [ref=e165]:
+          - generic [ref=e166]: Admin Panel
+          - list [ref=e167]:
+            - listitem [ref=e168]:
+              - link "Admin Dashboard" [ref=e169] [cursor=pointer]:
+                - /url: /admin/dashboard
+                - img [ref=e170]
+                - generic [ref=e175]: Admin Dashboard
+            - listitem [ref=e176]:
+              - link "Classroom Management" [ref=e177] [cursor=pointer]:
+                - /url: /admin/classrooms
+                - img [ref=e178]
+                - generic [ref=e180]: Classroom Management
+            - listitem [ref=e181]:
+              - link "User Management" [ref=e182] [cursor=pointer]:
+                - /url: /admin/users
+                - img [ref=e183]
+                - generic [ref=e188]: User Management
+            - listitem [ref=e189]:
+              - link "Settings" [ref=e190] [cursor=pointer]:
+                - /url: /admin/settings
+                - img [ref=e191]
+                - generic [ref=e194]: Settings
+        - generic [ref=e195]:
+          - generic [ref=e197]: "Dev: Role View"
+          - generic [ref=e199]:
+            - button "admin" [ref=e200]
+            - button "teacher" [ref=e201]
+            - button "student" [ref=e202]
+      - list [ref=e206]:
+        - listitem [ref=e207]:
+          - link "Settings" [ref=e208] [cursor=pointer]:
+            - /url: /settings/profile
+            - img [ref=e209]
+            - generic [ref=e212]: Settings
+    - main [ref=e213]:
+      - generic [ref=e215]:
+        - button "Toggle sidebar" [ref=e217]:
+          - img
+          - generic [ref=e218]: Toggle sidebar
+        - generic [ref=e219]:
+          - button [ref=e220]:
+            - img
+          - button "A Admin" [ref=e221]:
+            - generic [ref=e223]: A
+            - generic [ref=e224]: Admin
+            - img [ref=e225]
+      - generic [ref=e228]:
+        - generic [ref=e229]:
+          - link "Papers" [ref=e231] [cursor=pointer]:
+            - /url: /papers
+            - img
+            - text: Papers
+          - generic [ref=e232]:
+            - generic [ref=e233]:
+              - generic [ref=e234]:
+                - img [ref=e236]
+                - generic [ref=e239]:
+                  - generic [ref=e240]:
+                    - heading "Team 2" [level=1] [ref=e241]
+                    - generic [ref=e242]: Submitted
+                  - paragraph [ref=e243]:
+                    - link "FYP Defense AY2025-2026" [ref=e244] [cursor=pointer]:
+                      - /url: /subjects/5
+                    - text: "• Passing score: 70%"
+                  - paragraph [ref=e245]:
+                    - img [ref=e246]
+                    - text: Teacher 2, Teacher 4, Student 5, Student 6, Student 7, Student 8
+              - generic [ref=e252]:
+                - paragraph [ref=e253]: Final Score
+                - paragraph [ref=e255]: 100.00 / 100
+            - generic [ref=e256]:
+              - generic [ref=e258]:
+                - paragraph [ref=e259]: "Admin: Score Override"
+                - paragraph [ref=e260]: Override the final score for this paper. A reason is required for auditing.
+              - generic [ref=e261]:
+                - generic [ref=e262]:
+                  - generic [ref=e263]: Override score (0 - 100)
+                  - spinbutton "Override score (0 - 100)" [ref=e264]: "100"
+                - generic [ref=e265]:
+                  - generic [ref=e266]: Reason for override
+                  - textbox "Reason for override" [ref=e267]:
+                    - /placeholder: Explain why you are overriding this score...
+                - button "Override Score" [ref=e269]
+          - generic [ref=e270]:
+            - generic [ref=e271]:
+              - button "Rubric PDF" [ref=e272]:
+                - img [ref=e273]
+                - text: Rubric PDF
+              - button "Paper PDF" [ref=e277]:
+                - img [ref=e278]
+                - text: Paper PDF
+              - button "AI Scoring" [ref=e281]:
+                - img [ref=e282]
+                - text: AI Scoring
+            - iframe [ref=e286]:
+              
+          - generic [ref=e287]:
+            - heading "Reviews (1/1 submitted)" [level=2] [ref=e288]
+            - link "Add Review" [ref=e289] [cursor=pointer]:
+              - /url: /papers/2/reviews/create
+              - img
+              - text: Add Review
+          - link "T Teacher 4 Submitted Presentation Content 4/4 System Demonstration 4/4 Technical Implementation 4/4 Q&A / Defense 4/4 Has reviewer comment" [ref=e291] [cursor=pointer]:
+            - /url: /reviews/3
+            - generic [ref=e292]:
+              - generic [ref=e294]:
+                - heading "T Teacher 4" [level=3] [ref=e295]:
+                  - generic [ref=e296]: T
+                  - text: Teacher 4
+                - generic [ref=e297]: Submitted
+              - generic [ref=e298]:
+                - generic [ref=e299]:
+                  - generic [ref=e301]:
+                    - generic [ref=e302]: Presentation Content
+                    - generic [ref=e303]: 4/4
+                  - generic [ref=e307]:
+                    - generic [ref=e308]: System Demonstration
+                    - generic [ref=e309]: 4/4
+                  - generic [ref=e313]:
+                    - generic [ref=e314]: Technical Implementation
+                    - generic [ref=e315]: 4/4
+                  - generic [ref=e319]:
+                    - generic [ref=e320]: Q&A / Defense
+                    - generic [ref=e321]: 4/4
+                - paragraph [ref=e324]: Has reviewer comment
+        - generic [ref=e325]: All rights reserved. Copyright © 2010 - 2026 | Paragon International University | Phnom Penh - Cambodia | Privacy Policy
+  - region "Notifications alt+T":
+    - list

@@ -1,0 +1,10 @@
+flowchart LR
+    A["Admin"] --> B["Open Dynamic Rubric verification page"]
+    B --> C["Review criteria, max scores, and weights"]
+    C --> D{"Needs correction?"}
+    D -- "Yes" --> E["Edit extracted structure_json"]
+    E --> F["Save updated Dynamic Rubric"]
+    F --> C
+    D -- "No" --> G["Approve rubric"]
+    G --> H["Set status to locked"]
+    H --> I["Rubric becomes read-only for scoring"]

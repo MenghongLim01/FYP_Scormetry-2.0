@@ -1,0 +1,8 @@
+flowchart LR
+    A["Approved Student"] --> B["Open paper upload page"]
+    B --> C["Choose final paper PDF"]
+    C --> D["Validate file and membership"]
+    D --> E["Store file_path in secure storage"]
+    E --> F["Create or update papers record"]
+    F --> G["Set visibility_status = draft"]
+    G --> H["Paper available to Admin and assigned judges"]

@@ -1,0 +1,314 @@
+- generic [ref=e2]:
+  - generic [ref=e213]:
+    - generic [ref=e216]:
+      - list [ref=e218]:
+        - listitem [ref=e219]:
+          - link "Scormetry" [ref=e220] [cursor=pointer]:
+            - /url: /dashboard
+            - img [ref=e222]
+            - generic [ref=e229]: Scormetry
+      - generic [ref=e230]:
+        - generic [ref=e231]:
+          - generic [ref=e232]: Dashboard
+          - list [ref=e233]:
+            - listitem [ref=e234]:
+              - link "Dashboard" [ref=e235] [cursor=pointer]:
+                - /url: /dashboard
+                - img [ref=e236]
+                - generic [ref=e241]: Dashboard
+        - generic [ref=e242]:
+          - generic [ref=e243]: Academic Management
+          - list [ref=e244]:
+            - listitem [ref=e245]:
+              - link "Subjects" [ref=e246] [cursor=pointer]:
+                - /url: /subjects
+                - img [ref=e247]
+                - generic [ref=e249]: Subjects
+            - listitem [ref=e250]:
+              - link "Papers" [ref=e251] [cursor=pointer]:
+                - /url: /papers
+                - img [ref=e252]
+                - generic [ref=e255]: Papers
+        - generic [ref=e256]:
+          - generic [ref=e257]: Admin Panel
+          - list [ref=e258]:
+            - listitem [ref=e259]:
+              - link "Admin Dashboard" [ref=e260] [cursor=pointer]:
+                - /url: /admin/dashboard
+                - img [ref=e261]
+                - generic [ref=e266]: Admin Dashboard
+            - listitem [ref=e267]:
+              - link "Classroom Management" [ref=e268] [cursor=pointer]:
+                - /url: /admin/classrooms
+                - img [ref=e269]
+                - generic [ref=e271]: Classroom Management
+            - listitem [ref=e272]:
+              - link "User Management" [ref=e273] [cursor=pointer]:
+                - /url: /admin/users
+                - img [ref=e274]
+                - generic [ref=e279]: User Management
+            - listitem [ref=e280]:
+              - link "Settings" [ref=e281] [cursor=pointer]:
+                - /url: /admin/settings
+                - img [ref=e282]
+                - generic [ref=e285]: Settings
+        - generic [ref=e286]:
+          - generic [ref=e288]: "Dev: Role View"
+          - generic [ref=e290]:
+            - button "admin" [ref=e291]
+            - button "teacher" [ref=e292]
+            - button "student" [ref=e293]
+      - list [ref=e297]:
+        - listitem [ref=e298]:
+          - link "Settings" [ref=e299] [cursor=pointer]:
+            - /url: /settings/profile
+            - img [ref=e300]
+            - generic [ref=e303]: Settings
+    - main [ref=e304]:
+      - generic [ref=e306]:
+        - button "Toggle sidebar" [ref=e308]:
+          - img
+          - generic [ref=e309]: Toggle sidebar
+        - generic [ref=e314]:
+          - button [ref=e315]:
+            - img
+          - button "A Admin" [ref=e316]:
+            - generic [ref=e318]: A
+            - generic [ref=e319]: Admin
+            - img [ref=e320]
+      - generic [ref=e323]:
+        - generic [ref=e662]:
+          - link "Subjects" [ref=e664] [cursor=pointer]:
+            - /url: /subjects
+            - img
+            - text: Subjects
+          - generic [ref=e666]:
+            - generic [ref=e667]:
+              - img [ref=e669]
+              - generic [ref=e671]:
+                - heading "FYP Defense AY2025-2026" [level=1] [ref=e672]
+                - paragraph [ref=e673]: Final Year Project Defense Room
+                - generic [ref=e674]:
+                  - generic [ref=e675]:
+                    - text: Taught by
+                    - strong [ref=e676]: teacher1
+                  - generic [ref=e678]: "Pass: 70%"
+                  - generic [ref=e679]: Approval Required
+            - link "Edit" [ref=e681] [cursor=pointer]:
+              - /url: /subjects/5/edit
+              - img
+              - text: Edit
+          - generic [ref=e682]:
+            - generic [ref=e683]:
+              - img [ref=e685]
+              - generic [ref=e690]:
+                - paragraph [ref=e691]: "22"
+                - paragraph [ref=e692]: Students
+            - generic [ref=e693]:
+              - img [ref=e695]
+              - generic [ref=e698]:
+                - paragraph [ref=e699]: "4"
+                - paragraph [ref=e700]: Reviewers
+            - generic [ref=e701]:
+              - img [ref=e703]
+              - generic [ref=e706]:
+                - paragraph [ref=e707]: "5"
+                - paragraph [ref=e708]: Papers
+            - generic [ref=e709]:
+              - img [ref=e711]
+              - generic [ref=e713]:
+                - paragraph [ref=e714]: 1%
+                - paragraph [ref=e715]: Reviewed
+          - generic [ref=e717]:
+            - img [ref=e719]
+            - generic [ref=e723]:
+              - generic [ref=e724]:
+                - paragraph [ref=e725]: Rubric
+                - generic [ref=e726]: Locked
+              - paragraph [ref=e727]: Assessment criteria for this subject.
+            - link "View" [ref=e729] [cursor=pointer]:
+              - /url: /rubrics/5
+              - img
+              - text: View
+          - generic [ref=e730]:
+            - button "4 Papers with no scores yet" [ref=e731]:
+              - generic [ref=e732]: "4"
+              - text: Papers with no scores yet
+            - button "8 Overdue judges" [ref=e733]:
+              - generic [ref=e734]: "8"
+              - text: Overdue judges
+          - generic [ref=e735]:
+            - generic [ref=e736]:
+              - button "Papers" [ref=e737]:
+                - img [ref=e738]
+                - text: Papers
+              - button "Members" [ref=e741]:
+                - img [ref=e742]
+                - text: Members
+              - button "Teams" [ref=e747]:
+                - img [ref=e748]
+                - text: Teams
+              - button "Schedule" [active] [ref=e752]:
+                - img [ref=e753]
+                - text: Schedule
+              - button "Scores" [ref=e755]:
+                - img [ref=e756]
+                - text: Scores
+            - generic [ref=e1199]:
+              - generic [ref=e1200]:
+                - generic [ref=e1202]:
+                  - heading "Team 1" [level=3] [ref=e1203]:
+                    - img [ref=e1204]
+                    - text: Team 1
+                  - button "Edit" [ref=e1208]:
+                    - img
+                    - text: Edit
+                - generic [ref=e1210]:
+                  - generic [ref=e1211]:
+                    - img [ref=e1212]
+                    - generic [ref=e1214]:
+                      - paragraph [ref=e1215]: Defense Date & Time
+                      - paragraph [ref=e1216]: May 26, 2026
+                      - paragraph [ref=e1217]: 09:00 — 10:00 (60 min)
+                  - generic [ref=e1218]:
+                    - generic [ref=e1219]:
+                      - img [ref=e1220]
+                      - generic [ref=e1223]: Room / Venue
+                      - generic [ref=e1224]: Room 301
+                    - generic [ref=e1225]:
+                      - img [ref=e1226]
+                      - generic [ref=e1229]: Score deadline
+                      - generic [ref=e1230]: May 27, 2026, 07:00 AM
+                    - generic [ref=e1231]:
+                      - img [ref=e1232]
+                      - generic [ref=e1235]: Results
+                      - generic [ref=e1237]: Released
+              - generic [ref=e1238]:
+                - generic [ref=e1240]:
+                  - heading "Team 2" [level=3] [ref=e1241]:
+                    - img [ref=e1242]
+                    - text: Team 2
+                  - button "Edit" [ref=e1246]:
+                    - img
+                    - text: Edit
+                - generic [ref=e1248]:
+                  - generic [ref=e1249]:
+                    - img [ref=e1250]
+                    - generic [ref=e1252]:
+                      - paragraph [ref=e1253]: Defense Date & Time
+                      - paragraph [ref=e1254]: May 20, 2026
+                      - paragraph [ref=e1255]: 10:00 — 11:00 (60 min)
+                  - generic [ref=e1256]:
+                    - generic [ref=e1257]:
+                      - img [ref=e1258]
+                      - generic [ref=e1261]: Room / Venue
+                      - generic [ref=e1262]: Room 301
+                    - generic [ref=e1263]:
+                      - img [ref=e1264]
+                      - generic [ref=e1267]: Score deadline
+                      - generic [ref=e1268]: May 26, 2026, 06:59 AM
+                    - generic [ref=e1269]:
+                      - img [ref=e1270]
+                      - generic [ref=e1273]: Results
+                      - generic [ref=e1275]: Not released
+              - generic [ref=e1276]:
+                - generic [ref=e1278]:
+                  - heading "Team 3" [level=3] [ref=e1279]:
+                    - img [ref=e1280]
+                    - text: Team 3
+                  - button "Edit" [ref=e1284]:
+                    - img
+                    - text: Edit
+                - generic [ref=e1286]:
+                  - generic [ref=e1287]:
+                    - img [ref=e1288]
+                    - generic [ref=e1290]:
+                      - paragraph [ref=e1291]: Defense Date & Time
+                      - paragraph [ref=e1292]: May 20, 2026
+                      - paragraph [ref=e1293]: 11:00 — 12:00 (60 min)
+                  - generic [ref=e1294]:
+                    - generic [ref=e1295]:
+                      - img [ref=e1296]
+                      - generic [ref=e1299]: Room / Venue
+                      - generic [ref=e1300]: Room 302
+                    - generic [ref=e1301]:
+                      - img [ref=e1302]
+                      - generic [ref=e1305]: Score deadline
+                      - generic [ref=e1306]: May 26, 2026, 06:59 AM
+                    - generic [ref=e1307]:
+                      - img [ref=e1308]
+                      - generic [ref=e1311]: Results
+                      - generic [ref=e1313]: Not released
+              - generic [ref=e1314]:
+                - generic [ref=e1316]:
+                  - heading "Team 4" [level=3] [ref=e1317]:
+                    - img [ref=e1318]
+                    - text: Team 4
+                  - button "Edit" [ref=e1322]:
+                    - img
+                    - text: Edit
+                - generic [ref=e1324]:
+                  - generic [ref=e1325]:
+                    - img [ref=e1326]
+                    - generic [ref=e1328]:
+                      - paragraph [ref=e1329]: Defense Date & Time
+                      - paragraph [ref=e1330]: May 21, 2026
+                      - paragraph [ref=e1331]: 09:00 — 10:00 (60 min)
+                  - generic [ref=e1332]:
+                    - generic [ref=e1333]:
+                      - img [ref=e1334]
+                      - generic [ref=e1337]: Room / Venue
+                      - generic [ref=e1338]: Room 301
+                    - generic [ref=e1339]:
+                      - img [ref=e1340]
+                      - generic [ref=e1343]: Score deadline
+                      - generic [ref=e1344]: May 26, 2026, 06:59 AM
+                    - generic [ref=e1345]:
+                      - img [ref=e1346]
+                      - generic [ref=e1349]: Results
+                      - generic [ref=e1351]: Not released
+              - generic [ref=e1352]:
+                - generic [ref=e1354]:
+                  - heading "Team 5" [level=3] [ref=e1355]:
+                    - img [ref=e1356]
+                    - text: Team 5
+                  - button "Edit" [ref=e1360]:
+                    - img
+                    - text: Edit
+                - generic [ref=e1362]:
+                  - generic [ref=e1363]:
+                    - img [ref=e1364]
+                    - generic [ref=e1366]:
+                      - paragraph [ref=e1367]: Defense Date & Time
+                      - paragraph [ref=e1368]: May 21, 2026
+                      - paragraph [ref=e1369]: 10:00 — 11:00 (60 min)
+                  - generic [ref=e1370]:
+                    - generic [ref=e1371]:
+                      - img [ref=e1372]
+                      - generic [ref=e1375]: Room / Venue
+                      - generic [ref=e1376]: Room 302
+                    - generic [ref=e1377]:
+                      - img [ref=e1378]
+                      - generic [ref=e1381]: Score deadline
+                      - generic [ref=e1382]: May 26, 2026, 06:59 AM
+                    - generic [ref=e1383]:
+                      - img [ref=e1384]
+                      - generic [ref=e1387]: Results
+                      - generic [ref=e1389]: Not released
+              - generic [ref=e1390]:
+                - generic [ref=e1392]:
+                  - heading "Team6" [level=3] [ref=e1393]:
+                    - img [ref=e1394]
+                    - text: Team6
+                  - button "Set Schedule" [ref=e1398]:
+                    - img
+                    - text: Set Schedule
+                - generic [ref=e1400]:
+                  - img [ref=e1402]
+                  - paragraph [ref=e1404]: No schedule set yet.
+                  - button "Set Schedule" [ref=e1405]:
+                    - img
+                    - text: Set Schedule
+        - generic [ref=e471]: All rights reserved. Copyright © 2010 - 2026 | Paragon International University | Phnom Penh - Cambodia | Privacy Policy
+  - region "Notifications alt+T":
+    - list

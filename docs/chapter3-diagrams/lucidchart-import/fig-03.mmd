@@ -1,0 +1,35 @@
+flowchart TB
+    A["Organizer / Admin Panel"] --> B["Authentication"]
+    A --> C["Subject Management"]
+    A --> D["Team Room Management"]
+    A --> E["Rubric Management"]
+    A --> F["Review and Results Management"]
+    A --> G["User Control"]
+
+    B --> B1["Google OAuth Login"]
+    B --> B2["Fortify Session Logout"]
+
+    C --> C1["Create / edit subject"]
+    C --> C2["Generate join code"]
+    C --> C3["Generate reviewer code"]
+    C --> C4["Manage require-approval setting"]
+
+    D --> D1["Create teams"]
+    D --> D2["Add / remove team members"]
+    D --> D3["Schedule defense date, time, duration, and room"]
+    D --> D4["Monitor paper upload and score status"]
+
+    E --> E1["Upload official rubric PDF"]
+    E --> E2["Run AI extraction"]
+    E --> E3["Verify Dynamic Rubric structure"]
+    E --> E4["Lock approved rubric"]
+
+    F --> F1["View judge submissions"]
+    F --> F2["Review scores and feedback"]
+    F --> F3["Override final score with reason"]
+    F --> F4["Release final score and feedback"]
+    F --> F5["Unlock submitted review when approved"]
+
+    G --> G1["Approve or reject pending members"]
+    G --> G2["Block or unblock user accounts"]
+    G --> G3["Block emails inside a subject"]

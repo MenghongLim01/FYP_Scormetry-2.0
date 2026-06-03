@@ -1,0 +1,14 @@
+sequenceDiagram
+    actor Admin
+    participant UI as Vue/Inertia Subject Form
+    participant Controller as SubjectController
+    participant DB as Database
+
+    Admin->>UI: Enter subject details
+    UI->>Controller: POST /subjects
+    Controller->>Controller: Validate StoreSubjectRequest
+    Controller->>Controller: Generate join_code and reviewer_code
+    Controller->>DB: Insert subjects record
+    DB-->>Controller: Subject saved
+    Controller-->>UI: Redirect to subject show page
+    UI-->>Admin: Display codes and setup actions

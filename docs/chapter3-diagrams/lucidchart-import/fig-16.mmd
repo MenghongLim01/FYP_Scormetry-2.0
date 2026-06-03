@@ -1,0 +1,10 @@
+flowchart LR
+    A["Judge"] --> B["Open assigned team paper"]
+    B --> C["Open locked Dynamic Rubric"]
+    C --> D["Enter score per criterion"]
+    D --> E["Add comment / feedback"]
+    E --> F["Validate judge assignment"]
+    F --> G["Validate rubric locked and score ranges"]
+    G --> H["Calculate total score"]
+    H --> I["Store scores_json and comment"]
+    I --> J["Set is_submitted and locked_at"]

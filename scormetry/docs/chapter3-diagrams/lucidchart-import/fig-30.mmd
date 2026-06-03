@@ -1,0 +1,12 @@
+flowchart LR
+    Student["Student"] --> UC1["Log in with Google"]
+    Student --> UC2["Join subject by join code"]
+    Student --> UC3["Wait for approval if required"]
+    Student --> UC4["View Team Room"]
+    Student --> UC5["Upload final paper PDF"]
+    Student --> UC6["View upload status"]
+    Student --> UC7["View released final score"]
+    Student --> UC8["View judge feedback"]
+
+    UC3 -. "extend" .-> UC2
+    UC7 -. "include" .-> UC8

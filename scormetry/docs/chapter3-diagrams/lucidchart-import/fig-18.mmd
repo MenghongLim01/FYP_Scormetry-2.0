@@ -1,0 +1,11 @@
+flowchart LR
+    A["Student"] --> B["Enter subject join_code"]
+    B --> C["Validate subject code"]
+    C --> D["Check existing membership"]
+    D --> E["Check blocked email list"]
+    E --> F{"require_approval?"}
+    F -- "Yes" --> G["Create subject_members status = pending"]
+    F -- "No" --> H["Create subject_members status = approved"]
+    G --> I["Admin approves or rejects"]
+    I --> J["Approved student accesses subject"]
+    H --> J

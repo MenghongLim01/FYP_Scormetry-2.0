@@ -1,0 +1,130 @@
+erDiagram
+    USERS ||--o{ SUBJECTS : creates
+    USERS ||--o{ SUBJECT_MEMBERS : has
+    USERS ||--o{ TEAM_MEMBERS : joins
+    USERS ||--o{ REVIEWS : submits
+    USERS ||--o{ PAPERS : overrides
+    USERS ||--o{ REVIEW_UNLOCK_LOGS : unlocks
+    USERS ||--o{ SUBJECT_BLOCKED_EMAILS : blocks
+
+    SUBJECTS ||--o{ SUBJECT_MEMBERS : contains
+    SUBJECTS ||--o{ SUBJECT_INVITATIONS : sends
+    SUBJECTS ||--o{ SUBJECT_BLOCKED_EMAILS : blocks
+    SUBJECTS ||--o{ TEAMS : has
+    SUBJECTS ||--o{ PAPERS : has
+    SUBJECTS ||--o{ RUBRICS : has
+
+    TEAMS ||--o{ TEAM_MEMBERS : contains
+    TEAMS ||--o{ PAPERS : submits
+    TEAMS ||--o{ REVIEW_UNLOCK_LOGS : relates_to
+
+    PAPERS ||--o{ REVIEWS : receives
+    REVIEWS ||--o{ REVIEW_UNLOCK_LOGS : records
+
+    USERS {
+        bigint id PK
+        string name
+        string email
+        string google_id
+        string role
+        string status
+        boolean is_blocked
+    }
+
+    SUBJECTS {
+        bigint id PK
+        string title
+        text description
+        bigint teacher_id FK
+        integer passing_score
+        string join_code
+        string reviewer_code
+        boolean require_approval
+    }
+
+    SUBJECT_MEMBERS {
+        bigint id PK
+        bigint subject_id FK
+        bigint user_id FK
+        string role
+        string role_label
+        string status
+    }
+
+    SUBJECT_INVITATIONS {
+        bigint id PK
+        bigint subject_id FK
+        string email
+        string committee_role
+        string role_label
+        string token
+        timestamp accepted_at
+    }
+
+    SUBJECT_BLOCKED_EMAILS {
+        bigint id PK
+        bigint subject_id FK
+        string email
+        bigint blocked_by FK
+    }
+
+    TEAMS {
+        bigint id PK
+        bigint subject_id FK
+        string name
+        date defense_date
+        time defense_time
+        integer defense_duration
+        string defense_room
+        timestamp score_deadline_at
+        timestamp results_released_at
+    }
+
+    TEAM_MEMBERS {
+        bigint id PK
+        bigint team_id FK
+        bigint user_id FK
+    }
+
+    RUBRICS {
+        bigint id PK
+        bigint subject_id FK
+        string pdf_path
+        json structure_json
+        string status
+    }
+
+    PAPERS {
+        bigint id PK
+        bigint team_id FK
+        bigint subject_id FK
+        string file_path
+        decimal final_score
+        decimal final_score_override
+        text final_score_override_reason
+        bigint final_score_override_by FK
+        string visibility_status
+    }
+
+    REVIEWS {
+        bigint id PK
+        bigint paper_id FK
+        bigint reviewer_id FK
+        string committee_role
+        json scores_json
+        text comment
+        boolean is_submitted
+        timestamp locked_at
+        timestamp unlocked_at
+        text unlock_reason
+        bigint unlocked_by FK
+    }
+
+    REVIEW_UNLOCK_LOGS {
+        bigint id PK
+        bigint review_id FK
+        bigint team_id FK
+        bigint judge_id FK
+        bigint unlocked_by FK
+        text reason
+    }

@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1240" height="1754" viewBox="0 0 1240 1754">
+<defs><marker id="arrow" markerWidth="10" markerHeight="8" refX="10" refY="4" orient="auto" markerUnits="strokeWidth"><path d="M0,0 L10,4 L0,8 z" fill="#000"/></marker></defs>
+<rect width="100%" height="100%" fill="#fff"/>
+<rect x="92" y="130" width="1056" height="1325" fill="#fff" stroke="#000" stroke-width="2"/>
+<circle cx="170.0" cy="155" r="10" fill="#fff" stroke="#000" stroke-width="2"/>
+<line x1="170.0" y1="165" x2="170.0" y2="205" stroke="#000" stroke-width="2"/>
+<line x1="150.0" y1="189" x2="190.0" y2="189" stroke="#000" stroke-width="2"/>
+<line x1="170.0" y1="205" x2="154.0" y2="229" stroke="#000" stroke-width="2"/>
+<line x1="170.0" y1="205" x2="186.0" y2="229" stroke="#000" stroke-width="2"/>
+<text x="170.0" y="247.0" text-anchor="middle" dominant-baseline="middle" font-family="Comic Sans MS" font-size="14" font-weight="bold" fill="#000000">Judge</text>
+<line x1="170.0" y1="260.0" x2="170.0" y2="1423.0" stroke="#777" stroke-width="2" stroke-dasharray="6 6"/>
+<rect x="321.5" y="152" width="142.0" height="54" fill="#fff" stroke="#000" stroke-width="2"/>
+<text x="392.5" y="170.0" text-anchor="middle" dominant-baseline="middle" font-family="Comic Sans MS" font-size="14" font-weight="bold" fill="#000000">Invitation</text>
+<text x="392.5" y="188.0" text-anchor="middle" dominant-baseline="middle" font-family="Comic Sans MS" font-size="14" font-weight="bold" fill="#000000">Email</text>
+<line x1="392.5" y1="206.0" x2="392.5" y2="1423.0" stroke="#777" stroke-width="2" stroke-dasharray="6 6"/>
+<rect x="544.0" y="152" width="142.0" height="54" fill="#fff" stroke="#000" stroke-width="2"/>
+<text x="615.0" y="179.0" text-anchor="middle" dominant-baseline="middle" font-family="Comic Sans MS" font-size="14" font-weight="bold" fill="#000000">InvitationController</text>
+<line x1="615.0" y1="206.0" x2="615.0" y2="1423.0" stroke="#777" stroke-width="2" stroke-dasharray="6 6"/>
+<rect x="766.5" y="152" width="142.0" height="54" fill="#fff" stroke="#000" stroke-width="2"/>
+<text x="837.5" y="179.0" text-anchor="middle" dominant-baseline="middle" font-family="Comic Sans MS" font-size="14" font-weight="bold" fill="#000000">Database</text>
+<line x1="837.5" y1="206.0" x2="837.5" y2="1423.0" stroke="#777" stroke-width="2" stroke-dasharray="6 6"/>
+<rect x="989.0" y="152" width="142.0" height="54" fill="#fff" stroke="#000" stroke-width="2"/>
+<text x="1060.0" y="179.0" text-anchor="middle" dominant-baseline="middle" font-family="Comic Sans MS" font-size="14" font-weight="bold" fill="#000000">Dashboard</text>
+<line x1="1060.0" y1="206.0" x2="1060.0" y2="1423.0" stroke="#777" stroke-width="2" stroke-dasharray="6 6"/>
+<rect x="170.0" y="261.0" width="928.0" height="48.4" fill="#ffff88" stroke="#d6d67d" stroke-width="1"/>
+<text x="620.0" y="285.2" text-anchor="middle" dominant-baseline="middle" font-family="Comic Sans MS" font-size="14" font-weight="bold" fill="#000000">Invitation Acceptance Flow - Scormetry 2.0</text>
+<line x1="385.5" y1="387.5" x2="177.0" y2="387.5" stroke="#000" stroke-width="2" marker-end="url(#arrow)" />
+<rect x="179.1" y="358.5" width="204.4" height="26.0" fill="#fff"/>
+<text x="281.2" y="371.5" text-anchor="middle" dominant-baseline="middle" font-family="Comic Sans MS" font-size="13" font-weight="bold" fill="#000000">Invitation link with token</text>
+<line x1="177.0" y1="503.4" x2="608.0" y2="503.4" stroke="#000" stroke-width="2" marker-end="url(#arrow)" />
+<rect x="297.7" y="474.4" width="189.6" height="26.0" fill="#fff"/>
+<text x="392.5" y="487.4" text-anchor="middle" dominant-baseline="middle" font-family="Comic Sans MS" font-size="13" font-weight="bold" fill="#000000">GET /invitations/{token}</text>
+<line x1="622.0" y1="619.3" x2="830.5" y2="619.3" stroke="#000" stroke-width="2" marker-end="url(#arrow)" />
+<rect x="620.4" y="581.3" width="211.8" height="44.0" fill="#fff"/>
+<text x="726.2" y="594.8" text-anchor="middle" dominant-baseline="middle" font-family="Comic Sans MS" font-size="13" font-weight="bold" fill="#000000">Find subject_invitations by</text>
+<text x="726.2" y="611.8" text-anchor="middle" dominant-baseline="middle" font-family="Comic Sans MS" font-size="13" font-weight="bold" fill="#000000">token</text>
+<line x1="830.5" y1="735.3" x2="622.0" y2="735.3" stroke="#000" stroke-width="2" stroke-dasharray="11 8" marker-end="url(#arrow)" />
+<rect x="657.4" y="706.3" width="137.8" height="26.0" fill="#fff"/>
+<text x="726.2" y="719.3" text-anchor="middle" dominant-baseline="middle" font-family="Comic Sans MS" font-size="13" font-weight="bold" fill="#000000">Invitation record</text>
+<polyline points="615.0,851.2 671.0,851.2 671.0,879.2 615.0,879.2" fill="none" stroke="#000" stroke-width="2"/>
+<polygon points="615.0,879.2 625.0,873.2 625.0,885.2" fill="#000"/>
+<rect x="544.5" y="812.2" width="197.0" height="44.0" fill="#fff"/>
+<text x="643.0" y="825.7" text-anchor="middle" dominant-baseline="middle" font-family="Comic Sans MS" font-size="13" font-weight="bold" fill="#000000">Validate unused token and</text>
+<text x="643.0" y="842.7" text-anchor="middle" dominant-baseline="middle" font-family="Comic Sans MS" font-size="13" font-weight="bold" fill="#000000">email</text>
+<line x1="622.0" y1="967.2" x2="830.5" y2="967.2" stroke="#000" stroke-width="2" marker-end="url(#arrow)" />
+<rect x="638.9" y="929.2" width="174.8" height="44.0" fill="#fff"/>
+<text x="726.2" y="942.7" text-anchor="middle" dominant-baseline="middle" font-family="Comic Sans MS" font-size="13" font-weight="bold" fill="#000000">Create subject_members</text>
+<text x="726.2" y="959.7" text-anchor="middle" dominant-baseline="middle" font-family="Comic Sans MS" font-size="13" font-weight="bold" fill="#000000">reviewer record</text>
+<line x1="622.0" y1="1083.1" x2="830.5" y2="1083.1" stroke="#000" stroke-width="2" marker-end="url(#arrow)" />
+<rect x="661.0" y="1054.1" width="130.4" height="26.0" fill="#fff"/>
+<text x="726.2" y="1067.1" text-anchor="middle" dominant-baseline="middle" font-family="Comic Sans MS" font-size="13" font-weight="bold" fill="#000000">Mark accepted_at</text>
+<line x1="622.0" y1="1199.1" x2="1053.0" y2="1199.1" stroke="#000" stroke-width="2" stroke-dasharray="11 8" marker-end="url(#arrow)" />
+<rect x="709.4" y="1170.1" width="256.2" height="26.0" fill="#fff"/>
+<text x="837.5" y="1183.1" text-anchor="middle" dominant-baseline="middle" font-family="Comic Sans MS" font-size="13" font-weight="bold" fill="#000000">Redirect after login / acceptance</text>
+<line x1="1053.0" y1="1315.0" x2="177.0" y2="1315.0" stroke="#000" stroke-width="2" stroke-dasharray="11 8" marker-end="url(#arrow)" />
+<rect x="490.6" y="1286.0" width="248.8" height="26.0" fill="#fff"/>
+<text x="615.0" y="1299.0" text-anchor="middle" dominant-baseline="middle" font-family="Comic Sans MS" font-size="13" font-weight="bold" fill="#000000">Show assigned subjects and teams</text>
+<text x="620.0" y="1517.0" text-anchor="middle" dominant-baseline="middle" font-family="Times New Roman" font-size="31" font-weight="bold" fill="#000000">Fig. 15. Accept Invitation via Email Sequence Diagram (Judge)</text>
+</svg>

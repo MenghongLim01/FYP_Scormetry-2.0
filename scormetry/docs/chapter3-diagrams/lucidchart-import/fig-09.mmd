@@ -1,0 +1,8 @@
+flowchart LR
+    A["Admin"] --> B["Enter judge email and role label"]
+    B --> C["Validate email and subject"]
+    C --> D["Check subject_blocked_emails"]
+    D --> E["Create invitation token"]
+    E --> F["Store subject_invitations record"]
+    F --> G["Send reviewer invitation email"]
+    G --> H["Judge receives acceptance link"]

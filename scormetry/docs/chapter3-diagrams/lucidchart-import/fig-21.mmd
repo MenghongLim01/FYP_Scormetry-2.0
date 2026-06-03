@@ -1,0 +1,13 @@
+flowchart LR
+    A["Admin"] --> B["Open team scores page"]
+    B --> C["Review submitted judge reviews"]
+    C --> D["System computes average final_score"]
+    D --> E{"Override needed?"}
+    E -- "Yes" --> F["Enter override score and reason"]
+    F --> G["Save override fields"]
+    E -- "No" --> H["Use computed score"]
+    G --> I["Release scores"]
+    H --> I
+    I --> J["Set results_released_at"]
+    J --> K["Set visibility_status = published"]
+    K --> L["Student views score and feedback"]

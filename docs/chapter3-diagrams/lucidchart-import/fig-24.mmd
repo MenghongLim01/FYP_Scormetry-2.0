@@ -1,0 +1,17 @@
+flowchart LR
+    Admin["Organizer / Admin"] --> S["Scormetry 2.0"]
+    Judge["Judge / Reviewer"] --> S
+    Student["Student"] --> S
+    S --> Admin
+    S --> Judge
+    S --> Student
+
+    S <--> OAuth["Google OAuth Provider"]
+    S <--> AI["OpenAI Responses / Files API"]
+    S <--> Storage["Laravel File Storage"]
+    S <--> DB["Application Database"]
+    S --> Mail["Mail Service"]
+
+    Admin -.-> A1["subjects, teams, rubrics, locks, scores, release"]
+    Judge -.-> J1["assigned papers, reviews, feedback"]
+    Student -.-> ST1["join code, paper upload, released result"]

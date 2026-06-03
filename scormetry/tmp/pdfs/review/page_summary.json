@@ -1,0 +1,737 @@
+[
+  {
+    "page": 1,
+    "chars": 136,
+    "head": "1 | Scormetry 2.0: AI Rubric Generation and Secure Document Management for Academic | Evaluations | Bachelor\u2019s Capstone | MENGHO"
+  },
+  {
+    "page": 2,
+    "chars": 295,
+    "head": "2 | Scormetry 2.0: AI Rubric Generation and Secure Document Management for Academic | Evaluations | A capstone presented to th"
+  },
+  {
+    "page": 3,
+    "chars": 984,
+    "head": "3 | APPROVAL SHEET | This capstone entitled Scormetry 2.0: AI Rubric Generation and Secure Document | Management for Academic "
+  },
+  {
+    "page": 4,
+    "chars": 419,
+    "head": "4 | CERTIFICATE OF ORIGINALITY | I declare that this Bachelor\u2019s Capstone is my original work and has not been submitted | befo"
+  },
+  {
+    "page": 5,
+    "chars": 797,
+    "head": "5 | DEDICATION | To my family, who have been my constant source of strength and encouragement | throughout this academic journ"
+  },
+  {
+    "page": 6,
+    "chars": 1626,
+    "head": "6 | ABSTRACT | This manuscript proposes the development of Scormetry 2.0: AI Rubric Generation and | Secure Document Managemen"
+  },
+  {
+    "page": 7,
+    "chars": 844,
+    "head": "7 | ACKNOWLEDGEMENT | The researcher would like to express sincere gratitude to Paragon International University | and the Fac"
+  },
+  {
+    "page": 8,
+    "chars": 887,
+    "head": "8 | 8.1 Rationale / Background of the Study | Final Year Project (FYP) defenses and academic presentations at Paragon Intern"
+  },
+  {
+    "page": 9,
+    "chars": 956,
+    "head": "9 | 8.2 Summary | The main objective of this study is to design and develop Scormetry 2.0, a web-based | academic evaluation s"
+  },
+  {
+    "page": 10,
+    "chars": 1459,
+    "head": "10 | 8.3 Findings | Based on the results of system development, functional testing, and evaluation using | realistic academic "
+  },
+  {
+    "page": 11,
+    "chars": 1048,
+    "head": "11 | 8.4 Conclusions | Based on the findings, the following conclusions are presented: | 1. Scormetry 2.0 extends the original"
+  },
+  {
+    "page": 12,
+    "chars": 1308,
+    "head": "12 | 8.5 Recommendations | Based on the conclusions, the following recommendations are proposed: | 1. Improve defense readines"
+  },
+  {
+    "page": 13,
+    "chars": 4036,
+    "head": "13 | TABLE OF CONTENTS | APPROVAL SHEET....................................................................................."
+  },
+  {
+    "page": 14,
+    "chars": 4281,
+    "head": "14 | 3.1.2 Methodology for SOP 2: Controlled Access and Document Retrieval....................48 | 3.1.3 Methodology for SOP"
+  },
+  {
+    "page": 15,
+    "chars": 3429,
+    "head": "15 | Fig. 22. Upload Paper Composite Diagram...................................................72 | Fig. 23. Upload Paper Se"
+  },
+  {
+    "page": 16,
+    "chars": 3415,
+    "head": "16 | Table 19 | Risk Assessment/Analysis for Student Post-Defense Review.............................92 | 3.4 DESIGN.........."
+  },
+  {
+    "page": 17,
+    "chars": 3428,
+    "head": "17 | 3.5.2 Hardware Specification........................................................................................."
+  },
+  {
+    "page": 18,
+    "chars": 490,
+    "head": "18 | Table 44 | User Acceptance Testing Scenarios for Scormetry 2.0......................................130 | Table 45 | Accept"
+  },
+  {
+    "page": 19,
+    "chars": 1408,
+    "head": "19 | LIST OF FIGURES | NO TITLE PAGE | Fig. 1. The Stages of Extreme Programming Process......................................"
+  },
+  {
+    "page": 20,
+    "chars": 1075,
+    "head": "20 | LIST OF TABLES | NO TITLE PAGE | TABLE 1 Current Tools/Methods Used in ParagonIU Evaluations............................."
+  },
+  {
+    "page": 21,
+    "chars": 35,
+    "head": "21 | LIST OF APPENDICES | NO TITLE PAGE"
+  },
+  {
+    "page": 22,
+    "chars": 1697,
+    "head": "22 | CHAPTER 1 | INTRODUCTION | This chapter presents the background of the study and the current evaluation practices | used in"
+  },
+  {
+    "page": 23,
+    "chars": 1516,
+    "head": "23 | University. The system helped reduce manual scoring work and improved the organization of | evaluation results. Based o"
+  },
+  {
+    "page": 24,
+    "chars": 1021,
+    "head": "24 | TABLE 2 | Common Document Issues Encountered During Defense | Question Answer Total Responders | Hard to find the file quic"
+  },
+  {
+    "page": 25,
+    "chars": 1296,
+    "head": "25 | TABLE 4 | Suggestion for rubric from responders | Question Answer Total Responders | Auto calculation of total score 6 | Comm"
+  },
+  {
+    "page": 26,
+    "chars": 1549,
+    "head": "26 | Scormetry 2.0 implements an AI-assisted official rubric PDF-to-Dynamic Rubric | conversion workflow that transforms the"
+  },
+  {
+    "page": 27,
+    "chars": 1352,
+    "head": "27 | secure document management, dynamic rubric implementation, and AI-assisted rubric | conversion. | 2. Design and implement"
+  },
+  {
+    "page": 28,
+    "chars": 1535,
+    "head": "28 | 2. How can Scormetry 2.0 implement controlled access and efficient retrieval of correct | student documents for authori"
+  },
+  {
+    "page": 29,
+    "chars": 1591,
+    "head": "29 | The study is limited to the context of Paragon International University and may not | represent the workflow of other i"
+  },
+  {
+    "page": 30,
+    "chars": 703,
+    "head": "30 | Extreme Programming (XP) is selected as the software development methodology for | this project. XP emphasizes rapid fe"
+  },
+  {
+    "page": 31,
+    "chars": 1577,
+    "head": "31 | The implementation of XP in this study follows four primary phases: | 1. Planning: This phase involves identifying syst"
+  },
+  {
+    "page": 32,
+    "chars": 1233,
+    "head": "32 | Based on the objectives identified in the statement of the problem, the following quality | attributes are prioritized "
+  },
+  {
+    "page": 33,
+    "chars": 1091,
+    "head": "33 | Fig. 2. Task\u2013Technology Fit Model | Figure 2 highlights the core components of the TTF model: | \u25cf Task Characteristics: I"
+  },
+  {
+    "page": 34,
+    "chars": 1821,
+    "head": "34 | University, this may result in faster document retrieval, reduced scoring errors, clearer | feedback management, and mo"
+  },
+  {
+    "page": 35,
+    "chars": 471,
+    "head": "35 | with automatic calculation. For SOP 4, it supports rubric verification and locking, centralized | scores and feedback, "
+  },
+  {
+    "page": 36,
+    "chars": 1891,
+    "head": "36 | and assignment-based access control helps protect evaluation records, while Dynamic Rubric | scoring reduces manual wor"
+  },
+  {
+    "page": 37,
+    "chars": 1414,
+    "head": "37 | \u25cf Teachers and Judges/Reviewers. Teachers, judges, and reviewers will benefit from | easier access to assigned Team Roo"
+  },
+  {
+    "page": 38,
+    "chars": 1320,
+    "head": "38 | \u25cf Assigned Judge. A judge or instructor who is officially linked to a specific Team Room | and is authorized to access "
+  },
+  {
+    "page": 39,
+    "chars": 1232,
+    "head": "39 | \u25cf Dynamic Rubric. A structured system-based version of the official fixed rubric that | supports criterion-by-criterion"
+  },
+  {
+    "page": 40,
+    "chars": 1706,
+    "head": "40 | CHAPTER 2 | REVIEW OF RELATED LITERATURE AND STUDIES | This chapter reviews related literature and studies aligned with t"
+  },
+  {
+    "page": 41,
+    "chars": 1890,
+    "head": "41 | controlled-access Team Rooms and centralized document storage to reduce missing files and | wrong-version issues. By pr"
+  },
+  {
+    "page": 42,
+    "chars": 1630,
+    "head": "42 | 2.3 Functional and Non-Functional Requirements | Brookhart and Chen (2014) emphasize that \u201crubrics yield information of"
+  },
+  {
+    "page": 43,
+    "chars": 1359,
+    "head": "43 | generation of feedback.\u201d This highlights the importance of a structured process where | assessment outputs (scores and "
+  },
+  {
+    "page": 44,
+    "chars": 77,
+    "head": "44 | 2.5 Conceptual Framework Of The Study | Fig. 4. Conceptual Framework Diagram"
+  },
+  {
+    "page": 45,
+    "chars": 961,
+    "head": "45 | The Input-Process-Output diagram presents the overall workflow of Scormetry 2.0. The | input includes the system users,"
+  },
+  {
+    "page": 46,
+    "chars": 1211,
+    "head": "46 | CHAPTER 3 | METHODOLOGY | This chapter presents the methodology used in the design, development, and evaluation | of Scorme"
+  },
+  {
+    "page": 47,
+    "chars": 1614,
+    "head": "47 | The development process follows an iterative approach guided by Extreme Programming | (XP), where system features are p"
+  },
+  {
+    "page": 48,
+    "chars": 1594,
+    "head": "48 | The methodology for SOP 1 is supported by operational feasibility, technical feasibility, | schedule feasibility, econo"
+  },
+  {
+    "page": 49,
+    "chars": 1690,
+    "head": "49 | 3.1.3 Methodology for SOP 3: Functional and Non-Functional Requirements | To address SOP 3, the study defines and imple"
+  },
+  {
+    "page": 50,
+    "chars": 1061,
+    "head": "50 | The evaluation uses selected ISO/IEC 25010 quality characteristics, particularly | functional suitability, usability, r"
+  },
+  {
+    "page": 51,
+    "chars": 1221,
+    "head": "51 | TABLE 5 | Population of the Instructors in ICT Faculty at Paragon International University | for AY2025-2026 | Department P"
+  },
+  {
+    "page": 52,
+    "chars": 643,
+    "head": "52 | 3.2.3 Organizational Chart/Profile | The organizational structure for this study is based on the departments within the"
+  },
+  {
+    "page": 53,
+    "chars": 653,
+    "head": "53 | 3.3 REQUIREMENT SPECIFICATIONS | 3.3.1 Operational Feasibility | 3.3.1.1 Fishbone Diagram | Fig. 6. Fishbone Diagram | The fi"
+  },
+  {
+    "page": 54,
+    "chars": 973,
+    "head": "54 | pre-defense access. Under System, the absence of a centralized Team Room with assigned-judge | access and the use of sh"
+  },
+  {
+    "page": 55,
+    "chars": 1064,
+    "head": "55 | \u25cf Subject Management. This module allows the teacher to create and edit subjects, | generate student join codes, genera"
+  },
+  {
+    "page": 56,
+    "chars": 1016,
+    "head": "56 | Figure 8 presents the functional decomposition of the Judge Panel in Scormetry 2.0. The | panel is divided into five ma"
+  },
+  {
+    "page": 57,
+    "chars": 1223,
+    "head": "57 | Figure 9 presents the functional decomposition of the Student Panel in Scormetry 2.0. | The panel is divided into five "
+  },
+  {
+    "page": 58,
+    "chars": 880,
+    "head": "58 | \u25cf Device Types: Laptops, desktops, tablets, and smartphones (limited view on small | screens). | \u25cf Operating Systems: Win"
+  },
+  {
+    "page": 59,
+    "chars": 1506,
+    "head": "59 | These requirements ensure consistent performance for key features such as secure login, | PDF document viewing, rubric "
+  },
+  {
+    "page": 60,
+    "chars": 1651,
+    "head": "60 | \u25cf Tailwind CSS 4: Tailwind CSS supports consistent and responsive interface styling for | dashboards, forms, tables, Te"
+  },
+  {
+    "page": 61,
+    "chars": 519,
+    "head": "61 | \u25cf Pest / PHPUnit: Pest and PHPUnit support testing of important system workflows such | as authentication, access contr"
+  },
+  {
+    "page": 62,
+    "chars": 75,
+    "head": "62 | 3.3.3 Schedule Feasibility | 3.3.3.1 Gantt Chart | Fig. 10. FYP1 Gantt Chart"
+  },
+  {
+    "page": 63,
+    "chars": 789,
+    "head": "63 | Fig. 11. FYP2 Gantt Chart | 3.3.4 Economic Feasibility | 3.3.4.1 Cost Benefits Analysis | TABLE 6 | Cost and Benefit Analysis"
+  },
+  {
+    "page": 64,
+    "chars": 1976,
+    "head": "64 | Supports email invitations for students | Email / | Laravel Mail / SMTP $0 and reviewers, plus possible system | Notificati"
+  },
+  {
+    "page": 65,
+    "chars": 1102,
+    "head": "65 | teachers, judges, and students. Laravel Mail / SMTP is also listed at $0 to support student and | reviewer invitations,"
+  },
+  {
+    "page": 66,
+    "chars": 1386,
+    "head": "66 | TABLE 7 | Maintenance Cost for Scormetry 2.0 | Maintenance Item Year 1 Year 2 Year 3 Year 4 Year 5 Total | Domain Registrat"
+  },
+  {
+    "page": 67,
+    "chars": 883,
+    "head": "67 | 3.3.4.2 Cost Recovery Scheme | For long-term sustainability, Scormetry 2.0 may adopt an institutional cost recovery | app"
+  },
+  {
+    "page": 68,
+    "chars": 43,
+    "head": "68 | Fig. 13. Create Subject Sequence Diagram"
+  },
+  {
+    "page": 69,
+    "chars": 126,
+    "head": "69 | \u25cf Invite Judge Via Email | Fig. 14. Invite Users Via Email Composite Diagram | Fig. 15. Invite Users Via Email Sequence D"
+  },
+  {
+    "page": 70,
+    "chars": 164,
+    "head": "70 | \u25cf Upload Ruric PDF and AI Conversion | Fig. 16. Upload Rubric PDF and AI Conversion Composite Diagram | Fig. 17. Upload R"
+  },
+  {
+    "page": 71,
+    "chars": 150,
+    "head": "71 | \u25cf Verify and Lock Dynamic Rubric | Fig. 18. Verify and Lock Dynamic Rubric Composite Diagram | Fig. 19. Verify and Lock D"
+  },
+  {
+    "page": 72,
+    "chars": 102,
+    "head": "72 | \u25cf Release Scores | Fig. 20. Release Scores Composite Diagram | Fig. 21. Release Scores Sequence Diagram"
+  },
+  {
+    "page": 73,
+    "chars": 111,
+    "head": "73 | 2. Judge Panel | \u25cf Upload Paper | Fig. 22. Upload Paper Composite Diagram | Fig. 23. Upload Paper Sequence Diagram"
+  },
+  {
+    "page": 74,
+    "chars": 99,
+    "head": "74 | \u25cf Submit Review | Fig. 24. Submit Review Composite Diagram | Fig. 25. Submit Review Sequence Diagram"
+  },
+  {
+    "page": 75,
+    "chars": 107,
+    "head": "75 | 3. Student Panel | \u25cf Join Class | Fig. 26. Join Class Composite Diagram | Fig. 27. Join Class Sequence Diagram"
+  },
+  {
+    "page": 76,
+    "chars": 96,
+    "head": "76 | \u25cf Upload Paper | Fig. 28. Upload Paper Composite Diagram | Fig. 29. Upload Paper Sequence Diagram"
+  },
+  {
+    "page": 77,
+    "chars": 528,
+    "head": "77 | 3.3.5.2 Performance Modeling | Fig. 30. Performance Modeling for Scormetry 2.0 | Figure 30 presents the performance model"
+  },
+  {
+    "page": 78,
+    "chars": 1369,
+    "head": "78 | The model also shows that viewing the final paper and rubric PDF may depend on file | size and rubric complexity. Openi"
+  },
+  {
+    "page": 79,
+    "chars": 1581,
+    "head": "79 | Submit scores and feedback \u2713 \u2713 \u2717 | Unlock submitted review with reason \u2713 \u2717 \u2717 | Release final score and feedback \u2713 \u2717 \u2717 | Vie"
+  },
+  {
+    "page": 80,
+    "chars": 659,
+    "head": "80 | 3.3.5.4 Data and Process Modeling | 3.3.5.4.1 Context Diagram | Fig. 31. Context Diagram for Scormetry 2.0 | Figure 31 pres"
+  },
+  {
+    "page": 81,
+    "chars": 929,
+    "head": "81 | Student joins the class or subject room, uploads the final paper, and views released scores and | feedback after evalua"
+  },
+  {
+    "page": 82,
+    "chars": 1121,
+    "head": "82 | After authentication, the teacher manages subjects and Team Rooms by creating subject | details, teams, invitations, an"
+  },
+  {
+    "page": 83,
+    "chars": 955,
+    "head": "83 | The system validates the credentials through the User Data Store and returns the login status and | judge profile data."
+  },
+  {
+    "page": 84,
+    "chars": 1021,
+    "head": "84 | Figure 34 presents the Level 1 Data Flow Diagram for Scormetry 2.0\u2019s Student interface. | The process begins with authe"
+  },
+  {
+    "page": 85,
+    "chars": 60,
+    "head": "85 | 3.3.5.5 Object Modeling | Fig. 35. Teacher Use Case Diagram"
+  },
+  {
+    "page": 86,
+    "chars": 34,
+    "head": "86 | Fig. 36. Judge Use Case Diagram"
+  },
+  {
+    "page": 87,
+    "chars": 36,
+    "head": "87 | Fig. 38. Student Use Case Diagram"
+  },
+  {
+    "page": 88,
+    "chars": 1549,
+    "head": "88 | 3.3.6 Risk Assessment/Analysis | \u25cf Teacher Panel Functionalities | Table 9 | Risk Assessment/Analysis for Teacher Authentic"
+  },
+  {
+    "page": 89,
+    "chars": 1856,
+    "head": "89 | Table 11 | Risk Assessment/Analysis for Team Room and Defense Scheduling | Functionality Risk Cost Value Priority | Create "
+  },
+  {
+    "page": 90,
+    "chars": 2109,
+    "head": "90 | Table 13 | Risk Assessment/Analysis for Review, Results, and User Control | Functionality Risk Cost Value Priority | View J"
+  },
+  {
+    "page": 91,
+    "chars": 1752,
+    "head": "91 | Table 15 | Risk Assessment/Analysis for Judge/Reviewer Assigned Team Room | Functionality Risk Cost Value Priority | Open A"
+  },
+  {
+    "page": 92,
+    "chars": 1759,
+    "head": "92 | \u25cf Student Panel Functionalities | Table 17 | Risk Assessment/Analysis for Student Authentication and Subject Joining | Func"
+  },
+  {
+    "page": 93,
+    "chars": 681,
+    "head": "93 | Table 19 | Risk Assessment/Analysis for Student Post-Defense Review | Functionality Risk Cost Value Priority | View Release"
+  },
+  {
+    "page": 94,
+    "chars": 111,
+    "head": "94 | 3.4.2 Data Design | 3.4.2.1 Entity Relationship Diagram | Fig. 39. Entity Relationship Diagram for Scormetry 2.0"
+  },
+  {
+    "page": 95,
+    "chars": 923,
+    "head": "95 | 3.4.2.2 Data Dictionary | Table 20 | Data Dictionary For Users Entity | Attribute Data Type Constraints Key Type Descriptio"
+  },
+  {
+    "page": 96,
+    "chars": 994,
+    "head": "96 | Table 21 | Data Dictionary For Subjects Entity | Attribute Data Type Constraints Key Type Description Relationships | BIGIN"
+  },
+  {
+    "page": 97,
+    "chars": 1739,
+    "head": "97 | Table 22 | Data Dictionary For Subject Members Entity | Attribute Data Type Constraints Key Type Description Relationship"
+  },
+  {
+    "page": 98,
+    "chars": 1538,
+    "head": "98 | Table 24 | Data Dictionary For Subject Blocked Emails Entity | Attribute Data Type Constraints Key Type Description Relat"
+  },
+  {
+    "page": 99,
+    "chars": 1287,
+    "head": "99 | Table 26 | Data Dictionary For Team Members Entity | Attribute Data Type Constraints Key Type Description Relationships | B"
+  },
+  {
+    "page": 100,
+    "chars": 1768,
+    "head": "100 | Table 28 | Data Dictionary For Dynamic Rubric Structure Entity | Attribute Data Type Constraints Key Type Description Re"
+  },
+  {
+    "page": 101,
+    "chars": 1317,
+    "head": "101 | Record creation | created_at TIMESTAMP NULLABLE - - | timestamp | Record last update | updated_at TIMESTAMP NULLABLE - - | tim"
+  },
+  {
+    "page": 102,
+    "chars": 1296,
+    "head": "102 | Table 31 | Data Dictionary For Review Unlock Logs Entity | Attribute Data Type Constraints Key Type Description Relation"
+  },
+  {
+    "page": 103,
+    "chars": 676,
+    "head": "103 | 3.4.3. System Architecture | 3.4.3.1 Network Model | Fig. 39. Network Model Diagram | Figure 39 indicates the network mode"
+  },
+  {
+    "page": 104,
+    "chars": 984,
+    "head": "104 | \u25cf Mail / SMTP: Sends system emails such as student invitations, reviewer invitations, and | other notification message"
+  },
+  {
+    "page": 105,
+    "chars": 816,
+    "head": "105 | 3.4.3.2 Network Topology | Fig. 40. Network Topology Diagram | Figure 40 shows the network topology of Scormetry 2.0, wh"
+  },
+  {
+    "page": 106,
+    "chars": 871,
+    "head": "106 | \u25cf Cloud Router: Directs network traffic between the firewall, proxy server, managed | switch, and Scormetry 2.0 virtua"
+  },
+  {
+    "page": 107,
+    "chars": 1257,
+    "head": "107 | first passes through Cloudflare Firewall, which supports DDoS protection and automatic HTTPS | redirection before requ"
+  },
+  {
+    "page": 108,
+    "chars": 1251,
+    "head": "108 | \u25cf OpenAI Responses API using gpt-5.4-nano: Supports the AI-assisted conversion of the | official rubric PDF into a str"
+  },
+  {
+    "page": 109,
+    "chars": 958,
+    "head": "109 | 3.5.3 Program Specification | The programs used for the development and preparation of Scormetry 2.0 are listed as fol"
+  },
+  {
+    "page": 110,
+    "chars": 249,
+    "head": "110 | Back End: | \u25cf PHP 8.5 | \u25cf Laravel 13 | \u25cf Laravel Fortify | \u25cf Laravel Socialite | \u25cf Laravel Mail / SMTP | \u25cf Database and Storage:"
+  },
+  {
+    "page": 111,
+    "chars": 899,
+    "head": "111 | 3.5.5 Deployment Diagram | Fig. 42. Deployment Diagram Of Scormetry 2.0 | Figure 42 shows the deployment process of Scor"
+  },
+  {
+    "page": 112,
+    "chars": 1309,
+    "head": "112 | testing, and production environments, reducing deployment risk and ensuring that only tested | features are released f"
+  },
+  {
+    "page": 113,
+    "chars": 1289,
+    "head": "113 | \u2022 System can generate a student join | code. | As a teacher, I want to | \u2022 System can generate a reviewer join | generate st"
+  },
+  {
+    "page": 114,
+    "chars": 1446,
+    "head": "114 | \u2022 Teacher can add an email to the | As a teacher, I want to | blocked list. | block an email inside | Block Email in a subje"
+  },
+  {
+    "page": 115,
+    "chars": 1479,
+    "head": "115 | \u2022 System shows whether scores are | pending, submitted, or released. | \u2022 Teacher can upload a valid PDF file. | As a teach"
+  },
+  {
+    "page": 116,
+    "chars": 1342,
+    "head": "116 | \u2022 Teacher can view submitted reviews | by judge. | As a teacher, I want to | \u2022 Scores and feedback are displayed per | view "
+  },
+  {
+    "page": 117,
+    "chars": 1248,
+    "head": "117 | \u2022 Judge/Reviewer can open the | invitation link. | As a judge/reviewer, I | Accept want to accept an \u2022 System validates th"
+  },
+  {
+    "page": 118,
+    "chars": 1237,
+    "head": "118 | \u2022 Judge/Reviewer can open the locked | rubric. | As a judge/reviewer, I | want to view the | View Locked \u2022 Rubric is display"
+  },
+  {
+    "page": 119,
+    "chars": 1231,
+    "head": "119 | \u2022 The Judge/Reviewer can view | As a judge/reviewer, I submitted scores and feedback. | want to view my | View Submitted | s"
+  },
+  {
+    "page": 120,
+    "chars": 1438,
+    "head": "120 | \u2022 Pending student sees approval status. | As a student, I want to | \u2022 Pending user cannot access restricted | see my appro"
+  },
+  {
+    "page": 121,
+    "chars": 861,
+    "head": "121 | As a student, I want to | \u2022 Student can request replacement with | request paper | a reason. | replacement when | Request Pape"
+  },
+  {
+    "page": 122,
+    "chars": 1657,
+    "head": "122 | 3.5.6.1 Project Implementation Checklist | The project implementation checklist ensures that the major modules of Scor"
+  },
+  {
+    "page": 123,
+    "chars": 1995,
+    "head": "123 | Table | Implementation Contingency | Possible Issue Contingency Plan | Prepare database and file backups; restore service "
+  },
+  {
+    "page": 124,
+    "chars": 1660,
+    "head": "124 | Private File Storage Stores official rubric PDFs and student final paper PDFs with controlled access. | Google OAuth P"
+  },
+  {
+    "page": 125,
+    "chars": 1573,
+    "head": "125 | Release final score and Results become visible to | 12 Team/paper ID TBD | feedback authorized students | Table 36 | Key Jud"
+  },
+  {
+    "page": 126,
+    "chars": 1672,
+    "head": "126 | View approved subject Subject room becomes | 5 Approved membership TBD | membership accessible | Team details and members "
+  },
+  {
+    "page": 127,
+    "chars": 1658,
+    "head": "127 | smartphone browser Team Rooms only. | Report PDF and rubric PDF Uploaded PDF files can be opened or | PDF Viewing TBD | on"
+  },
+  {
+    "page": 128,
+    "chars": 1473,
+    "head": "128 | Table 40 | Stress Testing for Scormetry 2.0 | Test Scenario Stress Condition Expected Output Pass/Fail | Multiple users ac"
+  },
+  {
+    "page": 129,
+    "chars": 1347,
+    "head": "129 | 5 Invite students and reviewers by email TBD | 6 Approve or reject pending members TBD | 7 Create and manage teams TBD | 8"
+  },
+  {
+    "page": 130,
+    "chars": 1453,
+    "head": "130 | Table 43 | System Testing for Student Panel Functional Requirements | No. Student Panel Functional Requirements Verified"
+  },
+  {
+    "page": 131,
+    "chars": 1734,
+    "head": "131 | Table 44 | User Acceptance Testing Scenarios for Scormetry 2.0 | User Type Test Scenario Acceptance Criteria Pass/Fail | T"
+  },
+  {
+    "page": 132,
+    "chars": 445,
+    "head": "132 | Determines whether the system reduces delays in finding documents, scoring, and | Efficiency | reviewing records. | Determ"
+  },
+  {
+    "page": 133,
+    "chars": 1451,
+    "head": "133 | REFERENCES | Beck, K. (2000). Extreme programming explained: Embrace change. Addison-Wesley. | https://openlibrary.org/b"
+  },
+  {
+    "page": 134,
+    "chars": 1224,
+    "head": "134 | Jisc. (2010). Effective assessment in a digital age: A guide to technology-enhanced | assessment and feedback. https:/"
+  },
+  {
+    "page": 135,
+    "chars": 696,
+    "head": "135 | APPENDICES | APPENDIX A | Research Interview Transcript (Intelligent Verbatim) | Study Title: Scormetry 2.0: AI Rubric Gen"
+  },
+  {
+    "page": 136,
+    "chars": 1559,
+    "head": "136 | Transcript | 00:00 \u2013 01:10 | SOP 1 \u2014 Feedback is long / hard to read | Q3. Are rubric results or comments sometimes hard"
+  },
+  {
+    "page": 137,
+    "chars": 1780,
+    "head": "137 | Q9. Do different judge roles (technical, presentation, etc.) need different scoring criteria? | Why?47 | A: The intervie"
+  },
+  {
+    "page": 138,
+    "chars": 1488,
+    "head": "138 | Q14. If not, what is the best way to handle documents fairly? | A: Not separately answered (the interviewee already ag"
+  },
+  {
+    "page": 139,
+    "chars": 1135,
+    "head": "139 | 5. Showcase QR voting/dashboard should follow department policy and be discussed for | acceptance. | Action Items / Foll"
+  },
+  {
+    "page": 140,
+    "chars": 1497,
+    "head": "140 | Interviewer: Are rubric results or comments sometimes hard to understand quickly, sir? Why? | Interviewee: (Clarifies "
+  },
+  {
+    "page": 141,
+    "chars": 1244,
+    "head": "141 | Interviewee: \u201cYes.\u201d (Agreed it would help.) | 08:58 \u2013 11:54 | SOP 5/6 \u2014 Showcase voting + reporting | Interviewer: For s"
+  },
+  {
+    "page": 142,
+    "chars": 1164,
+    "head": "142 | 3. Support role-based rubrics.53 | 4. Implement centralized document upload per team. | 5. If implementing showcase voti"
+  },
+  {
+    "page": 143,
+    "chars": 1497,
+    "head": "143 | 00:27 \u2013 00:50 | Interviewer: Which ParagonIU evaluation scenario did you focus on most when building | Scormetry Base? | I"
+  },
+  {
+    "page": 144,
+    "chars": 1687,
+    "head": "144 | When feedback is long, it\u2019s hard to identify the main strengths and key improvements quickly. | 03:21 \u2013 03:55 | Intervie"
+  },
+  {
+    "page": 145,
+    "chars": 1535,
+    "head": "145 | Interviewee: Files are shared across multiple platforms. Sometimes they\u2019re shared late, and | judges may open the wron"
+  },
+  {
+    "page": 146,
+    "chars": 1365,
+    "head": "146 | decision maker? | Interviewee: AI should be suggestions only. Judges must always review and edit output before | saving."
+  },
+  {
+    "page": 147,
+    "chars": 3,
+    "head": "147"
+  }
+]

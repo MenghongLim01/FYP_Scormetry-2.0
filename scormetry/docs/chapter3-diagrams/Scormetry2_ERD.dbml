@@ -1,0 +1,148 @@
+// ════════════════════════════════════════════════════════
+//  Scormetry 2.0 — Entity Relationship Diagram (DBML)
+//  Paste into  https://dbdiagram.io/d  to generate the ERD
+// ════════════════════════════════════════════════════════
+
+Project "Scormetry 2.0" {
+  Note: 'Entity Relationship Diagram'
+}
+
+Table "Subject Invitation" {
+  id              integer    [pk, increment]
+  subject_id      integer    [ref: > "Subject".id]
+  email           varchar
+  committee_role  varchar
+  role_label      varchar
+  token           varchar
+  accepted_at     timestamp
+  created_at      timestamp
+}
+
+Table "Subject Member" {
+  id          integer    [pk, increment]
+  subject_id  integer    [ref: > "Subject".id]
+  user_id     integer    [ref: > "User".id]
+  role        varchar
+  role_label  varchar
+  status      varchar
+  created_at  timestamp
+  updated_at  timestamp
+}
+
+Table "Subject" {
+  id                integer    [pk, increment]
+  teacher_id        integer    [ref: > "User".id]
+  title             varchar
+  description       text
+  passing_score     integer
+  join_code         varchar
+  reviewer_code     varchar
+  require_approval  boolean
+  created_at        timestamp
+  updated_at        timestamp
+}
+
+Table "Rubric" {
+  id              integer    [pk, increment]
+  subject_id      integer    [ref: > "Subject".id]
+  pdf_path        varchar
+  structure_json  json
+  status          varchar
+  created_at      timestamp
+  updated_at      timestamp
+}
+
+Table "Dynamic Rubric Structure" {
+  criteria            json
+  levels              json
+  weights             json
+  score_ranges        json
+  verification_state  json
+}
+
+Table "Subject Blocked Email" {
+  id          integer    [pk, increment]
+  subject_id  integer    [ref: > "Subject".id]
+  email       varchar
+  blocked_by  integer    [ref: > "User".id]
+  created_at  timestamp
+  updated_at  timestamp
+}
+
+Table "Team" {
+  id                   integer    [pk, increment]
+  subject_id           integer    [ref: > "Subject".id]
+  name                 varchar
+  defense_date         date
+  defense_time         time
+  defense_duration     integer
+  defense_room         varchar
+  score_deadline_at    timestamp
+  results_released_at  timestamp
+}
+
+Table "Team Member" {
+  id          integer    [pk, increment]
+  team_id     integer    [ref: > "Team".id]
+  user_id     integer    [ref: > "User".id]
+  created_at  timestamp
+  updated_at  timestamp
+}
+
+Table "User" {
+  id          integer    [pk, increment]
+  name        varchar
+  email       varchar
+  google_id   varchar
+  role        varchar
+  status      varchar
+  is_blocked  boolean
+  created_at  timestamp
+  updated_at  timestamp
+}
+
+Table "Paper" {
+  id                    integer    [pk, increment]
+  team_id               integer    [ref: > "Team".id]
+  subject_id            integer    [ref: > "Subject".id]
+  file_path             varchar
+  final_score           decimal
+  final_score_override  decimal
+  override_reason       text
+  override_by           integer    [ref: > "User".id]
+  visibility_status     varchar
+}
+
+Table "Review" {
+  id              integer    [pk, increment]
+  paper_id        integer    [ref: > "Paper".id]
+  reviewer_id     integer    [ref: > "User".id]
+  committee_role  varchar
+  scores_json     json
+  comment         text
+  is_submitted    boolean
+  locked_at       timestamp
+  unlocked_at     timestamp
+  unlocked_by     integer    [ref: > "User".id]
+}
+
+Table "Review Unlock Log" {
+  id           integer    [pk, increment]
+  review_id    integer    [ref: > "Review".id]
+  team_id      integer    [ref: > "Team".id]
+  judge_id     integer    [ref: > "User".id]
+  unlocked_by  integer    [ref: > "User".id]
+  reason       text
+  created_at   timestamp
+}
+
+Table "App Setting" {
+  id          integer    [pk, increment]
+  "key"       varchar
+  "value"     text
+  created_at  timestamp
+  updated_at  timestamp
+}
+
+// One-to-one : a Rubric's structure_json expands into the dynamic JSON schema
+Ref: "Rubric".structure_json - "Dynamic Rubric Structure".criteria

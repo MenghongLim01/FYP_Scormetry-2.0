@@ -1,0 +1,261 @@
+- generic [ref=e2]:
+  - generic [ref=e213]:
+    - generic [ref=e216]:
+      - list [ref=e218]:
+        - listitem [ref=e219]:
+          - link "Scormetry" [ref=e220] [cursor=pointer]:
+            - /url: /dashboard
+            - img [ref=e222]
+            - generic [ref=e229]: Scormetry
+      - generic [ref=e230]:
+        - generic [ref=e231]:
+          - generic [ref=e232]: Dashboard
+          - list [ref=e233]:
+            - listitem [ref=e234]:
+              - link "Dashboard" [ref=e235] [cursor=pointer]:
+                - /url: /dashboard
+                - img [ref=e236]
+                - generic [ref=e241]: Dashboard
+        - generic [ref=e242]:
+          - generic [ref=e243]: Academic Management
+          - list [ref=e244]:
+            - listitem [ref=e245]:
+              - link "Subjects" [ref=e246] [cursor=pointer]:
+                - /url: /subjects
+                - img [ref=e247]
+                - generic [ref=e249]: Subjects
+            - listitem [ref=e250]:
+              - link "Papers" [ref=e251] [cursor=pointer]:
+                - /url: /papers
+                - img [ref=e252]
+                - generic [ref=e255]: Papers
+        - generic [ref=e256]:
+          - generic [ref=e257]: Admin Panel
+          - list [ref=e258]:
+            - listitem [ref=e259]:
+              - link "Admin Dashboard" [ref=e260] [cursor=pointer]:
+                - /url: /admin/dashboard
+                - img [ref=e261]
+                - generic [ref=e266]: Admin Dashboard
+            - listitem [ref=e267]:
+              - link "Classroom Management" [ref=e268] [cursor=pointer]:
+                - /url: /admin/classrooms
+                - img [ref=e269]
+                - generic [ref=e271]: Classroom Management
+            - listitem [ref=e272]:
+              - link "User Management" [ref=e273] [cursor=pointer]:
+                - /url: /admin/users
+                - img [ref=e274]
+                - generic [ref=e279]: User Management
+            - listitem [ref=e280]:
+              - link "Settings" [ref=e281] [cursor=pointer]:
+                - /url: /admin/settings
+                - img [ref=e282]
+                - generic [ref=e285]: Settings
+        - generic [ref=e286]:
+          - generic [ref=e288]: "Dev: Role View"
+          - generic [ref=e290]:
+            - button "admin" [ref=e291]
+            - button "teacher" [ref=e292]
+            - button "student" [ref=e293]
+      - list [ref=e297]:
+        - listitem [ref=e298]:
+          - link "Settings" [ref=e299] [cursor=pointer]:
+            - /url: /settings/profile
+            - img [ref=e300]
+            - generic [ref=e303]: Settings
+    - main [ref=e304]:
+      - generic [ref=e306]:
+        - button "Toggle sidebar" [ref=e308]:
+          - img
+          - generic [ref=e309]: Toggle sidebar
+        - generic [ref=e314]:
+          - button [ref=e315]:
+            - img
+          - button "A Admin" [ref=e316]:
+            - generic [ref=e318]: A
+            - generic [ref=e319]: Admin
+            - img [ref=e320]
+      - generic [ref=e323]:
+        - generic [ref=e662]:
+          - link "Subjects" [ref=e664] [cursor=pointer]:
+            - /url: /subjects
+            - img
+            - text: Subjects
+          - generic [ref=e666]:
+            - generic [ref=e667]:
+              - img [ref=e669]
+              - generic [ref=e671]:
+                - heading "FYP Defense AY2025-2026" [level=1] [ref=e672]
+                - paragraph [ref=e673]: Final Year Project Defense Room
+                - generic [ref=e674]:
+                  - generic [ref=e675]:
+                    - text: Taught by
+                    - strong [ref=e676]: teacher1
+                  - generic [ref=e678]: "Pass: 70%"
+                  - generic [ref=e679]: Approval Required
+            - link "Edit" [ref=e681] [cursor=pointer]:
+              - /url: /subjects/5/edit
+              - img
+              - text: Edit
+          - generic [ref=e682]:
+            - generic [ref=e683]:
+              - img [ref=e685]
+              - generic [ref=e690]:
+                - paragraph [ref=e691]: "22"
+                - paragraph [ref=e692]: Students
+            - generic [ref=e693]:
+              - img [ref=e695]
+              - generic [ref=e698]:
+                - paragraph [ref=e699]: "4"
+                - paragraph [ref=e700]: Reviewers
+            - generic [ref=e701]:
+              - img [ref=e703]
+              - generic [ref=e706]:
+                - paragraph [ref=e707]: "5"
+                - paragraph [ref=e708]: Papers
+            - generic [ref=e709]:
+              - img [ref=e711]
+              - generic [ref=e713]:
+                - paragraph [ref=e714]: 1%
+                - paragraph [ref=e715]: Reviewed
+          - generic [ref=e717]:
+            - img [ref=e719]
+            - generic [ref=e723]:
+              - generic [ref=e724]:
+                - paragraph [ref=e725]: Rubric
+                - generic [ref=e726]: Locked
+              - paragraph [ref=e727]: Assessment criteria for this subject.
+            - link "View" [ref=e729] [cursor=pointer]:
+              - /url: /rubrics/5
+              - img
+              - text: View
+          - generic [ref=e730]:
+            - button "4 Papers with no scores yet" [ref=e731]:
+              - generic [ref=e732]: "4"
+              - text: Papers with no scores yet
+            - button "8 Overdue judges" [ref=e733]:
+              - generic [ref=e734]: "8"
+              - text: Overdue judges
+          - generic [ref=e735]:
+            - generic [ref=e736]:
+              - button "Papers" [ref=e737]:
+                - img [ref=e738]
+                - text: Papers
+              - button "Members" [ref=e741]:
+                - img [ref=e742]
+                - text: Members
+              - button "Teams" [ref=e747]:
+                - img [ref=e748]
+                - text: Teams
+              - button "Schedule" [ref=e752]:
+                - img [ref=e753]
+                - text: Schedule
+              - button "Scores" [ref=e755]:
+                - img [ref=e756]
+                - text: Scores
+            - generic [ref=e757]:
+              - heading "Submitted Papers (5)" [level=3] [ref=e760]:
+                - img [ref=e761]
+                - text: Submitted Papers (5)
+              - table [ref=e765]:
+                - rowgroup [ref=e766]:
+                  - row "Team Members Reviews Score Status" [ref=e767]:
+                    - columnheader "Team" [ref=e768]
+                    - columnheader "Members" [ref=e769]
+                    - columnheader "Reviews" [ref=e770]
+                    - columnheader "Score" [ref=e771]
+                    - columnheader "Status" [ref=e772]
+                    - columnheader [ref=e773]
+                - rowgroup [ref=e774]:
+                  - row "Team 2 S S S +3 1 / 1 100.00 / 100 Submitted View" [ref=e775]:
+                    - cell "Team 2" [ref=e776]
+                    - cell "S S S +3" [ref=e777]:
+                      - generic [ref=e778]:
+                        - generic "Student 5" [ref=e779]: S
+                        - generic "Student 6" [ref=e780]: S
+                        - generic "Student 7" [ref=e781]: S
+                        - generic [ref=e782]: "+3"
+                    - cell "1 / 1" [ref=e783]
+                    - cell "100.00 / 100" [ref=e784]:
+                      - generic [ref=e785]:
+                        - text: 100.00 / 100
+                        - img [ref=e786]
+                    - cell "Submitted" [ref=e788]:
+                      - generic [ref=e789]: Submitted
+                    - cell "View" [ref=e790]:
+                      - link "View" [ref=e791] [cursor=pointer]:
+                        - /url: /papers/2
+                        - img
+                        - text: View
+                  - row "Team 3 S S S +3 0 / 0 — Submitted View" [ref=e792]:
+                    - cell "Team 3" [ref=e793]
+                    - cell "S S S +3" [ref=e794]:
+                      - generic [ref=e795]:
+                        - generic "Student 9" [ref=e796]: S
+                        - generic "Student 10" [ref=e797]: S
+                        - generic "Student 11" [ref=e798]: S
+                        - generic [ref=e799]: "+3"
+                    - cell "0 / 0" [ref=e800]
+                    - cell "—" [ref=e801]
+                    - cell "Submitted" [ref=e802]:
+                      - generic [ref=e803]: Submitted
+                    - cell "View" [ref=e804]:
+                      - link "View" [ref=e805] [cursor=pointer]:
+                        - /url: /papers/3
+                        - img
+                        - text: View
+                  - row "Team 4 S S S +4 0 / 0 — Submitted View" [ref=e806]:
+                    - cell "Team 4" [ref=e807]
+                    - cell "S S S +4" [ref=e808]:
+                      - generic [ref=e809]:
+                        - generic "Student 13" [ref=e810]: S
+                        - generic "Student 14" [ref=e811]: S
+                        - generic "Student 15" [ref=e812]: S
+                        - generic [ref=e813]: "+4"
+                    - cell "0 / 0" [ref=e814]
+                    - cell "—" [ref=e815]
+                    - cell "Submitted" [ref=e816]:
+                      - generic [ref=e817]: Submitted
+                    - cell "View" [ref=e818]:
+                      - link "View" [ref=e819] [cursor=pointer]:
+                        - /url: /papers/4
+                        - img
+                        - text: View
+                  - row "Team 5 S S S +2 0 / 0 — Submitted View" [ref=e820]:
+                    - cell "Team 5" [ref=e821]
+                    - cell "S S S +2" [ref=e822]:
+                      - generic [ref=e823]:
+                        - generic "Student 17" [ref=e824]: S
+                        - generic "Student 18" [ref=e825]: S
+                        - generic "Student 19" [ref=e826]: S
+                        - generic [ref=e827]: "+2"
+                    - cell "0 / 0" [ref=e828]
+                    - cell "—" [ref=e829]
+                    - cell "Submitted" [ref=e830]:
+                      - generic [ref=e831]: Submitted
+                    - cell "View" [ref=e832]:
+                      - link "View" [ref=e833] [cursor=pointer]:
+                        - /url: /papers/5
+                        - img
+                        - text: View
+                  - row "Team 1 S S S +2 0 / 0 — Review Completed View" [ref=e834]:
+                    - cell "Team 1" [ref=e835]
+                    - cell "S S S +2" [ref=e836]:
+                      - generic [ref=e837]:
+                        - generic "Student 2" [ref=e838]: S
+                        - generic "Student 3" [ref=e839]: S
+                        - generic "Student 4" [ref=e840]: S
+                        - generic [ref=e841]: "+2"
+                    - cell "0 / 0" [ref=e842]
+                    - cell "—" [ref=e843]
+                    - cell "Review Completed" [ref=e844]:
+                      - generic [ref=e845]: Review Completed
+                    - cell "View" [ref=e846]:
+                      - link "View" [ref=e847] [cursor=pointer]:
+                        - /url: /papers/8
+                        - img
+                        - text: View
+        - generic [ref=e471]: All rights reserved. Copyright © 2010 - 2026 | Paragon International University | Phnom Penh - Cambodia | Privacy Policy
+  - region "Notifications alt+T":
+    - list

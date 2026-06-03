@@ -1,0 +1,3132 @@
+Scormetry 2.0: AI Rubric Generation and Secure Document Management for Academic
+                                    Evaluations
+
+
+
+
+                             Bachelor’s Capstone
+
+
+
+
+                             MENGHONG LIM
+
+
+
+
+                                  July 2026
+                                                                                  1
+
+
+
+
+Scormetry 2.0: AI Rubric Generation and Secure Document Management for Academic
+
+                                   Evaluations
+
+
+
+
+                             A capstone presented to the
+                 Faculty of Information and Computer Technology
+
+
+
+
+                   In Partial Fulfillment of the Requirements for
+               the Degree of Bachelor of Science in Computer Science
+
+
+
+
+                                            By
+
+
+                                   MENGHONG LIM
+
+
+
+
+                                        July 2026
+                                                                                       2
+
+                                 APPROVAL SHEET
+
+This capstone entitled Scormetry 2.0: AI Rubric Generation and Secure Document
+Management for Academic Evaluations is prepared and submitted by Menghong Lim
+in partial fulfillment of the requirements for the degree Bachelor of Science in Computer
+Science, has been examined and is recommended for acceptance and approval for oral
+examination.
+                                             LAURENCE EBEO MANINGO, MSIT
+                                                                  Adviser
+                        FINAL YEAR PROJECT COMMITTEE
+
+                 NAME                                      NAME
+             _____________                            _______________
+                Examiner                               FYP Coordinator
+
+
+                NAME                                       NAME
+            ______________                             ______________
+                Adviser                               (HoD as) Examiner
+
+
+
+                              PANEL OF EXAMINERS
+
+      ​ Approved by the committee on Oral Examination on ___________ with a grade
+                                    of ______.
+                NAME                                    NAME
+            _____________                          _______________
+               Examiner                             FYP Coordinator
+
+
+            NAME                                    NAME
+        ______________                        ______________
+            Adviser                          (HoD as) Examiner
+ACCEPTED AND APPROVED in partial fulfillment of the requirements for the degree
+
+BACHELOR OF SCIENCE IN COMPUTER SCIENCE.
+
+                                                               NEIL IAN C. UY, MSIT
+                                                                                Dean
+                                       Faculty of Information and Computer Technology
+                                                                                                3
+
+
+
+
+                              CERTIFICATE OF ORIGINALITY
+
+        I declare that this Bachelor’s Capstone is my original work and has not been submitted
+
+before any institution for assessment purposes. Furthermore, I have acknowledged all sources
+
+used and cited them in the reference section. In addition, this research cannot describe the full
+
+extent of the project architecture due to private information that cannot be shared publicly.
+
+
+
+
+MENGHONG LIM
+
+Date:
+                                                                                              4
+
+                                         DEDICATION
+
+
+       To my family, who have been my constant source of strength and encouragement
+
+throughout this academic journey. Your unwavering support, understanding, and belief in my
+
+abilities have made this achievement possible.
+
+
+       To my instructors at Paragon International University, especially Dr. Nora P. Patron, who
+
+guided me with patience and wisdom. Your knowledge and mentorship have shaped not only this
+
+project but also my growth as a future professional.
+
+
+       To my classmates and friends, who have been my companions through hardship,
+
+late-night sessions, and moments of doubt. I could not have made it this far without your
+
+friendship and support.
+
+
+       To the future students who will benefit from this work, may it serve as a stepping stone
+
+for even greater innovations in educational technology.
+                                                                                               5
+
+                                           ABSTRACT
+
+
+       This manuscript proposes the development of Scormetry 2.0: AI Rubric Generation and
+
+Secure Document Management for Academic Evaluations to improve rubric-based defenses and
+
+academic presentations at Paragon International University. In current practice, student reports
+
+and slides are often shared through multiple channels such as Google Classroom, email,
+
+messaging apps, or student devices. This leads to common issues during defense sessions,
+
+including missing files, difficulty locating documents quickly, and opening the wrong version
+
+under time-limited conditions.
+
+
+       The project introduces a centralized, web-based platform organized through
+
+controlled-access team rooms. Students upload the final report and slides into one secure
+
+location, while judges can access only the rooms assigned to them. Scormetry 2.0 also
+
+implements a dynamic scoring workflow based on the official fixed rubric, where
+
+criterion-by-criterion scoring and automatic calculation reduce manual setup time and minimize
+
+formula or weighting errors commonly seen in spreadsheet-based scoring.
+
+
+       To    preserve   standardization,   Scormetry   2.0   includes   an   AI-assisted   rubric
+
+PDF-to-dynamic conversion process with organizer verification and rubric locking before
+
+scoring begins. Scores and feedback (comments, notes, and follow-up points) are stored together
+
+in one centralized record for post-defense review. The system is developed iteratively and
+
+evaluated through user acceptance testing aligned with selected ISO/IEC 25010 quality
+
+characteristics to assess usability, security, reliability, and overall fitness for ParagonIU
+
+evaluation tasks.
+                                                                                               6
+
+                                  ACKNOWLEDGEMENT
+
+
+       The researcher would like to express sincere gratitude to Paragon International University
+
+and the Faculty of Information and Computer Technology for providing the learning
+
+environment and support needed to complete this capstone project. Special thanks are extended
+
+to Dr. Nora P. Patron for her guidance, valuable feedback, and encouragement throughout the
+
+development of Scormetry 2.0.
+
+
+       The researcher also thanks Mr. Laurence Ebeo Maningo for his advice and supervision,
+
+as well as the ICT faculty instructors and judges who shared their time and insights through
+
+interviews and surveys that helped validate the system requirements and evaluation approach.
+
+
+       Finally, heartfelt appreciation goes to the researcher’s family and friends for their
+
+patience, motivation, and continuous support during the entire capstone journey.
+                                                                                                7
+
+
+
+
+                           8.1 Rationale / Background of the Study
+
+
+       Final Year Project (FYP) defenses and academic presentations at Paragon International
+
+University involve multiple teams, judges, and strict time constraints. In practice, student
+
+documents (reports and slides) are often scattered across messaging apps and shared drives,
+
+leading to missing files, wrong versions, and delays during defense sessions. Additionally, rubric
+
+setup and score consolidation are frequently done manually, which is time-consuming and prone
+
+to calculation errors—especially when there are many criteria and judges. These challenges
+
+reduce evaluation efficiency, increase stress during the event, and make post-defense review
+
+difficult. Scormetry 2.0 was developed to address these issues by providing controlled access to
+
+documents, verified dynamic rubric conversion, and centralized scoring and feedback in one
+
+platform.
+                                                                                           8
+
+                                               8.2 Summary
+
+
+       The main objective of the study is to design and develop Scormetry 2.0, a web-based
+
+system that supports secure document access, validated dynamic rubric conversion, and
+
+centralized evaluation outputs for academic defenses. Specifically, it answered the following
+
+questions:
+
+
+   1.​ What is the security model representing controlled access to student documents and
+
+       evaluation records so that only authorized users (team members, assigned judges, and
+
+       organizers) can view and manage the materials?
+
+
+   2.​ How can a dynamic evaluation system ensure that judges can access the correct final
+
+       student documents before and during the defense, considering issues such as missing
+
+       files, and difficulty finding files quickly?
+
+
+   3.​ How can the official (fixed) rubric be implemented dynamically to reduce manual setup
+
+       and scoring errors, such as incorrect weights/formulas and time-consuming manual
+
+       calculation?
+
+
+   4.​ How can the system perform verified and locked dynamic rubric conversion from the
+
+       official PDF and centralize evaluation records (scores and feedback) in one place for
+
+       review anytime after the defense?
+                                                                                                9
+
+                                             8.3 Findings
+
+
+       Based on the results of system development, functional testing, and evaluation using
+
+hypothetical event scenarios, the following findings were obtained:
+
+
+   1.​ A role-based and assignment-based access control approach (admin/organizer, judge,
+
+       team member) effectively restricted access so judges could only view assigned team
+
+       rooms, while organizers could monitor the overall event status.
+
+   2.​ A centralized team-room document workflow with upload validation, clear naming rules,
+
+       and version indicators improved document availability and reduced confusion caused by
+
+       wrong or outdated files.
+
+   3.​ A dynamic rubric module with pre-defined criteria, weights, and automated calculations
+
+       reduced scoring errors and eliminated the need for manual formula setup during events.
+
+   4.​ The dynamic rubric conversion workflow supported verified extraction and locking of
+
+       rubric structures from the official rubric source, enabling consistent scoring, centralized
+
+       judge feedback, and consolidated results for post-defense review.
+                                                                                                 10
+
+                                           8.4 Conclusions
+
+
+Based on the findings, the conclusions below are hereby presented:
+
+
+   1.​ A controlled-access model based on user roles and team/judge assignments is suitable for
+
+       ensuring confidentiality and proper access to evaluation documents and records.
+
+   2.​ Centralizing documents in team rooms with version control indicators supports quick
+
+       retrieval and improves readiness during time-limited defense sessions.
+
+   3.​ Transformation of the official rubric into a dynamic rubric with automated calculations
+
+       improves accuracy and reduces manual workload, especially in multi-judge evaluations.
+
+   4.​ Verified and locked dynamic rubric conversion enables consistent evaluation standards
+
+       and supports effective consolidation of scores and feedback for post-defense reporting.
+                                                                                               11
+
+                                     8.5 Recommendations
+
+
+Based on the conclusions, the following recommendations are proposed:
+
+
+   1.​ Improve defense readiness and document compliance. Implement a defense readiness
+
+       checklist (required files + latest version confirmation) and scheduled reminders so teams
+
+       upload final documents before the deadline and judges can review in advance.
+
+   2.​ Enhance rubric governance. Expand the rubric module to support rubric variations per
+
+       department/program, but keep an approval workflow (verify → lock) to prevent
+
+       unverified rubric changes during scoring.
+
+   3.​ Add reporting and analytics features. Provide export options (PDF/Excel) for scores and
+
+       feedback, plus dashboards (submission status, scoring distribution, judge participation) to
+
+       support post-defense review and academic decision-making.
+
+   4.​ Integrate QR code-based voting and centralized event feedback. A future version of the
+
+       system may include QR code access for voting, judging, or participant feedback so users
+
+       can quickly submit evaluations through their own devices. This can make the system
+
+       more convenient for large-scale events and allow scores, votes, and comments to be
+
+       stored in one centralized place for later review, reporting, and decision-making.
+                                                                                                                                         12
+
+                                                   TABLE OF CONTENTS
+
+
+CERTIFICATE OF ORIGINALITY...........................................................................................4
+
+
+ABSTRACT....................................................................................................................................6
+
+
+ACKNOWLEDGEMENT.............................................................................................................7
+
+
+CHAPTER 1 INTRODUCTION.................................................................................................. 1
+
+
+     1.1 CONTEXT OF THE STUDY..............................................................................................1
+
+
+     1.2 PROJECT CONTEXT......................................................................................................... 2
+
+
+     1.3 PROJECT DESCRIPTION.................................................................................................5
+
+
+     1.4 PROJECT OBJECTIVES.................................................................................................... 5
+
+
+     1.5 STATEMENT OF THE PROBLEM...................................................................................6
+
+
+     1.6 SCOPE AND LIMITATIONS............................................................................................ 7
+
+
+          1.6.1 Scope of the project.................................................................................................... 7
+
+
+          1.6.2 Limitations of the project............................................................................................8
+
+
+     1.7 SIGNIFICANCE OF THE STUDY................................................................................... 8
+
+
+     1.8 THEORETICAL FRAMEWORK..................................................................................... 10
+
+
+          1.8.1 The Stages of Extreme Programming Process..........................................................10
+
+
+          1.8.2 ISO/IEC 25010 Software Quality Model..................................................................11
+                                                                                                                                           13
+
+                         1.8.3 Task–Technology Fit (TTF) Model.........................................................12
+
+
+    1.9 CONCEPTUAL FRAMEWORK AND DIAGRAM........................................................ 13
+
+
+    1.10 DEFINITIONS OF TERMS.......................................................................................... 14
+
+
+CHAPTER 2 REVIEW OF RELATED LITERATURE AND STUDIES..............................16
+
+
+    2.1 Related Literature: Centralized Document Access and Management............................... 16
+
+
+    2.2 Related Literature: Access Control Models (RBAC/ABAC) for Secure Evaluation....... 16
+
+
+    2.3 Related Literature: Dynamic Rubrics and Automated Scoring Accuracy........................ 17
+
+
+    2.4 Related Literature: Feedback and Record Management in Assessments......................... 17
+
+
+    2.5 Related Technology........................................................................................................... 18
+
+
+CHAPTER 3 METHODOLOGY...............................................................................................20
+
+
+    3.1 Study Design......................................................................................................................20
+
+
+    3.2 ENVIRONMENT.............................................................................................................. 22
+
+
+         3.2.1 Locale........................................................................................................................22
+
+
+         3.2.2 Population of the study............................................................................................. 22
+
+
+         3.2.3 Organizational Chart/Profile..................................................................................... 23
+
+
+    3.3 METHODOLOGICAL ALIGNMENT............................................................................. 25
+
+
+         3.3.1 Methodology for SOP1: Security Architecture and Access Control........................ 25
+                                                                                                                        14
+
+        3.3.1.1 Requirements Modeling...................................................................................25
+
+
+        3.3.1.2 System Architecture and Security Enforcement.............................................. 25
+
+
+    3.3.2 Methodology for SOP 2: Document Access and Retrieval...................................... 26
+
+
+        3.3.2.1 Operational Approach......................................................................................26
+
+
+        3.3.2.2 Requirements Modeling...................................................................................26
+
+
+        3.3.2.3 User Interface Design Considerations............................................................. 27
+
+
+    3.3.3 Methodology for SOP 3: Dynamic Rubric Implementation..................................... 27
+
+
+        3.3.3.1 Technical Approach (Dynamic Rubric + Calculation).................................... 27
+
+
+        3.3.3.2 Requirements Modeling...................................................................................27
+
+
+        3.3.3.3 Data Design and Implementation Basis...........................................................28
+
+
+    3.3.4 Methodology for SOP 4: Verification, Validation, and Centralization..................... 28
+
+
+        3.3.4.1 Verification and Locking Workflow................................................................ 28
+
+
+        3.3.4.2 Performance and Risk Considerations............................................................. 28
+
+
+        3.3.4.3 Validation and Testing Strategy....................................................................... 28
+
+
+3.4 REQUIREMENT SPECIFICATIONS.............................................................................. 29
+                                                                                                                                        15
+
+          3.4.1 Operational Feasibility..............................................................................................29
+
+
+                3.4.1.1 Fishbone Diagram............................................................................................29
+
+
+                3.4.1.2 Functional Decomposition............................................................................... 30
+
+
+          3.4.2 Technical Feasibility................................................................................................. 33
+
+
+                3.4.2.1 Compatibility................................................................................................... 33
+
+
+                3.4.2.2 Relevance of the Technologies........................................................................ 35
+
+
+          3.4.3 Schedule Feasibility.................................................................................................. 37
+
+
+                3.4.3.1 Gantt Chart.......................................................................................................37
+
+
+          3.4.4 Economic Feasibility................................................................................................ 38
+
+
+                3.4.4.1 Cost Benefits Analysis.....................................................................................38
+
+
+                3.4.4.2 Cost Recovery Scheme.................................................................................... 42
+
+
+REFERENCES.............................................................................................................................43
+
+
+APPENDICES.............................................................................................................................. 45
+
+
+     APPENDIX A..........................................................................................................................45
+
+
+     APPENDIX B.......................................................................................................................... 49
+
+
+     APPENDIX C.......................................................................................................................... 53
+                                                                                                                                     16
+
+                                                     LIST OF FIGURES
+
+
+
+    NO                                                       TITLE                                                       PAGE
+
+
+Fig. 1. The Stages of Extreme Programming Process................................................................... 10
+
+
+Fig. 2. ISO/IEC 25010 Software Quality Model........................................................................... 11
+
+
+Fig. 3. Task–Technology Fit Model............................................................................................... 12
+
+
+Fig. 4. Conceptual Framework Diagram of Scormetry 2.0............................................................13
+
+
+Fig. 5. Organizational Chart for Scormetry 2.0............................................................................. 24
+
+
+Fig. 6. Fishbone Diagram...............................................................................................................29
+
+
+Fig. 7. Teacher/Admin Panel Functional Decomposition Diagram............................................... 30
+
+
+Fig. 8. Judge Panel Functional Decomposition Diagram.............................................................. 31
+
+
+Fig. 9. Student Panel Functional Decomposition Diagram............................................................32
+
+
+Fig. 10. FYP1 Gantt Chart............................................................................................................. 37
+
+
+Fig. 11. FYP2 Gantt Chart............................................................................................................. 38
+                                                                                                                                          17
+
+                                                             List of table
+
+
+
+    NO                                                         TITLE                                                         PAGE
+
+
+TABLE 1 Current Tools/Methods Used in ParagonIU Evaluations................................................ 4
+
+
+TABLE 2 Common Document Issues Encountered During Defense..............................................4
+
+
+TABLE 3 Rubric/Scoring Pain Points in Current Practice.............................................................. 5
+
+
+TABLE 4 Suggestion for rubric from responders...........................................................................5
+
+
+TABLE 5 Comparative Analysis of Related Technologies........................................................... 20
+
+
+TABLE 6 Population of the Instructors in ICT Faculty at Paragon International University for
+
+AY2025-2026.................................................................................................................................23
+
+
+TABLE 7 Cost and Benefit Analysis for Scormetry 2.0................................................................39
+
+
+TABLE 8 Maintenance Cost for Scormetry 2.0.............................................................................42
+                                                                                                1
+
+                                              CHAPTER 1
+
+
+                                           INTRODUCTION
+
+
+       This chapter presents the background and context of the study, focusing on current
+
+evaluation practices used in Final Year Project defenses and academic events at Paragon
+
+International University. It discusses the key challenges faced by judges and organizers in
+
+document handling and scoring workflows, which may affect efficiency and accuracy during
+
+evaluations. The chapter then introduces Scormetry 2.0 as a proposed solution to improve secure
+
+document management and dynamic scoring using the official rubric. Finally, it outlines the
+
+problem statement, objectives, and the scope of the project to guide the overall development and
+
+research direction.
+
+
+1.1 CONTEXT OF THE STUDY
+
+
+       Paragon International University conducts many rubric-based academic evaluations,
+
+including Final Year Project (FYP) defenses, class presentations, and other assessments
+
+involving multiple judges and evaluation teams. In practice, these evaluations often rely on
+
+separate tools for document sharing, scoring, and feedback, resulting in a fragmented workflow
+
+that can be time-consuming, inconsistent, and difficult to manage efficiently. Brookhart (2018)
+
+explained that “True rubrics feature criteria appropriate to an assessment’s purpose”; therefore,
+
+the fairness and consistency of rubric-based evaluation depend not only on the rubric itself but
+
+also on the ability of evaluators to access and apply it properly in real assessment settings. Red
+
+Deer Polytechnic (2023) further noted that “Rubrics can reduce grading and feedback time and
+
+ensure shared expectations”. Nevertheless, delays may still occur when final student documents,
+                                                                                                 2
+
+scoring instruments, and feedback records are not centralized, especially during time-sensitive
+
+defense sessions.
+
+
+       The original Scormetry (2025) project provided the initial foundation for addressing this
+
+issue by focusing on digital score tabulation for rubric-based evaluations at Paragon International
+
+University. The system helped reduce manual scoring work and improved the organization of
+
+evaluation results. Based on this existing foundation, Scormetry 2.0 is not a completely new
+
+system, but rather an implementation and enhancement of the Scormetry base. It extends the
+
+previous system by adding secure document upload and access through controlled team rooms,
+
+AI-assisted transformation of the official rubric PDF into a dynamic rubric for scoring without
+
+changing its approved structure, and centralized storage of scores and judge feedback for
+
+post-evaluation review. In this way, Scormetry 2.0 strengthens and expands the original
+
+Scormetry system into a more integrated platform for managing rubric-based academic
+
+evaluations.
+
+
+1.2 PROJECT CONTEXT
+
+
+       To gain deeper insights into the current evaluation workflow at Paragon International
+
+University, a preliminary investigation was conducted through a survey with seven of Paragon
+
+International University’s judges/instructors. The survey examined (1) how student documents
+
+are currently shared, (2) common document-related issues during defense sessions, (3) pain
+
+points in rubric/scoring when using dynamic tools, and (4) the AI features respondents consider
+
+most useful for improving rubric implementation and scoring efficiency.
+                                                                                              3
+
+
+
+
+                                           TABLE 1
+                  Current Tools/Methods Used in ParagonIU Evaluations
+            Question                          Answer                    Total Responders
+                                  Google Classroom                               5
+                                  Email                                          4
+How do you usually receive
+student reports/slides?           Telegram/Messenger                             2
+                                  USB/Student open on their
+                                                                                 1
+                                  laptop
+
+
+
+
+                                           TABLE 2
+                  Common Document Issues Encountered During Defense
+            Question                           Answer                    Total Responders
+                                  Hard to find the file quickly                   5
+                                  File is missing / not ready                     4
+During defense, how often do      I don't have access to review
+you face document issues?                                                         2
+                                  before defense
+
+                                  Student open the wrong version                  2
+
+
+       Tables 1 and 2 show that student reports and slides are received through multiple
+
+channels, including Google Classroom (5), email (4), Telegram/Messenger (2), and USB or
+
+student devices (1). Respondents commonly experience difficulty finding files quickly (5) and
+
+report missing or not-ready files (4). Limited access to review documents before the defense (2)
+
+and cases of incorrect versions being opened during the defense (2) were also reported.
+                                                                                                4
+
+
+
+
+                                            TABLE 3
+                      Rubric/Scoring Pain Points in Current Practice
+             Question                           Answer                 Total Responders
+                                    Takes time to recreate the
+                                                                                3
+                                    rubric in a form/sheet
+
+What problems do you face      Sometimes wrong
+                                                                                3
+when using the dynamic rubric? weight/score setup happens
+
+                                    Manual calculation/average
+                                                                                3
+                                    takes time
+
+
+
+
+                                            TABLE 4
+                           Suggestion for rubric from responders
+             Question                           Answer                 Total Responders
+                                    Auto calculation of total score            6
+                                    Comment box for feedback                   5
+Which features would you want? Convert official rubric PDF to
+                               dynamic rubric (no edits) by
+                                                                               4
+                               AI with easy scoring interface
+                               per criterion.
+
+       Tables 3 and 4 show that key challenges in dynamic rubric use include time spent
+
+recreating rubrics (3), incorrect weight/score setup (3), and manual calculation or averaging (3).
+
+The most preferred features were automatic total-score calculation (6), a comment box for
+
+feedback (5), and converting the official rubric PDF into a dynamic rubric by AI without editing
+
+its content, with a criterion-based scoring interface (4).
+                                                                                               5
+
+1.3 PROJECT DESCRIPTION
+
+
+       Scormetry 2.0 is a web-based evaluation support system for Paragon International
+
+University designed for rubric-based academic evaluations such as Final Year Project (FYP)
+
+defenses and similar presentations. The system organizes each evaluation within a secure,
+
+team-based room that supports controlled access for assigned judges and other authorized users.
+
+Students upload final documents, including the report and presentation slides, into their team
+
+room for access before and during the defense.
+
+
+       Scormetry 2.0 includes an AI-assisted rubric PDF to dynamic rubric conversion
+
+workflow that transforms the official department rubric into a structured rubric format, followed
+
+by verification and locking to preserve the approved rubric structure. Judges assign scores for
+
+each criterion using the dynamic rubric, and the system automatically calculates totals and
+
+tabulates the results. Feedback, including comments, notes, and follow-up points, is stored
+
+together with scoring records and documents inside the team room for later review.
+
+
+       Overall, Scormetry 2.0 aims to improve evaluation readiness, scoring consistency, and
+
+the secure organization of evaluation records by centralizing documents, scoring, and feedback
+
+within one controlled-access platform.
+
+
+1.4 PROJECT OBJECTIVES
+
+
+       The primary objective of this study is to design and develop Scormetry 2.0, a web based
+
+evaluation support system for Paragon International University that improves secure document
+
+handling and rubric-based scoring during Final Year Project (FYP) defenses and similar
+
+evaluations. Specifically, the objectives are to:
+                                                                                                6
+
+   1.​ Develop a controlled-access security model for team rooms so that only authorized users
+
+       (assigned judges, organizers, and team members) can access documents and evaluation
+
+       records.
+
+   2.​ Implement a secure document upload and retrieval workflow that ensures judges can
+
+       access the correct final report and slides before and during the defense, reducing missing
+
+       and wrong version issues.
+
+   3.​ Implement the official fixed rubric as a dynamic rubric with criterion-by-criterion scoring
+
+       and automatic total/average calculation to reduce manual setup and scoring errors.
+
+   4.​ Integrate AI-assisted rubric PDF to dynamic conversion with verification and locking,
+
+       and centralize scores and feedback in each team room for post-defense review.
+
+
+1.5 STATEMENT OF THE PROBLEM
+
+
+       The study aims to create a secure and efficient rubric-based evaluation system (Scormetry
+
+2.0) that improves student document handling and rubric-based scoring for Paragon International
+
+University defenses and academic evaluations. Specifically, it answers the questions below:
+
+
+   1.​ What is the security model representing controlled access to student documents and
+
+       evaluation records so that only authorized users (team members, assigned judges, and
+
+       organizers) can view and manage the materials?
+
+
+   2.​ How can the proposed system ensure that judges can access the correct final student
+
+       documents before and during the defense, considering issues such as missing files, and
+
+       difficulty finding files quickly?
+                                                                                          7
+
+   3.​ How can the official (fixed) rubric be implemented dynamically to reduce manual setup
+
+       and scoring errors, such as incorrect weights/formulas and time-consuming manual
+
+       calculation?
+
+
+   4.​ How can the system perform verified and locked dynamic rubric conversion from the
+
+       official PDF and centralize evaluation records (scores and feedback) in one place for
+
+       review anytime after the defense?
+
+
+1.6 SCOPE AND LIMITATIONS
+
+
+1.6.1 Scope of the project
+
+
+       Focus: Rubric-based academic evaluations at Paragon International University,
+
+particularly Final Year Project (FYP) defenses and similar presentations.
+
+
+       Target users:
+
+
+   ●​ Judges/Instructors: document review, rubric scoring, feedback entry.
+
+   ●​ Event Organizers/Admin: evaluation setup, judge/team assignment, rubric verification
+
+       and locking.
+
+   ●​ Students: final document uploads only.
+
+   ●​ Platform: Web-based system accessible via common browsers/devices.
+
+
+       Core features/modules:
+
+
+   ●​ Team based room per student group.
+
+   ●​ Controlled access model for each team room.
+
+   ●​ Student document upload (final report and slides).
+                                                                                              8
+
+
+   ●​ Dynamic rubric-based scoring (criterion by criterion using the official rubric).
+
+   ●​ Automatic score calculation.
+
+   ●​ Feedback storage (comments, notes, suggestions, follow-up points) saved with records.
+
+   ●​ AI-assisted rubric PDF to dynamic conversion with verification and rubric locking.
+
+
+1.6.2 Limitations of the project
+
+
+   ●​ Institutional scope: Limited to Paragon International University; findings may not
+
+       represent other institutions with different evaluation policies.
+
+
+   ●​ Not a full LMS: No course management, attendance, full assignment workflow, or
+
+       gradebook replacement.
+
+
+   ●​ No academic integrity modules: No plagiarism detection or thesis/capstone format
+
+       compliance checking.
+
+
+   ●​ AI conversion constraint: Rubric conversion accuracy may be affected by PDF
+
+       layout/quality and requires human verification before locking.
+
+
+   ●​ Operational constraints: Usability and performance may be affected by network
+
+       stability, device availability, and concurrent access during defense sessions.
+
+
+   ●​ Coverage boundary: Focus is limited to document readiness, rubric scoring, and
+
+       evaluation record storage within the evaluation session.
+
+
+1.7 SIGNIFICANCE OF THE STUDY
+
+
+       The implementation of Scormetry 2.0 addresses key limitations in the current evaluation
+
+workflow at Paragon International University by improving document accessibility, scoring
+                                                                                                  9
+
+efficiency, and evaluation record organization during Final Year Project (FYP) defenses and
+
+other rubric-based academic assessments. The system introduces controlled access team rooms
+
+for secure document sharing, implements standardized dynamic scoring based on the official
+
+department rubric with automatic calculation, and centralizes feedback for post-defense review.
+
+
+       For judges/instructors and organizers, Scormetry 2.0 reduces disruptions during
+
+evaluation sessions caused by missing documents, and delays in locating materials. It enables
+
+judges to review final reports and slides in advance and to perform criterion based scoring
+
+through a structured dynamic rubric, minimizing manual computation and improving scoring
+
+consistency. In addition, the system stores comments, notes, and follow-up points together with
+
+scoring records to support systematic review after the evaluation.
+
+
+       For Paragon International University, Scormetry 2.0 supports a more consistent,
+
+transparent, and professional assessment process by strengthening quality assurance and
+
+improving the traceability and organization of evaluation records.
+
+
+       For developers and future researchers, this study provides a practical reference for
+
+developing secure, room based evaluation systems for defense style assessments. It demonstrates
+
+a rubric PDF to dynamic conversion workflow with verification and locking to preserve rubric
+
+standardization, and it provides a foundation for future work such as usability enhancement,
+
+refinement of access control policies (e.g., RBAC/ABAC), and scalability testing across different
+
+rubric PDF formats.
+                                                                                             10
+
+1.8 THEORETICAL FRAMEWORK
+
+
+1.8.1 The Stages of Extreme Programming Process
+
+
+       Extreme Programming (XP). XP is an agile software development methodology that
+
+emphasizes short development cycles, continuous testing, and frequent feedback (Beck, 2000).
+
+In this study, XP guides Scormetry 2.0 development through iterative phases of planning, design,
+
+coding, and testing to ensure the system aligns with real evaluation workflows at Paragon
+
+International University.
+
+
+
+
+                                                                                      ​
+
+                     Fig. 1. The Stages of Extreme Programming Process
+                                                                                                     11
+
+1.8.2 ISO/IEC 25010 Software Quality Model
+
+
+        ISO/IEC 25010 is a software quality standard under the SQuaRE framework that
+
+provides quality models for evaluating software products (ISO/IEC, 2011). It defines eight
+
+product quality characteristics: functional suitability, reliability, performance efficiency, usability,
+
+security, compatibility, maintainability, and portability. In this study, Scormetry 2.0 applies
+
+ISO/IEC 25010 to guide system design and evaluation, with emphasis on functional suitability,
+
+usability, security, reliability, and performance efficiency to ensure the system performs well
+
+during Paragon International University defense sessions.
+
+
+
+
+                             Fig. 2. ISO/IEC 25010 Software Quality Model
+                                                                                            12
+
+1.8.3 Task–Technology Fit (TTF) Model
+
+
+       Task–Technology Fit (TTF) Model. The TTF model explains that technology improves
+
+performance when its capabilities match user tasks (Goodhue & Thompson, 1995). In this study,
+
+TTF supports evaluation of whether Scormetry 2.0 fits key defense tasks such as document
+
+readiness, rubric scoring, and record review, and whether it improves efficiency for judges and
+
+organizers.
+
+
+
+
+                                                                                                  ​
+
+                             Fig. 3. Task–Technology Fit Model
+                                                                   13
+
+1.9 CONCEPTUAL FRAMEWORK AND DIAGRAM
+
+
+
+
+           Fig. 4. Conceptual Framework Diagram of Scormetry 2.0
+                                                                                                14
+
+       Figure 4 illustrates the conceptual framework of Scormetry 2.0. It shows how the study
+
+addresses existing problems in rubric-based academic evaluations, particularly issues related to
+
+document access, non-centralized scoring, and the absence of a system-supported rubric for
+
+automatic calculation and record storage. In response to these problems, Scormetry 2.0
+
+introduces secure student document uploads, centralized feedback and notes, and AI-assisted
+
+conversion of the official rubric PDF into a dynamic rubric for scoring and final tabulation. The
+
+system is developed using the Extreme Programming (XP) methodology, evaluated through
+
+quality assurance testing based on ISO/IEC 25010, and further assessed using Task-Technology
+
+Fit (TTF) analysis. These processes are expected to produce controlled-access team rooms,
+
+centralized document management, more accurate rubric scoring, and a verified and locked
+
+dynamic rubric workflow that improves evaluation efficiency and consistency.
+
+
+1.10 DEFINITIONS OF TERMS
+
+
+       This section presents the operational and technical terms used in this study to ensure clear
+
+understanding of Scormetry 2.0 concepts and system features.
+
+
+Operational Terms
+
+
+   ●​ Team Room: A controlled-access space assigned to each student team where final
+
+       documents, scoring records, and feedback are stored in one place.
+
+
+   ●​ Assigned Judge: A judge or instructor associated with a specific team room and
+
+       authorized to access documents and submit evaluation scores.
+
+
+   ●​ Document Management: Uploading, storing, organizing, and retrieving student reports
+
+       and slides in one centralized location.
+                                                                                         15
+
+
+   ●​ Feedback: Comments, notes, suggestions, and follow-up questions recorded by judges
+
+      and saved with the scoring record.
+
+
+   ●​ Scoring and Tabulation: Entering scores per criterion and automatically calculating
+
+      totals/averages to produce final results.
+
+
+Technical Terms
+
+
+   ●​ Access Control: Security rules that restrict who can view, upload, or manage documents
+
+      and evaluation records.
+
+
+   ●​ Dynamic Rubric: A structured system-based version of the official rubric used for
+
+      criterion-based scoring, automatic calculation, and final tabulation.
+
+
+   ●​ Rubric Verification and Locking: Checking the converted rubric for accuracy, then
+
+      locking it to prevent edits during scoring.
+
+
+   ●​ Extreme Programming (XP): An iterative development method using short cycles,
+
+      continuous testing, and frequent user feedback.
+
+
+   ●​ ISO/IEC 25010: A software quality model used to evaluate system quality
+
+      characteristics such as functionality, usability, reliability, and security.
+
+
+   ●​ Task–Technology Fit (TTF): A model that evaluates whether system features match
+
+      user tasks and improve performance outcomes.
+                                                                                             16
+
+
+                                         CHAPTER 2
+
+
+                  REVIEW OF RELATED LITERATURE AND STUDIES
+
+
+        This chapter reviews related literature and studies aligned with the Statement of the
+
+Problem (SOPs). It presents evidence related to (1) centralized student document access for
+
+evaluation, (2) access control models for protecting evaluation materials, (3) Dynamic rubric
+
+implementation and automated scoring to reduce manual workload and errors, and (4)
+
+centralized storage of scores and feedback for post-defense review.
+
+
+2.1 Related Literature: Centralized Document Access and Management
+
+
+        Ndibalema (2022) reports that the transition to online distance learning in
+
+developing-country HEIs was “challenged with unstable network connection” and unaffordable
+
+bandwidth, and emphasizes that effective implementation requires stable and affordable internet
+
+accessibility.
+
+
+        Currier et al. (2004) emphasize that “Metadata enables users to find the resources they
+
+require.” In defense settings, consistent labeling and structured organization (e.g., team,
+
+document type, version, and upload date) support faster retrieval and reduce the risk of opening
+
+an incorrect version.
+
+
+2.2 Related Literature: Access Control Models (RBAC/ABAC) for Secure Evaluation
+
+
+        Sandhu et al. (1996) explain that “permissions are associated with roles, and users are
+
+assigned to appropriate roles.” This describes role-based access control (RBAC), where access is
+
+managed through defined roles such as Judge, Student, and Organizer/Admin.
+                                                                                                17
+
+
+       Hu et al. (2014) define ABAC as “a logical access control methodology where
+
+authorization to perform a set of operations is determined by evaluating attributes associated
+
+with the subject, object, requested operations, and, in some cases, environment conditions
+
+against policy.” This enables more specific access decisions using attributes such as team ID,
+
+judge assignment, defense round, and document type, which is relevant for restricting access to
+
+team rooms and evaluation records.
+
+
+2.3 Related Literature: Dynamic Rubrics and Automated Scoring Accuracy
+
+
+       Brookhart and Chen (2014) emphasize that “rubrics yield information of sufficient
+
+quality if certain conditions are met, most notably having clear and focused criteria.” This
+
+highlights the importance of implementing the official rubric in a clear and consistent dynamic
+
+format to improve scoring consistency across judges.
+
+
+       Maditinos et al. (2012) warn that “errors contained in most spreadsheets may be
+
+catastrophic and difficult to detect.” This highlights the risk of manual spreadsheet-based scoring
+
+and supports automated calculation and standardized dynamic scoring to reduce formula and
+
+weighting errors.
+
+
+2.4 Related Literature: Feedback and Record Management in Assessments
+
+
+       JISC (2010) explains that technology can add value to assessment activities, including
+
+“the processes involved in submission, marking and return of assessed assignments” and “the
+
+generation of feedback.” This shows the importance of organizing assessment outputs so that
+
+marks and feedback can be recorded, stored, and retrieved through one structured process for
+
+post-evaluation review.​
+                                                                                                18
+
+
+​      McTighe et al. (2022) explain that analytic rubrics can be used as feedback tools because
+
+“analytic rubrics provide more detailed, targeted feedback to students about the strengths of their
+
+performance and areas needing attention.” This highlights the importance of recording feedback
+
+in a clear and organized way during rubric-based assessments. In Scormetry 2.0, judges’
+
+comments/notes/follow-up points are stored together with rubric scores in one centralized record
+
+so they can be reviewed after the defense.
+
+
+2.5 Related Technology
+
+
+       Universities use many tools for managing student documents, rubric-based scoring, and
+
+evaluation records, but these tools are often separate (documents in one place, scoring in another)
+
+or require manual setup for multi-judge and team-based evaluations.
+
+
+    ●​ Google Classroom + Drive: Useful for sharing and collecting work, but defense
+
+       documents still come through multiple channels, and it is hard to enforce a secure “team
+
+       room” with assigned-judge access and scoring in the same space.
+
+
+    ●​ Google Sheets / Forms: Can dynamic rubrics and calculate scores, but rubrics must often
+
+       be recreated manually, weights/formulas can be wrong, and judge access must be
+
+       managed manually.
+
+
+    ●​ Moodle / Canvas LMS: Support digital rubrics and grading workflows, but they are
+
+       mainly designed for course-based assessment and may not fully match defense-style
+
+       evaluation needs such as team-room access, assigned-judge restriction, and centralized
+
+       document-and-scoring workflows.
+                                                                                                                19
+
+
+    ●​ Gradescope: Improves rubric grading and consistency, but it is a separate platform and
+
+         not designed around a defense “team room” that stores documents, scoring, and feedback
+
+         together.
+
+
+         For Rubric PDF to Dynamic Rubric, tools like Google Cloud Document AI, Amazon
+
+Textract, and Azure AI Document Intelligence can extract text/structure from PDFs. However,
+
+Scormetry 2.0 still requires verification and locking to ensure the converted rubric matches the
+
+official rubric before judges use it.
+
+
+                                                           TABLE 5
+
+                                       Comparative Analysis of Related Technologies
+
+                                                          Google          Google       Moodle /
+       Feature (Needed for Scormetry 2.0)                                                            Gradescope
+                                                     Classroom/Drive   Sheets/Forms    Canvas
+
+Centralized “Team Room” (Docs and Scoring in one
+                                                           ✖               ✖              ✖              ✖
+place)
+                                                      Manual setup     Manual setup   Manual setup   Manual setup
+Controlled access per team (only assigned judges)
+                                                       required         required       required       required
+                                                                       Manual setup   Manual setup
+Multi-judge scoring workflow (per team)                    ✖                                             ✔
+                                                                        required       required
+                                                                       Manual setup
+Rubric-based scoring interface                             ✔                              ✔              ✔
+                                                                        required
+                                                      Manual setup
+Auto score calculation / aggregation                                       ✔              ✔              ✔
+                                                       required
+Centralized feedback (comments/notes/follow-up)       Manual setup     Manual setup
+                                                                                          ✔              ✔
+stored with records                                    required         required
+
+“Official rubric PDF to dynamic rubric” conversion         ✖               ✖              ✖              ✖
+                                                                                              20
+
+
+                                             CHAPTER 3
+
+
+                                          METHODOLOGY
+
+
+        This chapter discusses the methodology used to design, develop, and evaluate Scormetry
+
+2.0: AI Rubric Generation and Secure Document Management for Academic Evaluations. It
+
+presents the study design, environment and locale of implementation, participants, data gathering
+
+procedures, and the development approach used to build the system. The chapter is organized
+
+according to each of the statements of the problem from 1 to 4 to clearly show how each problem
+
+is addressed through specific modules, workflows, and testing activities, including verification
+
+and locking of the dynamic rubric and system evaluation based on selected ISO/IEC 25010
+
+quality characteristics.
+
+
+3.1 Study Design
+
+
+        This study uses an applied research approach focused on designing, developing, and
+
+evaluating Scormetry 2.0 for rubric-based defenses at Paragon International University. Research
+
+designs are commonly categorized as quantitative and qualitative. Quantitative research collects
+
+numerical data and uses structured instruments such as questionnaires to measure user
+
+perceptions and acceptance. Qualitative research collects descriptive data (e.g., interviews and
+
+observations) to understand user experiences and explain why issues occur.
+                                                                                                  21
+
+
+          For this study, Scormetry 2.0 is evaluated primarily using a quantitative User Acceptance
+
+Testing (UAT) method through a structured Likert-scale questionnaire (Strongly Disagree to
+
+Strongly Agree). The UAT session uses realistic evaluation tasks (accessing team rooms, viewing
+
+final documents, scoring using the official rubric, and recording feedback). After completing the
+
+tasks, participants answer the questionnaire.
+
+
+          The questionnaire is structured to align with the Statement of the Problem as follows:
+
+items for statement of the problem 1 measure perceptions of controlled access and security (e.g.,
+
+role/assignment-based access); items for statement of the problem 2 measure document
+
+availability and ease of finding the correct final version; items for statement of the problem 3
+
+measure scoring usability and calculation accuracy; and items for statement of the problem 4
+
+measure acceptance of dynamic rubric, verification then locking, and record completeness for
+
+review.
+
+
+          If interviews or consultations are used as supporting data, they are treated as qualitative
+
+inputs to clarify workflow issues and confirm requirements. Interview notes/minutes are
+
+recorded and summarized for inclusion in the appendices.
+
+
+          To secure data, responses are collected anonymously (no names displayed in results).
+
+Survey files and exports are stored in a controlled location accessible only to the researchers. The
+
+system testing uses Paragon International University devices and browsers, and questionnaire
+
+distribution is done using digital forms (e.g., Google Forms) or printed forms depending on
+
+availability. Participants are informed that their responses are used only for academic research
+
+and system improvement.
+                                                                                             22
+
+
+
+
+3.2 ENVIRONMENT
+
+
+3.2.1 Locale
+
+
+       The project is designed for Paragon International University, located at 8 St 315, Toul
+
+Kork, Phnom Penh, Cambodia, focusing on rubric-based academic evaluations such as Final
+
+Year Project (FYP) defenses and similar presentations. The typical setting involves multiple
+
+judges scoring multiple teams within limited time, where document readiness, scoring speed, and
+
+record organization are critical.
+
+
+3.2.2 Population of the study
+
+
+       The population of this study consists of ICT faculty instructors who are involved in
+
+rubric-based evaluations at Paragon International University, particularly those who serve as
+
+judges/panel members or organizers during FYP defenses and related academic presentations.
+
+                                              TABLE 6
+       Population of the Instructors in ICT Faculty at Paragon International University
+                                          for AY2025-2026
+
+                     Department                                    Population
+
+
+Computer Science and DAD                                                17
+
+
+Management of Information Systems                                       6
+
+
+                         Total                                          23
+                                                                                                 23
+
+
+       Table 6 presents the number of ICT faculty instructors at Paragon International
+
+University (AY2025–2026). To collect user acceptance data for Scormetry 2.0, this study uses a
+
+quantitative approach through a survey questionnaire. Selected instructors are invited to test the
+
+Scormetry 2.0 web application by performing key tasks such as accessing team rooms, viewing
+
+documents, scoring using the rubric, and submitting feedback. After the testing session, they
+
+complete a Likert-scale questionnaire (Strongly Disagree to Strongly Agree). Respondent
+
+anonymity is maintained to encourage honest answers.
+
+
+       Purposive sampling is applied because not all instructors are involved in rubric-based
+
+evaluations and some may be unavailable. The recommended sample size is computed using the
+
+                             𝑁
+Yamane formula, 𝑛 =                2   , where N =   23 and e = 0.05 or 5% of error. The calculation
+                          1 + 𝑁𝑒
+
+
+gives n ≈ 21.75, which is rounded to 22 instructors. However, the final sample may be adjusted
+
+depending on instructor availability and eligibility.
+
+
+3.2.3 Organizational Chart/Profile
+
+
+       The organizational structure for this study is based on the departments within the Faculty
+
+of Information and Computer Technology (ICT) at Paragon International University. The main
+
+stakeholders include ICT instructors, particularly those who participate in the Final Year Project
+
+(FYP) defense as judges and organizers. An organizational chart is presented to illustrate the
+
+hierarchical and functional relationships among these stakeholders, as shown in Figure 5.
+                                                                                           24
+
+
+
+
+                            Fig. 5. Organizational Chart for Scormetry 2.0
+
+
+       The organizational chart represents the project setting where Scormetry 2.0 will be
+
+applied at Paragon International University. The FYP defense process is conducted within the
+
+ICT faculty and serves as a key academic evaluation activity that assesses students’ technical
+
+output, analytical thinking, and presentation performance.
+
+
+       At the organizational level, the defense process is coordinated through collaboration
+
+among the Dean of ICT, the Department Head, and assigned instructors who act as organizers
+
+and judges. A panel of judges is formed for each defense session, and each judge evaluates
+
+student projects using the official department rubric.
+                                                                                              25
+
+
+3.3 METHODOLOGICAL ALIGNMENT
+
+
+3.3.1 Methodology for SOP1: Security Architecture and Access Control
+
+
+       To address SOP1 regarding controlled access to student documents and evaluation
+
+records, Scormetry 2.0 implements a role- and assignment-based access control model to ensure
+
+that only authorized users can view or manage evaluation materials within each team room.
+
+
+3.3.1.1 Requirements Modeling
+
+
+       Object Modeling: The system defines core entities and relationships required for access
+
+control, including Users, Roles, Events, Team Rooms, Judge Assignments, Documents, and
+
+Score Records. This ensures that authorization decisions are consistently tied to event context
+
+and room membership.
+
+
+       Control Modeling (Role-Based Access Control): Authorization rules are defined by
+
+role and assignment. Students are limited to accessing their own team room for document
+
+upload. Judges can access only team rooms assigned to them for document review, scoring, and
+
+feedback submission. Organizers/Admin have privileges to create events and rooms, assign
+
+judges, and manage rubric states (verification and locking).
+
+
+3.3.1.2 System Architecture and Security Enforcement
+
+
+       Network Model and Topology: Scormetry 2.0 follows a web-based client–server
+
+architecture. All requests related to rooms, documents, and evaluation records are processed with
+
+server-side validation to ensure consistent enforcement of access policies.
+                                                                                             26
+
+
+       Security Mechanisms: Security controls include authentication with secure session
+
+handling, authorization checks for protected actions (view room, upload, score, verify, lock,
+
+review records), and controlled-access enforcement to protect confidentiality of student
+
+documents and integrity of evaluation results.
+
+
+3.3.2 Methodology for SOP 2: Document Access and Retrieval
+
+
+       To address SOP2 regarding document readiness and fast retrieval, Scormetry 2.0 applies
+
+a centralized document workflow through team rooms, ensuring that judges can access the
+
+correct final documents before and during the defense.
+
+
+3.3.2.1 Operational Approach
+
+
+       Students upload only the required final files (final report and presentation slides) into
+
+their team room. The system stores document metadata such as upload timestamp, file type, and
+
+latest version status to prevent wrong-version issues and reduce delays during evaluation
+
+sessions.
+
+
+3.3.2.2 Requirements Modeling
+
+
+       Data and process modeling is applied to define the document lifecycle: student upload →
+
+system validation → secure storage with metadata → latest version marking → judge retrieval
+
+from assigned team rooms. This workflow ensures that judges access a single trusted source of
+
+final documents rather than relying on multiple external channels.
+                                                                                              27
+
+
+3.3.2.3 User Interface Design Considerations
+
+
+        The user interface is designed for efficient retrieval in defense settings. Documents are
+
+clearly separated by type (report vs slides), the latest upload timestamps are displayed, and
+
+judges are provided with direct view/download actions within the assigned team room.
+
+
+3.3.3 Methodology for SOP 3: Dynamic Rubric Implementation
+
+
+        To address SOP3 regarding implementing the official fixed dynamic rubric and reducing
+
+scoring workload, Scormetry 2.0 implements a standardized dynamic scoring interface with
+
+automated calculation to minimize formula/weighting errors and reduce manual computation
+
+time.
+
+
+3.3.3.1 Technical Approach (Dynamic Rubric + Calculation)
+
+
+        The system converts the official Paragon International University rubric into structured
+
+dynamic rubric components, including criteria and weights, and presents them as a
+
+criterion-by-criterion scoring form.
+
+
+3.3.3.2 Requirements Modeling
+
+
+        The scoring workflow is represented using an Input–Process–Output model:
+
+
+   ●​ Input: Official Paragon International University rubric structure and judge score inputs.
+
+
+   ●​ Process: Criterion scoring and automated calculation/aggregation logic.
+
+
+   ●​ Output: Total score/average and final tabulated results.
+                                                                                                  28
+
+
+3.3.3.3 Data Design and Implementation Basis
+
+
+       Rubric data and scoring records are stored in a structured format to ensure calculation
+
+consistency. The relationship between rubric criteria, weights, score inputs, and score records is
+
+defined to support reliable computation and aggregation across judges.
+
+
+3.3.4 Methodology for SOP 4: Verification, Validation, and Centralization
+
+
+       To address SOP4 regarding verified and locked dynamic rubric workflow and centralized
+
+evaluation records, Scormetry 2.0 applies a verification-and-locking workflow and performs
+
+comprehensive testing to ensure the system is reliable for post-defense review.
+
+
+3.3.4.1 Verification and Locking Workflow
+
+
+       After dynamic rubric conversion, organizers verify that the converted rubric matches the
+
+official rubric structure. Once verified, the rubric is locked to prevent edits during scoring,
+
+preserving standardization and preventing changes that could affect evaluation integrity.
+
+
+3.3.4.2 Performance and Risk Considerations
+
+
+       Performance considerations address simultaneous scoring submissions by multiple judges
+
+during live defense sessions. Risk analysis focuses on issues such as conversion errors caused by
+
+PDF layout quality. These risks are mitigated through organizer verification and rubric locking
+
+before evaluation begins.
+
+
+3.3.4.3 Validation and Testing Strategy
+
+
+       Testing is conducted to ensure correctness, usability, and reliability of centralized records.
+
+Unit and integration testing confirm calculation accuracy and end-to-end workflow.
+                                                                                               29
+
+
+Compatibility and performance testing confirm stable operation across common devices and
+
+browsers. Acceptance testing involves Paragon International University faculty using the system
+
+in simulated defense scenarios to validate usability and the ability to review centralized records
+
+after the defense.
+
+
+3.4 REQUIREMENT SPECIFICATIONS
+
+
+3.4.1 Operational Feasibility
+
+
+3.4.1.1 Fishbone Diagram​
+
+
+
+
+                                       Fig. 6. Fishbone Diagram
+
+
+
+
+       The fishbone diagram presents the major challenges judges, instructors, and organizers
+
+face in document handling and rubric-based evaluation at Paragon International University. As
+                                                                                             30
+
+
+shown in the figure, these problems arise from four main factors: management, human factor,
+
+system, and process. The identified issues include scattered documents across multiple channels,
+
+time pressure during evaluations, manual rubric setup, limited access control, formula-related
+
+scoring errors, slow rubric preparation, and fragmented records after defense. These
+
+interconnected problems highlight the need for a more centralized and controlled evaluation
+
+support system, which Scormetry 2.0 aims to address.
+
+
+3.4.1.2 Functional Decomposition
+
+
+
+
+                 Fig. 7. Teacher/Admin Panel Functional Decomposition Diagram
+
+
+       Figure 7 presents the functional decomposition of the Teacher/Admin Panel in Scormetry
+
+2.0. The functions are organized into five modules: Authentication, Evaluation Room
+
+Management, Rubric Management, Document Management, and Judge Submissions.
+
+
+   ●​ Authentication: The teacher or administrator logs in using a Google account and ends
+
+       the session through logout.
+
+   ●​ Evaluation Room Management: The teacher or administrator creates an evaluation
+
+       room and automatically becomes the room owner. This module also allows the user to
+                                                                                           31
+
+
+   assign oneself as a judge in that room, if needed, and invite users through email or a room
+
+   code.
+
+●​ Rubric Management: The official rubric PDF is uploaded and converted into a dynamic
+
+   rubric. After conversion, the teacher or administrator verifies the rubric by checking the
+
+   criteria and weights, then locks the rubric to prevent edits during scoring.
+
+●​ Document Management: This module allows the teacher or administrator to monitor the
+
+   upload status of student reports and slides, view or download submitted documents,
+
+   review document version history, and lock final documents before scoring begins.
+
+●​ Judge Submissions: The panel displays the judge list and submission status, allows the
+
+   opening of individual judge submissions, and provides access to per-criterion scores,
+
+   feedback, and automatically calculated totals for each judge.
+
+
+
+
+                   Fig. 8. Judge Panel Functional Decomposition Diagram
+                                                                                                 32
+
+
+       Figure 8 presents the functional decomposition of the Judge Panel in Scormetry 2.0. The
+
+functions are organized into four modules: Authentication, Join and View Room, Room
+
+Workspace, and Edit and History.
+
+
+   ●​ Authentication: The judge logs in using a Google account and ends the session through
+
+       logout.
+
+   ●​ Join and View Room: The judge accepts the room invitation through email and can view
+
+       the room members assigned to the evaluation room.
+
+   ●​ Room Workspace: This module allows the judge to view or download student
+
+       documents, open the locked dynamic rubric, enter scores for each criterion, automatically
+
+       calculate totals, add feedback when needed, and submit the final scoring.
+
+   ●​ Edit and History: The judge may edit the scoring submission if editing is allowed,
+
+       provide a reason for the edit, and review the submission history for tracking purposes.
+
+
+
+
+                     Fig. 9. Student Panel Functional Decomposition Diagram
+                                                                                                  33
+
+
+       Figure 9 presents the functional decomposition of the Student Panel in Scormetry 2.0.
+
+The functions are organized into five modules: Authentication, Join and View Room, My Team
+
+Room, Upload Documents, and View Results After Defense.
+
+
+   ●​ Authentication: The student logs in using a Google account and ends the session
+
+       through logout.
+
+   ●​ Join and View Room: The student accepts the room invitation through email or a room
+
+       code and can view the users assigned to the room.
+
+   ●​ My Team Room: This module allows the student to view team or project information
+
+       and review the submission requirements, including the final report PDF and presentation
+
+       slides PDF.
+
+   ●​ Upload Documents: The student can upload the final report and presentation slides in
+
+       PDF format, replace or update the submission until it is locked by the teacher or
+
+       administrator, and review the upload history through version and timestamp records.
+
+   ●​ View Results After Defense: After the teacher releases the results, the student can view
+
+       the evaluation results and any available feedback.
+
+
+3.4.2 Technical Feasibility
+
+
+3.4.2.1 Compatibility
+
+
+Hardware Compatibility
+
+
+       Scormetry 2.0 is a web-based system designed to run on common devices used in
+
+academic evaluations, ensuring accessibility for judges, organizers, and students. It supports:
+                                                                                       34
+
+
+   ●​ Device Types: Laptops, desktops, tablets, and smartphones (limited view on small
+
+      screens).
+
+
+   ●​ Operating Systems: Windows, macOS, iOS, and Android (via supported browsers).
+
+
+   ●​ Screen Sizes: Optimized for laptops and tablets (recommended 13 inches and above for
+
+      rubric scoring and document viewing).
+
+
+   ●​ Memory Requirements: Minimum 2GB RAM (recommended 4GB+ for smoother PDF
+
+      viewing and scoring on multiple tabs).
+
+
+   ●​ Internet Requirement: Stable internet connection is required for uploading documents
+
+      and submitting scores during defense sessions.
+
+
+Software Compatibility
+
+
+      To ensure reliable use during defense sessions, Scormetry 2.0 supports major modern
+
+web browsers. Minimum recommended versions are:
+
+
+   ●​ Google Chrome: Version 90 and above
+
+
+   ●​ Microsoft Edge: Version 90 and above
+
+
+   ●​ Safari: Version 14 and above
+
+
+   ●​ Mozilla Firefox: Version 88 and above
+
+
+   ●​ Brave: Version 90 and above
+                                                                                                 35
+
+
+       These requirements ensure consistent performance for key features such as secure login,
+
+PDF document viewing, rubric scoring, automatic calculation, and record storage.
+
+
+3.4.2.2 Relevance of the Technologies
+
+
+       Scormetry 2.0 is developed by modifying and extending the existing Scormetry system
+
+available in the project’s GitHub repositories. Therefore, the technology stack is selected not
+
+only for feasibility and compatibility with the project requirements, but also to ensure continuity,
+
+code reuse, maintainability, and faster iteration by building upon the established architecture.
+
+Reusing the existing front-end and back-end foundations reduces redevelopment effort and risk,
+
+while enabling the addition of new features such as controlled-access team rooms, secure
+
+document upload, AI-assisted dynamic rubric conversion with verification/locking, and
+
+centralized scoring records.
+
+
+   ●​ Next.js (Front-end): Already used in the base system and suitable for extending
+
+       multi-role panels (Teacher/Admin, Judge, Student) using reusable components for
+
+       dashboards, team rooms, document pages, and scoring pages.
+
+
+   ●​ Tailwind CSS (UI styling): Ensures consistent UI styling across newly added screens
+
+       and improves development speed with a maintainable utility-first approach.
+
+
+   ●​ Gin (Go) (Back-end API): Supports efficient REST API development and is appropriate
+
+       for expanding endpoints for room access control, document management, rubric states
+
+       (verify/lock), scoring submission, and history tracking.
+                                                                                          36
+
+
+●​ PostgreSQL (Database): Provides reliable structured storage for users, roles, room
+
+   membership, rubric templates, scoring records, and feedback, supporting consistency and
+
+   traceability.
+
+
+●​ Google OAuth + JWT (Authentication and session): Enables Google-based login
+
+   while maintaining secure session and authorization enforcement for room-level access
+
+   control.
+
+
+●​ File Storage (DigitalOcean Droplet + Block Storage): Stores uploaded PDFs
+
+   (reports/slides and rubric files) with metadata recorded in PostgreSQL for secure
+
+   retrieval, and long-term review.
+
+
+●​ PDF Viewing (PDF.js / embedded viewer): Enables judges to view documents inside
+
+   the team room for faster evaluation without relying on external downloads or scattered
+
+   files.
+
+
+●​ AI Dynamic Rubric Conversion (Gemini + extraction prompt + verification UI):
+
+   Gemini is used to generate a structured rubric draft from the official rubric PDF, while
+
+   the organizer verifies the extracted criteria/weights/score ranges and locks the rubric
+
+   before scoring to preserve the official rubric structure.
+
+
+●​ Testing and development tools (Postman, VS Code, GitHub, Draw.io/Figma):
+
+   Support    iterative   development, documentation,          and validation of correctness,
+
+   compatibility, usability, and performance under defense-like conditions.
+                                                         37
+
+
+3.4.3 Schedule Feasibility
+
+
+3.4.3.1 Gantt Chart
+
+
+
+
+                             Fig. 10. FYP1 Gantt Chart
+                                                                                                                   38
+
+
+
+
+                                            Fig. 11. FYP2 Gantt Chart
+
+
+3.4.4 Economic Feasibility
+
+
+3.4.4.1 Cost Benefits Analysis
+
+
+                                                       TABLE 7
+
+                                 Cost and Benefit Analysis for Scormetry 2.0
+
+      Item            Vendor / Specification      Total Price (per year)                   Benefits
+
+                   Software Designers &                                    Developed as capstone; no labor cost for
+                                                           $0
+                   Developers (Capstone team)                              ParagonIU.
+  Development
+                   Real-world estimate (if paid                            Practical estimate if ParagonIU hires
+                                                       $725 (est.)
+                   dev): ~145 hours × $5/hour                              developers.
+
+                   DigitalOcean 1 Droplet (2GB
+   Deployment                                                              Main production hosting; supports team
+                   RAM, 2CPU, 60GB SSD,
+   (Production                                         $28/month           rooms, secure access, scoring records,
+                   3TB transfer) + 100GB
+    Hosting)                                                               and document storage.
+                   Block Storage
+
+  Authentication                                                           Secure login for judges/admin/students;
+                   Google OAuth v2.0                       $0
+    Provider                                                               reduces account management burden.
+                                                                                                            39
+
+
+    Email /                                                           Sends invitations and notifications
+  Notifications    Google SMTP (free tier)              $0            (judge assignment, room access,
+   (Invites)                                                          reminders).
+                   ParagonIU provided
+                                                                      No domain purchase needed if
+                   subdomain (e.g.,                     $0
+                                                                      ParagonIU provides a subdomain.
+                   scormetry.paragoniu.app)
+  Domain Name
+                                                                       Backup domain if ParagonIU
+                   Alternative domain           $0 first year; $2/year
+                                                                       subdomain is unavailable
+                   (Namecheap)                           after
+                                                                       (testing/demo).
+
+                   Cloudflare Free Plan (SSL,                         HTTPS + basic protection and
+ Domain Security                                        $0
+                   basic DDoS protection)                             performance improvements.
+
+
+                   DigitalOcean via GitHub                            Free credits support dev/staging testing
+                                                    $200 credit
+                   Student Pack                                       without extra spending.
+ Development &
+ Staging Server
+                   If credit unavailable:                             staging server to test new features
+                                                    $22/month
+                   DigitalOcean droplet                               before deployment.
+
+                 Option 1: Gemini (Free plan)                         Option 1: Gemini generates a structured
+                 + extraction prompt +                                rubric draft from PDF; organizer
+                                                    $0–low cost
+                 verification UI + rubric                             verifies and locks it before scoring to
+AI Rubric PDF to locking                                              reduce manual setup errors.
+Dynamic Rubric
+                 Option2: Cloud                                       Option 2 : Higher accuracy on complex
+                 OCR/Document AI                     Variable         PDFs; cost depends on number of rubric
+                 (pay-as-you-go)                                      pages processed per event.
+Secure Document                                                       Centralized documents per team room;
+                  DigitalOcean Server + Block
+     Storage                                    Included in hosting   reduces missing/wrong version issues
+                  Storage (as above)
+ (Reports/Slides)                                                     during defense.
+
+
+       The cost and benefit analysis of Scormetry 2.0, as shown in table 7, presents the main
+
+technical tools, services, and reference prices that may support the system within Paragon
+
+International University. The system is developed by the capstone team; therefore, the
+
+development cost is recorded as $0 for the university in the current academic project context,
+
+although a practical real-world estimate of paid development is also shown as approximately
+
+145 hours × $5/hour = $725 (estimated) for reference. For deployment, the system may use
+
+DigitalOcean as the hosting provider, specifically 1 Droplet (2GB RAM, 2 vCPU, 60GB SSD,
+                                                                                                40
+
+
+3TB transfer) with 100GB Block Storage, at an estimated cost of $28 per month, to support
+
+evaluation rooms, secure access, document storage, and scoring records.
+
+
+       For authentication, Google OAuth v2.0 is used at $0 cost, allowing secure login for
+
+teachers, judges, and students while reducing manual account management. For notifications and
+
+invitations, Google SMTP (free tier) is listed at $0, supporting room invitations, judge
+
+assignments, and access-related messages. In terms of domain access, the system may use a
+
+ParagonIU-provided subdomain such as scormetry.paragoniu.app at $0, while an alternative
+
+Namecheap domain is shown as $0 for the first year and around $2 per year after that for backup
+
+testing or demonstration purposes. To strengthen domain security, Cloudflare Free Plan is also
+
+included at $0, providing SSL, basic DDoS protection, and HTTPS support.
+
+
+       For development and staging, DigitalOcean through the GitHub Student Pack may
+
+provide up to $200 credit, while a separate staging droplet is estimated at $22 per month if
+
+student credit is unavailable. In addition, the rubric conversion feature may use Gemini (Free
+
+Plan) together with an extraction prompt, verification interface, and rubric locking workflow at
+
+$0 to low cost, while an alternative Cloud OCR/Document AI option is listed as variable cost
+
+depending on usage and document complexity. For document storage, student reports and
+
+presentation slides are stored through the same DigitalOcean server and block storage
+
+environment, with the cost already included in the hosting setup.
+
+
+       Since Scormetry 2.0 is intended for school-based academic use, these listed prices are
+
+presented only as implementation reference values for the identified tools and services. Any
+
+related infrastructure or deployment cost is not charged to the instructor, but is considered under
+
+the school side of support.
+                                                                                                   41
+
+
+                                                     TABLE 8
+
+                                    Maintenance Cost for Scormetry 2.0
+
+     Maintenance Item           Year 1     Year 2      Year 3    Year 4    Year 5        Total
+Domain Registration
+                                $0.00       $2.00       $2.00     $2.00     $2.00        $8.00
+(ParagonIU Subdomain)
+
+Cloudflare (Free Plan)          $0.00       $0.00       $0.00     $0.00     $0.00        $0.00
+
+Development Server              $66.00      $0.00       $0.00     $0.00     $0.00       $66.00
+
+Staging Server                  $22.00      $0.00       $0.00     $0.00     $0.00       $22.00
+
+Deployment Servers             $336.00     $362.88     $391.91   $423.26   $457.12     $1,971.17
+
+AI Rubric Extraction Service    $0.00       $0.00       $0.00     $0.00     $0.00        $0.00
+
+Initial Setup & Training
+                               $725.00      $0.00       $0.00     $0.00     $0.00       $725.00
+Materials
+
+Maintenance Support Cost       $120.00     $132.00     $145.20   $159.72   $175.69      $732.61
+
+General Miscellaneous           $25.00     $27.50      $30.25    $33.28    $36.60       $152.63
+
+TOTAL                          $1,294.00   $524.38     $569.36   $618.26   $671.41     $3,677.41
+
+
+
+
+        Table 8 presents the projected maintenance-related reference costs for Scormetry 2.0 over
+
+a five-year period. The listed items include domain registration, server-related services, setup and
+
+training materials, maintenance support, and general miscellaneous expenses that may be
+
+associated with sustaining the system in an operational environment. In this table, the
+
+ParagonIU subdomain is shown at $0.00 in Year 1 and $2.00 from Year 2 to Year 5, resulting
+
+in a total of $8.00, while Cloudflare Free Plan remains at $0.00 throughout the five-year period.
+
+The Development Server is listed at $66.00 in Year 1, and the Staging Server is estimated at
+
+$22.00 in Year 1. The largest recurring infrastructure item is the Deployment Servers, which
+                                                                                                42
+
+
+begin at $336.00 in Year 1 and increase gradually to $457.12 in Year 5, for a five-year total of
+
+$1,971.17.
+
+
+       In addition, the AI Rubric Extraction Service is shown at $0.00, reflecting the use of a
+
+low-cost or free-tier setup during the current academic project context. Initial Setup and
+
+Training Materials are estimated at $725.00 in Year 1, while Maintenance Support Cost
+
+increases from $120.00 in Year 1 to $175.69 in Year 5, totaling $732.61. General
+
+Miscellaneous expenses are also included, beginning at $25.00 in Year 1 and reaching $36.60 in
+
+Year 5, for a total of $152.63. Overall, the total projected reference amount shown in the table is
+
+$3,677.41 over five years.
+
+
+       Since Scormetry 2.0 is intended for school-based academic use, the listed prices are
+
+presented only as implementation reference values for the identified tools and services. Any
+
+infrastructure or deployment cost is expected to be supported by the university rather than
+
+charged directly to individual instructors.
+
+
+3.4.4.2 Cost Recovery Scheme
+
+
+       For long-term sustainability, Scormetry 2.0 may adopt an institutional cost recovery
+
+approach managed at the university level rather than through direct payment by individual
+
+instructors. As a school-based academic evaluation platform, the system may be supported
+
+through departmental, faculty-level, or university-level budget allocation for hosting,
+
+maintenance, and technical support. This approach is appropriate because the benefits of
+
+Scormetry 2.0 extend beyond a single user and can support multiple academic evaluations and
+
+future university events. Therefore, cost recovery is more appropriately handled as part of
+
+institutional support to ensure continuous operation, maintenance, and future development.
+                                                                                                43
+
+
+                                         REFERENCES
+
+Beck, K. (2000). Extreme programming explained: Embrace change. Addison-Wesley.
+
+      https://openlibrary.org/books/OL18104604M/Extreme_programming_explained
+
+Brookhart, S. M. (2018). Appropriate criteria: Key to effective rubrics. Frontiers in
+
+      Education, 3, Article 22. Appropriate Criteria: Key to Effective Rubrics
+
+Brookhart, S. M., & Chen, F. (2015). The quality and effectiveness of descriptive rubrics.
+
+      Educational Review, 67(3), 343–368. https://doi.org/10.1080/00131911.2014.929565
+
+Currier, S., Barton, J., O’Beirne, R., & Ryan, B. (2004). Quality assurance for digital
+
+      learning object repositories: Issues for the metadata creation process. Research in
+
+      Learning Technology, 12(1), 5–16. https://doi.org/10.3402/rlt.v12i1.11223
+
+Goodhue, D. L., & Thompson, R. L. (1995). Task-technology fit and individual performance.
+
+      MIS Quarterly, 19(2), 213–236. https://doi.org/10.2307/249689
+
+Hu, V. C., Ferraiolo, D. F., Kuhn, D. R., Schnitzer, A., Sandlin, K., Miller, R., &
+
+      Scarfone, K. (2014). Guide to attribute based access control (ABAC) definition and
+
+      considerations (NIST Special Publication 800-162). National Institute of Standards
+
+      and Technology. https://doi.org/10.6028/NIST.SP.800-162
+
+International Organization for Standardization. (2011). ISO/IEC 25010:2011 systems and
+
+      software engineering—Systems and software quality requirements and evaluation
+
+      (SQuaRE)—System and software quality models.
+
+       https://www.iso.org/standard/35733.html
+
+Jisc. (2010). Effective assessment in a digital age: A guide to technology-enhanced
+
+      assessment and feedback. https://ctl.utexas.edu/sites/default/files/digiassass_eada.pdf
+                                                                                             44
+
+
+Maditinos, D., Chatzoudes, D., & Tsairidis, C. (2012). Spreadsheet error detection: An
+
+      empirical examination in the context of Greece. Business, Management and Economics
+
+      Engineering, 10(1), 128–143. https://doi.org/10.3846/bme.2012.10
+
+McTighe, J., Seif, E., & Wiggins, G. (2022). How to provide better feedback through
+
+      rubrics. Educational Leadership.
+
+      https://www.ascd.org/el/articles/how-to-provide-better-feedback-through-rubrics
+
+Ndibalema, P. (2022). Constraints of transition to online distance learning in higher
+
+      education institutions during COVID-19 in developing countries: A systematic review.
+
+      E-Learning and Digital Media, 19(6), 595–618.
+
+      https://doi.org/10.1177/20427530221107510
+
+Red Deer Polytechnic. (2023). Applied research and innovation annual report 2022–2023.
+
+      https://rdpolytech.ca/media/5066/download?inline=
+
+Sandhu, R. S., Coyne, E. J., Feinstein, H. L., & Youman, C. E. (1996). Role-based access
+
+      control models. Computer, 29(2), 38–47.
+
+      https://csrc.nist.gov/csrc/media/projects/role-based-access-control/document
+
+     s/sandhu96.pdf
+                                                                                               45
+
+
+                                          APPENDICES
+
+
+APPENDIX A
+
+
+Research Interview Transcript (Intelligent Verbatim)
+
+Study Title: Scormetry 2.0: AI Rubric Generation and Secure Document Management for
+
+Academic Evaluations​
+
+Interview Title: Interview Questions for Conducting Interview (SOP1–SOP5/6)​
+
+Interview Date: 18 January 2026​
+
+Interview Time: 12:00 PM – 12:30 PM​
+
+Interviewee: Dr. Nora P. Patron​
+
+Role/Position: Judge / Instructor​
+
+Interviewer: Menghong Lim​
+
+Interview Location/Mode: Paragon International University (Face-to-face)​
+
+Recording Method: Audio Recording​
+
+Transcript Style: Intelligent Verbatim​
+
+Confidentiality: The interviewee’s identity will be kept confidential and the information will be
+
+used for academic purposes only.
+
+
+Transcript
+00:00 – 01:10 | SOP 1 — Feedback is long / hard to read
+
+Q3. Are rubric results or comments sometimes hard to understand quickly? Why?​
+
+A: “That is a previous rubric… it was explained how to use it… I don’t see a very big difficulty.”
+
+
+Q4. If the system gives a short summary (main strength, weakness, performance), would
+
+that help? Why/why not?​
+                                                                                               46
+
+
+A: “Yes… when it was discussed to me how to use it… I got it. It helped.”​
+
+(Interviewee noted that Q3 and Q4 are related.)
+
+
+Q5. If not, what would help make feedback easier to understand?​
+
+A: “This is not applicable to me.”
+
+
+01:10 – 04:40 | SOP 2 — Follow-up across rounds
+
+Q6. In multi-round defenses, is it hard to remember/check promised improvements from
+
+earlier rounds? Why?​
+
+A: The interviewee explained that students are required to document areas to improve. She also
+
+plays two roles (instructor and panel), so she hears the panel comments immediately,
+
+consolidates them, and sends them to students. Because of this, she can monitor whether students
+
+complied with the comments.
+
+
+Q7. If the system shows a follow-up checklist in later rounds, would that help? Why/why
+
+not?​
+
+A: “Yeah, it would help… aside from me reminding the students, they will always look into the
+
+parts of the rubrics… these are the areas that need to be improved.”
+
+
+Q8. If not, how should follow-up be done instead?​
+
+A: The interviewee stated that the checklist approach is helpful and agreed with it: “I would like
+
+to go to seven because it can help… I agree.”
+
+
+04:40 – 07:10 | SOP 3 — Different judge roles need different rubrics
+
+Q9. Do different judge roles (technical, presentation, etc.) need different scoring criteria?
+
+Why?​
+                                                                                                47
+
+
+A: The interviewee shared that in her previous experience, panel members used the same criteria,
+
+while she had a separate scoring portion as the instructor. The weighting was: panel = 75% and
+
+instructor = 25%, combined to make 100%.
+
+
+Q10. If the system provides different rubrics by role, would that make scoring fairer or
+
+clearer? Why/why not?​
+
+A: “Yeah, I would say so.” She explained that role division can provide a more comprehensive
+
+result (technical judged by technical experts, documentation judged by documentation experts),
+
+and combining them helps projects meet standards.
+
+
+Q11. If not, what rubric setup would you recommend?​
+
+A: Not directly answered (the interviewee focused mainly on supporting role-based division).
+
+
+07:10 – 12:40 | SOP 4 — Document problems
+
+Q12. Do you face document problems (late files, wrong version, scattered links)? How does
+
+it affect evaluation?​
+
+A: The interviewee explained that early submissions are commonly not well aligned and require
+
+refinement through instructor guidance. However, students who submit very near to the defense
+
+are more likely to face serious issues because there is no time for improvement, and they may be
+
+“bombarded with a lot of questions” and not be ready. She emphasized weekly submission and
+
+close monitoring to prevent students from failing.
+
+
+Q13. If students upload documents into one place before the defense, would that help?
+
+Why/why not?​
+
+A: The interviewee asked for clarification of “one place,” then agreed it is good: “I think that is
+                                                                                               48
+
+
+also good… It just gives convenience to the judge.” She stated it helps because both students and
+
+judges have one place, and comments can be placed there accordingly.
+
+
+Q14. If not, what is the best way to handle documents fairly?​
+
+A: Not separately answered (the interviewee already agreed with the “one place final
+
+submission” approach).
+
+
+12:40 – 14:40 | SOP 5/6 — Showcase voting + reporting
+
+Q15. For showcases, is voting/feedback and reporting results currently slow or
+
+inconvenient? If QR voting + dashboard existed, would it help? If not, what would you
+
+suggest?​
+
+A: The interviewee advised that this feature should follow department policy. She asked whether
+
+it was discussed with the advisor and whether it is necessary for the current study. She explained
+
+that if it is planned as a future innovation, it must be discussed with the department and aligned
+
+with future policy, and the researcher should check whether it will be accepted.
+
+
+14:40 – 15:00 | Closing
+
+Closing Remark (Interviewee): “Thank you very much. Good luck.”​
+
+The interviewee also mentioned: “My schedule is on the 31st.”
+
+
+Interview End Time: 15:00
+
+
+Closing Notes
+Summary of Key Points
+
+   1.​ Rubric feedback is not difficult for the interviewee when the rubric is properly explained;
+
+       however, a short summary can still help as support.
+                                                                                               49
+
+
+   2.​ A follow-up checklist across rounds can help students remember and comply with
+
+       improvements.
+
+
+   3.​ Role-based scoring (panel vs instructor) can make results clearer and more
+
+       comprehensive (75% + 25% = 100%).
+
+
+   4.​ A single place for final documents before defense is useful for convenience and shared
+
+       judge access; late submissions cause major problems.
+
+
+   5.​ Showcase QR voting/dashboard should follow department policy and be discussed for
+
+       acceptance.
+
+
+Action Items / Follow-up
+
+   1.​ Consider implementing a follow-up checklist feature tied to rubric areas for later rounds.
+
+
+   2.​ Implement a “final document upload in one place” feature for judges to access during the
+
+       defense.
+
+
+   3.​ If adding showcase QR voting, coordinate with the advisor and department policy
+
+       approval.
+
+
+
+
+APPENDIX B
+
+
+Research Interview Transcript (Intelligent Verbatim)
+
+Study Title: Scormetry 2.0: AI Rubric Generation and Secure Document Management for
+
+Academic Evaluations​
+
+Interview Title: Interview Questions for Conducting Interview (SOP1–SOP5/6)​
+                                                                                              50
+
+
+Interview Date: 16 January 2026​
+
+Interview Time: 9:00 AM – 9:30 AM​
+
+Interviewee: Dr. Edward Maningo​
+
+Role/Position: Judge / Instructor​
+
+Interviewer: Menghong Lim​
+
+Interview Location/Mode: Online (Google Meet)​
+
+Recording Method: Audio Recording​
+
+Transcript Style: Intelligent Verbatim​
+
+Confidentiality: The interviewee’s identity will be kept confidential and the information will be
+
+used for academic purposes only.
+
+
+Transcript
+00:05 – 01:32 | SOP 1 — Feedback is long / hard to read
+
+Interviewer: Are rubric results or comments sometimes hard to understand quickly, sir? Why?​
+
+Interviewee: (Clarifies the question.)​
+
+Interviewer: If the system gives a short summary—main strengths, weaknesses, and key
+
+improvements—do you think that would help?​
+
+Interviewee: “Yes, it helps. It helps in making the summary.”
+
+
+01:34 – 03:28 | SOP 2 — Follow-up across rounds
+
+Interviewer: In multiple-round defense, is it hard to remember or check the promised
+
+improvements from earlier rounds?​
+
+Interviewee: “Yes, it’s very hard.”​
+
+Interviewer: If the system shows a follow-up checklist in later rounds (listing the improvements
+                                                                                                51
+
+
+from the previous round), would that help?​
+
+Interviewee: “Yes, definitely.”
+
+
+03:48 – 06:08 | SOP 3 — Different judge roles need different rubrics
+
+Interviewer: Do different judge roles (technical, presentation, etc.) need different scoring
+
+criteria, or should it be the same?​
+
+Interviewee: (Listens to examples.)​
+
+Interviewer: If the system provides different rubrics by role (e.g., presentation rubric vs defense
+
+rubric), would that make scoring fairer or clearer? Why?​
+
+Interviewee: “Yes, sir, yes.”
+
+
+07:08 – 08:53 | SOP 4 — Document problems
+
+Interviewer: Do you face document problems like late files, wrong versions, or scattered links?
+
+How does it affect evaluation?​
+
+Interviewee: (Acknowledges the question; response is brief in the recording.)​
+
+Interviewer: If students upload documents into one place before defense (each team uploads to
+
+one place), would that help? Why?​
+
+Interviewee: “Yes.” (Agreed it would help.)
+
+
+08:58 – 11:54 | SOP 5/6 — Showcase voting + reporting
+
+Interviewer: For showcase voting/feedback, are reporting results currently slow or
+
+inconvenient?​
+
+Interviewee: (Brief response.)​
+
+Interviewer: If I build QR code voting and a results dashboard (anonymous voting, results
+                                                                                             52
+
+
+shown in one dashboard), would that help?​
+
+Interviewee: “Yes, sir. Yes, sir. It should be anonymous.”
+
+
+12:08 – 14:08 | Closing
+
+Interviewer: I think you’ve answered all the questions. Thank you for your time, sir. See you in
+
+class.​
+
+Interviewee: “Yes, sir.”​
+
+Interviewer: Thank you for your participation. Goodbye, Sir.​
+
+Interviewee: “Thank you.”
+
+
+Note: Additional “thank you” audio appears again later around 21:30.
+
+
+Closing Notes
+Summary of Key Points
+
+    1.​ A short rubric summary (strengths, weaknesses, improvements) is helpful.
+
+
+    2.​ Follow-up across rounds is hard; a checklist would definitely help.
+
+
+    3.​ Different rubrics by judge role can make scoring clearer and fairer.
+
+
+    4.​ Uploading documents into one place before defense is helpful.
+
+
+    5.​ QR voting with an anonymous dashboard would help for showcases.
+
+
+Action Items / Follow-up
+
+    1.​ Add a summary feature for rubric feedback.
+
+
+    2.​ Add a follow-up checklist feature for later rounds.
+
+
+    3.​ Support role-based rubrics.
+                                                                                              53
+
+
+   4.​ Implement centralized document upload per team.
+
+
+   5.​ If implementing showcase voting, ensure anonymity.
+
+
+APPENDIX C
+
+
+Research Interview Transcript (Intelligent Verbatim)
+
+Study Title: Scormetry 2.0: AI Rubric Generation and Secure Document Management for
+
+Academic Evaluations​
+
+Interview Title: Looking for Suggestion and Reference Interview​
+
+Interview Date: 15 January 2026​
+
+Interview Time: 9:00 AM – 10:00 AM​
+
+Interviewee: Kimsongyean Thy​
+
+Role/Position: Developer of Scormetry Base​
+
+Interviewer: Menghong Lim​
+
+Interview Location/Mode: TK Central Office (3rd Floor)​
+
+Recording Method: Audio Recording​
+
+Transcript Style: Intelligent Verbatim​
+
+Confidentiality: The interviewee’s identity will be kept confidential and the information will be
+
+used for academic purposes only.
+
+
+Transcript
+00:00 – 00:26
+
+Interviewer: Okay, let’s start with the first question. In Scormetry Base, what was your role and
+
+main responsibility?​
+
+Interviewee: I was one of the core developers and researchers. My main responsibility was
+                                                                                                 54
+
+
+designing the workflow, writing documentation, developing key features, and validating the
+
+system through testing and evaluation.
+
+
+00:27 – 00:50
+
+Interviewer: Which ParagonIU evaluation scenario did you focus on most when building
+
+Scormetry Base?​
+
+Interviewee: Mostly MIT defense and academic presentations where multiple judges access
+
+teams using a rubric, and results must be consolidated.
+
+
+00:51 – 01:26
+
+Interviewer: You described manual score calculation as inconvenient, slow, and prone to error.
+
+Why is this a real problem at ParagonIU?​
+
+Interviewee: During real events, everything is time-limited and stressful. Manual consolidation
+
+takes time and increases mistakes, especially when there are many teams, judges, and criteria.
+
+
+01:27 – 01:58
+
+Interviewer: Why does spreadsheet-based evaluation become difficult at scale?​
+
+Interviewee: Spreadsheets are fine for small evaluations, but when scaling up, it becomes harder
+
+to manage formulas, sections, and access settings. Organizers also do a lot of manual checking,
+
+which increases workload.
+
+
+01:59 – 02:24
+
+Interviewer: You mentioned controlling judge access takes repetitive work. How does that
+
+happen in practice?​
+
+Interviewee: With spreadsheets, organizers manually set permissions, protect sheets, and share
+                                                                                                55
+
+
+access for each judge and team. When the number grows, it’s easy to make mistakes, like giving
+
+wrong access or allowing editing in the wrong place.
+
+
+02:25 – 03:20
+
+Interviewer: Why is it difficult for judges and students to quickly understand long rubric results
+
+and comments?​
+
+Interviewee: Because a rubric can have many criteria and comments from multiple judges.
+
+When feedback is long, it’s hard to identify the main strengths and key improvements quickly.
+
+
+03:21 – 03:55
+
+Interviewer: How can rubric summarization and feedback suggestions help in Scormetry 2.0?​
+
+Interviewee: It can give a quick overview of key points—strengths, weaknesses, and priority
+
+improvements—so users don’t need to read everything. Judges can review and edit before
+
+saving, so it stays controlled and accurate.
+
+
+03:56 – 04:21
+
+Interviewer: In multi-round defenses (proposal, midterm, final), what happens to promised
+
+improvements from earlier rounds?​
+
+Interviewee: Promises are often discussed verbally or written in different places, but there’s no
+
+consistent tracking method. In later rounds, some items are forgotten or repeated.
+
+
+04:22 – 04:44
+
+Interviewer: How can checklist-style follow-up questions improve tracking in Scormetry 2.0?​
+
+Interviewee: We can turn promised improvements into checklist questions for later rounds, so
+
+judges can confirm progress consistently and students can show evidence of improvement.
+                                                                                                56
+
+
+04:45 – 05:15
+
+Interviewer: Why is it important to align the rubric with judge roles (technical vs presentation)?​
+
+Interviewee: Different judges evaluate different aspects. If everyone uses the same rubric, it may
+
+not match their responsibility, which reduces fairness and accuracy.
+
+
+05:16 – 05:55
+
+Interviewer: How can role-based rubric generation help Scormetry 2.0 solve this?​
+
+Interviewee: It allows different rubric templates per judge role, and organizers can edit criteria
+
+and weightage. This makes evaluation aligned with the role and goal of each activity.
+
+
+05:56 – 06:25
+
+Interviewer: What document problems did you observe during ParagonIU defenses?​
+
+Interviewee: Files are shared across multiple platforms. Sometimes they’re shared late, and
+
+judges may open the wrong version during evaluation. It wastes time and can affect fairness.
+
+
+06:26 – 06:55
+
+Interviewer: How can student document upload help reduce these issues in Scormetry 2.0?​
+
+Interviewee: If each team uploads files centrally inside the system, judges can access the correct
+
+document before and during the defense. That reduces confusion and improves preparation.
+
+
+06:56 – 07:35
+
+Interviewer: In showcase events, what problem happens with manual or informal voting
+
+feedback?​
+
+Interviewee: Participation is usually low because voting is inconvenient, and collecting
+
+feedback manually takes time. Results can also be unclear or delayed.
+                                                                                               57
+
+
+07:36 – 08:10
+
+Interviewer: How can QR voting with anonymous/identified mode help?​
+
+Interviewee: It’s fast and convenient—people can vote using their phone. If the system supports
+
+anonymous or identified options, organizers can choose based on the event type.
+
+
+08:11 – 08:45
+
+Interviewer: Why is reporting showcase results difficult when voting is manual?​
+
+Interviewee: Manual counting takes time, can produce errors, and it’s hard to generate rankings
+
+or summaries quickly.
+
+
+08:46 – 09:20
+
+Interviewer: How can a voting dashboard help reporting?​
+
+Interviewee: A dashboard can generate results instantly. Organizers can decide and report
+
+quickly, and exporting helps share results clearly.
+
+
+09:21 – 09:55
+
+Interviewer: Since Scormetry 2.0 uses AI, what strict rule ensures judges remain the final
+
+decision maker?​
+
+Interviewee: AI should be suggestions only. Judges must always review and edit output before
+
+saving. The system should clearly label AI output as not final evaluation.
+
+
+09:56 – 10:30
+
+Interviewer: Based on Scormetry Base findings, why is Scormetry 2.0 a reasonable next step for
+
+ParagonIU?​
+
+Interviewee: Scormetry improved tabulation efficiency, but real evaluations still face issues like
+                                                                                                   58
+
+
+feedback clarity, follow-up tracking, role-based rubric needs, document handling, and showcase
+
+feedback collection. Scormetry 2.0 can address these better.
+
+
+10:31 – 10:45
+
+Interviewer: Thank you for today. I will transcribe this recording and send it for your e-sign.​
+
+Interviewee: Okay.
+
+
+Closing Notes
+Summary of Key Points
+
+   1.​ Manual scoring and spreadsheet scaling cause delays, errors, and heavy organizer
+
+       workload.
+
+
+   2.​ Feedback should be easier to digest through summarization and structured follow-up
+
+       tracking.
+
+
+   3.​ Role-based rubrics and centralized document upload improve fairness and readiness.
+
+
+   4.​ Showcase voting can be improved through QR voting and automated dashboards.
+
+
+   5.​ AI outputs must remain suggestions only; judges must review before saving.
+
+
+Action Items / Follow-up
+
+   1.​ Send the transcript to the interviewee for e-signature.
+
+
+   2.​ Align the transcript insights with SOP modules and Scormetry 2.0 feature requirements.
+
+
+Interview End Time: ~9:45 AM
+59
+

@@ -1,0 +1,145 @@
+- generic [ref=e2]:
+  - generic [ref=e213]:
+    - generic [ref=e216]:
+      - list [ref=e218]:
+        - listitem [ref=e219]:
+          - link "Scormetry" [ref=e220] [cursor=pointer]:
+            - /url: /dashboard
+            - img [ref=e222]
+            - generic [ref=e229]: Scormetry
+      - generic [ref=e230]:
+        - generic [ref=e231]:
+          - generic [ref=e232]: Dashboard
+          - list [ref=e233]:
+            - listitem [ref=e234]:
+              - link "Dashboard" [ref=e235] [cursor=pointer]:
+                - /url: /dashboard
+                - img [ref=e236]
+                - generic [ref=e241]: Dashboard
+        - generic [ref=e242]:
+          - generic [ref=e243]: Academic Management
+          - list [ref=e244]:
+            - listitem [ref=e245]:
+              - link "Subjects" [ref=e246] [cursor=pointer]:
+                - /url: /subjects
+                - img [ref=e247]
+                - generic [ref=e249]: Subjects
+            - listitem [ref=e250]:
+              - link "Papers" [ref=e251] [cursor=pointer]:
+                - /url: /papers
+                - img [ref=e252]
+                - generic [ref=e255]: Papers
+        - generic [ref=e256]:
+          - generic [ref=e257]: Admin Panel
+          - list [ref=e258]:
+            - listitem [ref=e259]:
+              - link "Admin Dashboard" [ref=e260] [cursor=pointer]:
+                - /url: /admin/dashboard
+                - img [ref=e261]
+                - generic [ref=e266]: Admin Dashboard
+            - listitem [ref=e267]:
+              - link "Classroom Management" [ref=e268] [cursor=pointer]:
+                - /url: /admin/classrooms
+                - img [ref=e269]
+                - generic [ref=e271]: Classroom Management
+            - listitem [ref=e272]:
+              - link "User Management" [ref=e273] [cursor=pointer]:
+                - /url: /admin/users
+                - img [ref=e274]
+                - generic [ref=e279]: User Management
+            - listitem [ref=e280]:
+              - link "Settings" [ref=e281] [cursor=pointer]:
+                - /url: /admin/settings
+                - img [ref=e282]
+                - generic [ref=e285]: Settings
+        - generic [ref=e286]:
+          - generic [ref=e288]: "Dev: Role View"
+          - generic [ref=e290]:
+            - button "admin" [ref=e291]
+            - button "teacher" [ref=e292]
+            - button "student" [ref=e293]
+      - list [ref=e297]:
+        - listitem [ref=e298]:
+          - link "Settings" [ref=e299] [cursor=pointer]:
+            - /url: /settings/profile
+            - img [ref=e300]
+            - generic [ref=e303]: Settings
+    - main [ref=e304]:
+      - generic [ref=e306]:
+        - button "Toggle sidebar" [ref=e308]:
+          - img
+          - generic [ref=e309]: Toggle sidebar
+        - generic [ref=e314]:
+          - button [ref=e315]:
+            - img
+          - button "A Admin" [ref=e316]:
+            - generic [ref=e318]: A
+            - generic [ref=e319]: Admin
+            - img [ref=e320]
+      - generic [ref=e323]:
+        - generic [ref=e1536]:
+          - link "Back to FYP Defense AY2025-2026" [ref=e1538] [cursor=pointer]:
+            - /url: /subjects/5
+            - img
+            - text: Back to FYP Defense AY2025-2026
+          - generic [ref=e1540]:
+            - img [ref=e1542]
+            - generic [ref=e1546]:
+              - generic [ref=e1547]:
+                - heading "Rubric — FYP Defense AY2025-2026" [level=1] [ref=e1548]
+                - generic [ref=e1549]: Locked
+              - paragraph [ref=e1550]: Managed by teacher1
+          - generic [ref=e1551]:
+            - generic [ref=e1552]:
+              - img [ref=e1554]
+              - generic [ref=e1557]: Upload
+            - generic [ref=e1559]:
+              - img [ref=e1561]
+              - generic [ref=e1564]: Verify
+            - generic [ref=e1566]:
+              - generic [ref=e1568]: "3"
+              - generic [ref=e1569]: Locked
+          - paragraph [ref=e1570]: Rubric is locked and ready for reviews. Structure cannot be changed.
+          - generic [ref=e1571]:
+            - generic [ref=e1573]:
+              - heading "Rubric Criteria (4)" [level=3] [ref=e1574]
+              - generic [ref=e1575]:
+                - generic [ref=e1576]: "Total max: 16"
+                - generic [ref=e1577]:
+                  - text: "Weight: 100%"
+                  - img [ref=e1578]
+            - table [ref=e1582]:
+              - rowgroup [ref=e1583]:
+                - row "# Criteria Max Score Weight" [ref=e1584]:
+                  - columnheader "#" [ref=e1585]
+                  - columnheader "Criteria" [ref=e1586]
+                  - columnheader "Max Score" [ref=e1587]
+                  - columnheader "Weight" [ref=e1588]
+              - rowgroup [ref=e1589]:
+                - row "1 Presentation Content 4 30%" [ref=e1590]:
+                  - cell "1" [ref=e1591]
+                  - cell "Presentation Content" [ref=e1592]
+                  - cell "4" [ref=e1593]
+                  - cell "30%" [ref=e1594]:
+                    - generic [ref=e1595]: 30%
+                - row "2 System Demonstration 4 30%" [ref=e1596]:
+                  - cell "2" [ref=e1597]
+                  - cell "System Demonstration" [ref=e1598]
+                  - cell "4" [ref=e1599]
+                  - cell "30%" [ref=e1600]:
+                    - generic [ref=e1601]: 30%
+                - row "3 Technical Implementation 4 25%" [ref=e1602]:
+                  - cell "3" [ref=e1603]
+                  - cell "Technical Implementation" [ref=e1604]
+                  - cell "4" [ref=e1605]
+                  - cell "25%" [ref=e1606]:
+                    - generic [ref=e1607]: 25%
+                - row "4 Q&A / Defense 4 15%" [ref=e1608]:
+                  - cell "4" [ref=e1609]
+                  - cell "Q&A / Defense" [ref=e1610]
+                  - cell "4" [ref=e1611]
+                  - cell "15%" [ref=e1612]:
+                    - generic [ref=e1613]: 15%
+        - generic [ref=e471]: All rights reserved. Copyright © 2010 - 2026 | Paragon International University | Phnom Penh - Cambodia | Privacy Policy
+  - region "Notifications alt+T":
+    - list
