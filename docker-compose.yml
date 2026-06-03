@@ -1,0 +1,49 @@
+services:
+  app:
+    build: .
+    image: scormetry-app
+    restart: unless-stopped
+    env_file: .env
+    environment:
+      RUN_MIGRATIONS: "true"
+    ports:
+      - "80:80"
+    volumes:
+      - storage-app:/var/www/html/storage/app
+    depends_on:
+      - db
+
+  worker:
+    image: scormetry-app
+    restart: unless-stopped
+    env_file: .env
+    command: php artisan queue:work --sleep=3 --tries=3 --timeout=0
+    volumes:
+      - storage-app:/var/www/html/storage/app
+    depends_on:
+      - app
+
+  scheduler:
+    image: scormetry-app
+    restart: unless-stopped
+    env_file: .env
+    command: php artisan schedule:work
+    volumes:
+      - storage-app:/var/www/html/storage/app
+    depends_on:
+      - app
+
+  db:
+    image: mysql:8.0
+    restart: unless-stopped
+    environment:
+      MYSQL_DATABASE: ${DB_DATABASE:-scormetry}
+      MYSQL_USER: ${DB_USERNAME:-scormetry}
+      MYSQL_PASSWORD: ${DB_PASSWORD:-secret}
+      MYSQL_ROOT_PASSWORD: ${DB_PASSWORD:-secret}
+    volumes:
+      - db-data:/var/lib/mysql
+
+volumes:
+  db-data:
+  storage-app:
