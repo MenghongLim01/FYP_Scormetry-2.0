@@ -4,17 +4,15 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        {{-- Inline script to apply the saved theme before the app renders --}}
+        {{-- Inline script to apply the saved theme before the app renders.
+             Scormetry defaults to LIGHT mode and never follows the OS theme;
+             dark mode applies only when the user explicitly saved 'dark'. --}}
         <script>
             (function() {
-                const serverAppearance = @json($appearance ?? 'system');
-                const allowed = ['light', 'dark', 'system'];
+                const serverAppearance = @json($appearance ?? 'light');
                 const localAppearance = window.localStorage.getItem('appearance');
-                const appearance = allowed.includes(localAppearance)
-                    ? localAppearance
-                    : (allowed.includes(serverAppearance) ? serverAppearance : 'system');
-                const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-                const isDark = appearance === 'dark' || (appearance === 'system' && prefersDark);
+                const saved = localAppearance ?? serverAppearance;
+                const isDark = saved === 'dark';
 
                 document.documentElement.classList.toggle('dark', isDark);
                 document.documentElement.dataset.theme = isDark ? 'dark' : 'light';
@@ -33,9 +31,9 @@
             }
         </style>
 
-        <link rel="icon" href="/favicon.ico" sizes="any">
-        <link rel="icon" href="/favicon.svg" type="image/svg+xml">
-        <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+        <link rel="icon" href="/favicon.ico?v=2" sizes="any">
+        <link rel="icon" href="/favicon.svg?v=2" type="image/svg+xml">
+        <link rel="apple-touch-icon" href="/apple-touch-icon.png?v=2">
 
         <link rel="preconnect" href="https://fonts.bunny.net">
         <link href="https://fonts.bunny.net/css?family=instrument-sans:400,500,600" rel="stylesheet" />

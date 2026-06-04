@@ -10,11 +10,14 @@ export type UseAppearanceReturn = {
     updateAppearance: (value: Appearance) => void;
 };
 
-const validAppearances = ['light', 'dark', 'system'] as const;
-const prefersDarkQuery = '(prefers-color-scheme: dark)';
+// Scormetry only supports two explicit themes. It deliberately does NOT follow
+// the operating system's prefers-color-scheme — the app always defaults to light
+// and only switches to dark when the user explicitly chooses it.
+const validAppearances = ['light', 'dark'] as const;
+const DEFAULT_APPEARANCE: Appearance = 'light';
 
 function isAppearance(value: string | null): value is Appearance {
-    return validAppearances.includes(value as Appearance);
+    return validAppearances.includes(value as (typeof validAppearances)[number]);
 }
 
 const setCookie = (name: string, value: string, days = 365) => {
@@ -35,13 +38,10 @@ function cookieAppearance(): Appearance | null {
     return isAppearance(value) ? value : null;
 }
 
-function osPrefersDark(): boolean {
-    return typeof window !== 'undefined'
-        && window.matchMedia(prefersDarkQuery).matches;
-}
-
+// Resolve the saved preference. Anything that isn't an explicit valid theme
+// (no value, legacy 'system', invalid) falls back to light.
 function storedAppearance(): Appearance {
-    if (typeof window === 'undefined') return 'system';
+    if (typeof window === 'undefined') return DEFAULT_APPEARANCE;
 
     const localValue = localStorage.getItem('appearance');
 
@@ -49,11 +49,10 @@ function storedAppearance(): Appearance {
         return localValue;
     }
 
-    return cookieAppearance() ?? 'system';
+    return cookieAppearance() ?? DEFAULT_APPEARANCE;
 }
 
-const systemPrefersDark = ref(osPrefersDark());
-const appearance = ref<Appearance>('system');
+const appearance = ref<Appearance>(DEFAULT_APPEARANCE);
 
 function applyResolvedTheme(resolved: ResolvedAppearance): void {
     if (typeof window === 'undefined') return;
@@ -66,59 +65,41 @@ function applyResolvedTheme(resolved: ResolvedAppearance): void {
 }
 
 export function resolvedTheme(value: Appearance): ResolvedAppearance {
-    return value === 'system'
-        ? (osPrefersDark() ? 'dark' : 'light')
-        : value;
+    // Only an explicit 'dark' resolves to dark; everything else is light.
+    return value === 'dark' ? 'dark' : 'light';
 }
 
 export function updateTheme(value: Appearance): void {
     if (typeof window === 'undefined') return;
 
-    systemPrefersDark.value = osPrefersDark();
     applyResolvedTheme(resolvedTheme(value));
 }
 
-function syncSystemTheme() {
-    const stored = storedAppearance();
-    appearance.value = stored;
-    systemPrefersDark.value = osPrefersDark();
-
-    if (stored === 'system') {
-        applyResolvedTheme(systemPrefersDark.value ? 'dark' : 'light');
-    }
+// Keep the theme in sync across tabs/windows (e.g. the user toggles it
+// elsewhere). This reads the persisted Scormetry preference only — never the OS.
+function syncStoredTheme() {
+    appearance.value = storedAppearance();
+    updateTheme(appearance.value);
 }
 
 if (typeof window !== 'undefined') {
-    window.matchMedia(prefersDarkQuery).addEventListener('change', syncSystemTheme);
-
-    window.addEventListener('focus', syncSystemTheme);
-    window.addEventListener('storage', syncSystemTheme);
-
-    document.addEventListener('visibilitychange', () => {
-        if (document.visibilityState === 'visible') syncSystemTheme();
-    });
+    window.addEventListener('storage', syncStoredTheme);
 }
 
 export function initializeTheme(): void {
     if (typeof window === 'undefined') return;
 
     appearance.value = storedAppearance();
-    systemPrefersDark.value = osPrefersDark();
     updateTheme(appearance.value);
 }
 
 export function useAppearance(): UseAppearanceReturn {
     onMounted(() => {
         appearance.value = storedAppearance();
-        systemPrefersDark.value = osPrefersDark();
         updateTheme(appearance.value);
     });
 
-    const resolvedAppearance = computed<ResolvedAppearance>(() =>
-        appearance.value === 'system'
-            ? (systemPrefersDark.value ? 'dark' : 'light')
-            : appearance.value,
-    );
+    const resolvedAppearance = computed<ResolvedAppearance>(() => resolvedTheme(appearance.value));
 
     function updateAppearance(value: Appearance) {
         appearance.value = value;

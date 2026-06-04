@@ -107,17 +107,23 @@ class AssignedTeamsController extends Controller
                         ->reject(fn ($member) => $reviewerIds->contains($member->id))
                         ->map(fn ($member) => ['id' => $member->id, 'name' => $member->name, 'email' => $member->email])
                         ->values(),
-                    'paper'  => $paper ? ['id' => $paper->id, 'visibility_status' => $paper->visibility_status] : null,
+                    'paper' => $paper ? ['id' => $paper->id, 'visibility_status' => $paper->visibility_status] : null,
                     'review' => $review ? [
-                        'id'           => $review->id,
+                        'id' => $review->id,
                         'is_submitted' => $review->is_submitted,
-                        'locked_at'    => $review->locked_at?->toISOString(),
-                        'unlocked_at'  => $review->unlocked_at?->toISOString(),
-                        'scores_json'  => $review->scores_json,
+                        'locked_at' => $review->locked_at?->toISOString(),
+                        'unlocked_at' => $review->unlocked_at?->toISOString(),
+                        'scores_json' => $review->scores_json,
                     ] : null,
                 ];
             }),
             'ownedTeams' => $ownedTeams,
+            'googleCalendar' => [
+                'connected' => $user->hasGoogleCalendarConnected(),
+                'email' => $user->googleCalendarConnection?->isActive()
+                    ? $user->googleCalendarConnection->google_email
+                    : null,
+            ],
         ]);
     }
 

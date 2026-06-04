@@ -1,9 +1,9 @@
 <script setup lang="ts">
-import { Head, Link } from '@inertiajs/vue3';
+import { Head, Link, router, usePage } from '@inertiajs/vue3';
 import {
     Calendar, FileText, Users, BookOpen, Clock, CheckCircle2, AlertCircle,
     Lock, ClipboardCheck, ChevronLeft, ChevronRight, ArrowRight, Pencil,
-    Star, Send, LayoutList, CalendarDays,
+    Star, Send, LayoutList, CalendarDays, CalendarCheck2, Unlink,
 } from 'lucide-vue-next';
 import { Button } from '@/components/ui/button';
 import { Separator } from '@/components/ui/separator';
@@ -56,7 +56,17 @@ type OwnedTeam = {
 const props = defineProps<{
     teams: AssignedTeam[];
     ownedTeams: OwnedTeam[];
+    googleCalendar: { connected: boolean; email: string | null };
 }>();
+
+// ── Google Calendar connection ────────────────────────────────────────────────
+const page = usePage();
+const calendarError = computed(() => (page.props.flash as { error?: string | null } | undefined)?.error ?? null);
+
+function disconnectCalendar() {
+    if (!confirm('Disconnect Google Calendar? Your synced defense events will be removed from your calendar.')) return;
+    router.delete('/google-calendar/disconnect', { preserveScroll: true });
+}
 
 // ── Calendar constants ────────────────────────────────────────────────────────
 const HOUR_HEIGHT = 64; // px per hour
@@ -402,6 +412,46 @@ function scoreColor(score: number): string {
 
         <!-- Floating content -->
         <div class="relative z-10 -mt-12 flex flex-col gap-5 px-6 pb-6">
+
+        <!-- Google Calendar connection -->
+        <div class="rounded-2xl border bg-card p-4 shadow-md">
+            <div class="flex flex-wrap items-center justify-between gap-3">
+                <div class="flex items-center gap-3">
+                    <div class="flex h-10 w-10 items-center justify-center rounded-xl"
+                        :class="googleCalendar.connected ? 'bg-emerald-50 dark:bg-emerald-950' : 'bg-muted'">
+                        <CalendarCheck2 class="h-5 w-5"
+                            :class="googleCalendar.connected ? 'text-emerald-600 dark:text-emerald-400' : 'text-muted-foreground'" />
+                    </div>
+                    <div>
+                        <p class="text-sm font-semibold">
+                            <template v-if="googleCalendar.connected">Google Calendar connected</template>
+                            <template v-else>Connect Google Calendar</template>
+                        </p>
+                        <p class="text-xs text-muted-foreground">
+                            <template v-if="googleCalendar.connected">
+                                Synced to {{ googleCalendar.email }} — approved defense sessions appear in your calendar automatically.
+                            </template>
+                            <template v-else>
+                                Add your approved defense sessions to your personal Google Calendar. Uses the same Google account you sign in with.
+                            </template>
+                        </p>
+                    </div>
+                </div>
+                <div class="flex items-center gap-2">
+                    <a v-if="!googleCalendar.connected" href="/google-calendar/connect">
+                        <Button size="sm">
+                            <CalendarCheck2 class="mr-1.5 h-4 w-4" /> Connect Google Calendar
+                        </Button>
+                    </a>
+                    <Button v-else size="sm" variant="outline" @click="disconnectCalendar">
+                        <Unlink class="mr-1.5 h-4 w-4" /> Disconnect
+                    </Button>
+                </div>
+            </div>
+            <p v-if="calendarError" class="mt-3 flex items-center gap-1.5 rounded-lg bg-red-50 px-3 py-2 text-xs font-medium text-red-700 dark:bg-red-950/50 dark:text-red-400">
+                <AlertCircle class="h-3.5 w-3.5 shrink-0" /> {{ calendarError }}
+            </p>
+        </div>
 
         <!-- Empty state — only when there are truly no teams at all -->
         <div v-if="activeTeams.length === 0" class="flex flex-col items-center justify-center rounded-2xl border border-dashed bg-card py-20 text-center shadow-md">

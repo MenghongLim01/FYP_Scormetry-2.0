@@ -48,6 +48,9 @@ return [
         'client_id' => env('GOOGLE_CLIENT_ID'),
         'client_secret' => env('GOOGLE_CLIENT_SECRET'),
         'redirect' => env('GOOGLE_REDIRECT_URI', '/auth/google/callback'),
+        // Separate redirect for the optional Google Calendar connection flow.
+        // This URI must be added to the OAuth client's Authorized redirect URIs.
+        'calendar_redirect' => env('GOOGLE_CALENDAR_REDIRECT_URI', '/google-calendar/callback'),
     ],
 
 ];

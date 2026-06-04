@@ -16,7 +16,12 @@ class HandleAppearance
      */
     public function handle(Request $request, Closure $next): Response
     {
-        View::share('appearance', $request->cookie('appearance') ?? 'system');
+        // Scormetry defaults to light mode and never follows the OS theme.
+        // Only an explicit 'dark' preference is honoured; everything else
+        // (no cookie, legacy 'system', or invalid values) falls back to light.
+        $appearance = $request->cookie('appearance') === 'dark' ? 'dark' : 'light';
+
+        View::share('appearance', $appearance);
 
         return $next($request);
     }

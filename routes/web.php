@@ -14,6 +14,7 @@ use App\Http\Controllers\Admin\UserController as AdminUserController;
 use App\Http\Controllers\AssignedTeamsController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\DefenseAttemptController;
+use App\Http\Controllers\GoogleCalendarController;
 use App\Http\Controllers\InvitationController;
 use App\Http\Controllers\NotificationController;
 use App\Http\Controllers\OtpChallengeController;
@@ -87,6 +88,12 @@ Route::middleware(['auth', 'verified'])->group(function () {
         // Teams
         Route::get('teams', [TeamController::class, 'index'])->name('teams.index');
         Route::get('assigned-teams', [AssignedTeamsController::class, 'index'])->name('teams.assigned');
+
+        // Optional Google Calendar connection (judge workspace). Separate from
+        // login — the calendar scope is only ever requested here.
+        Route::get('google-calendar/connect', [GoogleCalendarController::class, 'connect'])->name('google-calendar.connect');
+        Route::get('google-calendar/callback', [GoogleCalendarController::class, 'callback'])->name('google-calendar.callback');
+        Route::delete('google-calendar/disconnect', [GoogleCalendarController::class, 'disconnect'])->name('google-calendar.disconnect');
         Route::post('subjects/{subject}/teams', [TeamController::class, 'store'])->name('teams.store');
         Route::patch('teams/{team}/topic', [TeamController::class, 'updateTopic'])->name('teams.topic.update');
         Route::delete('teams/{team}', [TeamController::class, 'destroy'])->name('teams.destroy');

@@ -2,18 +2,22 @@
 
 namespace App\Http\Controllers;
 
+use App\Jobs\RemoveDefenseCalendarEvent;
+use App\Jobs\SyncDefenseCalendarEvent;
 use App\Mail\DefenseScheduledMail;
 use App\Mail\ResultReleasedMail;
 use App\Models\DefenseAttempt;
 use App\Models\DefenseAttemptReviewer;
 use App\Models\DefensePeriod;
+use App\Models\GoogleCalendarEvent;
 use App\Models\Review;
 use App\Models\SubjectMember;
 use App\Models\User;
+use App\Support\Notify;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
-use Illuminate\Support\Collection;
 use Illuminate\Support\Carbon;
+use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Mail;
 
 class DefenseAttemptController extends Controller
@@ -103,6 +107,13 @@ class DefenseAttemptController extends Controller
                 Mail::to($recipient->email)->queue(new DefenseScheduledMail($defenseAttempt, $changeType, $calendarSchedule));
             }
 
+            // Mirror the change into connected judges' Google Calendars.
+            if ($changeType === 'cancelled') {
+                $this->removeCalendarForAttempt($defenseAttempt);
+            } else {
+                $this->syncCalendarForActiveReviewers($defenseAttempt);
+            }
+
             return back()->with('success', match ($changeType) {
                 'cancelled' => 'Defense schedule cancelled and calendar updates sent.',
                 'updated' => 'Defense schedule updated and calendar invites sent.',
@@ -166,6 +177,7 @@ class DefenseAttemptController extends Controller
 
         $reviewer = User::findOrFail($validated['reviewer_id']);
         $calendarInviteSent = $this->sendScheduleInviteToReviewer($defenseAttempt, $reviewer);
+        SyncDefenseCalendarEvent::dispatch($defenseAttempt->id, $reviewer->id, $committeeRole);
 
         return back()->with('success', $calendarInviteSent
             ? 'Reviewer assigned as '.$committeeRole.' for '.$defenseAttempt->label.' and calendar invite sent.'
@@ -249,6 +261,7 @@ class DefenseAttemptController extends Controller
         $defenseAttempt->team->members()->syncWithoutDetaching([$user->id]);
 
         $calendarInviteSent = $this->sendScheduleInviteToReviewer($defenseAttempt, $user);
+        SyncDefenseCalendarEvent::dispatch($defenseAttempt->id, $user->id, $committeeRole);
 
         return back()->with('success', $calendarInviteSent
             ? $user->name.' can now access this team room. Calendar invite sent.'
@@ -353,6 +366,8 @@ class DefenseAttemptController extends Controller
             $defenseAttempt->team->members()->detach($user->id);
         }
 
+        $this->refreshCalendarAfterRoleRemoval($defenseAttempt, $user->id);
+
         return back()->with('success', $user->name.' request rejected.');
     }
 
@@ -416,6 +431,8 @@ class DefenseAttemptController extends Controller
             $defenseAttempt->team->members()->detach($user->id);
         }
 
+        $this->refreshCalendarAfterRoleRemoval($defenseAttempt, $user->id);
+
         return back()->with('success', 'Scoring role unassigned from this defense session.');
     }
 
@@ -440,7 +457,7 @@ class DefenseAttemptController extends Controller
         $students = $defenseAttempt->team->members->filter(
             fn ($member) => ! $subject->reviewers()->where('users.id', $member->id)->exists(),
         );
-        \App\Support\Notify::many(
+        Notify::many(
             $students,
             'Upload window extended',
             'Your instructor reopened the paper upload for '.$defenseAttempt->label.' until '.$until->format('M j, g:i A').'.',
@@ -473,6 +490,11 @@ class DefenseAttemptController extends Controller
         }
 
         $label = $defenseAttempt->label;
+
+        // Remove any synced Google Calendar events before the attempt (and its
+        // tracking rows) are deleted.
+        $this->removeCalendarForAttempt($defenseAttempt);
+
         $defenseAttempt->delete();
 
         return back()->with('success', $label.' removed.');
@@ -540,7 +562,7 @@ class DefenseAttemptController extends Controller
             Mail::to($student)->send(new ResultReleasedMail($defenseAttempt->team));
         }
 
-        \App\Support\Notify::many(
+        Notify::many(
             $students,
             'Your results are available',
             'Results for '.$defenseAttempt->label.' ('.$subject->title.') have been released.',
@@ -573,6 +595,81 @@ class DefenseAttemptController extends Controller
             'reminder_24h_sent_at' => $defenseAttempt->reminder_24h_sent_at,
             'reminder_1h_sent_at' => $defenseAttempt->reminder_1h_sent_at,
         ]);
+    }
+
+    /**
+     * Push (create/update) the Google Calendar event for every active reviewer
+     * who has connected their calendar. Reviewers without a connection are
+     * untouched here — they still receive the .ics email invite as a fallback.
+     */
+    private function syncCalendarForActiveReviewers(DefenseAttempt $defenseAttempt): void
+    {
+        $defenseAttempt->loadMissing('activeReviewerAssignments.reviewer');
+
+        foreach ($defenseAttempt->activeReviewerAssignments as $assignment) {
+            SyncDefenseCalendarEvent::dispatch(
+                $defenseAttempt->id,
+                $assignment->reviewer_id,
+                $assignment->committee_role,
+            );
+        }
+    }
+
+    /**
+     * Remove every synced Google Calendar event for this attempt (used when a
+     * defense is cancelled or the attempt is deleted).
+     */
+    private function removeCalendarForAttempt(DefenseAttempt $defenseAttempt): void
+    {
+        $events = GoogleCalendarEvent::where('defense_attempt_id', $defenseAttempt->id)
+            ->whereNotNull('google_event_id')
+            ->get();
+
+        foreach ($events as $event) {
+            RemoveDefenseCalendarEvent::dispatch($event->user_id, $event->google_event_id);
+        }
+
+        GoogleCalendarEvent::where('defense_attempt_id', $defenseAttempt->id)->delete();
+    }
+
+    /**
+     * After a role is removed/rejected, re-sync if the reviewer still holds an
+     * active responsibility on this attempt, otherwise remove their event.
+     */
+    private function refreshCalendarAfterRoleRemoval(DefenseAttempt $defenseAttempt, int $reviewerId): void
+    {
+        $remaining = $defenseAttempt->reviewerAssignments()
+            ->where('reviewer_id', $reviewerId)
+            ->where('status', 'active')
+            ->first();
+
+        if ($remaining) {
+            SyncDefenseCalendarEvent::dispatch($defenseAttempt->id, $reviewerId, $remaining->committee_role);
+
+            return;
+        }
+
+        $this->removeCalendarForReviewer($defenseAttempt, $reviewerId);
+    }
+
+    /**
+     * Remove a single reviewer's synced event for this attempt (used when a
+     * reviewer is unassigned or their request is rejected).
+     */
+    private function removeCalendarForReviewer(DefenseAttempt $defenseAttempt, int $reviewerId): void
+    {
+        $events = GoogleCalendarEvent::where('defense_attempt_id', $defenseAttempt->id)
+            ->where('user_id', $reviewerId)
+            ->whereNotNull('google_event_id')
+            ->get();
+
+        foreach ($events as $event) {
+            RemoveDefenseCalendarEvent::dispatch($event->user_id, $event->google_event_id);
+        }
+
+        GoogleCalendarEvent::where('defense_attempt_id', $defenseAttempt->id)
+            ->where('user_id', $reviewerId)
+            ->delete();
     }
 
     /**

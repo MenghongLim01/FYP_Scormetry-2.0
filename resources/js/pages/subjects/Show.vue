@@ -16,19 +16,20 @@ import { Input } from '@/components/ui/input';
 import { Separator } from '@/components/ui/separator';
 import ConfirmDialog from '@/components/ConfirmDialog.vue';
 import InfoTip from '@/components/InfoTip.vue';
+import SubjectStatsCards from '@/components/subjects/SubjectStatsCards.vue';
+import SubjectHero from '@/components/subjects/SubjectHero.vue';
 import { addMinutesToClockTime, formatClockTime, formatDateTimeWithAmPm } from '@/lib/utils';
 import {
     Dialog, DialogClose, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle, DialogTrigger,
 } from '@/components/ui/dialog';
 import { useAuth } from '@/composables/useAuth';
 import {
-    index as subjectsIndex, edit as subjectEdit,
+    index as subjectsIndex,
     addStudent as addStudentAction, removeStudent as removeStudentAction,
     addReviewer as addReviewerAction, removeReviewer as removeReviewerAction,
     resetJoinCode as resetJoinCodeAction, resetReviewerCode as resetReviewerCodeAction,
     approveMember as approveMemberAction, rejectMember as rejectMemberAction,
     approveAllReviewerRequests as approveAllReviewerRequestsAction,
-    destroy as subjectDestroy, leave as subjectLeave,
 } from '@/actions/App/Http/Controllers/SubjectController';
 import { create as rubricCreate, show as rubricShow, edit as rubricEdit } from '@/actions/App/Http/Controllers/RubricController';
 import { create as paperCreate, show as paperShow } from '@/actions/App/Http/Controllers/PaperController';
@@ -170,6 +171,7 @@ const props = defineProps<{
             student_members?: UserData[];
             review_panel?: UserData[];
             advisor?: UserData | null;
+            requests?: Array<{ id: number; role: string; email?: string | null; user?: { id: number; name?: string | null } | null }>;
         }>;
         reviewers: Array<{ id: number; name: string; email: string; pivot: { role: string; role_label: string | null } }>;
         pending_invitations: Array<{ id: number; email: string; committee_role: string; role_label: string | null }>;
@@ -271,26 +273,12 @@ function resetReviewerJoinCode() {
     });
 }
 
-const showDeleteDialog = ref(false);
-const showLeaveDialog = ref(false);
 const showEnrollStudentDialog = ref(false);
 const showInviteReviewerDialog = ref(false);
 const addMemberTeamId = ref<number | null>(null);
 // Shared "Add Student" dialog reachable from the Defense Sessions / rounds table
 // (the team cards have their own inline Add Student dialog).
 const addStudentTeam = ref<{ id: number; name: string } | null>(null);
-
-function deleteSubject() {
-    router.delete(subjectDestroy.url(props.subject.id), {
-        onSuccess: () => { showDeleteDialog.value = false; },
-    });
-}
-
-function leaveSubject() {
-    router.delete(subjectLeave.url(props.subject.id), {
-        onSuccess: () => { showLeaveDialog.value = false; },
-    });
-}
 
 const studentForm = useForm({ email: '' });
 function addStudent() {
@@ -2036,137 +2024,18 @@ function submitUnlock(reviewId: number) {
                 </Button>
             </div>
 
-            <!-- Subject hero banner -->
-            <div class="relative overflow-hidden rounded-2xl bg-gradient-to-br from-[#3157f4] via-[#3345e5] to-[#4631cf] px-6 py-5 text-white shadow-sm">
-                <div class="pointer-events-none absolute -right-8 -top-10 h-40 w-40 rounded-full bg-white/10" />
-                <div class="pointer-events-none absolute -bottom-10 right-28 h-28 w-28 rounded-full bg-white/10" />
-                <div class="pointer-events-none absolute bottom-0 right-0 h-32 w-44 rounded-tl-full bg-white/5" />
-
-                <div class="relative flex flex-col gap-3 lg:flex-row lg:items-start lg:justify-between">
-                    <div class="flex min-w-0 items-center gap-3">
-                        <div class="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-white/20 shadow-inner ring-2 ring-white/25">
-                            <BookOpen class="h-6 w-6 text-white" />
-                        </div>
-                        <div class="min-w-0">
-                            <h1 class="text-xl font-bold tracking-tight sm:text-2xl">{{ subject.title }}</h1>
-                            <p v-if="subject.description" class="mt-1 max-w-3xl text-sm text-white/75">{{ subject.description }}</p>
-                            <div class="mt-2 flex flex-wrap items-center gap-2 text-sm text-white/80">
-                                <span>Taught by <strong class="text-white">{{ subject.teacher.name }}</strong></span>
-                                <span class="h-1 w-1 rounded-full bg-white/40" />
-                                <span class="rounded-full bg-white/20 px-2.5 py-0.5 text-xs font-semibold text-white">Pass: {{ subject.passing_score }}%</span>
-                                <span
-                                    class="rounded-full px-2.5 py-0.5 text-xs font-semibold"
-                                    :class="subject.require_approval
-                                        ? 'bg-amber-300 text-amber-950'
-                                        : 'bg-emerald-400 text-emerald-950'"
-                                >
-                                    {{ subject.require_approval ? 'Approval Required' : 'Auto Join' }}
-                                </span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="flex shrink-0 items-center gap-2">
-                        <Button v-if="isOwnerOrAdmin" size="sm" class="gap-1.5 bg-white/20 text-white hover:bg-white/30" as-child>
-                            <Link :href="subjectEdit.url(subject.id)">
-                                <Pencil class="h-3.5 w-3.5" />
-                                Edit
-                            </Link>
-                        </Button>
-
-                        <Dialog v-if="isSubjectOwner" v-model:open="showDeleteDialog">
-                            <DialogTrigger as-child>
-                                <Button size="sm" class="gap-1.5 bg-rose-500 text-white hover:bg-rose-600">
-                                    <Trash2 class="h-3.5 w-3.5" />
-                                    Delete
-                                </Button>
-                            </DialogTrigger>
-                            <DialogContent>
-                                <DialogHeader>
-                                    <DialogTitle>Delete Subject</DialogTitle>
-                                    <DialogDescription>
-                                        Are you sure you want to delete <strong>"{{ subject.title }}"</strong>?
-                                        This will remove all teams, documents, and reviews permanently.
-                                    </DialogDescription>
-                                </DialogHeader>
-                                <DialogFooter>
-                                    <DialogClose as-child><Button variant="outline">Cancel</Button></DialogClose>
-                                    <Button variant="destructive" @click="deleteSubject">Delete Subject</Button>
-                                </DialogFooter>
-                            </DialogContent>
-                        </Dialog>
-
-                        <Dialog v-if="canLeave" v-model:open="showLeaveDialog">
-                            <DialogTrigger as-child>
-                                <Button size="sm" class="gap-1.5 bg-white/20 text-white hover:bg-white/30">
-                                    <LogOut class="h-3.5 w-3.5" />
-                                    Leave
-                                </Button>
-                            </DialogTrigger>
-                            <DialogContent>
-                                <DialogHeader>
-                                    <DialogTitle>Leave Subject</DialogTitle>
-                                    <DialogDescription>
-                                        Are you sure you want to leave <strong>"{{ subject.title }}"</strong>?
-                                        You will lose access to all documents and teams in this subject.
-                                    </DialogDescription>
-                                </DialogHeader>
-                                <DialogFooter>
-                                    <DialogClose as-child><Button variant="outline">Cancel</Button></DialogClose>
-                                    <Button variant="destructive" @click="leaveSubject">Leave Subject</Button>
-                                </DialogFooter>
-                            </DialogContent>
-                        </Dialog>
-                    </div>
-                </div>
-            </div>
+            <SubjectHero
+                :subject="subject"
+                :is-owner-or-admin="isOwnerOrAdmin"
+                :is-subject-owner="isSubjectOwner"
+                :can-leave="canLeave"
+            />
 
             <div
                 class="mt-3 grid gap-2.5"
                 :class="hasVisibleInviteCodes ? 'lg:grid-cols-[minmax(0,1fr)_minmax(340px,0.85fr)]' : 'lg:grid-cols-1'"
             >
-                <!-- Stats cards -->
-                <div
-                    class="grid grid-cols-2 gap-2"
-                    :class="hasVisibleInviteCodes ? '' : 'lg:grid-cols-4'"
-                >
-                    <div class="flex items-center gap-2.5 rounded-xl border border-slate-200 border-l-4 border-l-blue-500 bg-white px-3 py-2 shadow-sm dark:border-slate-800 dark:border-l-blue-500 dark:bg-background">
-                        <div class="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-blue-50 dark:bg-blue-950/40">
-                            <Users class="h-4 w-4 text-blue-600 dark:text-blue-400" />
-                        </div>
-                        <div>
-                            <p class="stat-num text-lg font-bold leading-none text-blue-600 dark:text-blue-400">{{ stats.students }}</p>
-                            <p class="mt-0.5 text-[10px] font-semibold uppercase tracking-wide text-muted-foreground">Students</p>
-                        </div>
-                    </div>
-                    <div class="flex items-center gap-2.5 rounded-xl border border-slate-200 border-l-4 border-l-violet-500 bg-white px-3 py-2 shadow-sm dark:border-slate-800 dark:border-l-violet-500 dark:bg-background">
-                        <div class="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-violet-50 dark:bg-violet-950/40">
-                            <ShieldCheck class="h-4 w-4 text-violet-600 dark:text-violet-400" />
-                        </div>
-                        <div>
-                            <p class="stat-num text-lg font-bold leading-none text-violet-600 dark:text-violet-400">{{ stats.reviewers }}</p>
-                            <p class="mt-0.5 text-[10px] font-semibold uppercase tracking-wide text-muted-foreground">Scoring roles</p>
-                        </div>
-                    </div>
-                    <div class="flex items-center gap-2.5 rounded-xl border border-slate-200 border-l-4 border-l-indigo-500 bg-white px-3 py-2 shadow-sm dark:border-slate-800 dark:border-l-indigo-500 dark:bg-background">
-                        <div class="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-indigo-50 dark:bg-indigo-950/40">
-                            <FileText class="h-4 w-4 text-indigo-600 dark:text-indigo-400" />
-                        </div>
-                        <div>
-                            <p class="stat-num text-lg font-bold leading-none text-indigo-600 dark:text-indigo-400">{{ stats.papers }}</p>
-                            <p class="mt-0.5 text-[10px] font-semibold uppercase tracking-wide text-muted-foreground">Documents</p>
-                        </div>
-                    </div>
-                    <div class="flex items-center gap-2.5 rounded-xl border border-slate-200 border-l-4 border-l-emerald-500 bg-white px-3 py-2 shadow-sm dark:border-slate-800 dark:border-l-emerald-500 dark:bg-background">
-                        <div class="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-emerald-50 dark:bg-emerald-950/40">
-                            <BarChart3 class="h-4 w-4 text-emerald-600 dark:text-emerald-400" />
-                        </div>
-                        <div>
-                            <p class="stat-num text-lg font-bold leading-none text-emerald-600 dark:text-emerald-400">{{ stats.reviewed }}%</p>
-                            <p class="mt-0.5 text-[10px] font-semibold uppercase tracking-wide text-muted-foreground">Reviewed</p>
-                        </div>
-                    </div>
-                </div>
+                <SubjectStatsCards :stats="stats" :has-invite-codes="hasVisibleInviteCodes" />
 
                 <!-- Invite Codes -->
                 <div v-if="hasVisibleInviteCodes" class="flex flex-col gap-1.5 rounded-xl border border-slate-200 bg-white px-3 py-2 shadow-sm dark:border-slate-800 dark:bg-background">
@@ -3118,7 +2987,7 @@ function submitUnlock(reviewId: number) {
                                 >
                                     <div class="flex min-w-0 items-center gap-2">
                                         <div class="flex h-7 w-7 items-center justify-center rounded-full bg-slate-100 text-xs font-medium text-slate-500 dark:bg-slate-800">
-                                            {{ (req.user?.name ?? req.email).charAt(0).toUpperCase() }}
+                                            {{ (req.user?.name ?? req.email ?? '?').charAt(0).toUpperCase() }}
                                         </div>
                                         <div class="min-w-0">
                                             <p class="truncate text-sm font-medium text-muted-foreground">{{ req.user?.name ?? req.email }}</p>

@@ -30,7 +30,7 @@ defineOptions({
             <div>
                 <h2 class="text-xl font-semibold text-foreground">Appearance</h2>
                 <p class="mt-1 text-sm text-muted-foreground">
-                    Choose how Scormetry looks to you. Select a theme or let it follow your system settings.
+                    Choose how Scormetry looks to you. The app defaults to Light mode; switch to Dark anytime.
                 </p>
             </div>
         </div>

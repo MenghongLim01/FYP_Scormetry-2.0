@@ -10,6 +10,7 @@ use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Laravel\Socialite\Facades\Socialite;
+use Laravel\Socialite\Two\InvalidStateException;
 
 class SocialiteController extends Controller
 {
@@ -19,12 +20,24 @@ class SocialiteController extends Controller
             session(['oauth_role' => $request->input('role')]);
         }
 
-        return Socialite::driver('google')->redirect();
+        // Force the Google account chooser so we always start a fresh,
+        // stateful flow (avoids silent "prompt=none" re-auth callbacks
+        // that arrive without a matching session state).
+        return Socialite::driver('google')
+            ->with(['prompt' => 'select_account'])
+            ->redirect();
     }
 
     public function callback(Request $request): RedirectResponse
     {
-        $googleUser = Socialite::driver('google')->user();
+        try {
+            $googleUser = Socialite::driver('google')->user();
+        } catch (InvalidStateException $e) {
+            // Stale/replayed callback (e.g. reloaded callback URL or a silent
+            // re-auth). Send the user back to start a clean login.
+            return redirect()->route('login')
+                ->with('error', 'Your Google sign-in session expired. Please try again.');
+        }
 
         $user = User::where('google_id', $googleUser->getId())->first();
 
