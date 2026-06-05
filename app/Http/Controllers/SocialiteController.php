@@ -42,18 +42,15 @@ class SocialiteController extends Controller
         $user = User::where('google_id', $googleUser->getId())->first();
 
         if ($user) {
-            Auth::login($user, remember: true);
-
-            return $this->redirectAfterLogin($user);
+            return $this->loginGoogleUser($user);
         }
 
         $user = User::where('email', $googleUser->getEmail())->first();
 
         if ($user) {
             $user->update(['google_id' => $googleUser->getId()]);
-            Auth::login($user, remember: true);
 
-            return $this->redirectAfterLogin($user);
+            return $this->loginGoogleUser($user);
         }
 
         $role = session()->pull('oauth_role', 'student');
@@ -67,9 +64,21 @@ class SocialiteController extends Controller
             'status' => $status,
         ]);
 
-        $user->markEmailAsVerified();
-
         $this->applyPendingInvitations($user);
+
+        return $this->loginGoogleUser($user);
+    }
+
+    /**
+     * Log a Google-authenticated user in. Google already verifies the email, so
+     * we mark it verified here — this stops the email-verification gate (and its
+     * /email/verify page) from ever blocking a Google sign-in.
+     */
+    private function loginGoogleUser(User $user): RedirectResponse
+    {
+        if (! $user->hasVerifiedEmail()) {
+            $user->markEmailAsVerified();
+        }
 
         Auth::login($user, remember: true);
 
