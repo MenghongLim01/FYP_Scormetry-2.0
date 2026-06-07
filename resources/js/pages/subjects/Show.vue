@@ -577,13 +577,14 @@ function teamStudentMembers(team: { members: UserData[]; student_members?: UserD
 
 // The full Review Panel for the subject: the Organizer (owner) first, then reviewers.
 const reviewPanel = computed(() => {
-    const panel: Array<{ id: number; name: string; email: string; roleLabel: string; isOwner: boolean }> = [];
+    const panel: Array<{ id: number; name: string; email: string; roleLabel: string; isOwner: boolean; isCurrentUser: boolean }> = [];
     panel.push({
         id: props.subject.teacher.id,
         name: props.subject.teacher.name,
         email: '',
         roleLabel: 'FYP Instructor · Organizer',
         isOwner: true,
+        isCurrentUser: user.value?.id === props.subject.teacher.id,
     });
     for (const r of props.subject.reviewers) {
         if (r.id === ownerId.value) continue;
@@ -593,6 +594,7 @@ const reviewPanel = computed(() => {
             email: r.email,
             roleLabel: r.pivot.role_label ?? committeeRoleLabels[r.pivot.role] ?? r.pivot.role,
             isOwner: false,
+            isCurrentUser: user.value?.id === r.id,
         });
     }
     return panel;
@@ -3506,7 +3508,7 @@ function submitUnlock(reviewId: number) {
                                     <div>
                                         <p class="text-sm font-medium">
                                             {{ member.name }}
-                                            <span v-if="member.isOwner" class="text-xs font-normal text-muted-foreground">(you)</span>
+                                            <span v-if="member.isCurrentUser" class="text-xs font-normal text-muted-foreground">(you)</span>
                                         </p>
                                         <div class="mt-0.5 flex items-center gap-1.5">
                                             <p v-if="member.email" class="text-xs text-muted-foreground">{{ member.email }}</p>
