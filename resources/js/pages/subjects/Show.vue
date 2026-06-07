@@ -289,7 +289,13 @@ function addStudent() {
 
 const reviewerForm = useForm({ email: '', committee_role: '', role_label: '' });
 const reviewerNeedsCustomLabel = computed(() => reviewerForm.committee_role === 'custom');
+const canSubmitReviewerInvite = computed(() => reviewerForm.email.trim() !== ''
+    && reviewerForm.committee_role !== ''
+    && (!reviewerNeedsCustomLabel.value || reviewerForm.role_label.trim() !== ''));
 function addReviewer() {
+    reviewerForm.email = reviewerForm.email.trim();
+    reviewerForm.role_label = reviewerForm.role_label.trim();
+
     reviewerForm.post(addReviewerAction.url(props.subject.id), {
         onSuccess: () => { reviewerForm.reset(); showInviteReviewerDialog.value = false; },
     });
@@ -3474,7 +3480,7 @@ function submitUnlock(reviewId: number) {
                                             </DialogClose>
                                             <Button
                                                 type="submit"
-                                                :disabled="reviewerForm.processing || !reviewerForm.committee_role || (reviewerNeedsCustomLabel && !reviewerForm.role_label)"
+                                                :disabled="reviewerForm.processing || !canSubmitReviewerInvite"
                                                 class="gap-1.5"
                                             >
                                                 <UserPlus class="h-3.5 w-3.5" />

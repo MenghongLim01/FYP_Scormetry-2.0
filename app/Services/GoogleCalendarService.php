@@ -35,16 +35,18 @@ class GoogleCalendarService
             return false;
         }
 
-        $token = $this->freshAccessToken($connection);
-
-        if (! $token) {
-            return false;
-        }
-
         $record = GoogleCalendarEvent::firstOrNew([
             'user_id' => $reviewer->id,
             'defense_attempt_id' => $attempt->id,
         ]);
+
+        $token = $this->freshAccessToken($connection);
+
+        if (! $token) {
+            $record->fill(['status' => 'failed'])->save();
+
+            return false;
+        }
 
         $payload = $this->buildEventPayload($attempt, $reviewer, $committeeRole);
 
@@ -66,6 +68,7 @@ class GoogleCalendarService
                 'defense_attempt_id' => $attempt->id,
                 'error' => $e->getMessage(),
             ]);
+            $record->fill(['status' => 'failed'])->save();
 
             return false;
         }
@@ -77,6 +80,7 @@ class GoogleCalendarService
                 'status' => $response->status(),
                 'body' => $response->body(),
             ]);
+            $record->fill(['status' => 'failed'])->save();
 
             return false;
         }

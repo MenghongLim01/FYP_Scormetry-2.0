@@ -1,5 +1,6 @@
 <?php
 
+use App\Jobs\SyncDefenseCalendarEvent;
 use App\Mail\DefenseScheduledMail;
 use App\Mail\PaperPublishedMail;
 use App\Mail\PaperSubmittedMail;
@@ -11,6 +12,7 @@ use App\Models\Team;
 use App\Models\User;
 use Illuminate\Http\UploadedFile;
 use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\Queue;
 use Illuminate\Support\Facades\Storage;
 
 it('sends paper submitted mail to subject teacher', function () {
@@ -32,7 +34,7 @@ it('sends paper submitted mail to subject teacher', function () {
         ]);
 
     // Mail fires on turn-in (not on attach).
-    $paper = \App\Models\Paper::where('team_id', $team->id)->latest('id')->firstOrFail();
+    $paper = Paper::where('team_id', $team->id)->latest('id')->firstOrFail();
     $this->actingAs($student)->post("/papers/{$paper->id}/turn-in");
 
     Mail::assertSent(PaperSubmittedMail::class, function ($mail) use ($teacher) {
@@ -94,7 +96,7 @@ it('also notifies active reviewer assignments when a paper is uploaded', functio
         ]);
 
     // Mail fires on turn-in (not on attach).
-    $paper = \App\Models\Paper::where('team_id', $team->id)->latest('id')->firstOrFail();
+    $paper = Paper::where('team_id', $team->id)->latest('id')->firstOrFail();
     $this->actingAs($student)->post("/papers/{$paper->id}/turn-in");
 
     Mail::assertSent(PaperSubmittedMail::class, fn ($mail) => $mail->hasTo($teacher->email));
@@ -200,6 +202,57 @@ it('queues schedule mail with calendar invite only for attempt participants incl
             && str_contains($options['mime'], 'text/calendar');
     });
     Mail::assertNotQueued(DefenseScheduledMail::class, fn (DefenseScheduledMail $mail) => $mail->hasTo($otherReviewer->email));
+});
+
+it('queues owner schedule mail and calendar sync jobs from the legacy team schedule route', function () {
+    Mail::fake();
+    Queue::fake();
+
+    $teacher = User::factory()->teacher()->create();
+    $student = User::factory()->student()->create();
+    $reviewer = User::factory()->teacher()->create();
+    $subject = Subject::factory()->for($teacher, 'teacher')->create();
+    $subject->reviewers()->attach($reviewer, ['role' => 'guest_panel', 'status' => 'approved']);
+    $period = DefensePeriod::create([
+        'subject_id' => $subject->id,
+        'name' => 'Final Defense',
+        'type' => 'final',
+        'sequence' => 2,
+        'passing_score' => 50,
+        'status' => 'setup',
+    ]);
+    $team = Team::factory()->for($subject)->create();
+    $team->members()->attach($student);
+    $attempt = $team->defenseAttempts()->create([
+        'defense_period_id' => $period->id,
+        'label' => 'Attempt 1',
+        'attempt_number' => 1,
+    ]);
+    $attempt->reviewerAssignments()->create([
+        'reviewer_id' => $reviewer->id,
+        'committee_role' => 'Guest Panel',
+        'status' => 'active',
+    ]);
+
+    $this->actingAs($teacher)
+        ->patch("/teams/{$team->id}/schedule", [
+            'defense_date' => now()->addWeek()->format('Y-m-d'),
+            'defense_time' => '10:00',
+            'defense_duration' => 60,
+            'defense_room' => 'Room D',
+            'score_deadline_at' => now()->addWeek()->addDay()->format('Y-m-d H:i:s'),
+        ])
+        ->assertRedirect();
+
+    Mail::assertQueued(DefenseScheduledMail::class, 3);
+    Mail::assertQueued(DefenseScheduledMail::class, fn (DefenseScheduledMail $mail) => $mail->hasTo($teacher->email));
+    Mail::assertQueued(DefenseScheduledMail::class, fn (DefenseScheduledMail $mail) => $mail->hasTo($student->email));
+    Mail::assertQueued(DefenseScheduledMail::class, fn (DefenseScheduledMail $mail) => $mail->hasTo($reviewer->email));
+
+    Queue::assertPushed(SyncDefenseCalendarEvent::class, fn ($job) => $job->defenseAttemptId === $attempt->id
+        && $job->reviewerId === $teacher->id);
+    Queue::assertPushed(SyncDefenseCalendarEvent::class, fn ($job) => $job->defenseAttemptId === $attempt->id
+        && $job->reviewerId === $reviewer->id);
 });
 
 it('queues calendar invite when a reviewer is approved after schedule is set', function () {

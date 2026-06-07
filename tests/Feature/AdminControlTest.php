@@ -63,7 +63,13 @@ it('lets an admin open system health and classroom control pages', function () {
     $this->actingAs($admin)
         ->get(route('admin.system-health.index'))
         ->assertOk()
-        ->assertInertia(fn ($page) => $page->component('admin/SystemHealth'));
+        ->assertInertia(fn ($page) => $page
+            ->component('admin/SystemHealth')
+            ->has('summary.queued_jobs')
+            ->has('summary.failed_jobs')
+            ->has('summary.calendar_connections')
+            ->where('sections.9.key', 'mail-queue-readiness')
+            ->where('sections.10.key', 'google-calendar-readiness'));
 
     $this->actingAs($admin)
         ->get(route('admin.classrooms.control', $subject))

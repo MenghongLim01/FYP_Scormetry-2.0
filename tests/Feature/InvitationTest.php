@@ -7,7 +7,7 @@ use App\Models\SubjectInvitation;
 use App\Models\User;
 use Illuminate\Support\Facades\Mail;
 
-it('sends ReviewerAddedMail and attaches existing teacher immediately', function () {
+it('queues ReviewerAddedMail and attaches existing teacher immediately', function () {
     Mail::fake();
 
     $owner = User::factory()->teacher()->create();
@@ -24,7 +24,7 @@ it('sends ReviewerAddedMail and attaches existing teacher immediately', function
     expect($subject->fresh()->reviewers)->toHaveCount(1)
         ->and($subject->fresh()->reviewers->first()->pivot->role)->toBe('advisor');
 
-    Mail::assertSent(ReviewerAddedMail::class, fn ($mail) => $mail->hasTo($reviewer->email));
+    Mail::assertQueued(ReviewerAddedMail::class, fn ($mail) => $mail->hasTo($reviewer->email));
 });
 
 it('does not allow inviting another FYP Instructor', function () {
@@ -50,7 +50,7 @@ it('does not allow inviting another FYP Instructor', function () {
     Mail::assertNothingSent();
 });
 
-it('sends ReviewerInvitationMail and stores pending invite for unregistered email', function () {
+it('queues ReviewerInvitationMail and stores pending invite for unregistered email', function () {
     Mail::fake();
 
     $owner = User::factory()->teacher()->create();
@@ -72,7 +72,7 @@ it('sends ReviewerInvitationMail and stores pending invite for unregistered emai
         'accepted_at' => null,
     ]);
 
-    Mail::assertSent(ReviewerInvitationMail::class, fn ($mail) => $mail->hasTo('newreviewer@example.com'));
+    Mail::assertQueued(ReviewerInvitationMail::class, fn ($mail) => $mail->hasTo('newreviewer@example.com'));
 });
 
 it('applies pending invitations when user registers', function () {

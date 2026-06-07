@@ -9,6 +9,8 @@ use App\Models\GoogleCalendarEvent;
 use App\Models\Subject;
 use App\Models\Team;
 use App\Models\User;
+use App\Services\GoogleCalendarService;
+use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Queue;
 use Laravel\Socialite\Facades\Socialite;
 use Laravel\Socialite\Two\GoogleProvider;
@@ -150,4 +152,50 @@ it('dispatches a calendar removal job when a reviewer is unassigned', function (
 
     Queue::assertPushed(RemoveDefenseCalendarEvent::class, fn ($job) => $job->reviewerId === $reviewer->id
         && $job->googleEventId === 'evt-123');
+});
+
+it('marks a connected calendar event as failed when google rejects the sync', function () {
+    Http::fake([
+        'https://www.googleapis.com/calendar/v3/calendars/primary/events' => Http::response(['error' => 'unavailable'], 503),
+    ]);
+
+    $owner = User::factory()->teacher()->create();
+    $reviewer = User::factory()->teacher()->create();
+    $subject = Subject::factory()->for($owner, 'teacher')->create();
+    $team = Team::factory()->for($subject)->create();
+    $period = DefensePeriod::create([
+        'subject_id' => $subject->id,
+        'name' => 'Final Defense',
+        'type' => 'final',
+        'sequence' => 1,
+        'passing_score' => 50,
+        'status' => 'setup',
+    ]);
+    $attempt = $team->defenseAttempts()->create([
+        'defense_period_id' => $period->id,
+        'label' => 'Attempt 1',
+        'attempt_number' => 1,
+        'defense_date' => now()->addWeek()->format('Y-m-d'),
+        'defense_time' => '09:00',
+        'defense_duration' => 60,
+        'defense_room' => 'Room B',
+    ]);
+
+    GoogleCalendarConnection::create([
+        'user_id' => $reviewer->id,
+        'google_email' => $reviewer->email,
+        'access_token' => 'access-token',
+        'refresh_token' => 'refresh-token',
+        'expires_at' => now()->addHour(),
+        'connected_at' => now(),
+    ]);
+
+    $synced = app(GoogleCalendarService::class)->syncEvent($attempt, $reviewer, 'technical_examiner');
+
+    expect($synced)->toBeFalse();
+    $this->assertDatabaseHas('google_calendar_events', [
+        'user_id' => $reviewer->id,
+        'defense_attempt_id' => $attempt->id,
+        'status' => 'failed',
+    ]);
 });

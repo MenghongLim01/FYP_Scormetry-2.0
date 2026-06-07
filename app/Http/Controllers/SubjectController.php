@@ -6,11 +6,14 @@ use App\Http\Requests\StoreSubjectRequest;
 use App\Http\Requests\UpdateSubjectRequest;
 use App\Mail\ReviewerAddedMail;
 use App\Mail\ReviewerInvitationMail;
+use App\Models\DefenseAttempt;
+use App\Models\DefenseAttemptReviewer;
 use App\Models\DefensePeriod;
 use App\Models\Subject;
 use App\Models\SubjectBlockedEmail;
 use App\Models\SubjectInvitation;
 use App\Models\SubjectMember;
+use App\Models\Team;
 use App\Models\User;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
@@ -82,6 +85,7 @@ class SubjectController extends Controller
                 if ($pb !== null) {
                     return 1;
                 }
+
                 // 3) newest first
                 return $b->created_at <=> $a->created_at;
             })
@@ -185,10 +189,10 @@ class SubjectController extends Controller
             ->where('status', 'approved')
             ->pluck('role_label', 'user_id');
 
-        $teamIds = \App\Models\Team::where('subject_id', $subject->id)->pluck('id');
-        $pending = \App\Models\DefenseAttemptReviewer::whereIn(
+        $teamIds = Team::where('subject_id', $subject->id)->pluck('id');
+        $pending = DefenseAttemptReviewer::whereIn(
             'defense_attempt_id',
-            \App\Models\DefenseAttempt::whereIn('team_id', $teamIds)->pluck('id'),
+            DefenseAttempt::whereIn('team_id', $teamIds)->pluck('id'),
         )->where('status', 'pending')->with('attempt.team')->get();
 
         $count = 0;
@@ -422,7 +426,7 @@ class SubjectController extends Controller
                 ],
             );
 
-            Mail::to($user)->send(new ReviewerAddedMail($user, $subject, $roleLabel !== '' ? $roleLabel : $validated['committee_role']));
+            Mail::to($user)->queue(new ReviewerAddedMail($user, $subject, $roleLabel !== '' ? $roleLabel : $validated['committee_role']));
 
             return back()->with('success', $user->name.' has been added as a reviewer.');
         } else {
@@ -436,7 +440,7 @@ class SubjectController extends Controller
                 ],
             );
 
-            Mail::to($validated['email'])->send(new ReviewerInvitationMail($invitation));
+            Mail::to($validated['email'])->queue(new ReviewerInvitationMail($invitation));
 
             return back()->with('success', 'Invitation sent to '.$validated['email'].'.');
         }

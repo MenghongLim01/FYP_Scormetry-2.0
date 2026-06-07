@@ -2,16 +2,22 @@
 
 namespace App\Http\Controllers;
 
+use App\Jobs\RemoveDefenseCalendarEvent;
+use App\Jobs\SyncDefenseCalendarEvent;
 use App\Mail\DefenseScheduledMail;
 use App\Mail\ResultReleasedMail;
+use App\Mail\TeamAdvisorInviteMail;
 use App\Models\DefenseAttempt;
 use App\Models\DefenseAttemptReviewer;
 use App\Models\DefensePeriod;
+use App\Models\GoogleCalendarEvent;
 use App\Models\Review;
 use App\Models\Subject;
 use App\Models\SubjectMember;
 use App\Models\Team;
+use App\Models\TeamRequest;
 use App\Models\User;
+use App\Support\Notify;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Carbon;
@@ -171,7 +177,7 @@ class TeamController extends Controller
      */
     private function createPendingTeamRequest(Team $team, Subject $subject, User $targetUser, string $role, User $invitedBy): RedirectResponse
     {
-        $existing = \App\Models\TeamRequest::where('team_id', $team->id)
+        $existing = TeamRequest::where('team_id', $team->id)
             ->where('user_id', $targetUser->id)
             ->where('role', $role)
             ->where('status', 'pending')
@@ -181,7 +187,7 @@ class TeamController extends Controller
             return back()->with('success', 'A pending request already exists for this person.');
         }
 
-        \App\Models\TeamRequest::create([
+        TeamRequest::create([
             'team_id' => $team->id,
             'subject_id' => $subject->id,
             'email' => $targetUser->email,
@@ -193,7 +199,7 @@ class TeamController extends Controller
 
         $subject->loadMissing('teacher');
         if ($subject->teacher) {
-            \App\Support\Notify::send(
+            Notify::send(
                 $subject->teacher,
                 $role === 'advisor' ? 'Advisor approval needed' : 'New member approval needed',
                 $invitedBy->name.' invited '.$targetUser->name.' to '.$team->name.' ('.$subject->title.'). Approve to add them.',
@@ -203,7 +209,7 @@ class TeamController extends Controller
         }
 
         if ($role === 'advisor') {
-            Mail::to($targetUser)->send(new \App\Mail\TeamAdvisorInviteMail($targetUser, $team, $subject, $invitedBy->name, true));
+            Mail::to($targetUser)->send(new TeamAdvisorInviteMail($targetUser, $team, $subject, $invitedBy->name, true));
         }
 
         return back()->with('success', 'Invitation sent — pending approval from the subject owner.');
@@ -316,8 +322,8 @@ class TeamController extends Controller
         // already in the subject directly; otherwise it needs the owner's approval.
         if ($authUser->isAdmin() || $isOwner || $advisorInSubject) {
             $team->update(['advisor_id' => $advisor->id]);
-            Mail::to($advisor)->send(new \App\Mail\TeamAdvisorInviteMail($advisor, $team, $subject, $authUser->name, false));
-            \App\Support\Notify::send(
+            Mail::to($advisor)->send(new TeamAdvisorInviteMail($advisor, $team, $subject, $authUser->name, false));
+            Notify::send(
                 $advisor,
                 'You are now a team advisor',
                 'You were set as the advisor for '.$team->name.' in '.$subject->title.'.',
@@ -384,7 +390,7 @@ class TeamController extends Controller
      */
     private function createRemovalRequest(Team $team, Subject $subject, User $target, string $role, User $requestedBy): void
     {
-        $exists = \App\Models\TeamRequest::where('team_id', $team->id)
+        $exists = TeamRequest::where('team_id', $team->id)
             ->where('user_id', $target->id)
             ->where('role', $role)
             ->where('status', 'pending')
@@ -394,7 +400,7 @@ class TeamController extends Controller
             return;
         }
 
-        \App\Models\TeamRequest::create([
+        TeamRequest::create([
             'team_id' => $team->id,
             'subject_id' => $subject->id,
             'email' => $target->email,
@@ -406,7 +412,7 @@ class TeamController extends Controller
 
         $subject->loadMissing('teacher');
         if ($subject->teacher) {
-            \App\Support\Notify::send(
+            Notify::send(
                 $subject->teacher,
                 'Removal request',
                 $requestedBy->name.' requested to remove '.$target->name.' from '.$team->name.' ('.$subject->title.').',
@@ -419,7 +425,7 @@ class TeamController extends Controller
     /**
      * Subject owner approves a pending team request (add member, add advisor, or a removal).
      */
-    public function approveTeamRequest(Request $request, \App\Models\TeamRequest $teamRequest): RedirectResponse
+    public function approveTeamRequest(Request $request, TeamRequest $teamRequest): RedirectResponse
     {
         $authUser = $request->user();
         $teamRequest->load('team', 'subject', 'user');
@@ -451,7 +457,7 @@ class TeamController extends Controller
 
         // Only notify the user when they were added (not when they're removed).
         if (in_array($teamRequest->role, ['member', 'advisor'], true)) {
-            \App\Support\Notify::send(
+            Notify::send(
                 $teamRequest->user,
                 $teamRequest->role === 'advisor' ? 'You are now a team advisor' : 'You joined a team',
                 'Your request for '.$teamRequest->team->name.' in '.$teamRequest->subject->title.' was approved.',
@@ -463,7 +469,7 @@ class TeamController extends Controller
         return back()->with('success', 'Request approved.');
     }
 
-    public function rejectTeamRequest(Request $request, \App\Models\TeamRequest $teamRequest): RedirectResponse
+    public function rejectTeamRequest(Request $request, TeamRequest $teamRequest): RedirectResponse
     {
         $authUser = $request->user();
         $teamRequest->load('subject');
@@ -649,6 +655,12 @@ class TeamController extends Controller
                 Mail::to($recipient->email)->queue(new DefenseScheduledMail($attempt, $changeType, $calendarSchedule));
             }
 
+            if ($changeType === 'cancelled') {
+                $this->removeCalendarForAttempt($attempt);
+            } else {
+                $this->syncCalendarForActiveReviewers($attempt);
+            }
+
             $message = match ($changeType) {
                 'cancelled' => 'Defense schedule cancelled and calendar updates sent.',
                 'updated' => 'Defense schedule updated and calendar invites sent.',
@@ -753,7 +765,7 @@ class TeamController extends Controller
             Mail::to($student)->send(new ResultReleasedMail($team));
         }
 
-        \App\Support\Notify::many(
+        Notify::many(
             $students,
             'Your results are available',
             'Results for '.$team->name.' ('.$subject->title.') have been released.',
@@ -923,16 +935,36 @@ class TeamController extends Controller
             fn (User $member) => $reviewerIds->contains($member->id),
         );
 
-        // The subject owner is auto-injected as an active reviewer + team member,
-        // but they are the one performing the schedule change here — don't mail them
-        // a calendar invite for their own action.
-        $ownerId = $defenseAttempt->period->subject->teacher_id;
-
         return $studentMembers
             ->merge($defenseAttempt->activeReviewerAssignments->pluck('reviewer'))
             ->filter()
-            ->reject(fn (User $recipient) => $recipient->id === $ownerId)
             ->unique('id')
             ->values();
+    }
+
+    private function syncCalendarForActiveReviewers(DefenseAttempt $defenseAttempt): void
+    {
+        $defenseAttempt->loadMissing('activeReviewerAssignments.reviewer');
+
+        foreach ($defenseAttempt->activeReviewerAssignments as $assignment) {
+            SyncDefenseCalendarEvent::dispatch(
+                $defenseAttempt->id,
+                $assignment->reviewer_id,
+                $assignment->committee_role,
+            );
+        }
+    }
+
+    private function removeCalendarForAttempt(DefenseAttempt $defenseAttempt): void
+    {
+        $events = GoogleCalendarEvent::where('defense_attempt_id', $defenseAttempt->id)
+            ->whereNotNull('google_event_id')
+            ->get();
+
+        foreach ($events as $event) {
+            RemoveDefenseCalendarEvent::dispatch($event->user_id, $event->google_event_id);
+        }
+
+        GoogleCalendarEvent::where('defense_attempt_id', $defenseAttempt->id)->delete();
     }
 }

@@ -5,10 +5,14 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\DefenseAttempt;
 use App\Models\DefensePeriod;
+use App\Models\GoogleCalendarConnection;
+use App\Models\GoogleCalendarEvent;
 use App\Models\Paper;
 use App\Models\Review;
 use App\Models\SubjectMember;
 use App\Models\User;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\Facades\Storage;
 use Inertia\Inertia;
 use Inertia\Response;
@@ -29,6 +33,8 @@ class SystemHealthController extends Controller
                 $this->readyToReleaseSection(),
                 $this->unlockedReviewsSection(),
                 $this->missingFilesSection(),
+                $this->mailQueueSection(),
+                $this->calendarConnectivitySection(),
             ],
         ]);
     }
@@ -42,6 +48,11 @@ class SystemHealthController extends Controller
             'missing_schedules' => DefenseAttempt::whereNull('defense_date')->orWhereNull('defense_time')->count(),
             'missing_documents' => DefenseAttempt::whereDoesntHave('papers')->count(),
             'unlocked_reviews' => Review::whereNotNull('unlocked_at')->whereNull('locked_at')->count(),
+            'queued_jobs' => $this->tableCount('jobs'),
+            'failed_jobs' => $this->tableCount('failed_jobs'),
+            'calendar_connections' => GoogleCalendarConnection::whereNull('disconnected_at')
+                ->whereNotNull('refresh_token')
+                ->count(),
         ];
     }
 
@@ -290,5 +301,153 @@ class SystemHealthController extends Controller
                 'url' => $paper->subject ? route('admin.classrooms.control', $paper->subject) : route('admin.classrooms.index'),
             ])->values(),
         ];
+    }
+
+    /** @return array<string, mixed> */
+    private function mailQueueSection(): array
+    {
+        $mailer = (string) config('mail.default');
+        $queue = (string) config('queue.default');
+        $pendingJobs = $this->tableCount('jobs');
+        $failedJobs = $this->tableCount('failed_jobs');
+        $staleReadyJobs = $this->staleReadyJobsCount();
+        $issueCount = 0;
+
+        if (in_array($mailer, ['log', 'array', 'null'], true)) {
+            $issueCount++;
+        }
+
+        if ($failedJobs > 0) {
+            $issueCount++;
+        }
+
+        if ($staleReadyJobs > 0) {
+            $issueCount++;
+        }
+
+        return [
+            'key' => 'mail-queue-readiness',
+            'title' => 'Email and queue readiness',
+            'description' => 'Schedule invites are queued mail, so production needs a real mailer and a running queue worker.',
+            'severity' => $issueCount > 0 ? 'danger' : 'success',
+            'count' => $issueCount,
+            'action_label' => 'Open settings',
+            'action_url' => route('admin.settings.edit'),
+            'items' => [
+                [
+                    'title' => 'Mail driver',
+                    'meta' => in_array($mailer, ['log', 'array', 'null'], true)
+                        ? $mailer.' · not a real production mail transport'
+                        : $mailer.' · real mail transport selected',
+                    'url' => route('admin.settings.edit'),
+                ],
+                [
+                    'title' => 'Mail sender',
+                    'meta' => (string) config('mail.from.address').' · '.(string) config('mail.from.name'),
+                    'url' => route('admin.settings.edit'),
+                ],
+                [
+                    'title' => 'Queue driver',
+                    'meta' => $queue === 'sync'
+                        ? 'sync · mail sends during the web request'
+                        : $queue.' · worker service must be running',
+                    'url' => route('admin.settings.edit'),
+                ],
+                [
+                    'title' => 'Pending jobs',
+                    'meta' => $pendingJobs.' queued job'.($pendingJobs === 1 ? '' : 's'),
+                    'url' => route('admin.settings.edit'),
+                ],
+                [
+                    'title' => 'Ready jobs older than 5 minutes',
+                    'meta' => $staleReadyJobs.' job'.($staleReadyJobs === 1 ? '' : 's').' waiting for a worker',
+                    'url' => route('admin.settings.edit'),
+                ],
+                [
+                    'title' => 'Failed jobs',
+                    'meta' => $failedJobs.' failed job'.($failedJobs === 1 ? '' : 's'),
+                    'url' => route('admin.settings.edit'),
+                ],
+            ],
+        ];
+    }
+
+    /** @return array<string, mixed> */
+    private function calendarConnectivitySection(): array
+    {
+        $activeConnections = GoogleCalendarConnection::whereNull('disconnected_at')
+            ->whereNotNull('refresh_token')
+            ->count();
+        $syncedEvents = GoogleCalendarEvent::where('status', 'synced')->count();
+        $failedEvents = GoogleCalendarEvent::where('status', 'failed')->count();
+        $oauthConfigured = filled(config('services.google.client_id'))
+            && filled(config('services.google.client_secret'));
+        $redirectUrl = $this->googleCalendarRedirectUrl();
+        $issueCount = ($oauthConfigured ? 0 : 1) + ($failedEvents > 0 ? 1 : 0);
+
+        return [
+            'key' => 'google-calendar-readiness',
+            'title' => 'Google Calendar readiness',
+            'description' => 'Direct Google Calendar sync only works for reviewers who connect their matching Google account; email .ics invites remain the fallback.',
+            'severity' => $issueCount > 0 ? 'warning' : 'success',
+            'count' => $issueCount,
+            'action_label' => 'Open settings',
+            'action_url' => route('admin.settings.edit'),
+            'items' => [
+                [
+                    'title' => 'Google OAuth client',
+                    'meta' => $oauthConfigured ? 'Configured' : 'Missing client id or secret',
+                    'url' => route('admin.settings.edit'),
+                ],
+                [
+                    'title' => 'Calendar callback',
+                    'meta' => $redirectUrl,
+                    'url' => route('admin.settings.edit'),
+                ],
+                [
+                    'title' => 'Connected reviewer calendars',
+                    'meta' => $activeConnections.' active connection'.($activeConnections === 1 ? '' : 's'),
+                    'url' => route('admin.settings.edit'),
+                ],
+                [
+                    'title' => 'Synced calendar events',
+                    'meta' => $syncedEvents.' event'.($syncedEvents === 1 ? '' : 's'),
+                    'url' => route('admin.settings.edit'),
+                ],
+                [
+                    'title' => 'Failed calendar syncs',
+                    'meta' => $failedEvents.' failed event'.($failedEvents === 1 ? '' : 's'),
+                    'url' => route('admin.settings.edit'),
+                ],
+            ],
+        ];
+    }
+
+    private function tableCount(string $table): int
+    {
+        if (! Schema::hasTable($table)) {
+            return 0;
+        }
+
+        return (int) DB::table($table)->count();
+    }
+
+    private function staleReadyJobsCount(): int
+    {
+        if (! Schema::hasTable('jobs')) {
+            return 0;
+        }
+
+        return (int) DB::table('jobs')
+            ->whereNull('reserved_at')
+            ->where('available_at', '<=', now()->subMinutes(5)->timestamp)
+            ->count();
+    }
+
+    private function googleCalendarRedirectUrl(): string
+    {
+        $redirect = (string) config('services.google.calendar_redirect');
+
+        return str_starts_with($redirect, 'http') ? $redirect : url($redirect);
     }
 }
