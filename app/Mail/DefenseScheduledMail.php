@@ -3,6 +3,7 @@
 namespace App\Mail;
 
 use App\Models\DefenseAttempt;
+use DateTimeInterface;
 use Illuminate\Bus\Queueable;
 use Illuminate\Mail\Mailable;
 use Illuminate\Mail\Mailables\Attachment;
@@ -11,7 +12,6 @@ use Illuminate\Mail\Mailables\Envelope;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Str;
-use DateTimeInterface;
 
 class DefenseScheduledMail extends Mailable
 {
@@ -78,19 +78,26 @@ class DefenseScheduledMail extends Mailable
         $subject = $this->attempt->team->subject;
         $periodName = $this->attempt->period?->name ?? 'Defense';
         $summary = 'Scormetry Defense: '.$this->attempt->team->name.' - '.$periodName;
-        $description = implode('\n', array_filter([
-            'Subject: '.$subject->title,
-            'Team: '.$this->attempt->team->name,
-            'Round: '.$periodName.' / '.$this->attempt->label,
-            'Room: '.($this->scheduleValue('defense_room') ?: 'To be announced'),
+        $detailLines = array_filter([
+            'Subject:  '.$subject->title,
+            'Team:  '.$this->attempt->team->name,
+            'Round:  '.$periodName.' / '.$this->attempt->label,
+            'Room:  '.($this->scheduleValue('defense_room') ?: 'To be announced'),
             $this->paperUploadDeadlineAt()
-                ? 'Document upload deadline: '.$this->paperUploadDeadlineAt()?->format('d M Y, g:i A')
+                ? 'Document deadline:  '.$this->paperUploadDeadlineAt()?->format('d M Y, g:i A')
                 : null,
             $this->scoreDeadlineAt()
-                ? 'Score deadline: '.$this->scoreDeadlineAt()?->format('d M Y, g:i A')
+                ? 'Score deadline:  '.$this->scoreDeadlineAt()?->format('d M Y, g:i A')
                 : null,
-            'Scormetry remains the official source of defense schedules. Google Calendar is only a convenience through this invitation.',
-        ]));
+        ]);
+
+        // Use real newlines (double-quoted "\n") so escapeIcsText() converts them
+        // into the proper ICS line-break sequence. A literal '\n' (single quotes)
+        // gets double-escaped and shows up as the text "\n" in the calendar.
+        $description = "DEFENSE DETAILS\n"
+            .implode("\n", $detailLines)
+            ."\n\nScormetry remains the official source of defense schedules. "
+            .'This calendar event is a convenience copy of your scheduled session.';
 
         $lines = [
             'BEGIN:VCALENDAR',
@@ -202,8 +209,8 @@ class DefenseScheduledMail extends Mailable
     private function escapeIcsText(string $value): string
     {
         return str_replace(
-            ["\\", ';', ',', "\r\n", "\n", "\r"],
-            ["\\\\", '\;', '\,', '\n', '\n', '\n'],
+            ['\\', ';', ',', "\r\n", "\n", "\r"],
+            ['\\\\', '\;', '\,', '\n', '\n', '\n'],
             $value,
         );
     }
