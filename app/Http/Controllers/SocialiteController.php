@@ -64,21 +64,23 @@ class SocialiteController extends Controller
             'status' => $status,
         ]);
 
-        $this->applyPendingInvitations($user);
-
         return $this->loginGoogleUser($user);
     }
 
     /**
      * Log a Google-authenticated user in. Google already verifies the email, so
      * we mark it verified here — this stops the email-verification gate (and its
-     * /email/verify page) from ever blocking a Google sign-in.
+     * /email/verify page) from ever blocking a Google sign-in. We also apply any
+     * pending reviewer invitations on every login (not just first sign-up), so a
+     * reviewer invited by email after they already had an account still gets in.
      */
     private function loginGoogleUser(User $user): RedirectResponse
     {
         if (! $user->hasVerifiedEmail()) {
             $user->markEmailAsVerified();
         }
+
+        $this->applyPendingInvitations($user);
 
         Auth::login($user, remember: true);
 
@@ -121,6 +123,12 @@ class SocialiteController extends Controller
                 ],
             );
             $invitation->update(['accepted_at' => now()]);
+
+            // Subject invitations are always for reviewers — give them a
+            // teacher-level account so they get the reviewer experience.
+            if ($user->role === 'student') {
+                $user->update(['role' => 'teacher']);
+            }
         }
     }
 }

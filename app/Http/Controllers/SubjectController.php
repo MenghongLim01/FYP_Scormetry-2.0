@@ -365,6 +365,12 @@ class SubjectController extends Controller
             ['role' => 'student', 'status' => 'approved', 'role_label' => null],
         );
 
+        // An enrolled student should have a student account — but never demote
+        // an admin or a teacher who actually owns/teaches a subject.
+        if (! $user->isAdmin() && ! $user->teachingSubjects()->exists()) {
+            $user->update(['role' => 'student']);
+        }
+
         return back()->with('success', $user->name.' has been added to the subject.');
     }
 
@@ -425,6 +431,13 @@ class SubjectController extends Controller
                     'role_label' => $roleLabel !== '' ? $roleLabel : null,
                 ],
             );
+
+            // A reviewer needs a teacher-level account to get the reviewer
+            // experience. Promote a plain student account; never touch admins
+            // or existing teachers.
+            if ($user->role === 'student') {
+                $user->update(['role' => 'teacher']);
+            }
 
             Mail::to($user)->queue(new ReviewerAddedMail($user, $subject, $roleLabel !== '' ? $roleLabel : $validated['committee_role']));
 
