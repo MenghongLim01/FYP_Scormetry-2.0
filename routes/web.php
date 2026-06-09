@@ -35,6 +35,10 @@ Route::inertia('/', 'Welcome', [
 // Invitation acceptance — public route so email links work before login/register
 Route::get('invitations/{token}', [InvitationController::class, 'accept'])->name('invitations.accept');
 
+// Public legal pages — no login required (needed for Google OAuth verification)
+Route::inertia('privacy', 'Privacy')->name('privacy.show');
+Route::inertia('terms', 'Terms')->name('terms.show');
+
 // Google OAuth
 Route::get('auth/google', [SocialiteController::class, 'redirect'])->name('auth.google');
 Route::get('auth/google/callback', [SocialiteController::class, 'callback'])->name('auth.google.callback');
