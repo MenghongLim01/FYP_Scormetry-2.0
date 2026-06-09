@@ -579,6 +579,11 @@ class SubjectController extends Controller
             ],
         );
 
+        // A reviewer needs a teacher-level account; promote a plain student.
+        if ($request->user()->role === 'student') {
+            $request->user()->update(['role' => 'teacher']);
+        }
+
         return to_route('subjects.show', $subject)
             ->with('success', $status === 'pending'
                 ? 'Join request sent. Waiting for teacher approval.'
@@ -603,6 +608,11 @@ class SubjectController extends Controller
             ->firstOrFail();
 
         $member->update(['status' => 'approved']);
+
+        // An approved reviewer (non-student member) gets a teacher-level account.
+        if ($member->role !== 'student' && $user->role === 'student') {
+            $user->update(['role' => 'teacher']);
+        }
 
         return back()->with('success', $user->name.' has been approved.');
     }
