@@ -18,6 +18,7 @@ use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Collection;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Mail;
 
 class DefenseAttemptController extends Controller
@@ -104,7 +105,11 @@ class DefenseAttemptController extends Controller
             $calendarSchedule = $changeType === 'cancelled' ? $previousSchedule : null;
 
             foreach ($this->scheduleRecipients($defenseAttempt) as $recipient) {
-                Mail::to($recipient->email)->queue(new DefenseScheduledMail($defenseAttempt, $changeType, $calendarSchedule));
+                try {
+                    Mail::to($recipient->email)->queue(new DefenseScheduledMail($defenseAttempt, $changeType, $calendarSchedule));
+                } catch (\Throwable $e) {
+                    Log::warning('Defense schedule email failed to send', ['error' => $e->getMessage()]);
+                }
             }
 
             // Mirror the change into connected judges' Google Calendars.
@@ -559,7 +564,11 @@ class DefenseAttemptController extends Controller
         );
 
         foreach ($students as $student) {
-            Mail::to($student)->send(new ResultReleasedMail($defenseAttempt->team));
+            try {
+                Mail::to($student)->queue(new ResultReleasedMail($defenseAttempt->team));
+            } catch (\Throwable $e) {
+                Log::warning('Result released email failed to send', ['error' => $e->getMessage()]);
+            }
         }
 
         Notify::many(
@@ -766,10 +775,14 @@ class DefenseAttemptController extends Controller
             return false;
         }
 
-        Mail::to($reviewer->email)->queue(new DefenseScheduledMail(
-            $defenseAttempt->loadMissing('team.subject', 'period'),
-            'scheduled',
-        ));
+        try {
+            Mail::to($reviewer->email)->queue(new DefenseScheduledMail(
+                $defenseAttempt->loadMissing('team.subject', 'period'),
+                'scheduled',
+            ));
+        } catch (\Throwable $e) {
+            Log::warning('Reviewer schedule invite email failed to send', ['error' => $e->getMessage()]);
+        }
 
         return true;
     }

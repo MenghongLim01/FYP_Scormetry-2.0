@@ -17,6 +17,7 @@ use App\Models\Team;
 use App\Models\User;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
@@ -439,7 +440,12 @@ class SubjectController extends Controller
                 $user->update(['role' => 'teacher']);
             }
 
-            Mail::to($user)->queue(new ReviewerAddedMail($user, $subject, $roleLabel !== '' ? $roleLabel : $validated['committee_role']));
+            // A failed notification email must never break the invite itself.
+            try {
+                Mail::to($user)->queue(new ReviewerAddedMail($user, $subject, $roleLabel !== '' ? $roleLabel : $validated['committee_role']));
+            } catch (\Throwable $e) {
+                Log::warning('Reviewer-added email failed to send', ['error' => $e->getMessage()]);
+            }
 
             return back()->with('success', $user->name.' has been added as a reviewer.');
         } else {
@@ -453,7 +459,11 @@ class SubjectController extends Controller
                 ],
             );
 
-            Mail::to($validated['email'])->queue(new ReviewerInvitationMail($invitation));
+            try {
+                Mail::to($validated['email'])->queue(new ReviewerInvitationMail($invitation));
+            } catch (\Throwable $e) {
+                Log::warning('Reviewer-invitation email failed to send', ['error' => $e->getMessage()]);
+            }
 
             return back()->with('success', 'Invitation sent to '.$validated['email'].'.');
         }
