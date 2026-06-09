@@ -13,22 +13,19 @@ The defense schedule for this attempt has changed. The attached calendar invite 
 The defense schedule for this attempt has been set. The attached calendar invite can be added to Google Calendar.
 @endif
 
-<x-mail::panel>
-**Subject:** {{ $team->subject->title }}
-**Team:** {{ $team->name }}
-**Round:** {{ $period?->name ?? 'Defense' }} / {{ $attempt->label }}
-**Date:** {{ $startsAt?->format('d M Y') ?? 'Not set' }}
-**Start Time:** {{ $startsAt?->format('g:i A') ?? 'Not set' }}
-**End Time:** {{ $endsAt?->format('g:i A') ?? 'Not set' }}
-**Duration:** {{ $attempt->defense_duration ? $attempt->defense_duration.' minutes' : 'Not set' }}
-**Room / Venue:** {{ $attempt->defense_room ?? 'To be announced' }}
-@if($paperUploadDeadlineAt)
-**Document Upload Deadline:** {{ $paperUploadDeadlineAt->format('d M Y, g:i A') }}
-@endif
-@if($scoreDeadlineAt)
-**Score Deadline:** {{ $scoreDeadlineAt->format('d M Y, g:i A') }}
-@endif
-</x-mail::panel>
+<x-mail::table>
+| Defense details | |
+| :-------------- | :-- |
+| **Subject** | {{ $team->subject->title }} |
+| **Team** | {{ $team->name }} |
+| **Round** | {{ $period?->name ?? 'Defense' }} / {{ $attempt->label }} |
+| **Date** | {{ $startsAt?->format('l, d M Y') ?? 'Not set' }} |
+| **Time** | {{ $startsAt?->format('g:i A') ?? 'Not set' }} – {{ $endsAt?->format('g:i A') ?? 'Not set' }} |
+| **Duration** | {{ $attempt->defense_duration ? $attempt->defense_duration.' minutes' : 'Not set' }} |
+| **Room / Venue** | {{ $attempt->defense_room ?? 'To be announced' }} |
+| **Document deadline** | {{ $paperUploadDeadlineAt?->format('d M Y, g:i A') ?? 'Not set' }} |
+| **Score deadline** | {{ $scoreDeadlineAt?->format('d M Y, g:i A') ?? 'Not set' }} |
+</x-mail::table>
 
 Scormetry remains the official source of defense schedules. Google Calendar is used only as a convenience through email calendar invitations, so students and judges can add the defense session to their personal calendars.
 
