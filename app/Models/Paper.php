@@ -9,7 +9,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 
-#[Fillable(['team_id', 'defense_attempt_id', 'subject_id', 'file_path', 'final_score', 'final_score_override', 'final_score_override_reason', 'final_score_override_by', 'visibility_status', 'turned_in_at'])]
+#[Fillable(['team_id', 'defense_attempt_id', 'subject_id', 'file_path', 'slides_path', 'final_score', 'final_score_override', 'final_score_override_reason', 'final_score_override_by', 'visibility_status', 'turned_in_at'])]
 class Paper extends Model
 {
     /** @use HasFactory<PaperFactory> */

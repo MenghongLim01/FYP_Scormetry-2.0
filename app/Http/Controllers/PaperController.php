@@ -190,6 +190,12 @@ class PaperController extends Controller
 
         $path = $request->file('file')->store('papers', 'private');
 
+        // Optional presentation slides PDF. Only touched when the student actually
+        // uploads one, so replacing just the manuscript keeps any existing slides.
+        $slidesPath = $request->hasFile('slides')
+            ? $request->file('slides')->store('slides', 'private')
+            : null;
+
         $paper = $team->papers()
             ->where('defense_attempt_id', $attempt->id)
             ->latest()
@@ -201,7 +207,7 @@ class PaperController extends Controller
         if ($paper) {
             Storage::disk('private')->delete($paper->file_path);
 
-            $paper->update([
+            $attributes = [
                 'file_path' => $path,
                 'visibility_status' => 'draft',
                 'turned_in_at' => null,
@@ -209,13 +215,25 @@ class PaperController extends Controller
                 'final_score_override' => null,
                 'final_score_override_reason' => null,
                 'final_score_override_by' => null,
-            ]);
+            ];
+
+            // Replace slides only if a new slides file was uploaded; otherwise
+            // preserve the existing one (student is just swapping the manuscript).
+            if ($slidesPath !== null) {
+                if ($paper->slides_path) {
+                    Storage::disk('private')->delete($paper->slides_path);
+                }
+                $attributes['slides_path'] = $slidesPath;
+            }
+
+            $paper->update($attributes);
         } else {
             $paper = Paper::create([
                 'team_id' => $team->id,
                 'defense_attempt_id' => $attempt->id,
                 'subject_id' => $subject->id,
                 'file_path' => $path,
+                'slides_path' => $slidesPath,
                 'visibility_status' => 'draft',
                 'turned_in_at' => null,
             ]);
@@ -299,6 +317,9 @@ class PaperController extends Controller
 
         if ($paper->file_path) {
             Storage::disk('private')->delete($paper->file_path);
+        }
+        if ($paper->slides_path) {
+            Storage::disk('private')->delete($paper->slides_path);
         }
         $subjectId = $paper->subject_id;
         $paper->delete();
@@ -404,6 +425,7 @@ class PaperController extends Controller
         return Inertia::render('papers/Show', [
             'paper' => $paper,
             'paperPdfUrl' => route('papers.pdf', $paper),
+            'slidesPdfUrl' => $paper->slides_path ? route('papers.slides', $paper) : null,
             'rubricPdfUrl' => ($paper->defenseAttempt?->period?->rubric ?? $paper->subject->rubric)
                 ? route('rubrics.pdf', $paper->defenseAttempt?->period?->rubric ?? $paper->subject->rubric)
                 : null,
@@ -490,6 +512,45 @@ class PaperController extends Controller
         return $disk->response($paper->file_path, 'paper.pdf', [
             'Content-Type' => 'application/pdf',
             'Content-Disposition' => 'inline; filename="paper.pdf"',
+        ]);
+    }
+
+    public function serveSlidesPdf(Paper $paper): StreamedResponse
+    {
+        $user = request()->user();
+        $paper->load(['team.members', 'subject', 'defenseAttempt.activeReviewerAssignments']);
+
+        if (! $user->isAdmin() && $paper->subject) {
+            $membership = SubjectMember::where('subject_id', $paper->subject_id)
+                ->where('user_id', $user->id)
+                ->first();
+
+            if ($membership?->status === 'pending' || $membership?->status === 'blocked') {
+                abort(403);
+            }
+        }
+
+        $isReviewer = $paper->subject->reviewers()->where('users.id', $user->id)->exists();
+        $isTurnedIn = $paper->isTurnedIn();
+
+        // Same access rules as the manuscript: team sees their own file always;
+        // teacher/judges only after turn-in.
+        $canAccess = $user->isAdmin()
+            || ($paper->team && $paper->team->members->contains('id', $user->id) && ! $isReviewer)
+            || ($paper->subject->teacher_id === $user->id && $isTurnedIn)
+            || ($isReviewer && $isTurnedIn && $this->reviewerCanAccessPaper($paper, $user));
+
+        abort_unless($canAccess, 403);
+
+        $disk = Storage::disk('private');
+
+        if (! $paper->slides_path || ! $disk->exists($paper->slides_path)) {
+            abort(404, 'No slides were uploaded for this document.');
+        }
+
+        return $disk->response($paper->slides_path, 'slides.pdf', [
+            'Content-Type' => 'application/pdf',
+            'Content-Disposition' => 'inline; filename="slides.pdf"',
         ]);
     }
 

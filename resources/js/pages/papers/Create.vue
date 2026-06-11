@@ -34,6 +34,7 @@ const props = defineProps<{
 }>();
 
 const isDragging = ref(false);
+const isDraggingSlides = ref(false);
 const availableAttempts = computed(() =>
     [...(props.team?.defense_attempts ?? [])].sort((a, b) =>
         (a.period.sequence - b.period.sequence) || (a.id - b.id)),
@@ -49,6 +50,7 @@ const form = useForm({
     subject_id: props.subject.id,
     defense_attempt_id: defaultAttemptId.value,
     file: null as File | null,
+    slides: null as File | null,
 });
 
 function submit() {
@@ -60,6 +62,14 @@ function handleDrop(e: DragEvent) {
     const file = e.dataTransfer?.files[0];
     if (file && file.type === 'application/pdf') {
         form.file = file;
+    }
+}
+
+function handleDropSlides(e: DragEvent) {
+    isDraggingSlides.value = false;
+    const file = e.dataTransfer?.files[0];
+    if (file && file.type === 'application/pdf') {
+        form.slides = file;
     }
 }
 
@@ -178,7 +188,7 @@ function defenseSessionLabel(label: string): string {
                                     {{ form.file ? form.file.name : isDragging ? 'Drop your PDF here' : 'Click to upload or drag & drop' }}
                                 </p>
                                 <p v-if="form.file" class="text-xs text-green-600">{{ formatFileSize(form.file.size) }}</p>
-                                <p v-else class="text-xs text-muted-foreground">Accepted file type: PDF only. Maximum size: 20 MB.</p>
+                                <p v-else class="text-xs text-muted-foreground">Accepted file type: PDF only. Maximum size: 50 MB.</p>
                             </div>
                             <input
                                 id="file"
@@ -189,6 +199,43 @@ function defenseSessionLabel(label: string): string {
                             />
                         </label>
                         <p v-if="form.errors.file" class="text-xs text-destructive">{{ form.errors.file }}</p>
+                    </div>
+
+                    <div class="flex flex-col gap-2">
+                        <Label for="slides">Presentation Slides (PDF) <span class="text-xs font-normal text-muted-foreground">— optional</span></Label>
+                        <label
+                            for="slides"
+                            :class="[
+                                'flex cursor-pointer flex-col items-center justify-center gap-2 rounded-lg border-2 border-dashed px-6 py-8 text-center transition-all',
+                                isDraggingSlides ? 'border-primary bg-primary/5 scale-[1.01]' :
+                                form.slides ? 'border-green-500 bg-green-50 dark:bg-green-950/30' :
+                                'border-border hover:border-primary hover:bg-accent'
+                            ]"
+                            @dragover.prevent="isDraggingSlides = true"
+                            @dragleave.prevent="isDraggingSlides = false"
+                            @drop.prevent="handleDropSlides"
+                        >
+                            <CheckCircle v-if="form.slides" class="h-8 w-8 text-green-600" />
+                            <Upload v-else class="h-8 w-8 text-muted-foreground" />
+                            <div>
+                                <p class="text-sm font-medium">
+                                    {{ form.slides ? form.slides.name : isDraggingSlides ? 'Drop your slides PDF here' : 'Click to upload or drag & drop' }}
+                                </p>
+                                <p v-if="form.slides" class="text-xs text-green-600">{{ formatFileSize(form.slides.size) }}</p>
+                                <p v-else class="text-xs text-muted-foreground">Optional. Export your slides as a PDF. Maximum size: 50 MB.</p>
+                            </div>
+                            <input
+                                id="slides"
+                                type="file"
+                                accept=".pdf,application/pdf"
+                                class="sr-only"
+                                @change="form.slides = ($event.target as HTMLInputElement).files?.[0] ?? null"
+                            />
+                        </label>
+                        <p class="text-xs text-muted-foreground">
+                            Replacing only the manuscript later keeps your slides. Upload a new slides PDF here to replace them.
+                        </p>
+                        <p v-if="form.errors.slides" class="text-xs text-destructive">{{ form.errors.slides }}</p>
                     </div>
 
                     <div v-if="form.progress" class="h-2 overflow-hidden rounded-full bg-muted">

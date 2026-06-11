@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { Head, Link, router, useForm } from '@inertiajs/vue3';
-import { ArrowLeft, FileText, Star, Users, Globe, ClipboardCheck, BookOpen } from 'lucide-vue-next';
+import { ArrowLeft, FileText, Star, Users, Globe, ClipboardCheck, BookOpen, Presentation } from 'lucide-vue-next';
 import { computed, ref } from 'vue';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
@@ -67,6 +67,7 @@ const props = defineProps<{
         } | null;
     };
     paperPdfUrl: string;
+    slidesPdfUrl: string | null;
     rubricPdfUrl: string | null;
 }>();
 
@@ -93,14 +94,15 @@ const canReview = computed(() =>
     isTeacherOrAdmin.value && !hasReviewed.value,
 );
 
-type TabKey = 'rubric' | 'paper' | 'scoring';
+type TabKey = 'rubric' | 'paper' | 'slides' | 'scoring';
 const activeTab = ref<TabKey>('rubric');
 
-const tabs: Array<{ key: TabKey; label: string; icon: typeof FileText }> = [
+const tabs = computed<Array<{ key: TabKey; label: string; icon: typeof FileText }>>(() => [
     { key: 'rubric', label: 'Defense Rubric', icon: ClipboardCheck },
     { key: 'paper', label: 'Student Document / Manuscript (PDF)', icon: FileText },
+    ...(props.slidesPdfUrl ? [{ key: 'slides' as TabKey, label: 'Presentation Slides (PDF)', icon: Presentation }] : []),
     { key: 'scoring', label: 'Dynamic Rubric', icon: BookOpen },
-];
+]);
 
 const canPublish = computed(() =>
     effectiveFinalScoreNumber.value !== null
@@ -452,6 +454,14 @@ const studentMemberNames = computed(() => {
                     :src="paperPdfUrl"
                     class="h-[70vh] w-full border-0"
                     title="Student Document / Manuscript (PDF)"
+                />
+            </div>
+
+            <div v-if="slidesPdfUrl" v-show="activeTab === 'slides'" class="p-0">
+                <iframe
+                    :src="slidesPdfUrl"
+                    class="h-[70vh] w-full border-0"
+                    title="Presentation Slides (PDF)"
                 />
             </div>
 

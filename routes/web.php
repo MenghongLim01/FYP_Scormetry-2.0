@@ -146,6 +146,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
         Route::post('papers', [PaperController::class, 'store'])->name('papers.store');
         Route::get('papers/{paper}', [PaperController::class, 'show'])->name('papers.show');
         Route::get('papers/{paper}/pdf', [PaperController::class, 'servePdf'])->name('papers.pdf');
+        Route::get('papers/{paper}/slides', [PaperController::class, 'serveSlidesPdf'])->name('papers.slides');
         Route::post('papers/{paper}/publish', [PaperController::class, 'publish'])->name('papers.publish');
         Route::post('papers/{paper}/turn-in', [PaperController::class, 'turnIn'])->name('papers.turn-in');
         Route::post('papers/{paper}/unsubmit', [PaperController::class, 'unsubmit'])->name('papers.unsubmit');
