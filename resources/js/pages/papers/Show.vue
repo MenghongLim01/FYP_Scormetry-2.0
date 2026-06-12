@@ -172,7 +172,23 @@ const overrideForm = useForm({
     override_note: '',
 });
 
-function submitOverride() {
+const overrideConfirmOpen = ref(false);
+
+const overrideConfirmDescription = computed(() => {
+    const from = effectiveFinalScoreRaw.value !== null ? `${effectiveFinalScoreRaw.value}` : '—';
+    const to = overrideForm.override_score;
+
+    return `This will set ${props.paper.team.name}'s final score from ${from} to ${to} / 100`
+        + (props.paper.visibility_status === 'published' ? ', and the released result will update accordingly.' : '.')
+        + ' The change is logged for auditing and can be re-overridden, but cannot be undone automatically.';
+});
+
+// Clicking "Override Score" opens a confirmation first — it never submits directly.
+function requestOverride() {
+    overrideConfirmOpen.value = true;
+}
+
+function confirmOverride() {
     // Admin overrides the paper directly; the room-owner teacher overrides via
     // the defense attempt (which authorizes the subject owner).
     const target = isAdmin.value || !props.paper.defense_attempt
@@ -182,6 +198,7 @@ function submitOverride() {
     overrideForm.patch(target, {
         preserveScroll: true,
         onSuccess: () => overrideForm.reset('override_note'),
+        onFinish: () => { overrideConfirmOpen.value = false; },
     });
 }
 
@@ -383,7 +400,7 @@ const studentMemberNames = computed(() => {
                         </Badge>
                     </div>
 
-                    <form class="mt-4 grid gap-4 sm:grid-cols-2" @submit.prevent="submitOverride">
+                    <form class="mt-4 grid gap-4 sm:grid-cols-2" @submit.prevent="requestOverride">
                         <div class="flex flex-col gap-1.5">
                             <Label for="override_score">Override score (0 - 100)</Label>
                             <Input
@@ -613,6 +630,14 @@ const studentMemberNames = computed(() => {
             cancel-text="Cancel"
             confirm-text="Yes, Remove"
             @confirm="confirmRemove"
+        />
+        <ConfirmDialog
+            v-model:open="overrideConfirmOpen"
+            title="Override the final score?"
+            :description="overrideConfirmDescription"
+            cancel-text="Cancel"
+            confirm-text="Yes, Override Score"
+            @confirm="confirmOverride"
         />
     </div>
 </template>
