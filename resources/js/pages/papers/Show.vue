@@ -8,6 +8,7 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Dialog, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle, DialogTrigger, DialogClose } from '@/components/ui/dialog';
 import { useAuth } from '@/composables/useAuth';
 import { update as adminOverrideScore } from '@/actions/App/Http/Controllers/Admin/PaperScoreController';
+import { overrideScore as teacherOverrideScore } from '@/actions/App/Http/Controllers/DefenseAttemptController';
 import { show as subjectShow } from '@/actions/App/Http/Controllers/SubjectController';
 import { create as rubricCreate } from '@/actions/App/Http/Controllers/RubricController';
 import { create as reviewCreate, show as reviewShow } from '@/actions/App/Http/Controllers/ReviewController';
@@ -74,6 +75,10 @@ const props = defineProps<{
 const { isTeacherOrAdmin, isAdmin, user } = useAuth();
 
 const isSubjectOwner = computed(() => props.paper.subject && user.value?.id === props.paper.subject.teacher_id);
+
+// Both the admin and the room-owner teacher may override the final score — even
+// after results are released. Judges and students never see this panel.
+const canOverrideScore = computed(() => isAdmin.value || isSubjectOwner.value);
 
 const effectiveFinalScoreRaw = computed(() =>
     props.paper.final_score_override !== null ? props.paper.final_score_override : props.paper.final_score,
@@ -168,7 +173,13 @@ const overrideForm = useForm({
 });
 
 function submitOverride() {
-    overrideForm.patch(adminOverrideScore.url(props.paper.id), {
+    // Admin overrides the paper directly; the room-owner teacher overrides via
+    // the defense attempt (which authorizes the subject owner).
+    const target = isAdmin.value || !props.paper.defense_attempt
+        ? adminOverrideScore.url(props.paper.id)
+        : teacherOverrideScore.url(props.paper.defense_attempt.id);
+
+    overrideForm.patch(target, {
         preserveScroll: true,
         onSuccess: () => overrideForm.reset('override_note'),
     });
@@ -355,10 +366,10 @@ const studentMemberNames = computed(() => {
 	                Final score {{ effectiveFinalScoreRaw }} / 100 is below the passing score of {{ paper.subject.passing_score }}%. Cannot mark review completed.
 	            </div>
 
-                <div v-if="isAdmin" class="mt-4 rounded-xl border bg-muted/30 px-4 py-4">
+                <div v-if="canOverrideScore" class="mt-4 rounded-xl border bg-muted/30 px-4 py-4">
                     <div class="flex items-start justify-between gap-4">
                         <div>
-                            <p class="text-sm font-semibold">Admin: Score Override</p>
+                            <p class="text-sm font-semibold">Score Override</p>
                             <p class="mt-0.5 text-xs text-muted-foreground">
                                 Override the final score for this paper. A reason is required for auditing.
                             </p>
