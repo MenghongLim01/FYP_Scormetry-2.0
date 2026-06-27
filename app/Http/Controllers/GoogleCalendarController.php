@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Jobs\RemoveDefenseCalendarEvent;
+use App\Jobs\SyncDefenseCalendarEvent;
+use App\Models\DefenseAttemptReviewer;
 use App\Models\GoogleCalendarConnection;
 use App\Models\GoogleCalendarEvent;
 use Illuminate\Http\RedirectResponse;
@@ -71,6 +73,20 @@ class GoogleCalendarController extends Controller
                 'disconnected_at' => null,
             ], fn ($value) => $value !== null),
         );
+
+        // Back-fill: push every already-approved, scheduled defense the judge is
+        // assigned to — otherwise existing sessions never appear until a schedule
+        // is next edited (which is why a freshly connected calendar looked empty).
+        DefenseAttemptReviewer::with('attempt')
+            ->where('reviewer_id', $user->id)
+            ->where('status', 'active')
+            ->whereHas('attempt', fn ($query) => $query->whereNotNull('defense_date')->whereNotNull('defense_time'))
+            ->get()
+            ->each(fn (DefenseAttemptReviewer $assignment) => SyncDefenseCalendarEvent::dispatch(
+                $assignment->defense_attempt_id,
+                $user->id,
+                $assignment->committee_role,
+            ));
 
         return redirect()->route('teams.assigned')
             ->with('success', 'Google Calendar connected. Your approved defense sessions will now appear in your calendar.');
