@@ -614,8 +614,9 @@ class TeamController extends Controller
 
         $validated = $request->validate([
             'defense_date' => ['nullable', 'date'],
-            'defense_time' => ['nullable', 'date_format:H:i'],
-            'defense_duration' => ['nullable', 'integer', 'min:5', 'max:480'],
+            // A date requires a start time and duration so the end time / calendar event is valid.
+            'defense_time' => ['nullable', 'required_with:defense_date', 'date_format:H:i'],
+            'defense_duration' => ['nullable', 'required_with:defense_date', 'integer', 'min:5', 'max:480'],
             'defense_room' => ['nullable', 'string', 'max:255'],
             'paper_upload_deadline_at' => ['nullable', 'date'],
             'score_deadline_at' => ['nullable', 'date'],
@@ -729,6 +730,85 @@ class TeamController extends Controller
             ]),
             'isOwnerOrAdmin' => $isOwner || $user->isAdmin(),
         ]);
+    }
+
+    /**
+     * Read-only history of every submitted review for this team, across all defense
+     * sessions (Midterm / Final / Re-defense 1, 2…). Lets a judge — especially a newly
+     * assigned re-defense judge — review the full feedback story from previous panels.
+     *
+     * Bias-safe: only SUBMITTED reviews are exposed; in-progress drafts are never shown.
+     */
+    public function feedbackHistory(Request $request, Team $team): Response
+    {
+        $user = $request->user();
+        $team->load('subject');
+
+        $isOwner = $team->subject->teacher_id === $user->id;
+        // Anyone assigned as an active reviewer on any of this team's defense sessions
+        // (current or past) can read the history, plus the subject owner and admins.
+        $isAssignedReviewer = DefenseAttemptReviewer::whereHas(
+            'defenseAttempt',
+            fn ($query) => $query->where('team_id', $team->id),
+        )
+            ->where('reviewer_id', $user->id)
+            ->where('status', 'active')
+            ->exists();
+
+        abort_unless($user->isAdmin() || $isOwner || $isAssignedReviewer, 403);
+
+        $attempts = $team->defenseAttempts()
+            ->with([
+                'period:id,name,sequence',
+                'reviews' => fn ($query) => $query->where('is_submitted', true)
+                    ->with('reviewer:id,name')
+                    ->latest('locked_at'),
+            ])
+            ->get()
+            ->sortBy(fn (DefenseAttempt $attempt) => [
+                $attempt->period?->sequence ?? 0,
+                $attempt->attempt_number ?? 0,
+            ])
+            ->values();
+
+        $history = $attempts->map(function (DefenseAttempt $attempt) {
+            return [
+                'id' => $attempt->id,
+                'stage' => trim(($attempt->period?->name ?? 'Defense').' — '.($attempt->label ?? 'Attempt')),
+                'defense_date' => $attempt->defense_date?->format('M j, Y'),
+                'reviews' => $attempt->reviews->map(fn (Review $review) => [
+                    'id' => $review->id,
+                    'reviewer' => $review->reviewer?->name ?? 'Unknown reviewer',
+                    'role' => $this->humanizeCommitteeRole($review->committee_role),
+                    'comment' => $review->comment,
+                    'scores' => collect($review->scores_json ?? [])
+                        ->map(fn ($entry) => [
+                            'criteria' => (string) ($entry['criteria'] ?? ''),
+                            'score' => $entry['score'] ?? null,
+                            'comment' => $entry['comment'] ?? null,
+                        ])
+                        ->filter(fn ($entry) => $entry['criteria'] !== '')
+                        ->values(),
+                ])->values(),
+            ];
+        })
+            ->filter(fn ($attempt) => $attempt['reviews']->isNotEmpty())
+            ->values();
+
+        return Inertia::render('teams/FeedbackHistory', [
+            'team' => $team->only(['id', 'name']),
+            'history' => $history,
+        ]);
+    }
+
+    private function humanizeCommitteeRole(?string $role): string
+    {
+        $role = trim((string) $role);
+        if ($role === '') {
+            return 'Reviewer';
+        }
+
+        return ucwords(str_replace('_', ' ', $role));
     }
 
     public function releaseScores(Request $request, Team $team): RedirectResponse

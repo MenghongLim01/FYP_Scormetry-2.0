@@ -1954,9 +1954,17 @@ function openRoundScheduleDialog(attempt: DefenseAttemptData | null, teamName: s
     hydrateDeadlineCustomizationState();
 }
 
+// A defense date is meaningless without a start time and a duration — both are
+// required so the end time (and the Google Calendar event) can be computed correctly.
+const canSaveSchedule = computed(() =>
+    !!scheduleForm.defense_date
+    && !!scheduleForm.defense_time
+    && Number(scheduleForm.defense_duration) >= 5,
+);
+
 // Called when the user clicks "Save Schedule" — opens the confirmation step.
 function saveSchedule() {
-    if (!scheduleDialogTeam.value) return;
+    if (!scheduleDialogTeam.value || !canSaveSchedule.value) return;
     scheduleConfirmOpen.value = true;
 }
 
@@ -4604,7 +4612,7 @@ function submitUnlock(reviewId: number) {
                     <DialogClose as-child>
                         <Button type="button" variant="outline">Cancel</Button>
                     </DialogClose>
-                    <Button type="submit" :disabled="scheduleForm.processing" class="gap-1.5">
+                    <Button type="submit" :disabled="scheduleForm.processing || !canSaveSchedule" class="gap-1.5">
                         <Check class="h-3.5 w-3.5" />
                         {{ scheduleForm.processing ? 'Saving…' : 'Save Schedule' }}
                     </Button>
