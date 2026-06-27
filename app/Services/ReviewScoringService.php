@@ -122,7 +122,7 @@ class ReviewScoringService
         $structure = ($paper->defenseAttempt?->period?->rubric ?? $paper->subject?->rubric)?->structure_json ?? [];
         $weights = $this->normalizedWeightsByCriteria($structure);
 
-        $totalScores = $submittedReviews->map(function (Review $review) use ($weights) {
+        $perReviewScores = $submittedReviews->map(function (Review $review) use ($weights) {
             $scores = collect($review->scores_json ?? []);
             $hasWeightedScores = false;
 
@@ -142,14 +142,23 @@ class ReviewScoringService
                 return $normalized * $weight;
             });
 
-            if ($hasWeightedScores) {
-                return $weightedTotal;
-            }
-
-            return $scores->sum(fn (array $score) => (float) ($score['score'] ?? 0));
+            return [
+                'reviewer_id' => $review->reviewer_id,
+                'score' => $hasWeightedScores
+                    ? $weightedTotal
+                    : $scores->sum(fn (array $score) => (float) ($score['score'] ?? 0)),
+            ];
         });
 
-        $score = round($totalScores->avg(), 2);
+        // Every distinct judge owns an EQUAL share of the final score. A judge who
+        // holds more than one role has their role scores averaged into a single
+        // judge score first, so each judge counts exactly once:
+        // 1 judge = 100%, 2 judges = 50% each, 4 judges = 25% each.
+        $perJudgeScores = $perReviewScores
+            ->groupBy('reviewer_id')
+            ->map(fn ($group) => $group->avg('score'));
+
+        $score = round($perJudgeScores->avg(), 2);
 
         $paper->update([
             'final_score' => $score,
