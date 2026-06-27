@@ -436,6 +436,19 @@ class PaperController extends Controller
             return back()->withErrors(['paper' => 'Paper has not been fully reviewed yet.']);
         }
 
+        // Results can only be released once EVERY assigned judge has submitted.
+        $paper->loadMissing('reviews', 'defenseAttempt.activeReviewerAssignments');
+        $requiredReviews = max(
+            $paper->defenseAttempt?->activeReviewerAssignments->count() ?? 0,
+            $paper->reviews->count(),
+        );
+        $submittedReviews = $paper->reviews->where('is_submitted', true)->count();
+        if ($requiredReviews === 0 || $submittedReviews < $requiredReviews) {
+            return back()->withErrors([
+                'paper' => "All assigned judges must submit their scoring before results can be released ({$submittedReviews}/{$requiredReviews} submitted).",
+            ]);
+        }
+
         $paper->update(['visibility_status' => 'published']);
         $paper->defenseAttempt?->update([
             'results_released_at' => now(),

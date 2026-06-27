@@ -148,7 +148,13 @@ const reviewTotalCount = computed(() =>
     ),
 );
 
+// Results can only be released once EVERY assigned judge has submitted their score.
+const allReviewsSubmitted = computed(() =>
+    reviewTotalCount.value > 0 && submittedReviewCount.value >= reviewTotalCount.value,
+);
+
 function publishPaper() {
+    if (!allReviewsSubmitted.value) return;
     router.post(paperPublish.url(props.paper.id));
 }
 
@@ -375,11 +381,14 @@ const studentMemberNames = computed(() => {
 	                                    <p><span class="font-medium">Final Score:</span> {{ effectiveFinalScoreRaw }} / 100</p>
 	                                    <p><span class="font-medium">Scoring roles:</span> {{ submittedReviewCount }}/{{ reviewTotalCount }} submitted</p>
 	                                </div>
+	                                <p v-if="!allReviewsSubmitted" class="rounded-lg bg-amber-50 px-4 py-2.5 text-xs text-amber-700 dark:bg-amber-950 dark:text-amber-300">
+	                                    All assigned judges must submit their scoring before results can be released ({{ submittedReviewCount }}/{{ reviewTotalCount }} so far).
+	                                </p>
 	                                <DialogFooter>
 	                                    <DialogClose as-child>
                                         <Button variant="outline">Cancel</Button>
                                     </DialogClose>
-                                    <Button class="gap-2" @click="publishPaper">
+                                    <Button class="gap-2" :disabled="!allReviewsSubmitted" @click="publishPaper">
                                         <Globe class="h-4 w-4" />
                                         Mark Completed
                                     </Button>
