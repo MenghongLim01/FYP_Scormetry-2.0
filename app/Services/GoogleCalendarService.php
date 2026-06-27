@@ -186,10 +186,14 @@ class GoogleCalendarService
         $subject = $team->subject;
         $roundName = $this->roundName($attempt);
 
+        // Defense times are entered in Cambodia local time, but app.timezone is UTC.
+        // Interpret and emit the event in Asia/Phnom_Penh so Google shows the right hour
+        // (otherwise a 1 PM defense is sent as 1 PM UTC = 8 PM in Phnom Penh).
+        $tz = 'Asia/Phnom_Penh';
         $start = Carbon::createFromFormat(
             'Y-m-d H:i',
             $attempt->defense_date->format('Y-m-d').' '.substr((string) $attempt->defense_time, 0, 5),
-            config('app.timezone'),
+            $tz,
         );
         $end = $start->copy()->addMinutes((int) ($attempt->defense_duration ?: 60));
 
@@ -222,12 +226,12 @@ class GoogleCalendarService
             'location' => $attempt->defense_room ?: 'To be announced',
             'description' => implode("\n", $descriptionLines),
             'start' => [
-                'dateTime' => $start->copy()->utc()->toRfc3339String(),
-                'timeZone' => 'UTC',
+                'dateTime' => $start->toRfc3339String(),
+                'timeZone' => $tz,
             ],
             'end' => [
-                'dateTime' => $end->copy()->utc()->toRfc3339String(),
-                'timeZone' => 'UTC',
+                'dateTime' => $end->toRfc3339String(),
+                'timeZone' => $tz,
             ],
             'reminders' => [
                 'useDefault' => false,
