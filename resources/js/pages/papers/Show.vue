@@ -111,7 +111,9 @@ const canScore = computed(() => isTeacherOrAdmin.value || isAssignedJudge.value)
 const myReviewSubmitted = computed(() => myReview.value?.is_submitted === true);
 
 type TabKey = 'rubric' | 'paper' | 'slides' | 'scoring';
-const activeTab = ref<TabKey>('rubric');
+// Open on the student's uploaded manuscript first — that's what they (and judges)
+// want to see; the rubric and slides are one click away.
+const activeTab = ref<TabKey>('paper');
 
 const tabs = computed<Array<{ key: TabKey; label: string; icon: typeof FileText }>>(() => [
     { key: 'rubric', label: 'Defense Rubric', icon: ClipboardCheck },
