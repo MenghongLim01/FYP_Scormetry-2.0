@@ -1,13 +1,14 @@
 <script setup lang="ts">
 import { Head, useForm, Link, router } from '@inertiajs/vue3';
-import { ArrowLeft, Star, FileText, ClipboardCheck, MessageSquare, ChevronDown, ChevronUp, Pencil, Save, Check, Loader2 } from 'lucide-vue-next';
+import { ArrowLeft, Star, FileText, ClipboardCheck, MessageSquare, ChevronDown, ChevronUp, Pencil, Save, Check, Loader2, History } from 'lucide-vue-next';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Separator } from '@/components/ui/separator';
 import TiptapEditor from '@/components/TiptapEditor.vue';
-import { computed, ref, watch } from 'vue';
+import { computed, onBeforeUnmount, onMounted, ref, watch } from 'vue';
 import { show as paperShow } from '@/actions/App/Http/Controllers/PaperController';
+import { feedbackHistory as teamFeedbackHistory } from '@/actions/App/Http/Controllers/TeamController';
 import { store as reviewStore, create as reviewCreate } from '@/actions/App/Http/Controllers/ReviewController';
 import { formatDateTimeWithAmPm } from '@/lib/utils';
 
@@ -155,6 +156,39 @@ watch(
     },
 );
 
+// Flush any pending draft (e.g. a comment typed within the 1.5s debounce) before
+// the judge leaves — SPA navigation, tab close, or refresh. `keepalive` lets the
+// request complete even as the page unloads, so the draft comes back exactly as left.
+function flushDraft() {
+    if (isLocked || !dirty.value) return;
+    if (autosaveTimer) clearTimeout(autosaveTimer);
+    dirty.value = false;
+    const xsrf = decodeURIComponent(document.cookie.match(/XSRF-TOKEN=([^;]+)/)?.[1] ?? '');
+    void fetch(reviewStore.url(props.paper.id), {
+        method: 'POST',
+        keepalive: true,
+        credentials: 'same-origin',
+        headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json',
+            'X-XSRF-TOKEN': xsrf,
+            'X-Requested-With': 'XMLHttpRequest',
+        },
+        body: JSON.stringify({
+            scores_json: form.scores_json,
+            comment: form.comment,
+            submit_final: false,
+            defense_attempt_reviewer_id: props.selectedAssignmentId ?? null,
+        }),
+    }).catch(() => {});
+}
+
+onMounted(() => window.addEventListener('beforeunload', flushDraft));
+onBeforeUnmount(() => {
+    window.removeEventListener('beforeunload', flushDraft);
+    flushDraft();
+});
+
 function submit() {
     if (autosaveTimer) clearTimeout(autosaveTimer);
     form.submit_final = true;
@@ -240,6 +274,12 @@ const activePdf = ref<PdfView>('paper');
                 </div>
                 <span class="text-sm text-muted-foreground">&mdash; {{ paper.team.name }} &bull; {{ paper.subject.title }}</span>
             </div>
+            <Button variant="outline" size="sm" as-child class="gap-1.5">
+                <Link :href="teamFeedbackHistory.url(paper.team.id)">
+                    <History class="h-4 w-4" />
+                    Previous feedback
+                </Link>
+            </Button>
         </div>
 
         <!-- Split screen -->

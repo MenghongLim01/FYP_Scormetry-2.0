@@ -178,7 +178,9 @@ class ReviewController extends Controller
 
         $review->load('paper.subject.teacher', 'reviewer');
         if ($paper->subject->teacher) {
-            Mail::to($paper->subject->teacher)->send(new ReviewCompletedMail($review));
+            // Queue (not send) so a mail-render or SMTP hiccup can never 500 the
+            // submit request — the review is already saved; delivery is best-effort.
+            Mail::to($paper->subject->teacher)->queue(new ReviewCompletedMail($review));
             \App\Support\Notify::send(
                 $paper->subject->teacher,
                 'Review submitted',

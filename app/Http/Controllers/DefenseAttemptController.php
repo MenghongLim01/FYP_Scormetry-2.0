@@ -78,8 +78,9 @@ class DefenseAttemptController extends Controller
 
         $validated = $request->validate([
             'defense_date' => ['nullable', 'date'],
-            'defense_time' => ['nullable', 'date_format:H:i'],
-            'defense_duration' => ['nullable', 'integer', 'min:5', 'max:480'],
+            // A date requires a start time and duration so the end time / calendar event is valid.
+            'defense_time' => ['nullable', 'required_with:defense_date', 'date_format:H:i'],
+            'defense_duration' => ['nullable', 'required_with:defense_date', 'integer', 'min:5', 'max:480'],
             'defense_room' => ['nullable', 'string', 'max:255'],
             'paper_upload_deadline_at' => ['nullable', 'date'],
             'score_deadline_at' => ['nullable', 'date'],

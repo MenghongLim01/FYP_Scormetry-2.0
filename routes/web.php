@@ -113,6 +113,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
         Route::delete('team-requests/{teamRequest}/reject', [TeamController::class, 'rejectTeamRequest'])->name('team-requests.reject');
         Route::patch('teams/{team}/schedule', [TeamController::class, 'updateSchedule'])->name('teams.schedule.update');
         Route::get('teams/{team}/scores', [TeamController::class, 'scores'])->name('teams.scores');
+        Route::get('teams/{team}/feedback-history', [TeamController::class, 'feedbackHistory'])->name('teams.feedback-history');
         Route::post('teams/{team}/release-scores', [TeamController::class, 'releaseScores'])->name('teams.release-scores');
         Route::get('teams/{team}/result', [TeamController::class, 'result'])->name('teams.result');
 
