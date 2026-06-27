@@ -12,7 +12,7 @@ defineProps<{
         id: number;
         is_submitted: boolean;
         auto_submitted_at: string | null;
-        scores_json: Array<{ criteria: string; score: number }> | null;
+        scores_json: Array<{ criteria: string; score: number; comment?: string | null }> | null;
         comment: string | null;
         reviewer: { id: number; name: string };
         paper: {
@@ -94,6 +94,9 @@ function reviewStatusLabel(review: { is_submitted: boolean; auto_submitted_at: s
                         <div class="h-2 overflow-hidden rounded-full bg-muted">
                             <div class="h-full rounded-full transition-all" :class="scoreBgColor(score.score)" :style="{ width: `${(score.score / 4) * 100}%` }" />
                         </div>
+                        <p v-if="score.comment" class="mt-2 text-sm italic text-muted-foreground">
+                            “{{ score.comment }}”
+                        </p>
                     </div>
                 </div>
                 <div v-else class="px-6 py-10 text-center text-sm text-muted-foreground">

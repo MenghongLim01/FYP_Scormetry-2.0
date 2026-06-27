@@ -411,14 +411,8 @@ class PaperController extends Controller
             }
         }
 
-        // Judges should not see other judges' scores or feedback. The FYP
-        // instructor/admin and released student team still see the full panel.
-        if ($isAssignedReviewer && ! $isTeacherOrAdmin) {
-            $paper->setRelation(
-                'reviews',
-                $paper->reviews->where('reviewer_id', $user->id)->values(),
-            );
-        }
+        // Judges see every panel member's feedback (scores + comments) for the team —
+        // their own draft and all co-judges' reviews — so the whole panel shares context.
 
         $this->decoratePaperTeamMemberRoles(collect([$paper]));
 

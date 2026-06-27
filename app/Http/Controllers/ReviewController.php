@@ -200,10 +200,14 @@ class ReviewController extends Controller
         $review->load(['paper.team.members', 'paper.subject', 'paper.defenseAttempt.activeReviewerAssignments', 'reviewer']);
 
         $isTeamMember = $review->paper->team && $review->paper->team->members->contains('id', $user->id);
+        // A judge assigned to this defense may read any panel member's *submitted* review.
+        $isAssignedReviewer = $review->paper->defenseAttempt
+            && $review->paper->defenseAttempt->activeReviewerAssignments->contains('reviewer_id', $user->id);
 
         $canAccess = $user->isAdmin()
             || $review->reviewer_id === $user->id
             || $review->paper->subject->teacher_id === $user->id
+            || ($isAssignedReviewer && $review->is_submitted)
             // Students can only see reviews after the paper is published.
             || ($isTeamMember && $review->paper->visibility_status === 'published');
         abort_unless($canAccess, 403);

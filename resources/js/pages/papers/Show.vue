@@ -51,7 +51,7 @@ const props = defineProps<{
             id: number;
             is_submitted: boolean;
             auto_submitted_at: string | null;
-            scores_json: Array<{ criteria: string; score: number }> | null;
+            scores_json: Array<{ criteria: string; score: number; comment?: string | null }> | null;
             comment: string | null;
             reviewer: { id: number; name: string };
         }>;
@@ -98,6 +98,17 @@ const hasReviewed = computed(() =>
 const canReview = computed(() =>
     isTeacherOrAdmin.value && !hasReviewed.value,
 );
+
+// The current user's own review (draft or submitted) for this paper, if any.
+const myReview = computed(() => props.paper.reviews.find((r) => r.reviewer.id === user.value?.id));
+// An assigned judge (or the teacher/admin) can score. Show a resume/submit link
+// whenever their own review still isn't submitted — so a saved draft can always
+// be reopened and finished, not stranded on the read-only view.
+const isAssignedJudge = computed(() =>
+    (props.paper.defense_attempt?.active_reviewer_assignments ?? []).some((a) => a.reviewer_id === user.value?.id),
+);
+const canScore = computed(() => isTeacherOrAdmin.value || isAssignedJudge.value);
+const myReviewSubmitted = computed(() => myReview.value?.is_submitted === true);
 
 type TabKey = 'rubric' | 'paper' | 'slides' | 'scoring';
 const activeTab = ref<TabKey>('rubric');
@@ -535,11 +546,17 @@ const studentMemberNames = computed(() => {
             </div>
         </div>
 
-        <div class="flex items-center justify-between">
+        <div class="flex items-center justify-between gap-3">
             <h2 class="text-lg font-semibold">
                 Scoring role feedback
                 <span class="ml-1.5 text-sm font-normal text-muted-foreground">({{ submittedReviewCount }}/{{ reviewTotalCount }} scoring roles submitted)</span>
             </h2>
+            <Button v-if="(canScore || myReview) && !myReviewSubmitted" size="sm" as-child class="shrink-0 gap-2">
+                <Link :href="reviewCreate.url(paper.id)">
+                    <Star class="h-3.5 w-3.5" />
+                    {{ myReview ? 'Continue / submit your review' : 'Start scoring' }}
+                </Link>
+            </Button>
         </div>
 
         <div v-if="paper.reviews.length === 0" class="flex flex-col items-center justify-center rounded-xl border border-dashed py-12 text-center">
@@ -557,7 +574,7 @@ const studentMemberNames = computed(() => {
             <Link
                 v-for="review in paper.reviews"
                 :key="review.id"
-                :href="reviewShow.url(review.id)"
+                :href="review.reviewer.id === user?.id && !review.is_submitted ? reviewCreate.url(paper.id) : reviewShow.url(review.id)"
                 class="block transition-shadow hover:shadow-md"
             >
                 <Card>
@@ -595,6 +612,9 @@ const studentMemberNames = computed(() => {
                                         'bg-green-500': score.score === 4,
                                     }" :style="{ width: `${(score.score / 4) * 100}%` }" />
                                 </div>
+                                <p v-if="score.comment" class="mt-0.5 text-xs italic text-muted-foreground">
+                                    “{{ score.comment }}”
+                                </p>
                             </div>
                         </div>
                         <p v-else class="text-sm text-muted-foreground">No scores recorded.</p>
