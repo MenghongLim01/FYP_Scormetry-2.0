@@ -748,7 +748,7 @@ class TeamController extends Controller
         // Anyone assigned as an active reviewer on any of this team's defense sessions
         // (current or past) can read the history, plus the subject owner and admins.
         $isAssignedReviewer = DefenseAttemptReviewer::whereHas(
-            'defenseAttempt',
+            'attempt',
             fn ($query) => $query->where('team_id', $team->id),
         )
             ->where('reviewer_id', $user->id)
