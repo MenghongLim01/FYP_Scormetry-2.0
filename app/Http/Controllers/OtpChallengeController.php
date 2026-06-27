@@ -41,7 +41,7 @@ class OtpChallengeController extends Controller
     public function resend(Request $request): RedirectResponse
     {
         $code = LoginOtp::generate($request->user());
-        Mail::to($request->user())->send(new LoginOtpMail($code));
+        Mail::to($request->user())->queue(new LoginOtpMail($code));
 
         return back()->with('success', 'A new code has been sent to your email.');
     }

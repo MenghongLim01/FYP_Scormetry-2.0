@@ -25,6 +25,6 @@ class SendLoginOtp
         session(['otp.pending' => true]);
 
         $code = LoginOtp::generate($user);
-        Mail::to($user)->send(new LoginOtpMail($code));
+        Mail::to($user)->queue(new LoginOtpMail($code));
     }
 }

@@ -209,7 +209,7 @@ class TeamController extends Controller
         }
 
         if ($role === 'advisor') {
-            Mail::to($targetUser)->send(new TeamAdvisorInviteMail($targetUser, $team, $subject, $invitedBy->name, true));
+            Mail::to($targetUser)->queue(new TeamAdvisorInviteMail($targetUser, $team, $subject, $invitedBy->name, true));
         }
 
         return back()->with('success', 'Invitation sent — pending approval from the subject owner.');
@@ -322,7 +322,7 @@ class TeamController extends Controller
         // already in the subject directly; otherwise it needs the owner's approval.
         if ($authUser->isAdmin() || $isOwner || $advisorInSubject) {
             $team->update(['advisor_id' => $advisor->id]);
-            Mail::to($advisor)->send(new TeamAdvisorInviteMail($advisor, $team, $subject, $authUser->name, false));
+            Mail::to($advisor)->queue(new TeamAdvisorInviteMail($advisor, $team, $subject, $authUser->name, false));
             Notify::send(
                 $advisor,
                 'You are now a team advisor',
@@ -842,7 +842,7 @@ class TeamController extends Controller
         );
 
         foreach ($students as $student) {
-            Mail::to($student)->send(new ResultReleasedMail($team));
+            Mail::to($student)->queue(new ResultReleasedMail($team));
         }
 
         Notify::many(

@@ -72,7 +72,7 @@ class ProcessReviewDeadlines extends Command
                         }
 
                         if ($assignment->score_deadline_reminded_at === null) {
-                            Mail::to($assignment->reviewer)->send(new ReviewDeadlineReminderMail($assignment, $paper));
+                            Mail::to($assignment->reviewer)->queue(new ReviewDeadlineReminderMail($assignment, $paper));
                             Notify::send(
                                 $assignment->reviewer,
                                 'Review deadline missed',
@@ -108,7 +108,7 @@ class ProcessReviewDeadlines extends Command
         $this->reviewScoringService->recalculateFinalScore($paper);
 
         if ($review->reviewer) {
-            Mail::to($review->reviewer)->send(new ReviewAutoSubmittedMail($review));
+            Mail::to($review->reviewer)->queue(new ReviewAutoSubmittedMail($review));
             Notify::send(
                 $review->reviewer,
                 'Review auto-submitted',
@@ -120,7 +120,7 @@ class ProcessReviewDeadlines extends Command
 
         $teacher = $paper->subject?->teacher;
         if ($teacher) {
-            Mail::to($teacher)->send(new ReviewCompletedMail($review));
+            Mail::to($teacher)->queue(new ReviewCompletedMail($review));
             Notify::send(
                 $teacher,
                 'Review auto-submitted',

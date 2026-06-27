@@ -56,7 +56,7 @@ class SendDefenseReminders extends Command
             ->unique('id');
 
         foreach ($recipients as $recipient) {
-            Mail::to($recipient)->send(new DefenseReminderMail($team, $label));
+            Mail::to($recipient)->queue(new DefenseReminderMail($team, $label));
         }
     }
 }

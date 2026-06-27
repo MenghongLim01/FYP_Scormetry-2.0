@@ -337,7 +337,7 @@ class PaperController extends Controller
         $team = $paper->team;
 
         if ($paper->subject->teacher) {
-            Mail::to($paper->subject->teacher)->send(new PaperSubmittedMail($paper));
+            Mail::to($paper->subject->teacher)->queue(new PaperSubmittedMail($paper));
             \App\Support\Notify::send(
                 $paper->subject->teacher,
                 'New paper submitted',
@@ -355,7 +355,7 @@ class PaperController extends Controller
             ?? collect();
 
         foreach ($reviewers as $reviewer) {
-            Mail::to($reviewer)->send(new PaperSubmittedMail($paper));
+            Mail::to($reviewer)->queue(new PaperSubmittedMail($paper));
         }
 
         \App\Support\Notify::many(
@@ -445,7 +445,7 @@ class PaperController extends Controller
         $paper->load(['team.members', 'subject.reviewers']);
         if ($paper->team) {
             foreach ($paper->team->members as $member) {
-                Mail::to($member)->send(new PaperPublishedMail($paper));
+                Mail::to($member)->queue(new PaperPublishedMail($paper));
             }
 
             // In-app notification so students see the released result in their bell feed.

@@ -34,7 +34,7 @@ class UserController extends Controller
     {
         $user->update(['status' => 'approved']);
 
-        Mail::to($user)->send(new UserApprovedMail($user));
+        Mail::to($user)->queue(new UserApprovedMail($user));
 
         return back();
     }
