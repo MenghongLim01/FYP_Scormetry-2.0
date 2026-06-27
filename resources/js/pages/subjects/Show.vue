@@ -220,6 +220,7 @@ const canLeave = computed(() => isMember.value && !isSubjectOwner.value);
 const committeeRoleLabels: Record<string, string> = {
     advisor: 'Advisor',
     fyp_instructor: 'FYP Instructor',
+    reviewer: 'Reviewer',
     technical_examiner: 'Technical examiner',
     academic_examiner: 'Academic examiner',
     guest_panel: 'Custom role',
@@ -287,14 +288,10 @@ function addStudent() {
     });
 }
 
-const reviewerForm = useForm({ email: '', committee_role: '', role_label: '' });
-const reviewerNeedsCustomLabel = computed(() => reviewerForm.committee_role === 'custom');
-const canSubmitReviewerInvite = computed(() => reviewerForm.email.trim() !== ''
-    && reviewerForm.committee_role !== ''
-    && (!reviewerNeedsCustomLabel.value || reviewerForm.role_label.trim() !== ''));
+const reviewerForm = useForm({ email: '' });
+const canSubmitReviewerInvite = computed(() => reviewerForm.email.trim() !== '');
 function addReviewer() {
     reviewerForm.email = reviewerForm.email.trim();
-    reviewerForm.role_label = reviewerForm.role_label.trim();
 
     reviewerForm.post(addReviewerAction.url(props.subject.id), {
         onSuccess: () => { reviewerForm.reset(); showInviteReviewerDialog.value = false; },
@@ -3455,34 +3452,10 @@ function submitUnlock(reviewId: number) {
                                             </div>
                                         </div>
                                         <div class="flex flex-col gap-1.5">
-                                            <label class="flex items-center gap-1.5 text-sm font-semibold text-foreground">
-                                                Committee Role <span class="text-destructive">*</span>
-                                                <InfoTip
-                                                    text="Advisor — the team's project supervisor.&#10;Custom role — any review-panel member; you'll name it yourself.&#10;Scoring roles (Technical / Academic examiner) are assigned later per defense session.&#10;The FYP Instructor is the subject owner and is added automatically."
-                                                />
-                                            </label>
-                                            <Select v-model="reviewerForm.committee_role" required>
-                                                <SelectTrigger class="h-12 w-full rounded-xl border-[#212e70]/15 bg-background px-4 text-base shadow-sm">
-                                                    <SelectValue placeholder="Select a role" />
-                                                </SelectTrigger>
-                                                <SelectContent class="rounded-xl">
-                                                    <SelectItem value="advisor">Advisor</SelectItem>
-                                                    <SelectItem value="technical_examiner">Technical examiner</SelectItem>
-                                                    <SelectItem value="academic_examiner">Academic examiner</SelectItem>
-                                                    <SelectItem value="custom">Custom role</SelectItem>
-                                                </SelectContent>
-                                            </Select>
-                                            <p v-if="reviewerForm.errors.committee_role" class="text-xs text-destructive">{{ reviewerForm.errors.committee_role }}</p>
-                                        </div>
-                                        <div class="flex flex-col gap-1.5">
                                             <label class="text-sm font-semibold text-foreground">Email Address <span class="text-destructive">*</span></label>
                                             <Input v-model="reviewerForm.email" type="email" placeholder="reviewer@email.com" class="h-12 rounded-xl border-[#212e70]/15 px-4" required />
                                             <p v-if="reviewerForm.errors.email" class="text-xs text-destructive">{{ reviewerForm.errors.email }}</p>
-                                        </div>
-                                        <div v-if="reviewerNeedsCustomLabel" class="flex flex-col gap-1.5">
-                                            <label class="text-sm font-semibold text-foreground">Role Label <span class="text-destructive">*</span></label>
-                                            <Input v-model="reviewerForm.role_label" type="text" placeholder="e.g. External Examiner" maxlength="100" class="h-12 rounded-xl border-[#212e70]/15 px-4" required />
-                                            <p v-if="reviewerForm.errors.role_label" class="text-xs text-destructive">{{ reviewerForm.errors.role_label }}</p>
+                                            <p class="text-xs text-muted-foreground">The scoring role (Technical / Academic examiner, etc.) is assigned later, per defense session, in Manage Judges.</p>
                                         </div>
                                         <DialogFooter>
                                             <DialogClose as-child>

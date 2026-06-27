@@ -402,20 +402,23 @@ class SubjectController extends Controller
 
         $validated = $request->validate([
             'email' => ['required', 'email'],
-            // Subject-level membership roles: Advisor, Technical examiner, Academic
-            // examiner, or a Custom Review Panel role. fyp_instructor is reserved for
-            // the subject owner and is not invitable.
-            'committee_role' => ['required', 'string', 'in:advisor,technical_examiner,academic_examiner,custom'],
+            // The actual scoring role (Technical/Academic examiner, etc.) is chosen
+            // per defense session in Manage Judges — NOT at invite time. Reviewers
+            // are added with a generic 'reviewer' membership role by default.
+            'committee_role' => ['nullable', 'string', 'in:advisor,technical_examiner,academic_examiner,custom,reviewer'],
             'role_label' => ['nullable', 'string', 'max:100'],
         ]);
 
-        $roleLabel = match ($validated['committee_role']) {
+        $committeeRole = $committeeRole ?? 'reviewer';
+
+        $roleLabel = match ($committeeRole) {
             'advisor' => 'Advisor',
             'technical_examiner' => 'Technical examiner',
             'academic_examiner' => 'Academic examiner',
+            'reviewer' => '',
             default => trim((string) ($validated['role_label'] ?? '')),
         };
-        abort_if($validated['committee_role'] === 'custom' && $roleLabel === '', 422, 'Role label is required for custom roles.');
+        abort_if($committeeRole === 'custom' && $roleLabel === '', 422, 'Role label is required for custom roles.');
 
         $user = User::where('email', $validated['email'])->first();
 
@@ -427,7 +430,7 @@ class SubjectController extends Controller
             SubjectMember::updateOrCreate(
                 ['subject_id' => $subject->id, 'user_id' => $user->id],
                 [
-                    'role' => $validated['committee_role'],
+                    'role' => $committeeRole,
                     'status' => 'approved',
                     'role_label' => $roleLabel !== '' ? $roleLabel : null,
                 ],
@@ -442,7 +445,7 @@ class SubjectController extends Controller
 
             // A failed notification email must never break the invite itself.
             try {
-                Mail::to($user)->queue(new ReviewerAddedMail($user, $subject, $roleLabel !== '' ? $roleLabel : $validated['committee_role']));
+                Mail::to($user)->queue(new ReviewerAddedMail($user, $subject, $roleLabel !== '' ? $roleLabel : $committeeRole));
             } catch (\Throwable $e) {
                 Log::warning('Reviewer-added email failed to send', ['error' => $e->getMessage()]);
             }
@@ -452,7 +455,7 @@ class SubjectController extends Controller
             $invitation = SubjectInvitation::updateOrCreate(
                 ['subject_id' => $subject->id, 'email' => $validated['email']],
                 [
-                    'committee_role' => $validated['committee_role'],
+                    'committee_role' => $committeeRole,
                     'role_label' => $roleLabel !== '' ? $roleLabel : null,
                     'token' => SubjectInvitation::generateToken(),
                     'accepted_at' => null,
@@ -572,18 +575,18 @@ class SubjectController extends Controller
             ]);
         }
 
-        $roleLabel = match ($validated['committee_role']) {
+        $roleLabel = match ($committeeRole) {
             'advisor' => 'Advisor',
             default => trim((string) ($validated['role_label'] ?? '')),
         };
-        abort_if($validated['committee_role'] === 'custom' && $roleLabel === '', 422, 'Role label is required for custom roles.');
+        abort_if($committeeRole === 'custom' && $roleLabel === '', 422, 'Role label is required for custom roles.');
 
         $status = $subject->require_approval ? 'pending' : 'approved';
 
         SubjectMember::updateOrCreate(
             ['subject_id' => $subject->id, 'user_id' => $request->user()->id],
             [
-                'role' => $validated['committee_role'],
+                'role' => $committeeRole,
                 'status' => $status,
                 'role_label' => $roleLabel !== '' ? $roleLabel : null,
             ],
