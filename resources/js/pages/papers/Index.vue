@@ -265,6 +265,12 @@ function resultLabel(paper: PaperRow): string {
         return 'Released';
     }
 
+    // Students never see the internal scoring/release progress — only that the
+    // result hasn't been released to them yet.
+    if (isStudent.value) {
+        return 'Awaiting result';
+    }
+
     if (hasReleaseMarker(paper) && scoreValue(paper) === null) {
         return 'Release pending score';
     }
@@ -297,6 +303,11 @@ function resultBadgeVariant(paper: PaperRow): BadgeVariant {
 }
 
 function scoreLabel(paper: PaperRow): string {
+    // Students only see the number once the owner releases the result.
+    if (isStudent.value && !isPaperReleased(paper)) {
+        return 'Not released yet';
+    }
+
     const score = scoreValue(paper);
 
     return score === null ? 'Not calculated' : `${score.toFixed(score % 1 === 0 ? 0 : 2)} / 100`;

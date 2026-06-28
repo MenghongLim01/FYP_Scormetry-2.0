@@ -170,6 +170,12 @@ const isStudentTeamMember = computed(() =>
 // judge/teacher knows it isn't the final, turned-in version.
 const hasDocument = computed(() => !!props.paper.file_path);
 const canViewDocument = computed(() => hasDocument.value);
+// A student only sees their final score once the owner releases the result.
+const resultsReleased = computed(() =>
+    props.paper.visibility_status === 'published'
+    || props.paper.defense_attempt?.results_released_at != null,
+);
+const canSeeScore = computed(() => !isStudentTeamMember.value || resultsReleased.value);
 const uploadClosed = computed(() => {
     if (props.paper.defense_attempt?.results_released_at) return true;
     const deadline = props.paper.defense_attempt?.paper_upload_deadline_at;
@@ -376,11 +382,12 @@ const studentMemberNames = computed(() => {
 	                    <div class="text-right">
 	                        <p class="text-xs font-medium uppercase tracking-wider text-muted-foreground">Final Score</p>
                             <div class="flex items-center justify-end gap-2">
-                                <p class="text-3xl font-bold" :class="effectiveFinalScoreNumber !== null && effectiveFinalScoreNumber >= paper.subject.passing_score ? 'text-green-600' : 'text-foreground'">
+                                <p v-if="!canSeeScore" class="text-base font-semibold text-muted-foreground">Not released yet</p>
+                                <p v-else class="text-3xl font-bold" :class="effectiveFinalScoreNumber !== null && effectiveFinalScoreNumber >= paper.subject.passing_score ? 'text-green-600' : 'text-foreground'">
                                     {{ effectiveFinalScoreRaw !== null ? `${effectiveFinalScoreRaw} / 100` : '—' }}
                                 </p>
                                 <Badge
-                                    v-if="paper.final_score_override !== null"
+                                    v-if="canSeeScore && paper.final_score_override !== null"
                                     variant="outline"
                                     class="border-orange-200 bg-orange-50 text-orange-700 dark:border-orange-900 dark:bg-orange-950/40 dark:text-orange-300"
                                 >

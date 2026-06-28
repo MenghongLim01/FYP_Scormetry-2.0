@@ -61,6 +61,20 @@ class PaperController extends Controller
 
         $this->decoratePaperTeamMemberRoles($papers);
 
+        // Students must not see a score until the subject owner releases the result.
+        // Strip it server-side (not just in the UI) for any not-yet-released paper.
+        if ($user->isStudent()) {
+            $papers->each(function (Paper $paper): void {
+                $released = $paper->visibility_status === 'published'
+                    || $paper->defenseAttempt?->results_released_at !== null;
+
+                if (! $released) {
+                    $paper->final_score = null;
+                    $paper->final_score_override = null;
+                }
+            });
+        }
+
         return Inertia::render('papers/Index', [
             'papers' => $papers,
             'reviewerTeamIds' => $reviewerTeamIds->values(),
@@ -394,21 +408,24 @@ class PaperController extends Controller
         $isTeacherOrAdmin = $user->isAdmin() || $paper->subject->teacher_id === $user->id;
         $isReviewer = $paper->subject->reviewers()->where('users.id', $user->id)->exists();
         $isAssignedReviewer = $isReviewer && $this->reviewerCanAccessPaper($paper, $user);
-        $isTurnedIn = $paper->isTurnedIn();
 
-        // The team always sees their own document (even an attached draft). The
-        // teacher/judges (non-admin) only see it once it's TURNED IN.
+        // The team always sees their own document. The teacher and assigned judges
+        // may also preview an attached draft before it is turned in (the page labels
+        // it as a draft). Reviewers who aren't assigned to this defense are blocked.
         $canAccess = $user->isAdmin()
             || ($isTeamMember && ! $isReviewer)
-            || ($paper->subject->teacher_id === $user->id && $isTurnedIn)
-            || ($isAssignedReviewer && $isTurnedIn);
+            || $paper->subject->teacher_id === $user->id
+            || $isAssignedReviewer;
         abort_unless($canAccess, 403);
 
-        // Students can only see reviews after the review is completed.
-        if ($isTeamMember && ! $isTeacherOrAdmin && ! $isReviewer) {
-            if ($paper->visibility_status !== 'published') {
-                $paper->setRelation('reviews', collect());
-            }
+        $resultsReleased = $paper->visibility_status === 'published'
+            || $paper->defenseAttempt?->results_released_at !== null;
+
+        // Students can only see reviews and the score once the result is released.
+        if ($isTeamMember && ! $isTeacherOrAdmin && ! $isReviewer && ! $resultsReleased) {
+            $paper->setRelation('reviews', collect());
+            $paper->final_score = null;
+            $paper->final_score_override = null;
         }
 
         // Judges see every panel member's feedback (scores + comments) for the team —
