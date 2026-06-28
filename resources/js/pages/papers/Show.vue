@@ -165,6 +165,10 @@ const isTurnedIn = computed(() => props.paper.turned_in_at !== null);
 const isStudentTeamMember = computed(() =>
     !isTeacherOrAdmin.value && props.paper.team.members.some((m) => m.id === user.value?.id),
 );
+// The manuscript/slides are private until the student turns them in. Mirrors the
+// backend rule in PaperController::servePdf: the team always sees its own draft,
+// admins always, but teachers/judges only once it's turned in.
+const canViewDocument = computed(() => isTurnedIn.value || isStudentTeamMember.value || isAdmin.value);
 const uploadClosed = computed(() => {
     if (props.paper.defense_attempt?.results_released_at) return true;
     const deadline = props.paper.defense_attempt?.paper_upload_deadline_at;
@@ -501,18 +505,30 @@ const studentMemberNames = computed(() => {
 
             <div v-show="activeTab === 'paper'" class="p-0">
                 <iframe
+                    v-if="canViewDocument"
                     :src="paperPdfUrl"
                     class="h-[70vh] w-full border-0"
                     title="Student Document / Manuscript (PDF)"
                 />
+                <div v-else class="flex flex-col items-center justify-center py-16 text-center">
+                    <Clock class="mb-3 h-9 w-9 text-muted-foreground/40" />
+                    <p class="text-sm font-medium text-foreground">Not turned in yet</p>
+                    <p class="mt-1 max-w-sm text-sm text-muted-foreground">The student hasn't turned in this document. You'll be able to review it here once they do.</p>
+                </div>
             </div>
 
             <div v-if="slidesPdfUrl" v-show="activeTab === 'slides'" class="p-0">
                 <iframe
+                    v-if="canViewDocument"
                     :src="slidesPdfUrl"
                     class="h-[70vh] w-full border-0"
                     title="Presentation Slides (PDF)"
                 />
+                <div v-else class="flex flex-col items-center justify-center py-16 text-center">
+                    <Clock class="mb-3 h-9 w-9 text-muted-foreground/40" />
+                    <p class="text-sm font-medium text-foreground">Not turned in yet</p>
+                    <p class="mt-1 max-w-sm text-sm text-muted-foreground">The slides become available once the student turns in their document.</p>
+                </div>
             </div>
 
             <div v-show="activeTab === 'scoring'" class="p-6">
