@@ -1111,7 +1111,13 @@ function reviewerHasSubmittedAttemptReview(attempt: DefenseAttemptData, reviewer
 
 function currentReviewerAssignment(attempt: DefenseAttemptData | null): ReviewerAssignmentData | null {
     if (!user.value || !attempt) return null;
-    return attempt.reviewer_assignments.find((assignment) => assignment.reviewer_id === user.value!.id) ?? null;
+    const mine = attempt.reviewer_assignments.filter((assignment) => assignment.reviewer_id === user.value!.id);
+    if (mine.length === 0) return null;
+    // A reviewer can hold several rows on one attempt (e.g. an old rejected join
+    // request plus a fresh assignment the owner added). Show the one that matters:
+    // an active assignment wins over a pending request, which wins over a rejected one.
+    const rank: Record<string, number> = { active: 0, pending: 1, rejected: 2, removed: 3 };
+    return [...mine].sort((a, b) => (rank[a.status] ?? 9) - (rank[b.status] ?? 9))[0];
 }
 
 const pendingRoundReviewerRequestCount = computed(() =>
