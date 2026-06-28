@@ -500,13 +500,14 @@ class PaperController extends Controller
         }
 
         $isReviewer = $paper->subject->reviewers()->where('users.id', $user->id)->exists();
-        $isTurnedIn = $paper->isTurnedIn();
 
-        // Team sees their own file always; teacher/judges only after turn-in.
+        // Team sees their own file always; the teacher and assigned judges may also
+        // preview an attached draft before it is turned in (the page labels it as a
+        // draft so they know it isn't the final, turned-in version).
         $canAccess = $user->isAdmin()
             || ($paper->team && $paper->team->members->contains('id', $user->id) && ! $isReviewer)
-            || ($paper->subject->teacher_id === $user->id && $isTurnedIn)
-            || ($isReviewer && $isTurnedIn && $this->reviewerCanAccessPaper($paper, $user));
+            || $paper->subject->teacher_id === $user->id
+            || $this->reviewerCanAccessPaper($paper, $user);
 
         abort_unless($canAccess, 403);
 
@@ -538,14 +539,13 @@ class PaperController extends Controller
         }
 
         $isReviewer = $paper->subject->reviewers()->where('users.id', $user->id)->exists();
-        $isTurnedIn = $paper->isTurnedIn();
 
-        // Same access rules as the manuscript: team sees their own file always;
-        // teacher/judges only after turn-in.
+        // Same access rules as the manuscript: team sees their own file always; the
+        // teacher and assigned judges may also preview an attached draft before turn-in.
         $canAccess = $user->isAdmin()
             || ($paper->team && $paper->team->members->contains('id', $user->id) && ! $isReviewer)
-            || ($paper->subject->teacher_id === $user->id && $isTurnedIn)
-            || ($isReviewer && $isTurnedIn && $this->reviewerCanAccessPaper($paper, $user));
+            || $paper->subject->teacher_id === $user->id
+            || $this->reviewerCanAccessPaper($paper, $user);
 
         abort_unless($canAccess, 403);
 

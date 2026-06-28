@@ -165,10 +165,11 @@ const isTurnedIn = computed(() => props.paper.turned_in_at !== null);
 const isStudentTeamMember = computed(() =>
     !isTeacherOrAdmin.value && props.paper.team.members.some((m) => m.id === user.value?.id),
 );
-// The manuscript/slides are private until the student turns them in. Mirrors the
-// backend rule in PaperController::servePdf: the team always sees its own draft,
-// admins always, but teachers/judges only once it's turned in.
-const canViewDocument = computed(() => isTurnedIn.value || isStudentTeamMember.value || isAdmin.value);
+// Anyone who can reach this page may preview an attached document — including the
+// team's draft that isn't turned in yet. The status banner above flags drafts so a
+// judge/teacher knows it isn't the final, turned-in version.
+const hasDocument = computed(() => !!props.paper.file_path);
+const canViewDocument = computed(() => hasDocument.value);
 const uploadClosed = computed(() => {
     if (props.paper.defense_attempt?.results_released_at) return true;
     const deadline = props.paper.defense_attempt?.paper_upload_deadline_at;
@@ -324,6 +325,26 @@ const studentMemberNames = computed(() => {
                         </Button>
                         <Badge v-else variant="outline" class="border-slate-200 bg-slate-50 text-slate-600">Locked (deadline passed)</Badge>
                     </template>
+                </div>
+            </div>
+        </div>
+
+        <!-- Judge / teacher status banner: previewing the student's document -->
+        <div
+            v-else-if="canScore && hasDocument"
+            class="rounded-xl border-2 p-4"
+            :class="isTurnedIn ? 'border-emerald-200 bg-emerald-50/50 dark:border-emerald-900 dark:bg-emerald-950/20' : 'border-amber-200 bg-amber-50/50 dark:border-amber-900 dark:bg-amber-950/20'"
+        >
+            <div class="flex items-center gap-3">
+                <component :is="isTurnedIn ? CheckCircle2 : Clock" class="h-6 w-6" :class="isTurnedIn ? 'text-emerald-600' : 'text-amber-600'" />
+                <div>
+                    <p class="text-sm font-semibold">
+                        {{ isTurnedIn ? 'Turned in — ready to review' : 'Draft — not turned in yet' }}
+                    </p>
+                    <p class="text-xs text-muted-foreground">
+                        <template v-if="isTurnedIn">The student has turned in this document for review.</template>
+                        <template v-else>The student has attached this document but hasn't turned it in yet. You're previewing their working copy — it may still change before it's final.</template>
+                    </p>
                 </div>
             </div>
         </div>
@@ -512,23 +533,17 @@ const studentMemberNames = computed(() => {
                 />
                 <div v-else class="flex flex-col items-center justify-center py-16 text-center">
                     <Clock class="mb-3 h-9 w-9 text-muted-foreground/40" />
-                    <p class="text-sm font-medium text-foreground">Not turned in yet</p>
-                    <p class="mt-1 max-w-sm text-sm text-muted-foreground">The student hasn't turned in this document. You'll be able to review it here once they do.</p>
+                    <p class="text-sm font-medium text-foreground">No document uploaded yet</p>
+                    <p class="mt-1 max-w-sm text-sm text-muted-foreground">The student hasn't uploaded a document for this defense yet.</p>
                 </div>
             </div>
 
             <div v-if="slidesPdfUrl" v-show="activeTab === 'slides'" class="p-0">
                 <iframe
-                    v-if="canViewDocument"
                     :src="slidesPdfUrl"
                     class="h-[70vh] w-full border-0"
                     title="Presentation Slides (PDF)"
                 />
-                <div v-else class="flex flex-col items-center justify-center py-16 text-center">
-                    <Clock class="mb-3 h-9 w-9 text-muted-foreground/40" />
-                    <p class="text-sm font-medium text-foreground">Not turned in yet</p>
-                    <p class="mt-1 max-w-sm text-sm text-muted-foreground">The slides become available once the student turns in their document.</p>
-                </div>
             </div>
 
             <div v-show="activeTab === 'scoring'" class="p-6">
