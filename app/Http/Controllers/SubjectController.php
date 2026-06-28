@@ -227,16 +227,23 @@ class SubjectController extends Controller
 
         $isOwner = $subject->teacher_id === $user->id;
 
-        if (! $user->isAdmin() && ! $isOwner) {
-            abort_unless($membership !== null, 403);
+        // A judge actively assigned to score a defense in this subject can view it
+        // even without a formal Review Panel membership row.
+        $isAssignedJudge = DefenseAttemptReviewer::where('reviewer_id', $user->id)
+            ->where('status', 'active')
+            ->whereHas('attempt.period', fn ($q) => $q->where('subject_id', $subject->id))
+            ->exists();
 
-            if ($membership->status === 'pending') {
+        if (! $user->isAdmin() && ! $isOwner) {
+            abort_unless($membership !== null || $isAssignedJudge, 403);
+
+            if ($membership?->status === 'pending') {
                 return Inertia::render('subjects/PendingApproval', [
                     'subject' => $subject->only(['id', 'title']),
                 ]);
             }
 
-            if ($membership->status === 'blocked') {
+            if ($membership?->status === 'blocked') {
                 return Inertia::render('subjects/Blocked', [
                     'subject' => $subject->only(['id', 'title']),
                 ]);
@@ -267,7 +274,8 @@ class SubjectController extends Controller
         ]);
 
         $isStudent = $membership?->status === 'approved' && $membership?->role === 'student';
-        $isReviewer = $membership?->status === 'approved' && $membership?->role !== 'student';
+        $isReviewer = ($membership?->status === 'approved' && $membership?->role !== 'student')
+            || ($membership === null && $isAssignedJudge);
 
         // Students can only see their own team's papers
         if ($isStudent && ! $user->isAdmin() && ! $isOwner) {
@@ -281,11 +289,22 @@ class SubjectController extends Controller
             );
         }
 
-        // Reviewers (who are not the owner/admin) can only see papers from teams they were assigned to.
+        // Reviewers/judges (not owner/admin) only see papers from teams they're tied
+        // to — either as a team member or via an active scoring assignment on one of
+        // the team's defense attempts.
         if ($isReviewer && ! $user->isAdmin() && ! $isOwner) {
-            $assignedTeamIds = $subject->teams->filter(
-                fn ($team) => $team->members->contains('id', $user->id),
-            )->pluck('id');
+            $assignedTeamIds = $subject->teams->filter(function ($team) use ($user, $subject) {
+                if ($team->members->contains('id', $user->id)) {
+                    return true;
+                }
+
+                return $subject->defensePeriods
+                    ->flatMap->attempts
+                    ->where('team_id', $team->id)
+                    ->contains(
+                        fn ($attempt) => $attempt->activeReviewerAssignments->contains('reviewer_id', $user->id),
+                    );
+            })->pluck('id');
 
             $subject->setRelation(
                 'papers',
